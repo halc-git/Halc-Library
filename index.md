@@ -3,14 +3,14 @@ data:
   libraryCategories:
   - name: .
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Template.hpp
       title: Template.hpp
   verificationCategories:
-  - name: .
+  - name: Verify
     pages:
     - icon: ':heavy_check_mark:'
-      path: example.test.cpp
-      title: example.test.cpp
+      path: Verify/many_aplusb.test.cpp
+      title: Verify/many_aplusb.test.cpp
 layout: toppage
 ---
