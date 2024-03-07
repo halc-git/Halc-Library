@@ -1,10 +1,11 @@
+#pragma once
 //https://tatyam.hatenablog.com/entry/2019/12/15/003634 を大きく参考にし、一部使わせてもらいました。感謝…！
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
 template<class T> using pq=priority_queue<T,vector<T>,greater<T>>;
 using pll=pair<ll,ll>;
-const ll INFL=1LL<<60;
+const ll LINF=1LL<<60;
 #define _overload3(_1,_2,_3,name,...) name
 #define _overload4(_1,_2,_3,_4,name,...) name
 #define _rep1(i,n) for(ll i=0; i<(n); i++)
