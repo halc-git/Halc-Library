@@ -50,6 +50,11 @@ data:
     \ operator*=(MontgomeryModint rhs)noexcept{\n        x=_reduction(x*rhs.x);\n\
     \        return *this;\n    }\n    constexpr MontgomeryModint operator/=(MontgomeryModint\
     \ rhs){\n        (*this)*=rhs.inv();\n        return *this;\n    }\n    constexpr\
+    \ MontgomeryModint& operator++(){\n        (*this)+=1;\n        return *this;\n\
+    \    }\n    constexpr MontgomeryModint& operator--(){\n        (*this)-=1;\n \
+    \       return *this;\n    }\n    constexpr MontgomeryModint operator++(int){\n\
+    \        (*this)+=1;\n        return *this;\n    }\n    constexpr MontgomeryModint\
+    \ operator--(int){\n        (*this)-=1;\n        return *this;\n    }\n    constexpr\
     \ bool operator==(MontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
     \    }\n    constexpr bool operator!=(MontgomeryModint rhs)noexcept{\n       \
     \ return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    constexpr MontgomeryModint\
@@ -93,11 +98,16 @@ data:
     \    }\n    DynamicMontgomeryModint operator*=(DynamicMontgomeryModint rhs)noexcept{\n\
     \        x=_reduction(x*rhs.x);\n        return *this;\n    }\n    DynamicMontgomeryModint\
     \ operator/=(DynamicMontgomeryModint rhs){\n        (*this)*=rhs.inv();\n    \
-    \    return *this;\n    }\n    bool operator==(DynamicMontgomeryModint rhs)noexcept{\n\
-    \        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    bool operator!=(DynamicMontgomeryModint\
-    \ rhs)noexcept{\n        return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n\
-    \    DynamicMontgomeryModint inv(){\n        DynamicMontgomeryModint ret=(*this).pow(inv_power);\n\
-    \        assert(ret*(*this)==1);\n        return ret;\n    }\n    DynamicMontgomeryModint\
+    \    return *this;\n    }\n    DynamicMontgomeryModint& operator++(){\n      \
+    \  (*this)+=1;\n        return *this;\n    }\n    DynamicMontgomeryModint& operator--(){\n\
+    \        (*this)-=1;\n        return *this;\n    }\n    DynamicMontgomeryModint\
+    \ operator++(int){\n        (*this)+=1;\n        return *this;\n    }\n    DynamicMontgomeryModint\
+    \ operator--(int){\n        (*this)-=1;\n        return *this;\n    }\n    bool\
+    \ operator==(DynamicMontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
+    \    }\n    bool operator!=(DynamicMontgomeryModint rhs)noexcept{\n        return\
+    \ (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    DynamicMontgomeryModint\
+    \ inv(){\n        DynamicMontgomeryModint ret=(*this).pow(inv_power);\n      \
+    \  assert(ret*(*this)==1);\n        return ret;\n    }\n    DynamicMontgomeryModint\
     \ pow(uint64_t x)noexcept{\n        DynamicMontgomeryModint ret=1;\n        DynamicMontgomeryModint\
     \ bin=(*this);\n        while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n\
     \            x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int id>uint64_t\
@@ -141,6 +151,11 @@ data:
     \ operator*=(MontgomeryModint rhs)noexcept{\n        x=_reduction(x*rhs.x);\n\
     \        return *this;\n    }\n    constexpr MontgomeryModint operator/=(MontgomeryModint\
     \ rhs){\n        (*this)*=rhs.inv();\n        return *this;\n    }\n    constexpr\
+    \ MontgomeryModint& operator++(){\n        (*this)+=1;\n        return *this;\n\
+    \    }\n    constexpr MontgomeryModint& operator--(){\n        (*this)-=1;\n \
+    \       return *this;\n    }\n    constexpr MontgomeryModint operator++(int){\n\
+    \        (*this)+=1;\n        return *this;\n    }\n    constexpr MontgomeryModint\
+    \ operator--(int){\n        (*this)-=1;\n        return *this;\n    }\n    constexpr\
     \ bool operator==(MontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
     \    }\n    constexpr bool operator!=(MontgomeryModint rhs)noexcept{\n       \
     \ return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    constexpr MontgomeryModint\
@@ -184,11 +199,16 @@ data:
     \    }\n    DynamicMontgomeryModint operator*=(DynamicMontgomeryModint rhs)noexcept{\n\
     \        x=_reduction(x*rhs.x);\n        return *this;\n    }\n    DynamicMontgomeryModint\
     \ operator/=(DynamicMontgomeryModint rhs){\n        (*this)*=rhs.inv();\n    \
-    \    return *this;\n    }\n    bool operator==(DynamicMontgomeryModint rhs)noexcept{\n\
-    \        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    bool operator!=(DynamicMontgomeryModint\
-    \ rhs)noexcept{\n        return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n\
-    \    DynamicMontgomeryModint inv(){\n        DynamicMontgomeryModint ret=(*this).pow(inv_power);\n\
-    \        assert(ret*(*this)==1);\n        return ret;\n    }\n    DynamicMontgomeryModint\
+    \    return *this;\n    }\n    DynamicMontgomeryModint& operator++(){\n      \
+    \  (*this)+=1;\n        return *this;\n    }\n    DynamicMontgomeryModint& operator--(){\n\
+    \        (*this)-=1;\n        return *this;\n    }\n    DynamicMontgomeryModint\
+    \ operator++(int){\n        (*this)+=1;\n        return *this;\n    }\n    DynamicMontgomeryModint\
+    \ operator--(int){\n        (*this)-=1;\n        return *this;\n    }\n    bool\
+    \ operator==(DynamicMontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
+    \    }\n    bool operator!=(DynamicMontgomeryModint rhs)noexcept{\n        return\
+    \ (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    DynamicMontgomeryModint\
+    \ inv(){\n        DynamicMontgomeryModint ret=(*this).pow(inv_power);\n      \
+    \  assert(ret*(*this)==1);\n        return ret;\n    }\n    DynamicMontgomeryModint\
     \ pow(uint64_t x)noexcept{\n        DynamicMontgomeryModint ret=1;\n        DynamicMontgomeryModint\
     \ bin=(*this);\n        while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n\
     \            x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int id>uint64_t\
@@ -200,7 +220,7 @@ data:
   isVerificationFile: false
   path: Modint/MontgomeryModint.hpp
   requiredBy: []
-  timestamp: '2024-03-08 20:29:19+09:00'
+  timestamp: '2024-03-08 20:45:00+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yuki/yuki-1092.test.cpp
