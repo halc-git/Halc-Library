@@ -1,5 +1,5 @@
-//https://tatyam.hatenablog.com/entry/2019/12/15/003634
 #pragma once
+//https://tatyam.hatenablog.com/entry/2019/12/15/003634
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;

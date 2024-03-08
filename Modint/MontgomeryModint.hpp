@@ -94,6 +94,22 @@ struct MontgomeryModint{
         (*this)*=rhs.inv();
         return *this;
     }
+    constexpr MontgomeryModint& operator++(){
+        (*this)+=1;
+        return *this;
+    }
+    constexpr MontgomeryModint& operator--(){
+        (*this)-=1;
+        return *this;
+    }
+    constexpr MontgomeryModint operator++(int){
+        (*this)+=1;
+        return *this;
+    }
+    constexpr MontgomeryModint operator--(int){
+        (*this)-=1;
+        return *this;
+    }
     constexpr bool operator==(MontgomeryModint rhs)noexcept{
         return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);
     }
@@ -210,6 +226,22 @@ struct DynamicMontgomeryModint{
     }
     DynamicMontgomeryModint operator/=(DynamicMontgomeryModint rhs){
         (*this)*=rhs.inv();
+        return *this;
+    }
+    DynamicMontgomeryModint& operator++(){
+        (*this)+=1;
+        return *this;
+    }
+    DynamicMontgomeryModint& operator--(){
+        (*this)-=1;
+        return *this;
+    }
+    DynamicMontgomeryModint operator++(int){
+        (*this)+=1;
+        return *this;
+    }
+    DynamicMontgomeryModint operator--(int){
+        (*this)-=1;
         return *this;
     }
     bool operator==(DynamicMontgomeryModint rhs)noexcept{
