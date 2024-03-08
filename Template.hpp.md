@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Verify/assosiative_array.cpp
+    title: Verify/assosiative_array.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/many_aplusb.test.cpp
@@ -257,7 +260,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Template.hpp
-  requiredBy: []
+  requiredBy:
+  - Verify/assosiative_array.cpp
   timestamp: '2024-03-08 07:46:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

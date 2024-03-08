@@ -1,11 +1,21 @@
 ---
 data:
   libraryCategories:
+  - name: DataStructure
+    pages:
+    - icon: ':warning:'
+      path: DataStructure/HashTable.hpp
+      title: DataStructure/HashTable.hpp
   - name: .
     pages:
     - icon: ':heavy_check_mark:'
       path: Template.hpp
       title: Template.hpp
+  - name: Verify
+    pages:
+    - icon: ':warning:'
+      path: Verify/assosiative_array.cpp
+      title: Verify/assosiative_array.cpp
   verificationCategories:
   - name: Verify
     pages:
