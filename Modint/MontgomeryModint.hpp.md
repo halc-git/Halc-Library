@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yuki/yuki-1092.cpp
-    title: Verify/verify-yuki/yuki-1092.cpp
-  - icon: ':warning:'
-    path: Verify/verify-yuki/yuki-336.cpp
-    title: Verify/verify-yuki/yuki-336.cpp
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: Verify/verify-yuki/yuki-1092.test.cpp
+    title: Verify/verify-yuki/yuki-1092.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yuki/yuki-336.test.cpp
+    title: Verify/verify-yuki/yuki-336.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Modint/MontgomeryModint.hpp\"\n#include<stdint.h>\n#include<assert.h>\n\
@@ -199,12 +199,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Modint/MontgomeryModint.hpp
-  requiredBy:
-  - Verify/verify-yuki/yuki-336.cpp
-  - Verify/verify-yuki/yuki-1092.cpp
+  requiredBy: []
   timestamp: '2024-03-08 20:29:19+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - Verify/verify-yuki/yuki-1092.test.cpp
+  - Verify/verify-yuki/yuki-336.test.cpp
 documentation_of: Modint/MontgomeryModint.hpp
 layout: document
 redirect_from:

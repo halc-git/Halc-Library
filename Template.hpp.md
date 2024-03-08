@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yuki/yuki-1092.cpp
-    title: Verify/verify-yuki/yuki-1092.cpp
-  - icon: ':warning:'
-    path: Verify/verify-yuki/yuki-336.cpp
-    title: Verify/verify-yuki/yuki-336.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-sample/many_aplusb.test.cpp
     title: Verify/verify-yosupo-sample/many_aplusb.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: Verify/verify-yuki/yuki-1092.test.cpp
+    title: Verify/verify-yuki/yuki-1092.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yuki/yuki-336.test.cpp
+    title: Verify/verify-yuki/yuki-336.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://tatyam.hatenablog.com/entry/2019/12/15/003634
@@ -263,12 +263,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Template.hpp
-  requiredBy:
-  - Verify/verify-yuki/yuki-336.cpp
-  - Verify/verify-yuki/yuki-1092.cpp
+  requiredBy: []
   timestamp: '2024-03-08 07:46:04+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - Verify/verify-yuki/yuki-1092.test.cpp
+  - Verify/verify-yuki/yuki-336.test.cpp
   - Verify/verify-yosupo-sample/many_aplusb.test.cpp
 documentation_of: Template.hpp
 layout: document
