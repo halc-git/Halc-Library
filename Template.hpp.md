@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Verify/verify-yuki/yuki-1092.cpp
+    title: Verify/verify-yuki/yuki-1092.cpp
+  - icon: ':warning:'
+    path: Verify/verify-yuki/yuki-336.cpp
+    title: Verify/verify-yuki/yuki-336.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: Verify/many_aplusb.test.cpp
-    title: Verify/many_aplusb.test.cpp
+    path: Verify/verify-yosupo-sample/many_aplusb.test.cpp
+    title: Verify/verify-yosupo-sample/many_aplusb.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -257,11 +263,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Template.hpp
-  requiredBy: []
+  requiredBy:
+  - Verify/verify-yuki/yuki-336.cpp
+  - Verify/verify-yuki/yuki-1092.cpp
   timestamp: '2024-03-08 07:46:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/many_aplusb.test.cpp
+  - Verify/verify-yosupo-sample/many_aplusb.test.cpp
 documentation_of: Template.hpp
 layout: document
 redirect_from:

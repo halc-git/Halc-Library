@@ -26,20 +26,20 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ Template.hpp: line 2: #pragma once found in a non-first line\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/many_aplusb\"\n#include\"\
-    ../Template.hpp\"\nint main(){\n    LL(T);\n    rep(i,T){\n        LL(A,B);\n\
+    ../../Template.hpp\"\nint main(){\n    LL(T);\n    rep(i,T){\n        LL(A,B);\n\
     \        out(A+B);\n    }\n}"
   dependsOn:
   - Template.hpp
   isVerificationFile: true
-  path: Verify/many_aplusb.test.cpp
+  path: Verify/verify-yosupo-sample/many_aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-03-08 07:46:04+09:00'
+  timestamp: '2024-03-08 20:29:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/many_aplusb.test.cpp
+documentation_of: Verify/verify-yosupo-sample/many_aplusb.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/many_aplusb.test.cpp
-- /verify/Verify/many_aplusb.test.cpp.html
-title: Verify/many_aplusb.test.cpp
+- /verify/Verify/verify-yosupo-sample/many_aplusb.test.cpp
+- /verify/Verify/verify-yosupo-sample/many_aplusb.test.cpp.html
+title: Verify/verify-yosupo-sample/many_aplusb.test.cpp
 ---
