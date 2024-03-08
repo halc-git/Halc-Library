@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/assosiative_array.cpp
-    title: Verify/assosiative_array.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: Verify/assosiative_array.test.cpp
+    title: Verify/assosiative_array.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/many_aplusb.test.cpp
     title: Verify/many_aplusb.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://tatyam.hatenablog.com/entry/2019/12/15/003634
@@ -260,12 +260,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Template.hpp
-  requiredBy:
-  - Verify/assosiative_array.cpp
+  requiredBy: []
   timestamp: '2024-03-08 07:46:04+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/many_aplusb.test.cpp
+  - Verify/assosiative_array.test.cpp
 documentation_of: Template.hpp
 layout: document
 redirect_from:

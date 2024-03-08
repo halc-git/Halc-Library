@@ -1,18 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: DataStructure/HashTable.hpp
     title: DataStructure/HashTable.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/associative_array
     links:
     - https://judge.yosupo.jp/problem/associative_array
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -35,16 +37,16 @@ data:
   dependsOn:
   - Template.hpp
   - DataStructure/HashTable.hpp
-  isVerificationFile: false
-  path: Verify/assosiative_array.cpp
+  isVerificationFile: true
+  path: Verify/assosiative_array.test.cpp
   requiredBy: []
-  timestamp: '2024-03-08 10:49:52+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2024-03-08 10:50:52+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Verify/assosiative_array.cpp
+documentation_of: Verify/assosiative_array.test.cpp
 layout: document
 redirect_from:
-- /library/Verify/assosiative_array.cpp
-- /library/Verify/assosiative_array.cpp.html
-title: Verify/assosiative_array.cpp
+- /verify/Verify/assosiative_array.test.cpp
+- /verify/Verify/assosiative_array.test.cpp.html
+title: Verify/assosiative_array.test.cpp
 ---

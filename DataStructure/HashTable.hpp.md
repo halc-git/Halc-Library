@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/assosiative_array.cpp
-    title: Verify/assosiative_array.cpp
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: Verify/assosiative_array.test.cpp
+    title: Verify/assosiative_array.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - http://xorshift.di.unimi.it/splitmix64.c
@@ -58,11 +58,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: DataStructure/HashTable.hpp
-  requiredBy:
-  - Verify/assosiative_array.cpp
+  requiredBy: []
   timestamp: '2024-03-08 10:49:52+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - Verify/assosiative_array.test.cpp
 documentation_of: DataStructure/HashTable.hpp
 layout: document
 redirect_from:

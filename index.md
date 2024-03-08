@@ -3,22 +3,20 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: DataStructure/HashTable.hpp
       title: DataStructure/HashTable.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template.hpp
       title: Template.hpp
-  - name: Verify
-    pages:
-    - icon: ':warning:'
-      path: Verify/assosiative_array.cpp
-      title: Verify/assosiative_array.cpp
   verificationCategories:
   - name: Verify
     pages:
+    - icon: ':x:'
+      path: Verify/assosiative_array.test.cpp
+      title: Verify/assosiative_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/many_aplusb.test.cpp
       title: Verify/many_aplusb.test.cpp
