@@ -1,4 +1,4 @@
-#define PROBREM "https://yukicoder.me/problems/no/336"
+#define PROBREM "https://yukicoder.me/problems/no/1092"
 #include"../../Template.hpp"
 #include"../../Modint/MontgomeryModint.hpp"
 using mint=DynamicMontgomeryModint<0>;
