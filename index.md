@@ -1,22 +1,14 @@
 ---
 data:
   libraryCategories:
-  - name: DataStructure
-    pages:
-    - icon: ':x:'
-      path: DataStructure/HashTable.hpp
-      title: DataStructure/HashTable.hpp
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template.hpp
       title: Template.hpp
   verificationCategories:
   - name: Verify
     pages:
-    - icon: ':x:'
-      path: Verify/assosiative_array.test.cpp
-      title: Verify/assosiative_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/many_aplusb.test.cpp
       title: Verify/many_aplusb.test.cpp
