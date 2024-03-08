@@ -4,6 +4,7 @@
 int main(){
     LL(Q);
     HashMap<ll,ll> table;
+    table.set_default(0);
     rep(i,Q){
         LL(t);
         if(t==0){
