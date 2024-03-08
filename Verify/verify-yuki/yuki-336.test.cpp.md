@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Modint/MontgomeryModint.hpp
     title: Modint/MontgomeryModint.hpp
   - icon: ':question:'
@@ -9,14 +9,15 @@ data:
     title: Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://yukicoder.me/problems/no/336
     links:
     - https://yukicoder.me/problems/no/336
-  bundledCode: "#line 1 \"Verify/verify-yuki/yuki-336.test.cpp\"\n#define PROBREM\
+  bundledCode: "#line 1 \"Verify/verify-yuki/yuki-336.test.cpp\"\n#define PROBLEM\
     \ \"https://yukicoder.me/problems/no/336\"\n#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
@@ -204,7 +205,7 @@ data:
     \  rrep(j,i){\n                now+=dp[j];\n                ndp[j]+=now;\n   \
     \         }\n        }\n        dp=move(ndp);\n    }\n    mint ans=0;\n    each(i,dp)ans+=i;\n\
     \    out((ans*2).val());\n}\n"
-  code: "#define PROBREM \"https://yukicoder.me/problems/no/336\"\n#include\"../../Template.hpp\"\
+  code: "#define PROBLEM \"https://yukicoder.me/problems/no/336\"\n#include\"../../Template.hpp\"\
     \n#include\"../../Modint/MontgomeryModint.hpp\"\nusing mint=MontgomeryModint<MODD>;\n\
     int main(){\n    LL(N);\n    if(N<=2){\n        return out(0);\n    }\n    vec(mint,dp,1,1);\n\
     \    rep(i,1,N){\n        vec(mint,ndp,i+1,0);\n        if(i&1){\n           \
@@ -219,8 +220,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yuki/yuki-336.test.cpp
   requiredBy: []
-  timestamp: '2024-03-08 20:45:00+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-03-08 20:56:24+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yuki/yuki-336.test.cpp
 layout: document

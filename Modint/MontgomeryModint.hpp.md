@@ -6,12 +6,12 @@ data:
   - icon: ':x:'
     path: Verify/verify-yuki/yuki-1092.test.cpp
     title: Verify/verify-yuki/yuki-1092.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki-336.test.cpp
     title: Verify/verify-yuki/yuki-336.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Modint/MontgomeryModint.hpp\"\n#include<stdint.h>\n#include<assert.h>\n\
@@ -221,7 +221,7 @@ data:
   path: Modint/MontgomeryModint.hpp
   requiredBy: []
   timestamp: '2024-03-08 20:45:00+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yuki/yuki-1092.test.cpp
   - Verify/verify-yuki/yuki-336.test.cpp

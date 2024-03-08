@@ -9,7 +9,7 @@ data:
   - icon: ':x:'
     path: Verify/verify-yuki/yuki-1092.test.cpp
     title: Verify/verify-yuki/yuki-1092.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki-336.test.cpp
     title: Verify/verify-yuki/yuki-336.test.cpp
   _isVerificationFailed: true

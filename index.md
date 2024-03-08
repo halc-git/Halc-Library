@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: Modint
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: Modint/MontgomeryModint.hpp
       title: Modint/MontgomeryModint.hpp
   - name: .
@@ -22,7 +22,7 @@ data:
     - icon: ':x:'
       path: Verify/verify-yuki/yuki-1092.test.cpp
       title: Verify/verify-yuki/yuki-1092.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/yuki-336.test.cpp
       title: Verify/verify-yuki/yuki-336.test.cpp
 layout: toppage
