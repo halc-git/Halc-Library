@@ -18,6 +18,11 @@ data:
       path: Template.hpp
       title: Template.hpp
   verificationCategories:
+  - name: Verify/verify-aoj-alds
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+      title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - name: Verify/verify-yosupo-sample
     pages:
     - icon: ':heavy_check_mark:'
@@ -29,11 +34,11 @@ data:
       path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
       title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
     - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
+      title: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-string/zalgorithm.test.cpp
       title: Verify/verify-yosupo-string/zalgorithm.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: Verify/verify-yosupo-string/zalgorithm_rollinghash.test.cpp
-      title: Verify/verify-yosupo-string/zalgorithm_rollinghash.test.cpp
 layout: toppage
 ---
 [![hirayuu_At](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fhirayuu_At)](https://atcoder.jp/users/hirayuu_At)
