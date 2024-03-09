@@ -1,4 +1,5 @@
 #pragma once
+//https://snuke.hatenablog.com/entry/2014/12/02/235837
 template<typename S>
 vector<int> manacher(S s,bool is_even=true){
     int i=0,j=0,k;
