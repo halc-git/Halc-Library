@@ -98,14 +98,14 @@ data:
     int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
     \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
     #define se second\n#line 2 \"String/Manacher.hpp\"\n//https://snuke.hatenablog.com/entry/2014/12/02/235837\n\
-    template<typename S>\nvector<int> manacher(S s,bool is_even=true){\n    int i=0,j=0,k;\n\
-    \    int sz=(s.size()<<is_even)-is_even;\n    vector<int> ret(sz);\n    while(i<sz){\n\
-    \        if(is_even){\n            while(i-j>=-1&&i+j<=sz&&(((i-j)&1)||s[(i-j)>>1]==s[(i+j)>>1]))j++;\n\
+    template<typename S>\nvector<int32_t> manacher(S s,bool is_even=true){\n    int32_t\
+    \ i=0,j=0,k,sz=(s.size()<<is_even)-is_even;\n    vector<int32_t> ret(sz);\n  \
+    \  while(i<sz){\n        if(is_even){\n            while(i-j>=-1&&i+j<=sz&&(((i-j)&1)||s[(i-j)>>1]==s[(i+j)>>1]))j++;\n\
     \        }\n        else{\n            while(i-j>=0&&i+j<sz&&s[i-j]==s[i+j])j++;\n\
     \        }\n        ret[i]=j;\n        k=1;\n        while(i-k>=0&&k+ret[i-k]<j){ret[i+k]=ret[i-k];k++;}\n\
-    \        i+=k;\n        j-=k;\n    }\n    for(int i=0; i<sz; i++){\n        if(is_even){\n\
-    \            ret[i]--;\n        }\n        else{\n            ret[i]=(ret[i]<<1)-1;\n\
-    \        }\n    }\n    return ret;\n}\n#line 4 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\
+    \        i+=k;\n        j-=k;\n    }\n    for(int32_t i=0; i<sz; i++){\n     \
+    \   if(is_even){\n            ret[i]--;\n        }\n        else{\n          \
+    \  ret[i]=(ret[i]<<1)-1;\n        }\n    }\n    return ret;\n}\n#line 4 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\
     \nint main(){\n    STR(S);\n    out(manacher(S));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n#include\"../../Template.hpp\"\n#include\"../../String/Manacher.hpp\"\nint main(){\n\
@@ -116,7 +116,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-03-09 19:50:38+09:00'
+  timestamp: '2024-03-09 21:50:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
