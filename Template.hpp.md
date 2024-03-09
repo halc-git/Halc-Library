@@ -7,6 +7,9 @@ data:
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
     title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-sample/many_aplusb.test.cpp
     title: Verify/verify-yosupo-sample/many_aplusb.test.cpp
   - icon: ':heavy_check_mark:'
@@ -507,6 +510,7 @@ data:
   - Verify/verify-yosupo-string/zalgorithm.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
+  - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - Verify/verify-yosupo-sample/many_aplusb.test.cpp
 documentation_of: Template.hpp
 layout: document

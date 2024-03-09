@@ -1,6 +1,11 @@
 ---
 data:
   libraryCategories:
+  - name: DataStructure
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: DataStructure/FoldableDeque.hpp
+      title: DataStructure/FoldableDeque.hpp
   - name: String
     pages:
     - icon: ':heavy_check_mark:'
@@ -23,6 +28,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
       title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+  - name: Verify/verify-yosupo-datastructure
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+      title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - name: Verify/verify-yosupo-sample
     pages:
     - icon: ':heavy_check_mark:'
