@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []

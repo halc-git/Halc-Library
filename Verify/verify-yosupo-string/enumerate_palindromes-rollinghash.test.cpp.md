@@ -1,21 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    links: []
-  bundledCode: "#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
+    PROBLEM: https://judge.yosupo.jp/problem/enumerate_palindromes
+    links:
+    - https://judge.yosupo.jp/problem/enumerate_palindromes
+  bundledCode: "#line 1 \"Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\n\
+    #line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
     const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
@@ -118,7 +122,7 @@ data:
     \    uint32_t lcp(const vector<u64> &a,uint32_t l1,uint32_t r1,const vector<u64>\
     \ &b,uint32_t l2,uint32_t r2){\n        uint32_t ok=0,ng=min((r1-l1),(r2-l2))+1;\n\
     \        while(ng-ok>1){\n            uint32_t mid=(ok+ng)>>1;\n            if(query(a,l1,l1+mid)==query(b,l2,l2+mid))ok=mid;\n\
-    \            else ng=mid;\n        }\n        return ok;\n    }\n};\n#line 3 \"\
+    \            else ng=mid;\n        }\n        return ok;\n    }\n};\n#line 4 \"\
     Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp\"\nint\
     \ main(){\n    STR(S);\n    RollingHash<string> roll;\n    auto st=roll.build(S);\n\
     \    reverse(all(S));\n    auto rev=roll.build(S);\n    vec(ll,ans,len(S)*2-1);\n\
@@ -131,8 +135,9 @@ data:
     \                ok=mid;\n            }\n            else{\n                ng=mid;\n\
     \            }\n        }\n        ans[(i<<1)+1]=ok<<1;\n    }\n    out(ans);\n\
     }\n"
-  code: "#include\"../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\n\
-    int main(){\n    STR(S);\n    RollingHash<string> roll;\n    auto st=roll.build(S);\n\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
+    \n#include\"../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nint\
+    \ main(){\n    STR(S);\n    RollingHash<string> roll;\n    auto st=roll.build(S);\n\
     \    reverse(all(S));\n    auto rev=roll.build(S);\n    vec(ll,ans,len(S)*2-1);\n\
     \    rep(i,len(S)){\n        ll ok=1,ng=min(i+1,len(S)-i)+1;\n        while(ng-ok>1){\n\
     \            ll mid=(ok+ng)>>1;\n            if(roll.query(st,i-mid+1,i+mid)==roll.query(rev,len(S)-i-mid,len(S)-i+mid-1)){\n\
@@ -149,8 +154,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-03-10 06:47:50+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-03-10 06:57:22+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
 layout: document

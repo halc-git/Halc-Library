@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/Z_algorithm.hpp
     title: String/Z_algorithm.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
