@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: String/Manacher.hpp
-    title: String/Manacher.hpp
+    path: String/Z_algorithm.hpp
+    title: String/Z_algorithm.hpp
   - icon: ':heavy_check_mark:'
     path: Template.hpp
     title: Template.hpp
@@ -14,24 +14,23 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/enumerate_palindromes
+    PROBLEM: https://judge.yosupo.jp/problem/zalgorithm
     links:
-    - https://judge.yosupo.jp/problem/enumerate_palindromes
-  bundledCode: "#line 1 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\n\
-    #line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
-    #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
-    \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
-    const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
-    \ name\n#define _rep1(i,n) for(ll i=0; i<(n); i++)\n#define _rep2(i,a,b) for(ll\
-    \ i=(a); i<(b); i++)\n#define _rep3(i,a,b,c) for(ll i=(a); i<(b); i+=(c))\n#define\
-    \ rep(...) _overload4(__VA_ARGS__,_rep3,_rep2,_rep1)(__VA_ARGS__)\n#define _rrep1(i,n)\
-    \ for(ll i=(n); i-->0;)\n#define _rrep2(i,a,b) for(ll i=(b); i-->(a);)\n#define\
-    \ rrep(...) _overload3(__VA_ARGS__,_rrep2,_rrep1)(__VA_ARGS__)\n#define each(i,...)\
-    \ for(auto&& i:__VA_ARGS__)\n#define all(i) begin(i),end(i)\n#define rall(i) rbegin(i),rend(i)\n\
-    template<class T> bool chmin(T &a,const T &b){if(a>b){a=b;return true;}else return\
-    \ false;}\ntemplate<class T> bool chmax(T &a,const T &b){if(a<b){a=b;return true;}else\
-    \ return false;}\ntemplate<class T> ll sum(const T &a){return accumulate(all(a),0LL);}\n\
+    - https://judge.yosupo.jp/problem/zalgorithm
+  bundledCode: "#line 1 \"Verify/verify-yosupo-string/zalgorithm.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#line 2 \"Template.hpp\"\
+    \n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n#include<bits/stdc++.h>\n\
+    using namespace std;\nusing ll=long long;\ntemplate<class T> using pq=priority_queue<T,vector<T>,greater<T>>;\n\
+    using pll=pair<ll,ll>;\nconst ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...)\
+    \ name\n#define _overload4(_1,_2,_3,_4,name,...) name\n#define _rep1(i,n) for(ll\
+    \ i=0; i<(n); i++)\n#define _rep2(i,a,b) for(ll i=(a); i<(b); i++)\n#define _rep3(i,a,b,c)\
+    \ for(ll i=(a); i<(b); i+=(c))\n#define rep(...) _overload4(__VA_ARGS__,_rep3,_rep2,_rep1)(__VA_ARGS__)\n\
+    #define _rrep1(i,n) for(ll i=(n); i-->0;)\n#define _rrep2(i,a,b) for(ll i=(b);\
+    \ i-->(a);)\n#define rrep(...) _overload3(__VA_ARGS__,_rrep2,_rrep1)(__VA_ARGS__)\n\
+    #define each(i,...) for(auto&& i:__VA_ARGS__)\n#define all(i) begin(i),end(i)\n\
+    #define rall(i) rbegin(i),rend(i)\ntemplate<class T> bool chmin(T &a,const T &b){if(a>b){a=b;return\
+    \ true;}else return false;}\ntemplate<class T> bool chmax(T &a,const T &b){if(a<b){a=b;return\
+    \ true;}else return false;}\ntemplate<class T> ll sum(const T &a){return accumulate(all(a),0LL);}\n\
     template<class T> auto min(const T &a){return *min_element(all(a));}\ntemplate<class\
     \ T> auto max(const T &a){return *max_element(all(a));}\ninline int scan(){ return\
     \ getchar(); }\ninline void scan(int &a){ scanf(\"%d\", &a); }\ninline void scan(unsigned\
@@ -97,32 +96,30 @@ data:
     ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}\n\
     int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
     \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
-    #define se second\n#line 2 \"String/Manacher.hpp\"\n//https://snuke.hatenablog.com/entry/2014/12/02/235837\n\
-    template<typename S>\nvector<int> manacher(S s,bool is_even=true){\n    int i=0,j=0,k;\n\
-    \    int sz=(s.size()<<is_even)-is_even;\n    vector<int> ret(sz);\n    while(i<sz){\n\
-    \        if(is_even){\n            while(i-j>=-1&&i+j<=sz&&(((i-j)&1)||s[(i-j)>>1]==s[(i+j)>>1]))j++;\n\
-    \        }\n        else{\n            while(i-j>=0&&i+j<sz&&s[i-j]==s[i+j])j++;\n\
-    \        }\n        ret[i]=j;\n        k=1;\n        while(i-k>=0&&k+ret[i-k]<j){ret[i+k]=ret[i-k];k++;}\n\
-    \        i+=k;\n        j-=k;\n    }\n    for(int i=0; i<sz; i++){\n        if(is_even){\n\
-    \            ret[i]--;\n        }\n        else{\n            ret[i]=(ret[i]<<1)-1;\n\
-    \        }\n    }\n    return ret;\n}\n#line 4 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\
-    \nint main(){\n    STR(S);\n    out(manacher(S));\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
-    \n#include\"../../Template.hpp\"\n#include\"../../String/Manacher.hpp\"\nint main(){\n\
-    \    STR(S);\n    out(manacher(S));\n}"
+    #define se second\n#line 2 \"String/Z_algorithm.hpp\"\n//https://snuke.hatenablog.com/entry/2014/12/03/214243\n\
+    template<typename S>\nvector<int> z_algorithm(S s){\n    int sz=s.size();\n  \
+    \  vector<int> ret(sz);\n    ret[0]=sz;\n    int i=1,j=0,k;\n    while(i<sz){\n\
+    \        while(i+j<sz&&s[j]==s[i+j])j++;\n        ret[i]=j;\n        if(j==0){i++;continue;}\n\
+    \        k=1;\n        while(i+k<sz&&k+ret[k]<j){\n            ret[i+k]=ret[k];\n\
+    \            k++;\n        }\n        i+=k;\n        j-=k;\n    }\n    return\
+    \ ret;\n}\n#line 4 \"Verify/verify-yosupo-string/zalgorithm.test.cpp\"\nint main(){\n\
+    \    STR(S);\n    out(z_algorithm(S));\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
+    ../../Template.hpp\"\n#include\"../../String/Z_algorithm.hpp\"\nint main(){\n\
+    \    STR(S);\n    out(z_algorithm(S));\n}"
   dependsOn:
   - Template.hpp
-  - String/Manacher.hpp
+  - String/Z_algorithm.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
+  path: Verify/verify-yosupo-string/zalgorithm.test.cpp
   requiredBy: []
   timestamp: '2024-03-09 19:50:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
+documentation_of: Verify/verify-yosupo-string/zalgorithm.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-- /verify/Verify/verify-yosupo-string/enumerate_palindromes.test.cpp.html
-title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
+- /verify/Verify/verify-yosupo-string/zalgorithm.test.cpp
+- /verify/Verify/verify-yosupo-string/zalgorithm.test.cpp.html
+title: Verify/verify-yosupo-string/zalgorithm.test.cpp
 ---
