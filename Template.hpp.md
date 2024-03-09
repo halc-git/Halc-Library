@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-sample/many_aplusb.test.cpp
     title: Verify/verify-yosupo-sample/many_aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
+    title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -487,6 +490,7 @@ data:
   timestamp: '2024-03-08 20:45:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   - Verify/verify-yosupo-sample/many_aplusb.test.cpp
 documentation_of: Template.hpp
 layout: document
