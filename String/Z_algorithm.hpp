@@ -1,11 +1,10 @@
 #pragma once
 //https://snuke.hatenablog.com/entry/2014/12/03/214243
 template<typename S>
-vector<int> z_algorithm(S s){
-    int sz=s.size();
-    vector<int> ret(sz);
+vector<int32_t> z_algorithm(S s){
+    int32_t sz=s.size(),i=1,j=0,k;
+    vector<int32_t> ret(sz);
     ret[0]=sz;
-    int i=1,j=0,k;
     while(i<sz){
         while(i+j<sz&&s[j]==s[i+j])j++;
         ret[i]=j;
