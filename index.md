@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/Manacher.hpp
       title: String/Manacher.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: String/RollingHash.hpp
       title: String/RollingHash.hpp
     - icon: ':heavy_check_mark:'
@@ -14,7 +14,7 @@ data:
       title: String/Z_algorithm.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template.hpp
       title: Template.hpp
   verificationCategories:
@@ -30,6 +30,9 @@ data:
       title: Verify/verify-yosupo-sample/many_aplusb.test.cpp
   - name: Verify/verify-yosupo-string
     pages:
+    - icon: ':x:'
+      path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
+      title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
       title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
