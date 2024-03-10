@@ -95,16 +95,17 @@ data:
     ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}\n\
     int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
     \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
-    #define se second\n#line 2 \"DataStructure/Hashmap.hpp\"\n#include<ext/pb_ds/assoc_container.hpp>\n\
+    #define se second\n#line 2 \"DataStructure/Hashmap.hpp\"\n//#include<ext/pb_ds/assoc_container.hpp>\n\
     //https://codeforces.com/blog/entry/62393?locale=en\nstruct custom_hash {\n  \
     \  //http://xorshift.di.unimi.it/splitmix64.c\n    static uint64_t splitmix64(uint64_t\
     \ x) {\n        x+=0x9e3779b97f4a7c15;\n        x=(x^(x>>30))*0xbf58476d1ce4e5b9;\n\
     \        x=(x^(x>>27))*0x94d049bb133111eb;\n        return x^(x>>31);\n    }\n\
     \    uint64_t operator()(uint64_t x) const {\n        static const uint64_t FIXED_RANDOM=chrono::steady_clock::now().time_since_epoch().count();\n\
-    \        return splitmix64(x+FIXED_RANDOM);\n    }\n};\ntemplate<typename Key,typename\
-    \ Val>using Hashmap=__gnu_pbds::gp_hash_table<Key,Val,custom_hash>;\n#line 4 \"\
-    Verify/verify-yosupo-datastructure/associative_array.cpp\"\nvoid solve(){\n  \
-    \  LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n        if(t==0){\n\
+    \        return splitmix64(x+FIXED_RANDOM);\n    }\n};\n//template<typename Key,typename\
+    \ Val>using Hashmap=__gnu_pbds::gp_hash_table<Key,Val,custom_hash>;\ntemplate<typename\
+    \ Key,typename Val>using Hashmap=unordered_map<Key,Val,custom_hash>;\n#line 4\
+    \ \"Verify/verify-yosupo-datastructure/associative_array.cpp\"\nvoid solve(){\n\
+    \    LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n        if(t==0){\n\
     \            LL(v);\n            a[k]=v;\n        }\n        else{\n         \
     \   out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n\
     }\n"
@@ -120,7 +121,7 @@ data:
   isVerificationFile: false
   path: Verify/verify-yosupo-datastructure/associative_array.cpp
   requiredBy: []
-  timestamp: '2024-03-10 12:00:54+09:00'
+  timestamp: '2024-03-10 12:19:51+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/associative_array.cpp
