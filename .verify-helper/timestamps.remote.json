@@ -7,5 +7,7 @@
 "Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp": "2024-03-10 11:56:39 +0900",
 "Verify/verify-yosupo-string/enumerate_palindromes.test.cpp": "2024-03-10 11:56:39 +0900",
 "Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp": "2024-03-10 11:56:39 +0900",
-"Verify/verify-yosupo-string/zalgorithm.test.cpp": "2024-03-10 11:56:39 +0900"
+"Verify/verify-yosupo-string/zalgorithm.test.cpp": "2024-03-10 11:56:39 +0900",
+"Verify/verify-yuki/yuki-1092.test.cpp": "2024-03-10 14:31:28 +0900",
+"Verify/verify-yuki/yuki-336.test.cpp": "2024-03-10 14:32:24 +0900"
 }
