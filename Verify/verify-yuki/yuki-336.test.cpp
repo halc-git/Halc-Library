@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/1092"
+#define PROBLEM "https://yukicoder.me/problems/no/336"
 #include"../../Template.hpp"
 #include"../../Math/MontgomeryModint.hpp"
 using mint=MontgomeryModint<MODD>;
