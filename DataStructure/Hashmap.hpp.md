@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-datastructure/associative_array.cpp
-    title: Verify/verify-yosupo-datastructure/associative_array.cpp
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
+    title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - http://xorshift.di.unimi.it/splitmix64.c
@@ -31,11 +31,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: DataStructure/Hashmap.hpp
-  requiredBy:
-  - Verify/verify-yosupo-datastructure/associative_array.cpp
+  requiredBy: []
   timestamp: '2024-03-10 12:22:26+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - Verify/verify-yosupo-datastructure/associative_array.test.cpp
 documentation_of: DataStructure/Hashmap.hpp
 layout: document
 redirect_from:

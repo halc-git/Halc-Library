@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/Hashmap.hpp
     title: DataStructure/Hashmap.hpp
   - icon: ':heavy_check_mark:'
@@ -11,11 +11,13 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/associative_array
     links:
     - https://judge.yosupo.jp/problem/associative_array
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/associative_array.cpp\"\
+  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/associative_array.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/associative_array\"\n#line\
     \ 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
@@ -102,7 +104,7 @@ data:
     \        x=(x^(x>>27))*0x94d049bb133111eb;\n        return x^(x>>31);\n    }\n\
     \    uint64_t operator()(uint64_t x) const {\n        static const uint64_t FIXED_RANDOM=chrono::steady_clock::now().time_since_epoch().count();\n\
     \        return splitmix64(x+FIXED_RANDOM);\n    }\n};\ntemplate<typename Key,typename\
-    \ Val>using Hashmap=unordered_map<Key,Val,custom_hash>;\n#line 4 \"Verify/verify-yosupo-datastructure/associative_array.cpp\"\
+    \ Val>using Hashmap=unordered_map<Key,Val,custom_hash>;\n#line 4 \"Verify/verify-yosupo-datastructure/associative_array.test.cpp\"\
     \nvoid solve(){\n    LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n\
     \        if(t==0){\n            LL(v);\n            a[k]=v;\n        }\n     \
     \   else{\n            out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n\
@@ -116,16 +118,16 @@ data:
   dependsOn:
   - Template.hpp
   - DataStructure/Hashmap.hpp
-  isVerificationFile: false
-  path: Verify/verify-yosupo-datastructure/associative_array.cpp
+  isVerificationFile: true
+  path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
   requiredBy: []
-  timestamp: '2024-03-10 12:22:26+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2024-03-10 12:30:45+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/associative_array.cpp
+documentation_of: Verify/verify-yosupo-datastructure/associative_array.test.cpp
 layout: document
 redirect_from:
-- /library/Verify/verify-yosupo-datastructure/associative_array.cpp
-- /library/Verify/verify-yosupo-datastructure/associative_array.cpp.html
-title: Verify/verify-yosupo-datastructure/associative_array.cpp
+- /verify/Verify/verify-yosupo-datastructure/associative_array.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/associative_array.test.cpp.html
+title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
 ---

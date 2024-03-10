@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/FoldableDeque.hpp
       title: DataStructure/FoldableDeque.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
   - name: String
@@ -25,11 +25,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template.hpp
       title: Template.hpp
-  - name: Verify/verify-yosupo-datastructure
-    pages:
-    - icon: ':warning:'
-      path: Verify/verify-yosupo-datastructure/associative_array.cpp
-      title: Verify/verify-yosupo-datastructure/associative_array.cpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:
@@ -38,6 +33,9 @@ data:
       title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - name: Verify/verify-yosupo-datastructure
     pages:
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
+      title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
