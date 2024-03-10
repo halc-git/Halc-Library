@@ -4,6 +4,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki-1092.test.cpp
     title: Verify/verify-yuki/yuki-1092.test.cpp
   - icon: ':heavy_check_mark:'
@@ -62,14 +68,14 @@ data:
     \        return ret;\n    }\n    constexpr MontgomeryModint pow(uint64_t x)noexcept{\n\
     \        MontgomeryModint ret=1;\n        MontgomeryModint bin=(*this);\n    \
     \    while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n        \
-    \    x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int id>\nstruct\
-    \ DynamicMontgomeryModint{\n    static uint64_t _rev(uint32_t N){\n        uint64_t\
-    \ Nd=0;\n        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n        uint64_t\
-    \ i=1;\n        while(r){\n            if(!(t&1)){\n                t+=N;\n  \
-    \              Nd+=i;\n            }\n            t>>=1;\n            r>>=1;\n\
-    \            i<<=1;\n        }\n        return Nd;\n    }\n    static uint32_t\
-    \ _phi(uint32_t N){\n        uint32_t prime_fact=N;\n        uint32_t ret=N;\n\
-    \        for(int i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n\
+    \    x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int32_t id>\n\
+    struct DynamicMontgomeryModint{\n    static uint64_t _rev(uint32_t N){\n     \
+    \   uint64_t Nd=0;\n        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n    \
+    \    uint64_t i=1;\n        while(r){\n            if(!(t&1)){\n             \
+    \   t+=N;\n                Nd+=i;\n            }\n            t>>=1;\n       \
+    \     r>>=1;\n            i<<=1;\n        }\n        return Nd;\n    }\n    static\
+    \ uint32_t _phi(uint32_t N){\n        uint32_t prime_fact=N;\n        uint32_t\
+    \ ret=N;\n        for(int i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n\
     \                ret-=ret/i;\n                while(prime_fact%i==0){\n      \
     \              prime_fact/=i;\n                }\n            }\n        }\n \
     \       if(prime_fact!=1){\n            ret-=ret/prime_fact;\n        }\n    \
@@ -163,14 +169,14 @@ data:
     \        return ret;\n    }\n    constexpr MontgomeryModint pow(uint64_t x)noexcept{\n\
     \        MontgomeryModint ret=1;\n        MontgomeryModint bin=(*this);\n    \
     \    while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n        \
-    \    x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int id>\nstruct\
-    \ DynamicMontgomeryModint{\n    static uint64_t _rev(uint32_t N){\n        uint64_t\
-    \ Nd=0;\n        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n        uint64_t\
-    \ i=1;\n        while(r){\n            if(!(t&1)){\n                t+=N;\n  \
-    \              Nd+=i;\n            }\n            t>>=1;\n            r>>=1;\n\
-    \            i<<=1;\n        }\n        return Nd;\n    }\n    static uint32_t\
-    \ _phi(uint32_t N){\n        uint32_t prime_fact=N;\n        uint32_t ret=N;\n\
-    \        for(int i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n\
+    \    x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int32_t id>\n\
+    struct DynamicMontgomeryModint{\n    static uint64_t _rev(uint32_t N){\n     \
+    \   uint64_t Nd=0;\n        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n    \
+    \    uint64_t i=1;\n        while(r){\n            if(!(t&1)){\n             \
+    \   t+=N;\n                Nd+=i;\n            }\n            t>>=1;\n       \
+    \     r>>=1;\n            i<<=1;\n        }\n        return Nd;\n    }\n    static\
+    \ uint32_t _phi(uint32_t N){\n        uint32_t prime_fact=N;\n        uint32_t\
+    \ ret=N;\n        for(int i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n\
     \                ret-=ret/i;\n                while(prime_fact%i==0){\n      \
     \              prime_fact/=i;\n                }\n            }\n        }\n \
     \       if(prime_fact!=1){\n            ret-=ret/prime_fact;\n        }\n    \
@@ -220,11 +226,13 @@ data:
   isVerificationFile: false
   path: Math/MontgomeryModint.hpp
   requiredBy: []
-  timestamp: '2024-03-10 14:31:28+09:00'
+  timestamp: '2024-03-10 14:46:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yuki/yuki-1092.test.cpp
   - Verify/verify-yuki/yuki-336.test.cpp
+  - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
 documentation_of: Math/MontgomeryModint.hpp
 layout: document
 redirect_from:

@@ -5,6 +5,9 @@ data:
     path: DataStructure/FoldableDeque.hpp
     title: DataStructure/FoldableDeque.hpp
   - icon: ':heavy_check_mark:'
+    path: Math/MontgomeryModint.hpp
+    title: Math/MontgomeryModint.hpp
+  - icon: ':heavy_check_mark:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
@@ -151,34 +154,138 @@ data:
     \        }\n        return bottom.top();\n    }\n    T get_all(){\n        return\
     \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
     \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
-    \nstruct composite{\n    using T=pll;\n    static T op(T lf,T ri){\n        return\
-    \ T((lf.fi*ri.fi)%MOD,(lf.se*ri.fi+ri.se)%MOD);\n    }\n    static inline T e=pll(1,0);\n\
-    };\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i,Q){\n\
-    \        LL(t);\n        if(t==0){\n            LL(a,b);\n            deq.push_front(pll(a,b));\n\
-    \        }\n        if(t==1){\n            LL(a,b);\n            deq.push_back(pll(a,b));\n\
-    \        }\n        if(t==2){\n            deq.pop_front();\n        }\n     \
-    \   if(t==3){\n            deq.pop_back();\n        }\n        if(t==4){\n   \
-    \         LL(x);\n            pll ope=deq.get_all();\n            out((ope.fi*x+ope.se)%MOD);\n\
-    \        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n}\n"
+    \    }\n};\n#line 2 \"Math/MontgomeryModint.hpp\"\ntemplate<uint32_t N>\nstruct\
+    \ MontgomeryModint{\n    static constexpr uint64_t _rev(){\n        uint64_t Nd=0;\n\
+    \        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n        uint64_t i=1;\n\
+    \        while(r){\n            if(!(t&1)){\n                t+=N;\n         \
+    \       Nd+=i;\n            }\n            t>>=1;\n            r>>=1;\n      \
+    \      i<<=1;\n        }\n        return Nd;\n    }\n    static constexpr uint32_t\
+    \ _phi(){\n        uint32_t prime_fact=N;\n        uint32_t ret=N;\n        for(int\
+    \ i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n             \
+    \   ret-=ret/i;\n                while(prime_fact%i==0){\n                   \
+    \ prime_fact/=i;\n                }\n            }\n        }\n        if(prime_fact!=1){\n\
+    \            ret-=ret/prime_fact;\n        }\n        return ret;\n    }\n   \
+    \ static constexpr uint64_t R=(1ULL<<32);\n    static constexpr uint64_t Nd=_rev();\n\
+    \    static constexpr uint64_t Rr=(Nd*N+1)>>32;\n    static constexpr uint64_t\
+    \ MASK=R-1;\n    static constexpr uint32_t inv_power=_phi()-1;\n    static_assert(1<N);\n\
+    \    static_assert(N<(1<<30));\n    static_assert(N&1);\n    int64_t x;\n    constexpr\
+    \ uint32_t mod(){\n        return N;\n    }\n    constexpr MontgomeryModint()noexcept{\n\
+    \        x=0;\n    }\n    constexpr MontgomeryModint(int64_t val)noexcept{\n \
+    \       x=(((val%N)+N)%N<<32)%N;\n    }\n    constexpr uint64_t _reduction(uint64_t\
+    \ val)noexcept{\n        uint64_t ret=(val+(((val&MASK)*Nd)&MASK)*N)>>32;\n  \
+    \      if(ret>=N)return ret-N;\n        return ret;\n    }\n    constexpr uint64_t\
+    \ val()noexcept{\n        return _reduction(x);\n    }\n    constexpr MontgomeryModint\
+    \ operator+()noexcept{return *this;}\n    constexpr MontgomeryModint operator-()noexcept{return\
+    \ MontgomeryModint()-(*this);}\n    constexpr friend MontgomeryModint operator+(MontgomeryModint\
+    \ lhs,MontgomeryModint rhs)noexcept{\n        return MontgomeryModint(lhs)+=rhs;\n\
+    \    }\n    constexpr friend MontgomeryModint operator-(MontgomeryModint lhs,MontgomeryModint\
+    \ rhs)noexcept{\n        return MontgomeryModint(lhs)-=rhs;\n    }\n    constexpr\
+    \ friend MontgomeryModint operator*(MontgomeryModint lhs,MontgomeryModint rhs)noexcept{\n\
+    \        return MontgomeryModint(lhs)*=rhs;\n    }\n    constexpr friend MontgomeryModint\
+    \ operator/(MontgomeryModint lhs,MontgomeryModint rhs){\n        return MontgomeryModint(lhs)/=rhs;\n\
+    \    }\n    constexpr MontgomeryModint operator+=(MontgomeryModint rhs)noexcept{\n\
+    \        x+=rhs.x;\n        if(x>=N)x-=N;\n        return *this;\n    }\n    constexpr\
+    \ MontgomeryModint operator-=(MontgomeryModint rhs)noexcept{\n        x-=rhs.x;\n\
+    \        if(x<0)x+=N;\n        return *this;\n    }\n    constexpr MontgomeryModint\
+    \ operator*=(MontgomeryModint rhs)noexcept{\n        x=_reduction(x*rhs.x);\n\
+    \        return *this;\n    }\n    constexpr MontgomeryModint operator/=(MontgomeryModint\
+    \ rhs){\n        (*this)*=rhs.inv();\n        return *this;\n    }\n    constexpr\
+    \ MontgomeryModint& operator++(){\n        (*this)+=1;\n        return *this;\n\
+    \    }\n    constexpr MontgomeryModint& operator--(){\n        (*this)-=1;\n \
+    \       return *this;\n    }\n    constexpr MontgomeryModint operator++(int){\n\
+    \        (*this)+=1;\n        return *this;\n    }\n    constexpr MontgomeryModint\
+    \ operator--(int){\n        (*this)-=1;\n        return *this;\n    }\n    constexpr\
+    \ bool operator==(MontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
+    \    }\n    constexpr bool operator!=(MontgomeryModint rhs)noexcept{\n       \
+    \ return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    constexpr MontgomeryModint\
+    \ inv(){\n        MontgomeryModint ret=(*this).pow(inv_power);\n        assert(ret*(*this)==1);\n\
+    \        return ret;\n    }\n    constexpr MontgomeryModint pow(uint64_t x)noexcept{\n\
+    \        MontgomeryModint ret=1;\n        MontgomeryModint bin=(*this);\n    \
+    \    while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n        \
+    \    x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int32_t id>\n\
+    struct DynamicMontgomeryModint{\n    static uint64_t _rev(uint32_t N){\n     \
+    \   uint64_t Nd=0;\n        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n    \
+    \    uint64_t i=1;\n        while(r){\n            if(!(t&1)){\n             \
+    \   t+=N;\n                Nd+=i;\n            }\n            t>>=1;\n       \
+    \     r>>=1;\n            i<<=1;\n        }\n        return Nd;\n    }\n    static\
+    \ uint32_t _phi(uint32_t N){\n        uint32_t prime_fact=N;\n        uint32_t\
+    \ ret=N;\n        for(int i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n\
+    \                ret-=ret/i;\n                while(prime_fact%i==0){\n      \
+    \              prime_fact/=i;\n                }\n            }\n        }\n \
+    \       if(prime_fact!=1){\n            ret-=ret/prime_fact;\n        }\n    \
+    \    return ret;\n    }\n    static uint64_t N,R,Nd,Rr,MASK;\n    static uint32_t\
+    \ inv_power;\n    int64_t x;\n    static void set_mod(uint32_t mod){\n       \
+    \ N=mod;\n        R=(1ULL<<32);\n        Nd=_rev(N);\n        Rr=(Nd*N+1)>>32;\n\
+    \        MASK=R-1;\n        inv_power=_phi(N)-1;\n        assert(1<mod);\n   \
+    \     assert(mod<(1<<30));\n        assert(mod&1);\n    }\n    uint32_t mod(){\n\
+    \        return N;\n    }\n    DynamicMontgomeryModint()noexcept{\n        x=0;\n\
+    \    }\n    DynamicMontgomeryModint(int64_t val)noexcept{\n        x=(((val%N)+N)%N<<32)%N;\n\
+    \    }\n    uint64_t _reduction(uint64_t val)noexcept{\n        uint64_t ret=(val+(((val&MASK)*Nd)&MASK)*N)>>32;\n\
+    \        if(ret>=N)return ret-N;\n        return ret;\n    }\n    uint64_t val()noexcept{\n\
+    \        return _reduction(x);\n    }\n    DynamicMontgomeryModint operator+()noexcept{return\
+    \ *this;}\n    DynamicMontgomeryModint operator-()noexcept{return DynamicMontgomeryModint()-(*this);}\n\
+    \    friend DynamicMontgomeryModint operator+(DynamicMontgomeryModint lhs,DynamicMontgomeryModint\
+    \ rhs)noexcept{\n        return DynamicMontgomeryModint(lhs)+=rhs;\n    }\n  \
+    \  friend DynamicMontgomeryModint operator-(DynamicMontgomeryModint lhs,DynamicMontgomeryModint\
+    \ rhs)noexcept{\n        return DynamicMontgomeryModint(lhs)-=rhs;\n    }\n  \
+    \  friend DynamicMontgomeryModint operator*(DynamicMontgomeryModint lhs,DynamicMontgomeryModint\
+    \ rhs)noexcept{\n        return DynamicMontgomeryModint(lhs)*=rhs;\n    }\n  \
+    \  friend DynamicMontgomeryModint operator/(DynamicMontgomeryModint lhs,DynamicMontgomeryModint\
+    \ rhs){\n        return DynamicMontgomeryModint(lhs)/=rhs;\n    }\n    DynamicMontgomeryModint\
+    \ operator+=(DynamicMontgomeryModint rhs)noexcept{\n        x+=rhs.x;\n      \
+    \  if(x>=N)x-=N;\n        return *this;\n    }\n    DynamicMontgomeryModint operator-=(DynamicMontgomeryModint\
+    \ rhs)noexcept{\n        x-=rhs.x;\n        if(x<0)x+=N;\n        return *this;\n\
+    \    }\n    DynamicMontgomeryModint operator*=(DynamicMontgomeryModint rhs)noexcept{\n\
+    \        x=_reduction(x*rhs.x);\n        return *this;\n    }\n    DynamicMontgomeryModint\
+    \ operator/=(DynamicMontgomeryModint rhs){\n        (*this)*=rhs.inv();\n    \
+    \    return *this;\n    }\n    DynamicMontgomeryModint& operator++(){\n      \
+    \  (*this)+=1;\n        return *this;\n    }\n    DynamicMontgomeryModint& operator--(){\n\
+    \        (*this)-=1;\n        return *this;\n    }\n    DynamicMontgomeryModint\
+    \ operator++(int){\n        (*this)+=1;\n        return *this;\n    }\n    DynamicMontgomeryModint\
+    \ operator--(int){\n        (*this)-=1;\n        return *this;\n    }\n    bool\
+    \ operator==(DynamicMontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
+    \    }\n    bool operator!=(DynamicMontgomeryModint rhs)noexcept{\n        return\
+    \ (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    DynamicMontgomeryModint\
+    \ inv(){\n        DynamicMontgomeryModint ret=(*this).pow(inv_power);\n      \
+    \  assert(ret*(*this)==1);\n        return ret;\n    }\n    DynamicMontgomeryModint\
+    \ pow(uint64_t x)noexcept{\n        DynamicMontgomeryModint ret=1;\n        DynamicMontgomeryModint\
+    \ bin=(*this);\n        while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n\
+    \            x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int id>uint64_t\
+    \ DynamicMontgomeryModint<id>::N;\ntemplate<int id>uint64_t DynamicMontgomeryModint<id>::R;\n\
+    template<int id>uint64_t DynamicMontgomeryModint<id>::Nd;\ntemplate<int id>uint64_t\
+    \ DynamicMontgomeryModint<id>::Rr;\ntemplate<int id>uint64_t DynamicMontgomeryModint<id>::MASK;\n\
+    template<int id>uint32_t DynamicMontgomeryModint<id>::inv_power;\n#line 5 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
+    \nusing mint=MontgomeryModint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n\
+    \    static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
+    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite>\
+    \ deq;\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n\
+    \            deq.push_front(pll(a,b));\n        }\n        if(t==1){\n       \
+    \     LL(a,b);\n            deq.push_back(pll(a,b));\n        }\n        if(t==2){\n\
+    \            deq.pop_front();\n        }\n        if(t==3){\n            deq.pop_back();\n\
+    \        }\n        if(t==4){\n            LL(x);\n            pair<mint,mint>\
+    \ ope=deq.get_all();\n            out((ope.fi*x+ope.se).val());\n        }\n \
+    \   }\n}\nint main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/deque_operate_all_composite\"\
     \n#include\"../../Template.hpp\"\n#include\"../../DataStructure/FoldableDeque.hpp\"\
-    \nstruct composite{\n    using T=pll;\n    static T op(T lf,T ri){\n        return\
-    \ T((lf.fi*ri.fi)%MOD,(lf.se*ri.fi+ri.se)%MOD);\n    }\n    static inline T e=pll(1,0);\n\
-    };\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i,Q){\n\
-    \        LL(t);\n        if(t==0){\n            LL(a,b);\n            deq.push_front(pll(a,b));\n\
-    \        }\n        if(t==1){\n            LL(a,b);\n            deq.push_back(pll(a,b));\n\
-    \        }\n        if(t==2){\n            deq.pop_front();\n        }\n     \
-    \   if(t==3){\n            deq.pop_back();\n        }\n        if(t==4){\n   \
-    \         LL(x);\n            pll ope=deq.get_all();\n            out((ope.fi*x+ope.se)%MOD);\n\
-    \        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n}"
+    \n#include\"../../Math/MontgomeryModint.hpp\"\nusing mint=MontgomeryModint<MOD>;\n\
+    struct composite{\n    using T=pair<mint,mint>;\n    static T op(T lf,T ri){\n\
+    \        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n    }\n    static inline T\
+    \ e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n\
+    \    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n    \
+    \        deq.push_front(pll(a,b));\n        }\n        if(t==1){\n           \
+    \ LL(a,b);\n            deq.push_back(pll(a,b));\n        }\n        if(t==2){\n\
+    \            deq.pop_front();\n        }\n        if(t==3){\n            deq.pop_back();\n\
+    \        }\n        if(t==4){\n            LL(x);\n            pair<mint,mint>\
+    \ ope=deq.get_all();\n            out((ope.fi*x+ope.se).val());\n        }\n \
+    \   }\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
   - DataStructure/FoldableDeque.hpp
+  - Math/MontgomeryModint.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-03-10 11:56:39+09:00'
+  timestamp: '2024-03-10 14:46:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
