@@ -1,12 +1,14 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/queue_operate_all_composite"
 #include"../../Template.hpp"
 #include"../../DataStructure/FoldableDeque.hpp"
+#include"../../Math/MontgomeryModint.hpp"
+using mint=MontgomeryModint<MOD>;
 struct composite{
-    using T=pll;
+    using T=pair<mint,mint>;
     static T op(T lf,T ri){
-        return T((lf.fi*ri.fi)%MOD,(lf.se*ri.fi+ri.se)%MOD);
+        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);
     }
-    static inline T e=pll(1,0);
+    static inline T e=T(1,0);
 };
 void solve(){
     LL(Q);
@@ -22,8 +24,8 @@ void solve(){
         }
         if(t==2){
             LL(x);
-            pll ope=que.get_all();
-            out((ope.fi*x+ope.se)%MOD);
+            pair<mint,mint> ope=que.get_all();
+            out((ope.fi*x+ope.se).val());
         }
     }
 }

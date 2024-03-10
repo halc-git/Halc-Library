@@ -129,7 +129,7 @@ struct MontgomeryModint{
         return ret;
     }
 };
-template<int id>
+template<int32_t id>
 struct DynamicMontgomeryModint{
     static uint64_t _rev(uint32_t N){
         uint64_t Nd=0;
