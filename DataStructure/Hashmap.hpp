@@ -1,4 +1,3 @@
-#include"../Template.hpp"
 #pragma once
 #include<ext/pb_ds/assoc_container.hpp>
 //https://codeforces.com/blog/entry/62393?locale=en
