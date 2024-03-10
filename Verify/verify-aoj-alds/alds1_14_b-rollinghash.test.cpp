@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B"
 #include"../../Template.hpp"
 #include"../../String/RollingHash.hpp"
-int main(){
+void solve(){
     STR(T);
     STR(P);
     RollingHash<string> roll;
@@ -11,4 +11,8 @@ int main(){
     rep(i,len(T)-len(P)+1){
         if(roll.query(tb,i,i+len(P))==hash)out(i);
     }
+}
+int main(){
+    solve();
+    return 0;
 }

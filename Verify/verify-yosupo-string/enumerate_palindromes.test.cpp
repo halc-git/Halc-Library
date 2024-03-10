@@ -1,7 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/enumerate_palindromes"
 #include"../../Template.hpp"
 #include"../../String/Manacher.hpp"
-int main(){
+void solve(){
     STR(S);
     out(manacher(S));
+}
+int main(){
+    solve();
+    return 0;
 }

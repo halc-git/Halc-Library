@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/enumerate_palindromes"
 #include"../../Template.hpp"
 #include"../../String/RollingHash.hpp"
-int main(){
+void solve(){
     STR(S);
     RollingHash<string> roll;
     auto st=roll.build(S);
@@ -35,4 +35,8 @@ int main(){
         ans[(i<<1)+1]=ok<<1;
     }
     out(ans);
+}
+int main(){
+    solve();
+    return 0;
 }

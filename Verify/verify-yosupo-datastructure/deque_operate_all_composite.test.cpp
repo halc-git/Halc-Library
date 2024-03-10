@@ -8,7 +8,7 @@ struct composite{
     }
     static inline T e=pll(1,0);
 };
-int main(){
+void solve(){
     LL(Q);
     FoldableDeque<composite> deq;
     rep(i,Q){
@@ -33,4 +33,8 @@ int main(){
             out((ope.fi*x+ope.se)%MOD);
         }
     }
+}
+int main(){
+    solve();
+    return 0;
 }
