@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1092"
 #include"../../Template.hpp"
 #include"../../Math/MontgomeryModint.hpp"
-using mint=DynamicMontgomeryModint<0>;
+using mint=ArbitrarMontgomeryModint<0>;
 void solve(){
     LL(P,n);
     VEC(ll,A,n);
@@ -40,7 +40,7 @@ void solve(){
             ans/=A[i+1];
         }
     }
-    out(ans.val());
+    out(ans);
 }
 int main(){
     solve();

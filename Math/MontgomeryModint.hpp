@@ -59,6 +59,9 @@ struct MontgomeryModint{
     constexpr uint64_t val()noexcept{
         return _reduction(x);
     }
+    friend ostream &operator<<(ostream &os,MontgomeryModint &b){
+        return os<<b.val();
+    }
     constexpr MontgomeryModint operator+()noexcept{return *this;}
     constexpr MontgomeryModint operator-()noexcept{return MontgomeryModint()-(*this);}
     constexpr friend MontgomeryModint operator+(MontgomeryModint lhs,MontgomeryModint rhs)noexcept{
@@ -130,7 +133,7 @@ struct MontgomeryModint{
     }
 };
 template<int32_t id>
-struct DynamicMontgomeryModint{
+struct ArbitrarMontgomeryModint{
     static uint64_t _rev(uint32_t N){
         uint64_t Nd=0;
         uint64_t t=0;
@@ -180,10 +183,10 @@ struct DynamicMontgomeryModint{
     uint32_t mod(){
         return N;
     }
-    DynamicMontgomeryModint()noexcept{
+    ArbitrarMontgomeryModint()noexcept{
         x=0;
     }
-    DynamicMontgomeryModint(int64_t val)noexcept{
+    ArbitrarMontgomeryModint(int64_t val)noexcept{
         x=(((val%N)+N)%N<<32)%N;
     }
     uint64_t _reduction(uint64_t val)noexcept{
@@ -194,68 +197,71 @@ struct DynamicMontgomeryModint{
     uint64_t val()noexcept{
         return _reduction(x);
     }
-    DynamicMontgomeryModint operator+()noexcept{return *this;}
-    DynamicMontgomeryModint operator-()noexcept{return DynamicMontgomeryModint()-(*this);}
-    friend DynamicMontgomeryModint operator+(DynamicMontgomeryModint lhs,DynamicMontgomeryModint rhs)noexcept{
-        return DynamicMontgomeryModint(lhs)+=rhs;
+    friend ostream &operator<<(ostream &os,ArbitrarMontgomeryModint &b){
+        return os<<b.val();
     }
-    friend DynamicMontgomeryModint operator-(DynamicMontgomeryModint lhs,DynamicMontgomeryModint rhs)noexcept{
-        return DynamicMontgomeryModint(lhs)-=rhs;
+    ArbitrarMontgomeryModint operator+()noexcept{return *this;}
+    ArbitrarMontgomeryModint operator-()noexcept{return ArbitrarMontgomeryModint()-(*this);}
+    friend ArbitrarMontgomeryModint operator+(ArbitrarMontgomeryModint lhs,ArbitrarMontgomeryModint rhs)noexcept{
+        return ArbitrarMontgomeryModint(lhs)+=rhs;
     }
-    friend DynamicMontgomeryModint operator*(DynamicMontgomeryModint lhs,DynamicMontgomeryModint rhs)noexcept{
-        return DynamicMontgomeryModint(lhs)*=rhs;
+    friend ArbitrarMontgomeryModint operator-(ArbitrarMontgomeryModint lhs,ArbitrarMontgomeryModint rhs)noexcept{
+        return ArbitrarMontgomeryModint(lhs)-=rhs;
     }
-    friend DynamicMontgomeryModint operator/(DynamicMontgomeryModint lhs,DynamicMontgomeryModint rhs){
-        return DynamicMontgomeryModint(lhs)/=rhs;
+    friend ArbitrarMontgomeryModint operator*(ArbitrarMontgomeryModint lhs,ArbitrarMontgomeryModint rhs)noexcept{
+        return ArbitrarMontgomeryModint(lhs)*=rhs;
     }
-    DynamicMontgomeryModint operator+=(DynamicMontgomeryModint rhs)noexcept{
+    friend ArbitrarMontgomeryModint operator/(ArbitrarMontgomeryModint lhs,ArbitrarMontgomeryModint rhs){
+        return ArbitrarMontgomeryModint(lhs)/=rhs;
+    }
+    ArbitrarMontgomeryModint operator+=(ArbitrarMontgomeryModint rhs)noexcept{
         x+=rhs.x;
         if(x>=N)x-=N;
         return *this;
     }
-    DynamicMontgomeryModint operator-=(DynamicMontgomeryModint rhs)noexcept{
+    ArbitrarMontgomeryModint operator-=(ArbitrarMontgomeryModint rhs)noexcept{
         x-=rhs.x;
         if(x<0)x+=N;
         return *this;
     }
-    DynamicMontgomeryModint operator*=(DynamicMontgomeryModint rhs)noexcept{
+    ArbitrarMontgomeryModint operator*=(ArbitrarMontgomeryModint rhs)noexcept{
         x=_reduction(x*rhs.x);
         return *this;
     }
-    DynamicMontgomeryModint operator/=(DynamicMontgomeryModint rhs){
+    ArbitrarMontgomeryModint operator/=(ArbitrarMontgomeryModint rhs){
         (*this)*=rhs.inv();
         return *this;
     }
-    DynamicMontgomeryModint& operator++(){
+    ArbitrarMontgomeryModint& operator++(){
         (*this)+=1;
         return *this;
     }
-    DynamicMontgomeryModint& operator--(){
+    ArbitrarMontgomeryModint& operator--(){
         (*this)-=1;
         return *this;
     }
-    DynamicMontgomeryModint operator++(int){
+    ArbitrarMontgomeryModint operator++(int){
         (*this)+=1;
         return *this;
     }
-    DynamicMontgomeryModint operator--(int){
+    ArbitrarMontgomeryModint operator--(int){
         (*this)-=1;
         return *this;
     }
-    bool operator==(DynamicMontgomeryModint rhs)noexcept{
+    bool operator==(ArbitrarMontgomeryModint rhs)noexcept{
         return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);
     }
-    bool operator!=(DynamicMontgomeryModint rhs)noexcept{
+    bool operator!=(ArbitrarMontgomeryModint rhs)noexcept{
         return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);
     }
-    DynamicMontgomeryModint inv(){
-        DynamicMontgomeryModint ret=(*this).pow(inv_power);
+    ArbitrarMontgomeryModint inv(){
+        ArbitrarMontgomeryModint ret=(*this).pow(inv_power);
         assert(ret*(*this)==1);
         return ret;
     }
-    DynamicMontgomeryModint pow(uint64_t x)noexcept{
-        DynamicMontgomeryModint ret=1;
-        DynamicMontgomeryModint bin=(*this);
+    ArbitrarMontgomeryModint pow(uint64_t x)noexcept{
+        ArbitrarMontgomeryModint ret=1;
+        ArbitrarMontgomeryModint bin=(*this);
         while(x){
             if(x&1)ret*=bin;
             bin*=bin;
@@ -264,9 +270,12 @@ struct DynamicMontgomeryModint{
         return ret;
     }
 };
-template<int id>uint64_t DynamicMontgomeryModint<id>::N;
-template<int id>uint64_t DynamicMontgomeryModint<id>::R;
-template<int id>uint64_t DynamicMontgomeryModint<id>::Nd;
-template<int id>uint64_t DynamicMontgomeryModint<id>::Rr;
-template<int id>uint64_t DynamicMontgomeryModint<id>::MASK;
-template<int id>uint32_t DynamicMontgomeryModint<id>::inv_power;
+template<int id>uint64_t ArbitrarMontgomeryModint<id>::N;
+template<int id>uint64_t ArbitrarMontgomeryModint<id>::R;
+template<int id>uint64_t ArbitrarMontgomeryModint<id>::Nd;
+template<int id>uint64_t ArbitrarMontgomeryModint<id>::Rr;
+template<int id>uint64_t ArbitrarMontgomeryModint<id>::MASK;
+template<int id>uint32_t ArbitrarMontgomeryModint<id>::inv_power;
+
+template<uint32_t N> inline void print(MontgomeryModint<N> a){ cout << a; }
+template<int32_t id> inline void print(ArbitrarMontgomeryModint<id> a){ cout << a; }

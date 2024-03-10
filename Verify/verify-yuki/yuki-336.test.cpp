@@ -30,7 +30,7 @@ void solve(){
     each(i,dp){
         ans+=i;
     }
-    out(ans.val());
+    out(ans);
 }
 int main(){
     solve();

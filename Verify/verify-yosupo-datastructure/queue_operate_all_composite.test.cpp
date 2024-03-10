@@ -25,7 +25,7 @@ void solve(){
         if(t==2){
             LL(x);
             pair<mint,mint> ope=que.get_all();
-            out((ope.fi*x+ope.se).val());
+            out(ope.fi*x+ope.se);
         }
     }
 }

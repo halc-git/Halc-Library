@@ -32,7 +32,7 @@ void solve(){
         if(t==4){
             LL(x);
             pair<mint,mint> ope=deq.get_all();
-            out((ope.fi*x+ope.se).val());
+            out(ope.fi*x+ope.se);
         }
     }
 }
