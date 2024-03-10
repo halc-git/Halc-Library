@@ -154,31 +154,31 @@ data:
     \    }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
     \nstruct composite{\n    using T=pll;\n    static T op(T lf,T ri){\n        return\
     \ T((lf.fi*ri.fi)%MOD,(lf.se*ri.fi+ri.se)%MOD);\n    }\n    static inline T e=pll(1,0);\n\
-    };\nint main(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i,Q){\n\
+    };\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i,Q){\n\
     \        LL(t);\n        if(t==0){\n            LL(a,b);\n            deq.push_front(pll(a,b));\n\
     \        }\n        if(t==1){\n            LL(a,b);\n            deq.push_back(pll(a,b));\n\
     \        }\n        if(t==2){\n            deq.pop_front();\n        }\n     \
     \   if(t==3){\n            deq.pop_back();\n        }\n        if(t==4){\n   \
     \         LL(x);\n            pll ope=deq.get_all();\n            out((ope.fi*x+ope.se)%MOD);\n\
-    \        }\n    }\n}\n"
+    \        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/deque_operate_all_composite\"\
     \n#include\"../../Template.hpp\"\n#include\"../../DataStructure/FoldableDeque.hpp\"\
     \nstruct composite{\n    using T=pll;\n    static T op(T lf,T ri){\n        return\
     \ T((lf.fi*ri.fi)%MOD,(lf.se*ri.fi+ri.se)%MOD);\n    }\n    static inline T e=pll(1,0);\n\
-    };\nint main(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i,Q){\n\
+    };\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i,Q){\n\
     \        LL(t);\n        if(t==0){\n            LL(a,b);\n            deq.push_front(pll(a,b));\n\
     \        }\n        if(t==1){\n            LL(a,b);\n            deq.push_back(pll(a,b));\n\
     \        }\n        if(t==2){\n            deq.pop_front();\n        }\n     \
     \   if(t==3){\n            deq.pop_back();\n        }\n        if(t==4){\n   \
     \         LL(x);\n            pll ope=deq.get_all();\n            out((ope.fi*x+ope.se)%MOD);\n\
-    \        }\n    }\n}"
+    \        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
   - DataStructure/FoldableDeque.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-03-10 09:07:23+09:00'
+  timestamp: '2024-03-10 11:56:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp

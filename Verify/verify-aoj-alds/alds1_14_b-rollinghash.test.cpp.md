@@ -123,22 +123,24 @@ data:
     \ &b,uint32_t l2,uint32_t r2){\n        uint32_t ok=0,ng=min((r1-l1),(r2-l2))+1;\n\
     \        while(ng-ok>1){\n            uint32_t mid=(ok+ng)>>1;\n            if(query(a,l1,l1+mid)==query(b,l2,l2+mid))ok=mid;\n\
     \            else ng=mid;\n        }\n        return ok;\n    }\n};\n#line 4 \"\
-    Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp\"\nint main(){\n    STR(T);\n\
+    Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp\"\nvoid solve(){\n    STR(T);\n\
     \    STR(P);\n    RollingHash<string> roll;\n    auto tb=roll.build(T);\n    auto\
     \ pb=roll.build(P);\n    ll hash=roll.query(pb,0,len(P));\n    rep(i,len(T)-len(P)+1){\n\
-    \        if(roll.query(tb,i,i+len(P))==hash)out(i);\n    }\n}\n"
+    \        if(roll.query(tb,i,i+len(P))==hash)out(i);\n    }\n}\nint main(){\n \
+    \   solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
-    \n#include\"../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nint\
-    \ main(){\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n    auto tb=roll.build(T);\n\
-    \    auto pb=roll.build(P);\n    ll hash=roll.query(pb,0,len(P));\n    rep(i,len(T)-len(P)+1){\n\
-    \        if(roll.query(tb,i,i+len(P))==hash)out(i);\n    }\n}"
+    \n#include\"../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nvoid\
+    \ solve(){\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n    auto\
+    \ tb=roll.build(T);\n    auto pb=roll.build(P);\n    ll hash=roll.query(pb,0,len(P));\n\
+    \    rep(i,len(T)-len(P)+1){\n        if(roll.query(tb,i,i+len(P))==hash)out(i);\n\
+    \    }\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
   - String/RollingHash.hpp
   isVerificationFile: true
   path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-03-09 22:05:38+09:00'
+  timestamp: '2024-03-10 11:56:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp

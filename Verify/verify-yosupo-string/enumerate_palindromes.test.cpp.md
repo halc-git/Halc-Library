@@ -106,17 +106,19 @@ data:
     \        i+=k;\n        j-=k;\n    }\n    for(int32_t i=0; i<sz; i++){\n     \
     \   if(is_even){\n            ret[i]--;\n        }\n        else{\n          \
     \  ret[i]=(ret[i]<<1)-1;\n        }\n    }\n    return ret;\n}\n#line 4 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\
-    \nint main(){\n    STR(S);\n    out(manacher(S));\n}\n"
+    \nvoid solve(){\n    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
-    \n#include\"../../Template.hpp\"\n#include\"../../String/Manacher.hpp\"\nint main(){\n\
-    \    STR(S);\n    out(manacher(S));\n}"
+    \n#include\"../../Template.hpp\"\n#include\"../../String/Manacher.hpp\"\nvoid\
+    \ solve(){\n    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}"
   dependsOn:
   - Template.hpp
   - String/Manacher.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-03-09 21:50:28+09:00'
+  timestamp: '2024-03-10 11:56:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp

@@ -123,8 +123,8 @@ data:
     \ &b,uint32_t l2,uint32_t r2){\n        uint32_t ok=0,ng=min((r1-l1),(r2-l2))+1;\n\
     \        while(ng-ok>1){\n            uint32_t mid=(ok+ng)>>1;\n            if(query(a,l1,l1+mid)==query(b,l2,l2+mid))ok=mid;\n\
     \            else ng=mid;\n        }\n        return ok;\n    }\n};\n#line 4 \"\
-    Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp\"\nint\
-    \ main(){\n    STR(S);\n    RollingHash<string> roll;\n    auto st=roll.build(S);\n\
+    Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp\"\nvoid\
+    \ solve(){\n    STR(S);\n    RollingHash<string> roll;\n    auto st=roll.build(S);\n\
     \    reverse(all(S));\n    auto rev=roll.build(S);\n    vec(ll,ans,len(S)*2-1);\n\
     \    rep(i,len(S)){\n        ll ok=1,ng=min(i+1,len(S)-i)+1;\n        while(ng-ok>1){\n\
     \            ll mid=(ok+ng)>>1;\n            if(roll.query(st,i-mid+1,i+mid)==roll.query(rev,len(S)-i-mid,len(S)-i+mid-1)){\n\
@@ -134,10 +134,10 @@ data:
     \    ll mid=(ok+ng)>>1;\n            if(roll.query(st,i-mid+1,i+mid+1)==roll.query(rev,len(S)-i-mid-1,len(S)-i+mid-1)){\n\
     \                ok=mid;\n            }\n            else{\n                ng=mid;\n\
     \            }\n        }\n        ans[(i<<1)+1]=ok<<1;\n    }\n    out(ans);\n\
-    }\n"
+    }\nint main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
-    \n#include\"../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nint\
-    \ main(){\n    STR(S);\n    RollingHash<string> roll;\n    auto st=roll.build(S);\n\
+    \n#include\"../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nvoid\
+    \ solve(){\n    STR(S);\n    RollingHash<string> roll;\n    auto st=roll.build(S);\n\
     \    reverse(all(S));\n    auto rev=roll.build(S);\n    vec(ll,ans,len(S)*2-1);\n\
     \    rep(i,len(S)){\n        ll ok=1,ng=min(i+1,len(S)-i)+1;\n        while(ng-ok>1){\n\
     \            ll mid=(ok+ng)>>1;\n            if(roll.query(st,i-mid+1,i+mid)==roll.query(rev,len(S)-i-mid,len(S)-i+mid-1)){\n\
@@ -147,14 +147,14 @@ data:
     \    ll mid=(ok+ng)>>1;\n            if(roll.query(st,i-mid+1,i+mid+1)==roll.query(rev,len(S)-i-mid-1,len(S)-i+mid-1)){\n\
     \                ok=mid;\n            }\n            else{\n                ng=mid;\n\
     \            }\n        }\n        ans[(i<<1)+1]=ok<<1;\n    }\n    out(ans);\n\
-    }"
+    }\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
   - String/RollingHash.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-03-10 06:57:22+09:00'
+  timestamp: '2024-03-10 11:56:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp

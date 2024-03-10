@@ -122,22 +122,22 @@ data:
     \ &b,uint32_t l2,uint32_t r2){\n        uint32_t ok=0,ng=min((r1-l1),(r2-l2))+1;\n\
     \        while(ng-ok>1){\n            uint32_t mid=(ok+ng)>>1;\n            if(query(a,l1,l1+mid)==query(b,l2,l2+mid))ok=mid;\n\
     \            else ng=mid;\n        }\n        return ok;\n    }\n};\n#line 4 \"\
-    Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp\"\nint main(){\n \
-    \   STR(S);\n    vec(ll,ans,len(S));\n    RollingHash<string> roll;\n    auto\
-    \ table=roll.build(S);\n    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
-    \    }\n    out(ans);\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
-    ../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nint main(){\n\
+    Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp\"\nvoid solve(){\n\
     \    STR(S);\n    vec(ll,ans,len(S));\n    RollingHash<string> roll;\n    auto\
     \ table=roll.build(S);\n    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
-    \    }\n    out(ans);\n}"
+    \    }\n    out(ans);\n}\nint main(){\n    solve();\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
+    ../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nvoid solve(){\n\
+    \    STR(S);\n    vec(ll,ans,len(S));\n    RollingHash<string> roll;\n    auto\
+    \ table=roll.build(S);\n    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
+    \    }\n    out(ans);\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
   - String/RollingHash.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-03-09 22:03:48+09:00'
+  timestamp: '2024-03-10 11:56:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp

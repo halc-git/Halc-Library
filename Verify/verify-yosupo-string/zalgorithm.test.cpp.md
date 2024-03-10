@@ -102,17 +102,19 @@ data:
     \        ret[i]=j;\n        if(j==0){i++;continue;}\n        k=1;\n        while(i+k<sz&&k+ret[k]<j){\n\
     \            ret[i+k]=ret[k];\n            k++;\n        }\n        i+=k;\n  \
     \      j-=k;\n    }\n    return ret;\n}\n#line 4 \"Verify/verify-yosupo-string/zalgorithm.test.cpp\"\
-    \nint main(){\n    STR(S);\n    out(z_algorithm(S));\n}\n"
+    \nvoid solve(){\n    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
-    ../../Template.hpp\"\n#include\"../../String/Z_algorithm.hpp\"\nint main(){\n\
-    \    STR(S);\n    out(z_algorithm(S));\n}"
+    ../../Template.hpp\"\n#include\"../../String/Z_algorithm.hpp\"\nvoid solve(){\n\
+    \    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n    return\
+    \ 0;\n}"
   dependsOn:
   - Template.hpp
   - String/Z_algorithm.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-03-09 21:50:28+09:00'
+  timestamp: '2024-03-10 11:56:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/zalgorithm.test.cpp
