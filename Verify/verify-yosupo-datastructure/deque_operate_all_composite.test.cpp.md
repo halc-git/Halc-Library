@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/queue_operate_all_composite
+    PROBLEM: https://judge.yosupo.jp/problem/deque_operate_all_composite
     links:
-    - https://judge.yosupo.jp/problem/queue_operate_all_composite
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/queue_operate_all_composite\"\
+    - https://judge.yosupo.jp/problem/deque_operate_all_composite
+  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/deque_operate_all_composite\"\
     \n#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
@@ -151,36 +151,40 @@ data:
     \        }\n        return bottom.top();\n    }\n    T get_all(){\n        return\
     \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
     \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp\"\
+    \    }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
     \nstruct composite{\n    using T=pll;\n    static T op(T lf,T ri){\n        return\
     \ T((lf.fi*ri.fi)%MOD,(lf.se*ri.fi+ri.se)%MOD);\n    }\n    static inline T e=pll(1,0);\n\
-    };\nint main(){\n    LL(Q);\n    FoldableQueue<composite> que;\n    rep(i,Q){\n\
-    \        LL(t);\n        if(t==0){\n            LL(a,b);\n            que.push(pll(a,b));\n\
-    \        }\n        if(t==1){\n            que.pop();\n        }\n        if(t==2){\n\
-    \            LL(x);\n            pll ope=que.get_all();\n            out((ope.fi*x+ope.se)%MOD);\n\
+    };\nint main(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i,Q){\n\
+    \        LL(t);\n        if(t==0){\n            LL(a,b);\n            deq.push_front(pll(a,b));\n\
+    \        }\n        if(t==1){\n            LL(a,b);\n            deq.push_back(pll(a,b));\n\
+    \        }\n        if(t==2){\n            deq.pop_front();\n        }\n     \
+    \   if(t==3){\n            deq.pop_back();\n        }\n        if(t==4){\n   \
+    \         LL(x);\n            pll ope=deq.get_all();\n            out((ope.fi*x+ope.se)%MOD);\n\
     \        }\n    }\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/queue_operate_all_composite\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/deque_operate_all_composite\"\
     \n#include\"../../Template.hpp\"\n#include\"../../DataStructure/FoldableDeque.hpp\"\
     \nstruct composite{\n    using T=pll;\n    static T op(T lf,T ri){\n        return\
     \ T((lf.fi*ri.fi)%MOD,(lf.se*ri.fi+ri.se)%MOD);\n    }\n    static inline T e=pll(1,0);\n\
-    };\nint main(){\n    LL(Q);\n    FoldableQueue<composite> que;\n    rep(i,Q){\n\
-    \        LL(t);\n        if(t==0){\n            LL(a,b);\n            que.push(pll(a,b));\n\
-    \        }\n        if(t==1){\n            que.pop();\n        }\n        if(t==2){\n\
-    \            LL(x);\n            pll ope=que.get_all();\n            out((ope.fi*x+ope.se)%MOD);\n\
+    };\nint main(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i,Q){\n\
+    \        LL(t);\n        if(t==0){\n            LL(a,b);\n            deq.push_front(pll(a,b));\n\
+    \        }\n        if(t==1){\n            LL(a,b);\n            deq.push_back(pll(a,b));\n\
+    \        }\n        if(t==2){\n            deq.pop_front();\n        }\n     \
+    \   if(t==3){\n            deq.pop_back();\n        }\n        if(t==4){\n   \
+    \         LL(x);\n            pll ope=deq.get_all();\n            out((ope.fi*x+ope.se)%MOD);\n\
     \        }\n    }\n}"
   dependsOn:
   - Template.hpp
   - DataStructure/FoldableDeque.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   requiredBy: []
   timestamp: '2024-03-10 09:07:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+documentation_of: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp.html
-title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp.html
+title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
 ---
