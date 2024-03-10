@@ -1,5 +1,5 @@
 #pragma once
-#include<ext/pb_ds/assoc_container.hpp>
+//#include<ext/pb_ds/assoc_container.hpp>
 //https://codeforces.com/blog/entry/62393?locale=en
 struct custom_hash {
     //http://xorshift.di.unimi.it/splitmix64.c
@@ -14,4 +14,5 @@ struct custom_hash {
         return splitmix64(x+FIXED_RANDOM);
     }
 };
-template<typename Key,typename Val>using Hashmap=__gnu_pbds::gp_hash_table<Key,Val,custom_hash>;
+//template<typename Key,typename Val>using Hashmap=__gnu_pbds::gp_hash_table<Key,Val,custom_hash>;
+template<typename Key,typename Val>using Hashmap=unordered_map<Key,Val,custom_hash>;
