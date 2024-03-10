@@ -174,42 +174,43 @@ data:
     \       x=(((val%N)+N)%N<<32)%N;\n    }\n    constexpr uint64_t _reduction(uint64_t\
     \ val)noexcept{\n        uint64_t ret=(val+(((val&MASK)*Nd)&MASK)*N)>>32;\n  \
     \      if(ret>=N)return ret-N;\n        return ret;\n    }\n    constexpr uint64_t\
-    \ val()noexcept{\n        return _reduction(x);\n    }\n    constexpr MontgomeryModint\
-    \ operator+()noexcept{return *this;}\n    constexpr MontgomeryModint operator-()noexcept{return\
-    \ MontgomeryModint()-(*this);}\n    constexpr friend MontgomeryModint operator+(MontgomeryModint\
-    \ lhs,MontgomeryModint rhs)noexcept{\n        return MontgomeryModint(lhs)+=rhs;\n\
-    \    }\n    constexpr friend MontgomeryModint operator-(MontgomeryModint lhs,MontgomeryModint\
-    \ rhs)noexcept{\n        return MontgomeryModint(lhs)-=rhs;\n    }\n    constexpr\
-    \ friend MontgomeryModint operator*(MontgomeryModint lhs,MontgomeryModint rhs)noexcept{\n\
-    \        return MontgomeryModint(lhs)*=rhs;\n    }\n    constexpr friend MontgomeryModint\
-    \ operator/(MontgomeryModint lhs,MontgomeryModint rhs){\n        return MontgomeryModint(lhs)/=rhs;\n\
-    \    }\n    constexpr MontgomeryModint operator+=(MontgomeryModint rhs)noexcept{\n\
-    \        x+=rhs.x;\n        if(x>=N)x-=N;\n        return *this;\n    }\n    constexpr\
-    \ MontgomeryModint operator-=(MontgomeryModint rhs)noexcept{\n        x-=rhs.x;\n\
-    \        if(x<0)x+=N;\n        return *this;\n    }\n    constexpr MontgomeryModint\
-    \ operator*=(MontgomeryModint rhs)noexcept{\n        x=_reduction(x*rhs.x);\n\
-    \        return *this;\n    }\n    constexpr MontgomeryModint operator/=(MontgomeryModint\
-    \ rhs){\n        (*this)*=rhs.inv();\n        return *this;\n    }\n    constexpr\
-    \ MontgomeryModint& operator++(){\n        (*this)+=1;\n        return *this;\n\
-    \    }\n    constexpr MontgomeryModint& operator--(){\n        (*this)-=1;\n \
-    \       return *this;\n    }\n    constexpr MontgomeryModint operator++(int){\n\
-    \        (*this)+=1;\n        return *this;\n    }\n    constexpr MontgomeryModint\
-    \ operator--(int){\n        (*this)-=1;\n        return *this;\n    }\n    constexpr\
-    \ bool operator==(MontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
-    \    }\n    constexpr bool operator!=(MontgomeryModint rhs)noexcept{\n       \
-    \ return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    constexpr MontgomeryModint\
-    \ inv(){\n        MontgomeryModint ret=(*this).pow(inv_power);\n        assert(ret*(*this)==1);\n\
-    \        return ret;\n    }\n    constexpr MontgomeryModint pow(uint64_t x)noexcept{\n\
-    \        MontgomeryModint ret=1;\n        MontgomeryModint bin=(*this);\n    \
-    \    while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n        \
-    \    x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int32_t id>\n\
-    struct DynamicMontgomeryModint{\n    static uint64_t _rev(uint32_t N){\n     \
-    \   uint64_t Nd=0;\n        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n    \
-    \    uint64_t i=1;\n        while(r){\n            if(!(t&1)){\n             \
-    \   t+=N;\n                Nd+=i;\n            }\n            t>>=1;\n       \
-    \     r>>=1;\n            i<<=1;\n        }\n        return Nd;\n    }\n    static\
-    \ uint32_t _phi(uint32_t N){\n        uint32_t prime_fact=N;\n        uint32_t\
-    \ ret=N;\n        for(int i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n\
+    \ val()noexcept{\n        return _reduction(x);\n    }\n    friend ostream &operator<<(ostream\
+    \ &os,MontgomeryModint &b){\n        return os<<b.val();\n    }\n    constexpr\
+    \ MontgomeryModint operator+()noexcept{return *this;}\n    constexpr MontgomeryModint\
+    \ operator-()noexcept{return MontgomeryModint()-(*this);}\n    constexpr friend\
+    \ MontgomeryModint operator+(MontgomeryModint lhs,MontgomeryModint rhs)noexcept{\n\
+    \        return MontgomeryModint(lhs)+=rhs;\n    }\n    constexpr friend MontgomeryModint\
+    \ operator-(MontgomeryModint lhs,MontgomeryModint rhs)noexcept{\n        return\
+    \ MontgomeryModint(lhs)-=rhs;\n    }\n    constexpr friend MontgomeryModint operator*(MontgomeryModint\
+    \ lhs,MontgomeryModint rhs)noexcept{\n        return MontgomeryModint(lhs)*=rhs;\n\
+    \    }\n    constexpr friend MontgomeryModint operator/(MontgomeryModint lhs,MontgomeryModint\
+    \ rhs){\n        return MontgomeryModint(lhs)/=rhs;\n    }\n    constexpr MontgomeryModint\
+    \ operator+=(MontgomeryModint rhs)noexcept{\n        x+=rhs.x;\n        if(x>=N)x-=N;\n\
+    \        return *this;\n    }\n    constexpr MontgomeryModint operator-=(MontgomeryModint\
+    \ rhs)noexcept{\n        x-=rhs.x;\n        if(x<0)x+=N;\n        return *this;\n\
+    \    }\n    constexpr MontgomeryModint operator*=(MontgomeryModint rhs)noexcept{\n\
+    \        x=_reduction(x*rhs.x);\n        return *this;\n    }\n    constexpr MontgomeryModint\
+    \ operator/=(MontgomeryModint rhs){\n        (*this)*=rhs.inv();\n        return\
+    \ *this;\n    }\n    constexpr MontgomeryModint& operator++(){\n        (*this)+=1;\n\
+    \        return *this;\n    }\n    constexpr MontgomeryModint& operator--(){\n\
+    \        (*this)-=1;\n        return *this;\n    }\n    constexpr MontgomeryModint\
+    \ operator++(int){\n        (*this)+=1;\n        return *this;\n    }\n    constexpr\
+    \ MontgomeryModint operator--(int){\n        (*this)-=1;\n        return *this;\n\
+    \    }\n    constexpr bool operator==(MontgomeryModint rhs)noexcept{\n       \
+    \ return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    constexpr bool operator!=(MontgomeryModint\
+    \ rhs)noexcept{\n        return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n\
+    \    constexpr MontgomeryModint inv(){\n        MontgomeryModint ret=(*this).pow(inv_power);\n\
+    \        assert(ret*(*this)==1);\n        return ret;\n    }\n    constexpr MontgomeryModint\
+    \ pow(uint64_t x)noexcept{\n        MontgomeryModint ret=1;\n        MontgomeryModint\
+    \ bin=(*this);\n        while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n\
+    \            x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int32_t\
+    \ id>\nstruct ArbitrarMontgomeryModint{\n    static uint64_t _rev(uint32_t N){\n\
+    \        uint64_t Nd=0;\n        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n\
+    \        uint64_t i=1;\n        while(r){\n            if(!(t&1)){\n         \
+    \       t+=N;\n                Nd+=i;\n            }\n            t>>=1;\n   \
+    \         r>>=1;\n            i<<=1;\n        }\n        return Nd;\n    }\n \
+    \   static uint32_t _phi(uint32_t N){\n        uint32_t prime_fact=N;\n      \
+    \  uint32_t ret=N;\n        for(int i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n\
     \                ret-=ret/i;\n                while(prime_fact%i==0){\n      \
     \              prime_fact/=i;\n                }\n            }\n        }\n \
     \       if(prime_fact!=1){\n            ret-=ret/prime_fact;\n        }\n    \
@@ -218,44 +219,48 @@ data:
     \ N=mod;\n        R=(1ULL<<32);\n        Nd=_rev(N);\n        Rr=(Nd*N+1)>>32;\n\
     \        MASK=R-1;\n        inv_power=_phi(N)-1;\n        assert(1<mod);\n   \
     \     assert(mod<(1<<30));\n        assert(mod&1);\n    }\n    uint32_t mod(){\n\
-    \        return N;\n    }\n    DynamicMontgomeryModint()noexcept{\n        x=0;\n\
-    \    }\n    DynamicMontgomeryModint(int64_t val)noexcept{\n        x=(((val%N)+N)%N<<32)%N;\n\
+    \        return N;\n    }\n    ArbitrarMontgomeryModint()noexcept{\n        x=0;\n\
+    \    }\n    ArbitrarMontgomeryModint(int64_t val)noexcept{\n        x=(((val%N)+N)%N<<32)%N;\n\
     \    }\n    uint64_t _reduction(uint64_t val)noexcept{\n        uint64_t ret=(val+(((val&MASK)*Nd)&MASK)*N)>>32;\n\
     \        if(ret>=N)return ret-N;\n        return ret;\n    }\n    uint64_t val()noexcept{\n\
-    \        return _reduction(x);\n    }\n    DynamicMontgomeryModint operator+()noexcept{return\
-    \ *this;}\n    DynamicMontgomeryModint operator-()noexcept{return DynamicMontgomeryModint()-(*this);}\n\
-    \    friend DynamicMontgomeryModint operator+(DynamicMontgomeryModint lhs,DynamicMontgomeryModint\
-    \ rhs)noexcept{\n        return DynamicMontgomeryModint(lhs)+=rhs;\n    }\n  \
-    \  friend DynamicMontgomeryModint operator-(DynamicMontgomeryModint lhs,DynamicMontgomeryModint\
-    \ rhs)noexcept{\n        return DynamicMontgomeryModint(lhs)-=rhs;\n    }\n  \
-    \  friend DynamicMontgomeryModint operator*(DynamicMontgomeryModint lhs,DynamicMontgomeryModint\
-    \ rhs)noexcept{\n        return DynamicMontgomeryModint(lhs)*=rhs;\n    }\n  \
-    \  friend DynamicMontgomeryModint operator/(DynamicMontgomeryModint lhs,DynamicMontgomeryModint\
-    \ rhs){\n        return DynamicMontgomeryModint(lhs)/=rhs;\n    }\n    DynamicMontgomeryModint\
-    \ operator+=(DynamicMontgomeryModint rhs)noexcept{\n        x+=rhs.x;\n      \
-    \  if(x>=N)x-=N;\n        return *this;\n    }\n    DynamicMontgomeryModint operator-=(DynamicMontgomeryModint\
-    \ rhs)noexcept{\n        x-=rhs.x;\n        if(x<0)x+=N;\n        return *this;\n\
-    \    }\n    DynamicMontgomeryModint operator*=(DynamicMontgomeryModint rhs)noexcept{\n\
-    \        x=_reduction(x*rhs.x);\n        return *this;\n    }\n    DynamicMontgomeryModint\
-    \ operator/=(DynamicMontgomeryModint rhs){\n        (*this)*=rhs.inv();\n    \
-    \    return *this;\n    }\n    DynamicMontgomeryModint& operator++(){\n      \
-    \  (*this)+=1;\n        return *this;\n    }\n    DynamicMontgomeryModint& operator--(){\n\
-    \        (*this)-=1;\n        return *this;\n    }\n    DynamicMontgomeryModint\
-    \ operator++(int){\n        (*this)+=1;\n        return *this;\n    }\n    DynamicMontgomeryModint\
+    \        return _reduction(x);\n    }\n    friend ostream &operator<<(ostream\
+    \ &os,ArbitrarMontgomeryModint &b){\n        return os<<b.val();\n    }\n    ArbitrarMontgomeryModint\
+    \ operator+()noexcept{return *this;}\n    ArbitrarMontgomeryModint operator-()noexcept{return\
+    \ ArbitrarMontgomeryModint()-(*this);}\n    friend ArbitrarMontgomeryModint operator+(ArbitrarMontgomeryModint\
+    \ lhs,ArbitrarMontgomeryModint rhs)noexcept{\n        return ArbitrarMontgomeryModint(lhs)+=rhs;\n\
+    \    }\n    friend ArbitrarMontgomeryModint operator-(ArbitrarMontgomeryModint\
+    \ lhs,ArbitrarMontgomeryModint rhs)noexcept{\n        return ArbitrarMontgomeryModint(lhs)-=rhs;\n\
+    \    }\n    friend ArbitrarMontgomeryModint operator*(ArbitrarMontgomeryModint\
+    \ lhs,ArbitrarMontgomeryModint rhs)noexcept{\n        return ArbitrarMontgomeryModint(lhs)*=rhs;\n\
+    \    }\n    friend ArbitrarMontgomeryModint operator/(ArbitrarMontgomeryModint\
+    \ lhs,ArbitrarMontgomeryModint rhs){\n        return ArbitrarMontgomeryModint(lhs)/=rhs;\n\
+    \    }\n    ArbitrarMontgomeryModint operator+=(ArbitrarMontgomeryModint rhs)noexcept{\n\
+    \        x+=rhs.x;\n        if(x>=N)x-=N;\n        return *this;\n    }\n    ArbitrarMontgomeryModint\
+    \ operator-=(ArbitrarMontgomeryModint rhs)noexcept{\n        x-=rhs.x;\n     \
+    \   if(x<0)x+=N;\n        return *this;\n    }\n    ArbitrarMontgomeryModint operator*=(ArbitrarMontgomeryModint\
+    \ rhs)noexcept{\n        x=_reduction(x*rhs.x);\n        return *this;\n    }\n\
+    \    ArbitrarMontgomeryModint operator/=(ArbitrarMontgomeryModint rhs){\n    \
+    \    (*this)*=rhs.inv();\n        return *this;\n    }\n    ArbitrarMontgomeryModint&\
+    \ operator++(){\n        (*this)+=1;\n        return *this;\n    }\n    ArbitrarMontgomeryModint&\
+    \ operator--(){\n        (*this)-=1;\n        return *this;\n    }\n    ArbitrarMontgomeryModint\
+    \ operator++(int){\n        (*this)+=1;\n        return *this;\n    }\n    ArbitrarMontgomeryModint\
     \ operator--(int){\n        (*this)-=1;\n        return *this;\n    }\n    bool\
-    \ operator==(DynamicMontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
-    \    }\n    bool operator!=(DynamicMontgomeryModint rhs)noexcept{\n        return\
-    \ (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    DynamicMontgomeryModint\
-    \ inv(){\n        DynamicMontgomeryModint ret=(*this).pow(inv_power);\n      \
-    \  assert(ret*(*this)==1);\n        return ret;\n    }\n    DynamicMontgomeryModint\
-    \ pow(uint64_t x)noexcept{\n        DynamicMontgomeryModint ret=1;\n        DynamicMontgomeryModint\
+    \ operator==(ArbitrarMontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
+    \    }\n    bool operator!=(ArbitrarMontgomeryModint rhs)noexcept{\n        return\
+    \ (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    ArbitrarMontgomeryModint\
+    \ inv(){\n        ArbitrarMontgomeryModint ret=(*this).pow(inv_power);\n     \
+    \   assert(ret*(*this)==1);\n        return ret;\n    }\n    ArbitrarMontgomeryModint\
+    \ pow(uint64_t x)noexcept{\n        ArbitrarMontgomeryModint ret=1;\n        ArbitrarMontgomeryModint\
     \ bin=(*this);\n        while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n\
     \            x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int id>uint64_t\
-    \ DynamicMontgomeryModint<id>::N;\ntemplate<int id>uint64_t DynamicMontgomeryModint<id>::R;\n\
-    template<int id>uint64_t DynamicMontgomeryModint<id>::Nd;\ntemplate<int id>uint64_t\
-    \ DynamicMontgomeryModint<id>::Rr;\ntemplate<int id>uint64_t DynamicMontgomeryModint<id>::MASK;\n\
-    template<int id>uint32_t DynamicMontgomeryModint<id>::inv_power;\n#line 5 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
-    \nusing mint=MontgomeryModint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n\
+    \ ArbitrarMontgomeryModint<id>::N;\ntemplate<int id>uint64_t ArbitrarMontgomeryModint<id>::R;\n\
+    template<int id>uint64_t ArbitrarMontgomeryModint<id>::Nd;\ntemplate<int id>uint64_t\
+    \ ArbitrarMontgomeryModint<id>::Rr;\ntemplate<int id>uint64_t ArbitrarMontgomeryModint<id>::MASK;\n\
+    template<int id>uint32_t ArbitrarMontgomeryModint<id>::inv_power;\n\ntemplate<uint32_t\
+    \ N> inline void print(MontgomeryModint<N> a){ cout << a; }\ntemplate<int32_t\
+    \ id> inline void print(ArbitrarMontgomeryModint<id> a){ cout << a; }\n#line 5\
+    \ \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\n\
+    using mint=MontgomeryModint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n\
     \    static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
     \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite>\
     \ deq;\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n\
@@ -263,8 +268,8 @@ data:
     \     LL(a,b);\n            deq.push_back(pll(a,b));\n        }\n        if(t==2){\n\
     \            deq.pop_front();\n        }\n        if(t==3){\n            deq.pop_back();\n\
     \        }\n        if(t==4){\n            LL(x);\n            pair<mint,mint>\
-    \ ope=deq.get_all();\n            out((ope.fi*x+ope.se).val());\n        }\n \
-    \   }\n}\nint main(){\n    solve();\n    return 0;\n}\n"
+    \ ope=deq.get_all();\n            out(ope.fi*x+ope.se);\n        }\n    }\n}\n\
+    int main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/deque_operate_all_composite\"\
     \n#include\"../../Template.hpp\"\n#include\"../../DataStructure/FoldableDeque.hpp\"\
     \n#include\"../../Math/MontgomeryModint.hpp\"\nusing mint=MontgomeryModint<MOD>;\n\
@@ -276,8 +281,8 @@ data:
     \ LL(a,b);\n            deq.push_back(pll(a,b));\n        }\n        if(t==2){\n\
     \            deq.pop_front();\n        }\n        if(t==3){\n            deq.pop_back();\n\
     \        }\n        if(t==4){\n            LL(x);\n            pair<mint,mint>\
-    \ ope=deq.get_all();\n            out((ope.fi*x+ope.se).val());\n        }\n \
-    \   }\n}\nint main(){\n    solve();\n    return 0;\n}"
+    \ ope=deq.get_all();\n            out(ope.fi*x+ope.se);\n        }\n    }\n}\n\
+    int main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
   - DataStructure/FoldableDeque.hpp
@@ -285,7 +290,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-03-10 14:46:22+09:00'
+  timestamp: '2024-03-10 15:07:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
