@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1092"
 #include"../../Template.hpp"
 #include"../../Math/MontgomeryModint.hpp"
-using mint=ArbitrarMontgomeryModint<0>;
+using mint=ArbitraryMontgomeryModint<0>;
 void solve(){
     LL(P,n);
     VEC(ll,A,n);
