@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/MontgomeryModint.hpp
     title: Math/MontgomeryModint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
@@ -17,20 +17,20 @@ data:
     PROBLEM: https://yukicoder.me/problems/no/336
     links:
     - https://yukicoder.me/problems/no/336
-  bundledCode: "#line 1 \"Verify/verify-yuki/yuki-336.test.cpp\"\n#define PROBLEM\
-    \ \"https://yukicoder.me/problems/no/336\"\n#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
-    #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
-    \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
-    const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
-    \ name\n#define _rep1(i,n) for(ll i=0; i<(n); i++)\n#define _rep2(i,a,b) for(ll\
-    \ i=(a); i<(b); i++)\n#define _rep3(i,a,b,c) for(ll i=(a); i<(b); i+=(c))\n#define\
-    \ rep(...) _overload4(__VA_ARGS__,_rep3,_rep2,_rep1)(__VA_ARGS__)\n#define _rrep1(i,n)\
-    \ for(ll i=(n); i-->0;)\n#define _rrep2(i,a,b) for(ll i=(b); i-->(a);)\n#define\
-    \ rrep(...) _overload3(__VA_ARGS__,_rrep2,_rrep1)(__VA_ARGS__)\n#define each(i,...)\
-    \ for(auto&& i:__VA_ARGS__)\n#define all(i) begin(i),end(i)\n#define rall(i) rbegin(i),rend(i)\n\
-    template<class T> bool chmin(T &a,const T &b){if(a>b){a=b;return true;}else return\
-    \ false;}\ntemplate<class T> bool chmax(T &a,const T &b){if(a<b){a=b;return true;}else\
-    \ return false;}\ntemplate<class T> ll sum(const T &a){return accumulate(all(a),0LL);}\n\
+  bundledCode: "#line 1 \"Verify/verify-yuki/yuki_336-montgomery.test.cpp\"\n#define\
+    \ PROBLEM \"https://yukicoder.me/problems/no/336\"\n#line 2 \"Template.hpp\"\n\
+    //https://tatyam.hatenablog.com/entry/2019/12/15/003634\n#include<bits/stdc++.h>\n\
+    using namespace std;\nusing ll=long long;\ntemplate<class T> using pq=priority_queue<T,vector<T>,greater<T>>;\n\
+    using pll=pair<ll,ll>;\nconst ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...)\
+    \ name\n#define _overload4(_1,_2,_3,_4,name,...) name\n#define _rep1(i,n) for(ll\
+    \ i=0; i<(n); i++)\n#define _rep2(i,a,b) for(ll i=(a); i<(b); i++)\n#define _rep3(i,a,b,c)\
+    \ for(ll i=(a); i<(b); i+=(c))\n#define rep(...) _overload4(__VA_ARGS__,_rep3,_rep2,_rep1)(__VA_ARGS__)\n\
+    #define _rrep1(i,n) for(ll i=(n); i-->0;)\n#define _rrep2(i,a,b) for(ll i=(b);\
+    \ i-->(a);)\n#define rrep(...) _overload3(__VA_ARGS__,_rrep2,_rrep1)(__VA_ARGS__)\n\
+    #define each(i,...) for(auto&& i:__VA_ARGS__)\n#define all(i) begin(i),end(i)\n\
+    #define rall(i) rbegin(i),rend(i)\ntemplate<class T> bool chmin(T &a,const T &b){if(a>b){a=b;return\
+    \ true;}else return false;}\ntemplate<class T> bool chmax(T &a,const T &b){if(a<b){a=b;return\
+    \ true;}else return false;}\ntemplate<class T> ll sum(const T &a){return accumulate(all(a),0LL);}\n\
     template<class T> auto min(const T &a){return *min_element(all(a));}\ntemplate<class\
     \ T> auto max(const T &a){return *max_element(all(a));}\ninline int scan(){ return\
     \ getchar(); }\ninline void scan(int &a){ scanf(\"%d\", &a); }\ninline void scan(unsigned\
@@ -146,7 +146,7 @@ data:
     \ pow(uint64_t x)noexcept{\n        MontgomeryModint ret=1;\n        MontgomeryModint\
     \ bin=(*this);\n        while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n\
     \            x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int32_t\
-    \ id>\nstruct ArbitrarMontgomeryModint{\n    static uint64_t _rev(uint32_t N){\n\
+    \ id>\nstruct ArbitraryMontgomeryModint{\n    static uint64_t _rev(uint32_t N){\n\
     \        uint64_t Nd=0;\n        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n\
     \        uint64_t i=1;\n        while(r){\n            if(!(t&1)){\n         \
     \       t+=N;\n                Nd+=i;\n            }\n            t>>=1;\n   \
@@ -161,55 +161,56 @@ data:
     \ N=mod;\n        R=(1ULL<<32);\n        Nd=_rev(N);\n        Rr=(Nd*N+1)>>32;\n\
     \        MASK=R-1;\n        inv_power=_phi(N)-1;\n        assert(1<mod);\n   \
     \     assert(mod<(1<<30));\n        assert(mod&1);\n    }\n    uint32_t mod(){\n\
-    \        return N;\n    }\n    ArbitrarMontgomeryModint()noexcept{\n        x=0;\n\
-    \    }\n    ArbitrarMontgomeryModint(int64_t val)noexcept{\n        x=(((val%N)+N)%N<<32)%N;\n\
+    \        return N;\n    }\n    ArbitraryMontgomeryModint()noexcept{\n        x=0;\n\
+    \    }\n    ArbitraryMontgomeryModint(int64_t val)noexcept{\n        x=(((val%N)+N)%N<<32)%N;\n\
     \    }\n    uint64_t _reduction(uint64_t val)noexcept{\n        uint64_t ret=(val+(((val&MASK)*Nd)&MASK)*N)>>32;\n\
     \        if(ret>=N)return ret-N;\n        return ret;\n    }\n    uint64_t val()noexcept{\n\
     \        return _reduction(x);\n    }\n    friend ostream &operator<<(ostream\
-    \ &os,ArbitrarMontgomeryModint &b){\n        return os<<b.val();\n    }\n    ArbitrarMontgomeryModint\
-    \ operator+()noexcept{return *this;}\n    ArbitrarMontgomeryModint operator-()noexcept{return\
-    \ ArbitrarMontgomeryModint()-(*this);}\n    friend ArbitrarMontgomeryModint operator+(ArbitrarMontgomeryModint\
-    \ lhs,ArbitrarMontgomeryModint rhs)noexcept{\n        return ArbitrarMontgomeryModint(lhs)+=rhs;\n\
-    \    }\n    friend ArbitrarMontgomeryModint operator-(ArbitrarMontgomeryModint\
-    \ lhs,ArbitrarMontgomeryModint rhs)noexcept{\n        return ArbitrarMontgomeryModint(lhs)-=rhs;\n\
-    \    }\n    friend ArbitrarMontgomeryModint operator*(ArbitrarMontgomeryModint\
-    \ lhs,ArbitrarMontgomeryModint rhs)noexcept{\n        return ArbitrarMontgomeryModint(lhs)*=rhs;\n\
-    \    }\n    friend ArbitrarMontgomeryModint operator/(ArbitrarMontgomeryModint\
-    \ lhs,ArbitrarMontgomeryModint rhs){\n        return ArbitrarMontgomeryModint(lhs)/=rhs;\n\
-    \    }\n    ArbitrarMontgomeryModint operator+=(ArbitrarMontgomeryModint rhs)noexcept{\n\
-    \        x+=rhs.x;\n        if(x>=N)x-=N;\n        return *this;\n    }\n    ArbitrarMontgomeryModint\
-    \ operator-=(ArbitrarMontgomeryModint rhs)noexcept{\n        x-=rhs.x;\n     \
-    \   if(x<0)x+=N;\n        return *this;\n    }\n    ArbitrarMontgomeryModint operator*=(ArbitrarMontgomeryModint\
-    \ rhs)noexcept{\n        x=_reduction(x*rhs.x);\n        return *this;\n    }\n\
-    \    ArbitrarMontgomeryModint operator/=(ArbitrarMontgomeryModint rhs){\n    \
-    \    (*this)*=rhs.inv();\n        return *this;\n    }\n    ArbitrarMontgomeryModint&\
-    \ operator++(){\n        (*this)+=1;\n        return *this;\n    }\n    ArbitrarMontgomeryModint&\
-    \ operator--(){\n        (*this)-=1;\n        return *this;\n    }\n    ArbitrarMontgomeryModint\
-    \ operator++(int){\n        (*this)+=1;\n        return *this;\n    }\n    ArbitrarMontgomeryModint\
+    \ &os,ArbitraryMontgomeryModint &b){\n        return os<<b.val();\n    }\n   \
+    \ ArbitraryMontgomeryModint operator+()noexcept{return *this;}\n    ArbitraryMontgomeryModint\
+    \ operator-()noexcept{return ArbitraryMontgomeryModint()-(*this);}\n    friend\
+    \ ArbitraryMontgomeryModint operator+(ArbitraryMontgomeryModint lhs,ArbitraryMontgomeryModint\
+    \ rhs)noexcept{\n        return ArbitraryMontgomeryModint(lhs)+=rhs;\n    }\n\
+    \    friend ArbitraryMontgomeryModint operator-(ArbitraryMontgomeryModint lhs,ArbitraryMontgomeryModint\
+    \ rhs)noexcept{\n        return ArbitraryMontgomeryModint(lhs)-=rhs;\n    }\n\
+    \    friend ArbitraryMontgomeryModint operator*(ArbitraryMontgomeryModint lhs,ArbitraryMontgomeryModint\
+    \ rhs)noexcept{\n        return ArbitraryMontgomeryModint(lhs)*=rhs;\n    }\n\
+    \    friend ArbitraryMontgomeryModint operator/(ArbitraryMontgomeryModint lhs,ArbitraryMontgomeryModint\
+    \ rhs){\n        return ArbitraryMontgomeryModint(lhs)/=rhs;\n    }\n    ArbitraryMontgomeryModint\
+    \ operator+=(ArbitraryMontgomeryModint rhs)noexcept{\n        x+=rhs.x;\n    \
+    \    if(x>=N)x-=N;\n        return *this;\n    }\n    ArbitraryMontgomeryModint\
+    \ operator-=(ArbitraryMontgomeryModint rhs)noexcept{\n        x-=rhs.x;\n    \
+    \    if(x<0)x+=N;\n        return *this;\n    }\n    ArbitraryMontgomeryModint\
+    \ operator*=(ArbitraryMontgomeryModint rhs)noexcept{\n        x=_reduction(x*rhs.x);\n\
+    \        return *this;\n    }\n    ArbitraryMontgomeryModint operator/=(ArbitraryMontgomeryModint\
+    \ rhs){\n        (*this)*=rhs.inv();\n        return *this;\n    }\n    ArbitraryMontgomeryModint&\
+    \ operator++(){\n        (*this)+=1;\n        return *this;\n    }\n    ArbitraryMontgomeryModint&\
+    \ operator--(){\n        (*this)-=1;\n        return *this;\n    }\n    ArbitraryMontgomeryModint\
+    \ operator++(int){\n        (*this)+=1;\n        return *this;\n    }\n    ArbitraryMontgomeryModint\
     \ operator--(int){\n        (*this)-=1;\n        return *this;\n    }\n    bool\
-    \ operator==(ArbitrarMontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
-    \    }\n    bool operator!=(ArbitrarMontgomeryModint rhs)noexcept{\n        return\
-    \ (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    ArbitrarMontgomeryModint\
-    \ inv(){\n        ArbitrarMontgomeryModint ret=(*this).pow(inv_power);\n     \
-    \   assert(ret*(*this)==1);\n        return ret;\n    }\n    ArbitrarMontgomeryModint\
-    \ pow(uint64_t x)noexcept{\n        ArbitrarMontgomeryModint ret=1;\n        ArbitrarMontgomeryModint\
-    \ bin=(*this);\n        while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n\
-    \            x>>=1;\n        }\n        return ret;\n    }\n};\ntemplate<int id>uint64_t\
-    \ ArbitrarMontgomeryModint<id>::N;\ntemplate<int id>uint64_t ArbitrarMontgomeryModint<id>::R;\n\
-    template<int id>uint64_t ArbitrarMontgomeryModint<id>::Nd;\ntemplate<int id>uint64_t\
-    \ ArbitrarMontgomeryModint<id>::Rr;\ntemplate<int id>uint64_t ArbitrarMontgomeryModint<id>::MASK;\n\
-    template<int id>uint32_t ArbitrarMontgomeryModint<id>::inv_power;\n\ntemplate<uint32_t\
-    \ N> inline void print(MontgomeryModint<N> a){ cout << a; }\ntemplate<int32_t\
-    \ id> inline void print(ArbitrarMontgomeryModint<id> a){ cout << a; }\n#line 4\
-    \ \"Verify/verify-yuki/yuki-336.test.cpp\"\nusing mint=MontgomeryModint<MODD>;\n\
-    void solve(){\n    LL(N);\n    if(N<=2){\n        out(0);return;\n    }\n    vec(mint,dp,1,2);\n\
-    \    rep(i,1,N){\n        vec(mint,ndp,i+1,0);\n        if(i&1){\n           \
-    \ mint now=0;\n            rep(j,i){\n                now+=dp[j];\n          \
-    \      ndp[j+1]=now;\n            }\n        }\n        else{\n            mint\
-    \ now=0;\n            rrep(j,i){\n                now+=dp[j];\n              \
-    \  ndp[j]=now;\n            }\n        }\n        dp=move(ndp);\n    }\n    mint\
-    \ ans=0;\n    each(i,dp){\n        ans+=i;\n    }\n    out(ans);\n}\nint main(){\n\
-    \    solve();\n    return 0;\n}\n"
+    \ operator==(ArbitraryMontgomeryModint rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n\
+    \    }\n    bool operator!=(ArbitraryMontgomeryModint rhs)noexcept{\n        return\
+    \ (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    ArbitraryMontgomeryModint\
+    \ inv(){\n        ArbitraryMontgomeryModint ret=(*this).pow(inv_power);\n    \
+    \    assert(ret*(*this)==1);\n        return ret;\n    }\n    ArbitraryMontgomeryModint\
+    \ pow(uint64_t x)noexcept{\n        ArbitraryMontgomeryModint ret=1;\n       \
+    \ ArbitraryMontgomeryModint bin=(*this);\n        while(x){\n            if(x&1)ret*=bin;\n\
+    \            bin*=bin;\n            x>>=1;\n        }\n        return ret;\n \
+    \   }\n};\ntemplate<int id>uint64_t ArbitraryMontgomeryModint<id>::N;\ntemplate<int\
+    \ id>uint64_t ArbitraryMontgomeryModint<id>::R;\ntemplate<int id>uint64_t ArbitraryMontgomeryModint<id>::Nd;\n\
+    template<int id>uint64_t ArbitraryMontgomeryModint<id>::Rr;\ntemplate<int id>uint64_t\
+    \ ArbitraryMontgomeryModint<id>::MASK;\ntemplate<int id>uint32_t ArbitraryMontgomeryModint<id>::inv_power;\n\
+    \ntemplate<uint32_t N> inline void print(MontgomeryModint<N> a){ cout << a; }\n\
+    template<int32_t id> inline void print(ArbitraryMontgomeryModint<id> a){ cout\
+    \ << a; }\n#line 4 \"Verify/verify-yuki/yuki_336-montgomery.test.cpp\"\nusing\
+    \ mint=MontgomeryModint<MODD>;\nvoid solve(){\n    LL(N);\n    if(N<=2){\n   \
+    \     out(0);return;\n    }\n    vec(mint,dp,1,2);\n    rep(i,1,N){\n        vec(mint,ndp,i+1,0);\n\
+    \        if(i&1){\n            mint now=0;\n            rep(j,i){\n          \
+    \      now+=dp[j];\n                ndp[j+1]=now;\n            }\n        }\n\
+    \        else{\n            mint now=0;\n            rrep(j,i){\n            \
+    \    now+=dp[j];\n                ndp[j]=now;\n            }\n        }\n    \
+    \    dp=move(ndp);\n    }\n    mint ans=0;\n    each(i,dp){\n        ans+=i;\n\
+    \    }\n    out(ans);\n}\nint main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://yukicoder.me/problems/no/336\"\n#include\"../../Template.hpp\"\
     \n#include\"../../Math/MontgomeryModint.hpp\"\nusing mint=MontgomeryModint<MODD>;\n\
     void solve(){\n    LL(N);\n    if(N<=2){\n        out(0);return;\n    }\n    vec(mint,dp,1,2);\n\
@@ -224,15 +225,15 @@ data:
   - Template.hpp
   - Math/MontgomeryModint.hpp
   isVerificationFile: true
-  path: Verify/verify-yuki/yuki-336.test.cpp
+  path: Verify/verify-yuki/yuki_336-montgomery.test.cpp
   requiredBy: []
-  timestamp: '2024-03-10 15:07:43+09:00'
+  timestamp: '2024-03-11 18:45:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yuki/yuki-336.test.cpp
+documentation_of: Verify/verify-yuki/yuki_336-montgomery.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yuki/yuki-336.test.cpp
-- /verify/Verify/verify-yuki/yuki-336.test.cpp.html
-title: Verify/verify-yuki/yuki-336.test.cpp
+- /verify/Verify/verify-yuki/yuki_336-montgomery.test.cpp
+- /verify/Verify/verify-yuki/yuki_336-montgomery.test.cpp.html
+title: Verify/verify-yuki/yuki_336-montgomery.test.cpp
 ---

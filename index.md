@@ -11,6 +11,9 @@ data:
       title: DataStructure/Hashmap.hpp
   - name: Math
     pages:
+    - icon: ':x:'
+      path: Math/BarrettModint.hpp
+      title: Math/BarrettModint.hpp
     - icon: ':heavy_check_mark:'
       path: Math/MontgomeryModint.hpp
       title: Math/MontgomeryModint.hpp
@@ -27,7 +30,7 @@ data:
       title: String/Z_algorithm.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template.hpp
       title: Template.hpp
   verificationCategories:
@@ -68,12 +71,18 @@ data:
       title: Verify/verify-yosupo-string/zalgorithm.test.cpp
   - name: Verify/verify-yuki
     pages:
+    - icon: ':x:'
+      path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
+      title: Verify/verify-yuki/yuki_1092-barrett.test.cpp
     - icon: ':heavy_check_mark:'
-      path: Verify/verify-yuki/yuki-1092.test.cpp
-      title: Verify/verify-yuki/yuki-1092.test.cpp
+      path: Verify/verify-yuki/yuki_1092-montgomery.test.cpp
+      title: Verify/verify-yuki/yuki_1092-montgomery.test.cpp
+    - icon: ':x:'
+      path: Verify/verify-yuki/yuki_336-barrett.test.cpp
+      title: Verify/verify-yuki/yuki_336-barrett.test.cpp
     - icon: ':heavy_check_mark:'
-      path: Verify/verify-yuki/yuki-336.test.cpp
-      title: Verify/verify-yuki/yuki-336.test.cpp
+      path: Verify/verify-yuki/yuki_336-montgomery.test.cpp
+      title: Verify/verify-yuki/yuki_336-montgomery.test.cpp
 layout: toppage
 ---
 [![hirayuu_At](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fhirayuu_At)](https://atcoder.jp/users/hirayuu_At)
