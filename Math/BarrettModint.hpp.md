@@ -3,18 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-    title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
     title: Verify/verify-yuki/yuki_1092-barrett.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_336-barrett.test.cpp
     title: Verify/verify-yuki/yuki_336-barrett.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Math/BarrettModint.hpp\"\ntemplate<uint32_t N>\nstruct BarrettModint{\n\
@@ -26,7 +23,7 @@ data:
     \    return ret;\n    }\n    static constexpr uint64_t Nr=(-1ULL)/N+1;\n    static\
     \ constexpr uint32_t inv_power=_phi()-1;\n    static_assert(1<N);\n    static_assert(N<(1<<30));\n\
     \    int64_t x;\n    constexpr uint32_t mod(){\n        return N;\n    }\n   \
-    \ constexpr int64_t _get_mod(int64_t x){\n        uint64_t ret=((unsigned __int128_t)x*Nr)>>64;\n\
+    \ constexpr int64_t _get_mod(int64_t x){\n        uint64_t ret=((unsigned __int128)x*Nr)>>64;\n\
     \        if(x-ret*N<0){\n            return x-(ret-1)*N;\n        }\n        return\
     \ x-ret*N;\n    }\n    constexpr BarrettModint()noexcept{\n        x=0;\n    }\n\
     \    constexpr BarrettModint(int64_t val)noexcept{\n        x=((val%N)+N)%N;\n\
@@ -69,7 +66,7 @@ data:
     \ set_mod(uint32_t mod){\n        N=mod;\n        Nr=(-1ULL)/N+1;\n        inv_power=_phi(N)-1;\n\
     \        assert(1<mod);\n        assert(mod<(1<<30));\n    }\n    uint32_t mod(){\n\
     \        return N;\n    }\n    int64_t _get_mod(int64_t x){\n        uint64_t\
-    \ ret=((unsigned __int128_t)x*Nr)>>64;\n        if(x-ret*N<0){\n            return\
+    \ ret=((unsigned __int128)x*Nr)>>64;\n        if(x-ret*N<0){\n            return\
     \ x-(ret-1)*N;\n        }\n        return x-ret*N;\n    }\n    ArbitraryBarrettModint()noexcept{\n\
     \        x=0;\n    }\n    ArbitraryBarrettModint(int64_t val)noexcept{\n     \
     \   x=((val%N)+N)%N;\n    }\n    uint64_t val()noexcept{\n        return x;\n\
@@ -116,7 +113,7 @@ data:
     \    return ret;\n    }\n    static constexpr uint64_t Nr=(-1ULL)/N+1;\n    static\
     \ constexpr uint32_t inv_power=_phi()-1;\n    static_assert(1<N);\n    static_assert(N<(1<<30));\n\
     \    int64_t x;\n    constexpr uint32_t mod(){\n        return N;\n    }\n   \
-    \ constexpr int64_t _get_mod(int64_t x){\n        uint64_t ret=((unsigned __int128_t)x*Nr)>>64;\n\
+    \ constexpr int64_t _get_mod(int64_t x){\n        uint64_t ret=((unsigned __int128)x*Nr)>>64;\n\
     \        if(x-ret*N<0){\n            return x-(ret-1)*N;\n        }\n        return\
     \ x-ret*N;\n    }\n    constexpr BarrettModint()noexcept{\n        x=0;\n    }\n\
     \    constexpr BarrettModint(int64_t val)noexcept{\n        x=((val%N)+N)%N;\n\
@@ -159,7 +156,7 @@ data:
     \ set_mod(uint32_t mod){\n        N=mod;\n        Nr=(-1ULL)/N+1;\n        inv_power=_phi(N)-1;\n\
     \        assert(1<mod);\n        assert(mod<(1<<30));\n    }\n    uint32_t mod(){\n\
     \        return N;\n    }\n    int64_t _get_mod(int64_t x){\n        uint64_t\
-    \ ret=((unsigned __int128_t)x*Nr)>>64;\n        if(x-ret*N<0){\n            return\
+    \ ret=((unsigned __int128)x*Nr)>>64;\n        if(x-ret*N<0){\n            return\
     \ x-(ret-1)*N;\n        }\n        return x-ret*N;\n    }\n    ArbitraryBarrettModint()noexcept{\n\
     \        x=0;\n    }\n    ArbitraryBarrettModint(int64_t val)noexcept{\n     \
     \   x=((val%N)+N)%N;\n    }\n    uint64_t val()noexcept{\n        return x;\n\
@@ -201,12 +198,11 @@ data:
   isVerificationFile: false
   path: Math/BarrettModint.hpp
   requiredBy: []
-  timestamp: '2024-03-11 18:45:54+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-03-11 19:37:53+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yuki/yuki_336-barrett.test.cpp
   - Verify/verify-yuki/yuki_1092-barrett.test.cpp
-  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
 documentation_of: Math/BarrettModint.hpp
 layout: document
 redirect_from:

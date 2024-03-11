@@ -9,7 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -30,21 +30,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-string/zalgorithm.test.cpp
     title: Verify/verify-yosupo-string/zalgorithm.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
     title: Verify/verify-yuki/yuki_1092-barrett.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_1092-montgomery.test.cpp
     title: Verify/verify-yuki/yuki_1092-montgomery.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_336-barrett.test.cpp
     title: Verify/verify-yuki/yuki_336-barrett.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_336-montgomery.test.cpp
     title: Verify/verify-yuki/yuki_336-montgomery.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://tatyam.hatenablog.com/entry/2019/12/15/003634
@@ -521,7 +521,7 @@ data:
   path: Template.hpp
   requiredBy: []
   timestamp: '2024-03-08 20:45:00+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
