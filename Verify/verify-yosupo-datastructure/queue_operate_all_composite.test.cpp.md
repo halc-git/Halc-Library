@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: DataStructure/FoldableDeque.hpp
     title: DataStructure/FoldableDeque.hpp
   - icon: ':heavy_check_mark:'

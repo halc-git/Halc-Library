@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: DataStructure/FoldableDeque.hpp
       title: DataStructure/FoldableDeque.hpp
     - icon: ':heavy_check_mark:'
@@ -44,7 +44,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
       title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'

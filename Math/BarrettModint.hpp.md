@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
+    path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+  - icon: ':x:'
     path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
     title: Verify/verify-yuki/yuki_1092-barrett.test.cpp
   - icon: ':x:'
@@ -203,6 +206,7 @@ data:
   verifiedWith:
   - Verify/verify-yuki/yuki_336-barrett.test.cpp
   - Verify/verify-yuki/yuki_1092-barrett.test.cpp
+  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
 documentation_of: Math/BarrettModint.hpp
 layout: document
 redirect_from:

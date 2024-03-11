@@ -4,9 +4,6 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-    title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -244,7 +241,6 @@ data:
   - Verify/verify-yuki/yuki_1092-montgomery.test.cpp
   - Verify/verify-yuki/yuki_336-montgomery.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
 documentation_of: Math/MontgomeryModint.hpp
 layout: document
 redirect_from:
