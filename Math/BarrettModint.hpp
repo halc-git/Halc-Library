@@ -25,8 +25,8 @@ struct BarrettModint{
     constexpr uint32_t mod(){
         return N;
     }
-    constexpr int64_t _mul(uint64_t x,uint64_t y){
-        uint64_t ret=((unsigned __int128)x*y*Nr)>>64;
+    constexpr int64_t _get_mod(uint64_t x){
+        uint64_t ret=((unsigned __int128)x*Nr)>>64;
         if(x-ret*N<0){
             return x-(ret-1)*N;
         }
@@ -69,7 +69,7 @@ struct BarrettModint{
         return *this;
     }
     constexpr BarrettModint operator*=(BarrettModint rhs)noexcept{
-        x=_mul(x,rhs.x);
+        x=_get_mod(x*rhs.x);
         return *this;
     }
     constexpr BarrettModint operator/=(BarrettModint rhs){
@@ -145,8 +145,8 @@ struct ArbitraryBarrettModint{
     uint32_t mod(){
         return N;
     }
-    int64_t _mul(uint64_t x,uint64_t y){
-        uint64_t ret=((unsigned __int128)x*y*Nr)>>64;
+    int64_t _get_mod(uint64_t x){
+        uint64_t ret=((unsigned __int128)x*Nr)>>64;
         if(x-ret*N<0){
             return x-(ret-1)*N;
         }
@@ -189,7 +189,7 @@ struct ArbitraryBarrettModint{
         return *this;
     }
     ArbitraryBarrettModint operator*=(ArbitraryBarrettModint rhs)noexcept{
-        x=_mul(x,rhs.x);
+        x=_get_mod(x*rhs.x);
         return *this;
     }
     ArbitraryBarrettModint operator/=(ArbitraryBarrettModint rhs){
