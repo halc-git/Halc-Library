@@ -11,7 +11,7 @@ data:
       title: DataStructure/Hashmap.hpp
   - name: Math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Math/BarrettModint.hpp
       title: Math/BarrettModint.hpp
     - icon: ':heavy_check_mark:'
@@ -30,7 +30,7 @@ data:
       title: String/Z_algorithm.hpp
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template.hpp
       title: Template.hpp
   verificationCategories:
@@ -71,7 +71,7 @@ data:
       title: Verify/verify-yosupo-string/zalgorithm.test.cpp
   - name: Verify/verify-yuki
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
       title: Verify/verify-yuki/yuki_1092-barrett.test.cpp
     - icon: ':heavy_check_mark:'

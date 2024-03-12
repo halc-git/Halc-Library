@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
     title: Verify/verify-yuki/yuki_1092-barrett.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_336-barrett.test.cpp
     title: Verify/verify-yuki/yuki_336-barrett.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Math/BarrettModint.hpp\"\ntemplate<uint32_t N>\nstruct BarrettModint{\n\
@@ -23,7 +23,7 @@ data:
     \    return ret;\n    }\n    static constexpr uint64_t Nr=(-1ULL)/N+1;\n    static\
     \ constexpr uint32_t inv_power=_phi()-1;\n    static_assert(1<N);\n    static_assert(N<(1<<30));\n\
     \    int64_t x;\n    constexpr uint32_t mod(){\n        return N;\n    }\n   \
-    \ constexpr int64_t _get_mod(uint64_t x){\n        uint64_t ret=((unsigned __int128)x*Nr)>>64;\n\
+    \ constexpr int64_t _get_mod(int64_t x){\n        uint64_t ret=((unsigned __int128)x*Nr)>>64;\n\
     \        if(x-ret*N<0){\n            return x-(ret-1)*N;\n        }\n        return\
     \ x-ret*N;\n    }\n    constexpr BarrettModint()noexcept{\n        x=0;\n    }\n\
     \    constexpr BarrettModint(int64_t val)noexcept{\n        x=((val%N)+N)%N;\n\
@@ -65,7 +65,7 @@ data:
     \ uint64_t N,Nr;\n    static uint32_t inv_power;\n    int64_t x;\n    static void\
     \ set_mod(uint32_t mod){\n        N=mod;\n        Nr=(-1ULL)/N+1;\n        inv_power=_phi(N)-1;\n\
     \        assert(1<mod);\n        assert(mod<(1<<30));\n    }\n    uint32_t mod(){\n\
-    \        return N;\n    }\n    int64_t _get_mod(uint64_t x){\n        uint64_t\
+    \        return N;\n    }\n    int64_t _get_mod(int64_t x){\n        uint64_t\
     \ ret=((unsigned __int128)x*Nr)>>64;\n        if(x-ret*N<0){\n            return\
     \ x-(ret-1)*N;\n        }\n        return x-ret*N;\n    }\n    ArbitraryBarrettModint()noexcept{\n\
     \        x=0;\n    }\n    ArbitraryBarrettModint(int64_t val)noexcept{\n     \
@@ -113,7 +113,7 @@ data:
     \    return ret;\n    }\n    static constexpr uint64_t Nr=(-1ULL)/N+1;\n    static\
     \ constexpr uint32_t inv_power=_phi()-1;\n    static_assert(1<N);\n    static_assert(N<(1<<30));\n\
     \    int64_t x;\n    constexpr uint32_t mod(){\n        return N;\n    }\n   \
-    \ constexpr int64_t _get_mod(uint64_t x){\n        uint64_t ret=((unsigned __int128)x*Nr)>>64;\n\
+    \ constexpr int64_t _get_mod(int64_t x){\n        uint64_t ret=((unsigned __int128)x*Nr)>>64;\n\
     \        if(x-ret*N<0){\n            return x-(ret-1)*N;\n        }\n        return\
     \ x-ret*N;\n    }\n    constexpr BarrettModint()noexcept{\n        x=0;\n    }\n\
     \    constexpr BarrettModint(int64_t val)noexcept{\n        x=((val%N)+N)%N;\n\
@@ -155,7 +155,7 @@ data:
     \ uint64_t N,Nr;\n    static uint32_t inv_power;\n    int64_t x;\n    static void\
     \ set_mod(uint32_t mod){\n        N=mod;\n        Nr=(-1ULL)/N+1;\n        inv_power=_phi(N)-1;\n\
     \        assert(1<mod);\n        assert(mod<(1<<30));\n    }\n    uint32_t mod(){\n\
-    \        return N;\n    }\n    int64_t _get_mod(uint64_t x){\n        uint64_t\
+    \        return N;\n    }\n    int64_t _get_mod(int64_t x){\n        uint64_t\
     \ ret=((unsigned __int128)x*Nr)>>64;\n        if(x-ret*N<0){\n            return\
     \ x-(ret-1)*N;\n        }\n        return x-ret*N;\n    }\n    ArbitraryBarrettModint()noexcept{\n\
     \        x=0;\n    }\n    ArbitraryBarrettModint(int64_t val)noexcept{\n     \
@@ -198,8 +198,8 @@ data:
   isVerificationFile: false
   path: Math/BarrettModint.hpp
   requiredBy: []
-  timestamp: '2024-03-12 18:43:06+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-03-12 18:53:23+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yuki/yuki_336-barrett.test.cpp
   - Verify/verify-yuki/yuki_1092-barrett.test.cpp
