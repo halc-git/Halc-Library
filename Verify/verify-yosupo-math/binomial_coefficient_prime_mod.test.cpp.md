@@ -4,33 +4,37 @@ data:
   - icon: ':question:'
     path: Math/BarrettModint.hpp
     title: Math/BarrettModint.hpp
+  - icon: ':x:'
+    path: Math/BinomialCoefficient_Primemod.hpp
+    title: Math/BinomialCoefficient_Primemod.hpp
   - icon: ':question:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/336
+    PROBLEM: https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
     links:
-    - https://yukicoder.me/problems/no/336
-  bundledCode: "#line 1 \"Verify/verify-yuki/yuki_336-barrett.test.cpp\"\n#define\
-    \ PROBLEM \"https://yukicoder.me/problems/no/336\"\n#line 2 \"Template.hpp\"\n\
-    //https://tatyam.hatenablog.com/entry/2019/12/15/003634\n#include<bits/stdc++.h>\n\
-    using namespace std;\nusing ll=long long;\ntemplate<class T> using pq=priority_queue<T,vector<T>,greater<T>>;\n\
-    using pll=pair<ll,ll>;\nconst ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...)\
-    \ name\n#define _overload4(_1,_2,_3,_4,name,...) name\n#define _rep1(i,n) for(ll\
-    \ i=0; i<(n); i++)\n#define _rep2(i,a,b) for(ll i=(a); i<(b); i++)\n#define _rep3(i,a,b,c)\
-    \ for(ll i=(a); i<(b); i+=(c))\n#define rep(...) _overload4(__VA_ARGS__,_rep3,_rep2,_rep1)(__VA_ARGS__)\n\
-    #define _rrep1(i,n) for(ll i=(n); i-->0;)\n#define _rrep2(i,a,b) for(ll i=(b);\
-    \ i-->(a);)\n#define rrep(...) _overload3(__VA_ARGS__,_rrep2,_rrep1)(__VA_ARGS__)\n\
-    #define each(i,...) for(auto&& i:__VA_ARGS__)\n#define all(i) begin(i),end(i)\n\
-    #define rall(i) rbegin(i),rend(i)\ntemplate<class T> bool chmin(T &a,const T &b){if(a>b){a=b;return\
-    \ true;}else return false;}\ntemplate<class T> bool chmax(T &a,const T &b){if(a<b){a=b;return\
-    \ true;}else return false;}\ntemplate<class T> ll sum(const T &a){return accumulate(all(a),0LL);}\n\
+    - https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
+  bundledCode: "#line 1 \"Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
+    \n#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
+    #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
+    \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
+    const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
+    \ name\n#define _rep1(i,n) for(ll i=0; i<(n); i++)\n#define _rep2(i,a,b) for(ll\
+    \ i=(a); i<(b); i++)\n#define _rep3(i,a,b,c) for(ll i=(a); i<(b); i+=(c))\n#define\
+    \ rep(...) _overload4(__VA_ARGS__,_rep3,_rep2,_rep1)(__VA_ARGS__)\n#define _rrep1(i,n)\
+    \ for(ll i=(n); i-->0;)\n#define _rrep2(i,a,b) for(ll i=(b); i-->(a);)\n#define\
+    \ rrep(...) _overload3(__VA_ARGS__,_rrep2,_rrep1)(__VA_ARGS__)\n#define each(i,...)\
+    \ for(auto&& i:__VA_ARGS__)\n#define all(i) begin(i),end(i)\n#define rall(i) rbegin(i),rend(i)\n\
+    template<class T> bool chmin(T &a,const T &b){if(a>b){a=b;return true;}else return\
+    \ false;}\ntemplate<class T> bool chmax(T &a,const T &b){if(a<b){a=b;return true;}else\
+    \ return false;}\ntemplate<class T> ll sum(const T &a){return accumulate(all(a),0LL);}\n\
     template<class T> auto min(const T &a){return *min_element(all(a));}\ntemplate<class\
     \ T> auto max(const T &a){return *max_element(all(a));}\ninline int scan(){ return\
     \ getchar(); }\ninline void scan(int &a){ scanf(\"%d\", &a); }\ninline void scan(unsigned\
@@ -186,39 +190,41 @@ data:
     \ ArbitraryBarrettModint<id>::N;\ntemplate<int id>uint64_t ArbitraryBarrettModint<id>::Nr;\n\
     template<int id>uint32_t ArbitraryBarrettModint<id>::inv_power;\n\ntemplate<uint32_t\
     \ N> inline void print(BarrettModint<N> a){ cout << a; }\ntemplate<int32_t id>\
-    \ inline void print(ArbitraryBarrettModint<id> a){ cout << a; }\n#line 4 \"Verify/verify-yuki/yuki_336-barrett.test.cpp\"\
-    \nusing mint=BarrettModint<MODD>;\nvoid solve(){\n    LL(N);\n    if(N<=2){\n\
-    \        out(0);return;\n    }\n    vec(mint,dp,1,2);\n    rep(i,1,N){\n     \
-    \   vec(mint,ndp,i+1,0);\n        if(i&1){\n            mint now=0;\n        \
-    \    rep(j,i){\n                now+=dp[j];\n                ndp[j+1]=now;\n \
-    \           }\n        }\n        else{\n            mint now=0;\n           \
-    \ rrep(j,i){\n                now+=dp[j];\n                ndp[j]=now;\n     \
-    \       }\n        }\n        dp=move(ndp);\n    }\n    mint ans=0;\n    each(i,dp){\n\
-    \        ans+=i;\n    }\n    out(ans);\n}\nint main(){\n    solve();\n    return\
-    \ 0;\n}\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/336\"\n#include\"../../Template.hpp\"\
-    \n#include\"../../Math/BarrettModint.hpp\"\nusing mint=BarrettModint<MODD>;\n\
-    void solve(){\n    LL(N);\n    if(N<=2){\n        out(0);return;\n    }\n    vec(mint,dp,1,2);\n\
-    \    rep(i,1,N){\n        vec(mint,ndp,i+1,0);\n        if(i&1){\n           \
-    \ mint now=0;\n            rep(j,i){\n                now+=dp[j];\n          \
-    \      ndp[j+1]=now;\n            }\n        }\n        else{\n            mint\
-    \ now=0;\n            rrep(j,i){\n                now+=dp[j];\n              \
-    \  ndp[j]=now;\n            }\n        }\n        dp=move(ndp);\n    }\n    mint\
-    \ ans=0;\n    each(i,dp){\n        ans+=i;\n    }\n    out(ans);\n}\nint main(){\n\
-    \    solve();\n    return 0;\n}"
+    \ inline void print(ArbitraryBarrettModint<id> a){ cout << a; }\n#line 2 \"Math/BinomialCoefficient_Primemod.hpp\"\
+    \ntemplate<typename T>\nstruct BinomialCoefficient_Primemod{\n    vector<T> fact={1},rev{1};\n\
+    \    void resize(uint32_t sz){\n        sz++;\n        if(fact.size()>=sz)return;\n\
+    \        uint32_t before=fact.size();\n        fact.resize(sz);\n        rev.resize(sz);\n\
+    \        for(uint32_t i=before; i<sz; i++){\n            fact[i]=fact[i-1]*i;\n\
+    \            rev[i]=rev[i-1]/i;\n        }\n    }\n    T comb(int32_t n,int32_t\
+    \ k){\n        if(n<0||k<0||n<k)return 0;\n        resize(n);\n        return\
+    \ fact[n]*rev[n-k]*rev[k];\n    }\n    T perm(int32_t n,int32_t k){\n        if(n<0||k<0||n<k)return\
+    \ 0;\n        resize(n);\n        return fact[n]*rev[n-k];\n    }\n    T multi_comb(int32_t\
+    \ n,int32_t k){\n        return comb(n+k-1,k);\n    }\n};\n#line 5 \"Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp\"\
+    \nusing mint=ArbitraryBarrettModint<0>;\nvoid solve(){\n    LL(T,m);\n    mint::set_mod(m);\n\
+    \    BinomialCoefficient_Primemod<mint> comb;\n    comb.resize(min(m-1,10000000LL));\n\
+    \    rep(i,T){\n        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint\
+    \ main(){\n    solve();\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
+    \n#include\"../../Template.hpp\"\n#include\"../../Math/BarrettModint.hpp\"\n#include\"\
+    ../../Math/BinomialCoefficient_Primemod.hpp\"\nusing mint=ArbitraryBarrettModint<0>;\n\
+    void solve(){\n    LL(T,m);\n    mint::set_mod(m);\n    BinomialCoefficient_Primemod<mint>\
+    \ comb;\n    comb.resize(min(m-1,10000000LL));\n    rep(i,T){\n        LL(n,k);\n\
+    \        out(comb.comb(n,k));\n    }\n}\nint main(){\n    solve();\n    return\
+    \ 0;\n}"
   dependsOn:
   - Template.hpp
   - Math/BarrettModint.hpp
+  - Math/BinomialCoefficient_Primemod.hpp
   isVerificationFile: true
-  path: Verify/verify-yuki/yuki_336-barrett.test.cpp
+  path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-03-11 19:37:53+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-03-12 16:50:48+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Verify/verify-yuki/yuki_336-barrett.test.cpp
+documentation_of: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yuki/yuki_336-barrett.test.cpp
-- /verify/Verify/verify-yuki/yuki_336-barrett.test.cpp.html
-title: Verify/verify-yuki/yuki_336-barrett.test.cpp
+- /verify/Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+- /verify/Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp.html
+title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
 ---

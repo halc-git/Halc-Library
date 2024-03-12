@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Verify/verify-yuki/yuki-117.cpp
+    title: Verify/verify-yuki/yuki-117.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -15,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+    title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-sample/aplusb.test.cpp
     title: Verify/verify-yosupo-sample/aplusb.test.cpp
@@ -42,9 +48,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_336-montgomery.test.cpp
     title: Verify/verify-yuki/yuki_336-montgomery.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://tatyam.hatenablog.com/entry/2019/12/15/003634
@@ -519,11 +525,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Template.hpp
-  requiredBy: []
+  requiredBy:
+  - Verify/verify-yuki/yuki-117.cpp
   timestamp: '2024-03-08 20:45:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+  - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   - Verify/verify-yosupo-string/zalgorithm.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp

@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: DataStructure/FoldableDeque.hpp
-    title: DataStructure/FoldableDeque.hpp
+  - icon: ':x:'
+    path: Math/BinomialCoefficient_Primemod.hpp
+    title: Math/BinomialCoefficient_Primemod.hpp
   - icon: ':heavy_check_mark:'
     path: Math/MontgomeryModint.hpp
     title: Math/MontgomeryModint.hpp
@@ -14,14 +14,11 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/deque_operate_all_composite
     links:
-    - https://judge.yosupo.jp/problem/deque_operate_all_composite
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/deque_operate_all_composite\"\
+    - https://yukicoder.me/problems/no/117
+  bundledCode: "#line 1 \"Verify/verify-yuki/yuki-117.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/117\"\
     \n#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
@@ -100,80 +97,26 @@ data:
     ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}\n\
     int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
     \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
-    #define se second\n#line 2 \"DataStructure/FoldableDeque.hpp\"\n//https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\n\
-    template<class M>\nstruct FoldableQueue{\n    using T=typename M::T;\n    stack<T>\
-    \ top,bottom,topfold,bottomfold;\n    FoldableQueue(){\n        topfold.push(M::e);\n\
-    \        bottomfold.push(M::e);\n    }\n    void push(T v){\n        bottom.push(v);\n\
-    \        bottomfold.push(M::op(bottomfold.top(),v));\n    }\n    void pop(){\n\
-    \        if(top.empty()){\n            while(!bottom.empty()){\n             \
-    \   top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),topfold.top()));\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n        }\n        top.pop();\n        topfold.pop();\n    }\n    T front(){\n\
-    \        if(top.empty()){\n            while(!bottom.empty()){\n             \
-    \   top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),topfold.top()));\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n        }\n        return top.top();\n    }\n    T get_all(){\n        return\
-    \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
-    \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\ntemplate<class M>\nstruct FoldableDeque{\n    using T=typename M::T;\n\
-    \    stack<T> top,bottom,topfold,bottomfold;\n    FoldableDeque(){\n        topfold.push(M::e);\n\
-    \        bottomfold.push(M::e);\n    }\n    void push_front(T v){\n        top.push(v);\n\
-    \        topfold.push(M::op(v,topfold.top()));\n    }\n    void push_back(T v){\n\
-    \        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),v));\n\
-    \    }\n    void pop_front(){\n        if(top.empty()){\n            vector<T>\
-    \ change;\n            while(!bottom.empty()){\n                change.emplace_back(bottom.top());\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n            size_t sz=change.size();\n            for(int32_t i=(sz>>1);\
-    \ i>=0; i--){\n                top.push(change[sz-i-1]);\n                topfold.push(M::op(change[sz-i-1],topfold.top()));\n\
-    \            }\n            for(int32_t i=(sz>>1)+1; i<sz; i++){\n           \
-    \     bottom.push(change[sz-i-1]);\n                bottomfold.push(M::op(bottomfold.top(),change[sz-i-1]));\n\
-    \            }\n        }\n        top.pop();\n        topfold.pop();\n    }\n\
-    \    void pop_back(){\n        if(bottom.empty()){\n            vector<T> change;\n\
-    \            while(!top.empty()){\n                change.emplace_back(top.top());\n\
-    \                top.pop();\n                topfold.pop();\n            }\n \
-    \           size_t sz=change.size();\n            for(int32_t i=(sz>>1); i>=0;\
-    \ i--){\n                bottom.push(change[sz-i-1]);\n                bottomfold.push(M::op(bottomfold.top(),change[sz-i-1]));\n\
-    \            }\n            for(int32_t i=(sz>>1)+1; i<sz; i++){\n           \
-    \     top.push(change[sz-i-1]);\n                topfold.push(M::op(change[sz-i-1],topfold.top()));\n\
-    \            }\n        }\n        bottom.pop();\n        bottomfold.pop();\n\
-    \    }\n    T front(){\n        if(top.empty()){\n            vector<T> change;\n\
-    \            while(!bottom.empty()){\n                change.emplace_back(bottom.top());\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n            size_t sz=change.size();\n            for(uint32_t i=(sz>>1);\
-    \ i>=0; i--){\n                top.push(change[i]);\n                topfold.push(M::op(change[i],topfold.top()));\n\
-    \            }\n            for(uint32_t i=(sz>>1)+1; i<sz; i++){\n          \
-    \      bottom.push(change[i]);\n                bottomfold.push(M::op(bottomfold.top(),change[i]));\n\
-    \            }\n        }\n        return top.top();\n    }\n    T back(){\n \
-    \       if(bottom.empty()){\n            vector<T> change;\n            while(!top.empty()){\n\
-    \                change.emplace_back(top.top());\n                top.pop();\n\
-    \                topfold.pop();\n            }\n            size_t sz=change.size();\n\
-    \            for(uint32_t i=(sz>>1); i>=0; i--){\n                bottom.push(change[i]);\n\
-    \                bottomfold.push(M::op(bottomfold.top(),change[i]));\n       \
-    \     }\n            for(uint32_t i=(sz>>1)+1; i<sz; i++){\n                top.push(change[i]);\n\
-    \                topfold.push(M::op(change[i],topfold.top()));\n            }\n\
-    \        }\n        return bottom.top();\n    }\n    T get_all(){\n        return\
-    \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
-    \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\n#line 2 \"Math/MontgomeryModint.hpp\"\ntemplate<uint32_t N>\nstruct\
-    \ MontgomeryModint{\n    static constexpr uint64_t _rev(){\n        uint64_t Nd=0;\n\
-    \        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n        uint64_t i=1;\n\
-    \        while(r){\n            if(!(t&1)){\n                t+=N;\n         \
-    \       Nd+=i;\n            }\n            t>>=1;\n            r>>=1;\n      \
-    \      i<<=1;\n        }\n        return Nd;\n    }\n    static constexpr uint32_t\
-    \ _phi(){\n        uint32_t prime_fact=N;\n        uint32_t ret=N;\n        for(int\
-    \ i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n             \
-    \   ret-=ret/i;\n                while(prime_fact%i==0){\n                   \
-    \ prime_fact/=i;\n                }\n            }\n        }\n        if(prime_fact!=1){\n\
-    \            ret-=ret/prime_fact;\n        }\n        return ret;\n    }\n   \
-    \ static constexpr uint64_t R=(1ULL<<32);\n    static constexpr uint64_t Nd=_rev();\n\
-    \    static constexpr uint64_t Rr=(Nd*N+1)>>32;\n    static constexpr uint64_t\
-    \ MASK=R-1;\n    static constexpr uint32_t inv_power=_phi()-1;\n    static_assert(1<N);\n\
-    \    static_assert(N<(1<<30));\n    static_assert(N&1);\n    int64_t x;\n    constexpr\
-    \ uint32_t mod(){\n        return N;\n    }\n    constexpr MontgomeryModint()noexcept{\n\
-    \        x=0;\n    }\n    constexpr MontgomeryModint(int64_t val)noexcept{\n \
-    \       x=(((val%N)+N)%N<<32)%N;\n    }\n    constexpr uint64_t _reduction(uint64_t\
-    \ val)noexcept{\n        uint64_t ret=(val+(((val&MASK)*Nd)&MASK)*N)>>32;\n  \
-    \      if(ret>=N)return ret-N;\n        return ret;\n    }\n    constexpr uint64_t\
+    #define se second\n#line 2 \"Math/MontgomeryModint.hpp\"\ntemplate<uint32_t N>\n\
+    struct MontgomeryModint{\n    static constexpr uint64_t _rev(){\n        uint64_t\
+    \ Nd=0;\n        uint64_t t=0;\n        uint64_t r=1ULL<<32;\n        uint64_t\
+    \ i=1;\n        while(r){\n            if(!(t&1)){\n                t+=N;\n  \
+    \              Nd+=i;\n            }\n            t>>=1;\n            r>>=1;\n\
+    \            i<<=1;\n        }\n        return Nd;\n    }\n    static constexpr\
+    \ uint32_t _phi(){\n        uint32_t prime_fact=N;\n        uint32_t ret=N;\n\
+    \        for(int i=2; i*i<prime_fact; i++){\n            if(prime_fact%i==0){\n\
+    \                ret-=ret/i;\n                while(prime_fact%i==0){\n      \
+    \              prime_fact/=i;\n                }\n            }\n        }\n \
+    \       if(prime_fact!=1){\n            ret-=ret/prime_fact;\n        }\n    \
+    \    return ret;\n    }\n    static constexpr uint64_t R=(1ULL<<32);\n    static\
+    \ constexpr uint64_t Nd=_rev();\n    static constexpr uint64_t Rr=(Nd*N+1)>>32;\n\
+    \    static constexpr uint64_t MASK=R-1;\n    static constexpr uint32_t inv_power=_phi()-1;\n\
+    \    static_assert(1<N);\n    static_assert(N<(1<<30));\n    static_assert(N&1);\n\
+    \    int64_t x;\n    constexpr uint32_t mod(){\n        return N;\n    }\n   \
+    \ constexpr MontgomeryModint()noexcept{\n        x=0;\n    }\n    constexpr MontgomeryModint(int64_t\
+    \ val)noexcept{\n        x=(((val%N)+N)%N<<32)%N;\n    }\n    constexpr uint64_t\
+    \ _reduction(uint64_t val)noexcept{\n        uint64_t ret=(val+(((val&MASK)*Nd)&MASK)*N)>>32;\n\
+    \        if(ret>=N)return ret-N;\n        return ret;\n    }\n    constexpr uint64_t\
     \ val()noexcept{\n        return _reduction(x);\n    }\n    friend ostream &operator<<(ostream\
     \ &os,MontgomeryModint &b){\n        return os<<b.val();\n    }\n    constexpr\
     \ MontgomeryModint operator+()noexcept{return *this;}\n    constexpr MontgomeryModint\
@@ -260,44 +203,50 @@ data:
     \ ArbitraryMontgomeryModint<id>::MASK;\ntemplate<int id>uint32_t ArbitraryMontgomeryModint<id>::inv_power;\n\
     \ntemplate<uint32_t N> inline void print(MontgomeryModint<N> a){ cout << a; }\n\
     template<int32_t id> inline void print(ArbitraryMontgomeryModint<id> a){ cout\
-    \ << a; }\n#line 5 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
-    \nusing mint=MontgomeryModint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n\
-    \    static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
-    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite>\
-    \ deq;\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n\
-    \            deq.push_front(pll(a,b));\n        }\n        if(t==1){\n       \
-    \     LL(a,b);\n            deq.push_back(pll(a,b));\n        }\n        if(t==2){\n\
-    \            deq.pop_front();\n        }\n        if(t==3){\n            deq.pop_back();\n\
-    \        }\n        if(t==4){\n            LL(x);\n            pair<mint,mint>\
-    \ ope=deq.get_all();\n            out(ope.fi*x+ope.se);\n        }\n    }\n}\n\
-    int main(){\n    solve();\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/deque_operate_all_composite\"\
-    \n#include\"../../Template.hpp\"\n#include\"../../DataStructure/FoldableDeque.hpp\"\
-    \n#include\"../../Math/MontgomeryModint.hpp\"\nusing mint=MontgomeryModint<MOD>;\n\
-    struct composite{\n    using T=pair<mint,mint>;\n    static T op(T lf,T ri){\n\
-    \        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n    }\n    static inline T\
-    \ e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite> deq;\n\
-    \    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n    \
-    \        deq.push_front(pll(a,b));\n        }\n        if(t==1){\n           \
-    \ LL(a,b);\n            deq.push_back(pll(a,b));\n        }\n        if(t==2){\n\
-    \            deq.pop_front();\n        }\n        if(t==3){\n            deq.pop_back();\n\
-    \        }\n        if(t==4){\n            LL(x);\n            pair<mint,mint>\
-    \ ope=deq.get_all();\n            out(ope.fi*x+ope.se);\n        }\n    }\n}\n\
-    int main(){\n    solve();\n    return 0;\n}"
+    \ << a; }\n#line 2 \"Math/BinomialCoefficient_Primemod.hpp\"\ntemplate<typename\
+    \ T>\nstruct BinomialCoefficient_Primemod{\n    vector<T> fact={1},rev{1};\n \
+    \   void resize(uint32_t sz){\n        sz++;\n        if(fact.size()>=sz)return;\n\
+    \        uint32_t before=fact.size();\n        fact.resize(sz);\n        rev.resize(sz);\n\
+    \        for(uint32_t i=before; i<sz; i++){\n            fact[i]=fact[i-1]*i;\n\
+    \            rev[i]=rev[i-1]/i;\n        }\n    }\n    T comb(int32_t n,int32_t\
+    \ k){\n        if(n<0||k<0||n<k)return 0;\n        resize(n);\n        return\
+    \ fact[n]*rev[n-k]*rev[k];\n    }\n    T perm(int32_t n,int32_t k){\n        if(n<0||k<0||n<k)return\
+    \ 0;\n        resize(n);\n        return fact[n]*rev[n-k];\n    }\n    T multi_comb(int32_t\
+    \ n,int32_t k){\n        return comb(n+k-1,k);\n    }\n};\n#line 5 \"Verify/verify-yuki/yuki-117.cpp\"\
+    \nusing mint=MontgomeryModint<MODD>;\nvoid solve(){\n    LL(T);\n    BinomialCoefficient_Primemod<mint>\
+    \ comb;\n    comb.resize(1000000);\n    rep(i,T){\n        STR(S);\n        ll\
+    \ N=0,K=0;\n        bool flg=false;\n        each(j,S){\n            if(0<=j-'0'&&j-'0'<=9){\n\
+    \                if(flg){\n                    K*=10;\n                    K+=j-'0';\n\
+    \                }\n                else{\n                    N*=10;\n      \
+    \              N+=j-'0';\n                }\n            }\n            else if(j==','){\n\
+    \                flg=true;\n            }\n        }\n        if(S[0]=='C')out(comb.comb(N,K));\n\
+    \        else if(S[0]=='P')out(comb.perm(N,K));\n        else if(S[0]=='H')out(comb.multi_comb(N,K));\n\
+    \    }\n}\nint main(){\n    solve();\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://yukicoder.me/problems/no/117\"\n#include\"../../Template.hpp\"\
+    \n#include\"../../Math/MontgomeryModint.hpp\"\n#include\"../../Math/BinomialCoefficient_Primemod.hpp\"\
+    \nusing mint=MontgomeryModint<MODD>;\nvoid solve(){\n    LL(T);\n    BinomialCoefficient_Primemod<mint>\
+    \ comb;\n    comb.resize(1000000);\n    rep(i,T){\n        STR(S);\n        ll\
+    \ N=0,K=0;\n        bool flg=false;\n        each(j,S){\n            if(0<=j-'0'&&j-'0'<=9){\n\
+    \                if(flg){\n                    K*=10;\n                    K+=j-'0';\n\
+    \                }\n                else{\n                    N*=10;\n      \
+    \              N+=j-'0';\n                }\n            }\n            else if(j==','){\n\
+    \                flg=true;\n            }\n        }\n        if(S[0]=='C')out(comb.comb(N,K));\n\
+    \        else if(S[0]=='P')out(comb.perm(N,K));\n        else if(S[0]=='H')out(comb.multi_comb(N,K));\n\
+    \    }\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
-  - DataStructure/FoldableDeque.hpp
   - Math/MontgomeryModint.hpp
-  isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+  - Math/BinomialCoefficient_Primemod.hpp
+  isVerificationFile: false
+  path: Verify/verify-yuki/yuki-117.cpp
   requiredBy: []
-  timestamp: '2024-03-11 19:37:53+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-03-12 16:50:48+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+documentation_of: Verify/verify-yuki/yuki-117.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp.html
-title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+- /library/Verify/verify-yuki/yuki-117.cpp
+- /library/Verify/verify-yuki/yuki-117.cpp.html
+title: Verify/verify-yuki/yuki-117.cpp
 ---

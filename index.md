@@ -11,9 +11,12 @@ data:
       title: DataStructure/Hashmap.hpp
   - name: Math
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/BarrettModint.hpp
       title: Math/BarrettModint.hpp
+    - icon: ':x:'
+      path: Math/BinomialCoefficient_Primemod.hpp
+      title: Math/BinomialCoefficient_Primemod.hpp
     - icon: ':heavy_check_mark:'
       path: Math/MontgomeryModint.hpp
       title: Math/MontgomeryModint.hpp
@@ -30,9 +33,14 @@ data:
       title: String/Z_algorithm.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template.hpp
       title: Template.hpp
+  - name: Verify/verify-yuki
+    pages:
+    - icon: ':warning:'
+      path: Verify/verify-yuki/yuki-117.cpp
+      title: Verify/verify-yuki/yuki-117.cpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:
@@ -50,6 +58,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - name: Verify/verify-yosupo-math
+    pages:
+    - icon: ':x:'
+      path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+      title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-sample
     pages:
     - icon: ':heavy_check_mark:'

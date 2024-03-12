@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/BarrettModint.hpp
     title: Math/BarrettModint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
