@@ -8,7 +8,8 @@
 "Verify/verify-yosupo-string/enumerate_palindromes.test.cpp": "2024-03-10 11:56:39 +0900",
 "Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp": "2024-03-10 11:56:39 +0900",
 "Verify/verify-yosupo-string/zalgorithm.test.cpp": "2024-03-10 11:56:39 +0900",
+"Verify/verify-yuki/yuki_1092-barrett.test.cpp": "2024-03-12 18:53:23 +0900",
 "Verify/verify-yuki/yuki_1092-montgomery.test.cpp": "2024-03-11 18:45:54 +0900",
-"Verify/verify-yuki/yuki_336-barrett.test.cpp": "2024-03-12 18:43:06 +0900",
+"Verify/verify-yuki/yuki_336-barrett.test.cpp": "2024-03-12 18:53:23 +0900",
 "Verify/verify-yuki/yuki_336-montgomery.test.cpp": "2024-03-11 18:45:54 +0900"
 }
