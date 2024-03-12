@@ -17,7 +17,7 @@ data:
     - icon: ':x:'
       path: Math/BinomialCoefficient_Primemod.hpp
       title: Math/BinomialCoefficient_Primemod.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/MontgomeryModint.hpp
       title: Math/MontgomeryModint.hpp
   - name: String
@@ -36,11 +36,6 @@ data:
     - icon: ':question:'
       path: Template.hpp
       title: Template.hpp
-  - name: Verify/verify-yuki
-    pages:
-    - icon: ':warning:'
-      path: Verify/verify-yuki/yuki-117.cpp
-      title: Verify/verify-yuki/yuki-117.cpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:
@@ -84,6 +79,9 @@ data:
       title: Verify/verify-yosupo-string/zalgorithm.test.cpp
   - name: Verify/verify-yuki
     pages:
+    - icon: ':x:'
+      path: Verify/verify-yuki/yuki-117.test.cpp
+      title: Verify/verify-yuki/yuki-117.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
       title: Verify/verify-yuki/yuki_1092-barrett.test.cpp

@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yuki/yuki-117.cpp
-    title: Verify/verify-yuki/yuki-117.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -36,6 +33,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-string/zalgorithm.test.cpp
     title: Verify/verify-yosupo-string/zalgorithm.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yuki/yuki-117.test.cpp
+    title: Verify/verify-yuki/yuki-117.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
     title: Verify/verify-yuki/yuki_1092-barrett.test.cpp
@@ -525,8 +525,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Template.hpp
-  requiredBy:
-  - Verify/verify-yuki/yuki-117.cpp
+  requiredBy: []
   timestamp: '2024-03-08 20:45:00+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
@@ -537,6 +536,7 @@ data:
   - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   - Verify/verify-yuki/yuki_336-barrett.test.cpp
+  - Verify/verify-yuki/yuki-117.test.cpp
   - Verify/verify-yuki/yuki_1092-montgomery.test.cpp
   - Verify/verify-yuki/yuki_336-montgomery.test.cpp
   - Verify/verify-yuki/yuki_1092-barrett.test.cpp

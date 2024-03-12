@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yuki/yuki-117.cpp
-    title: Verify/verify-yuki/yuki-117.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
     path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yuki/yuki-117.test.cpp
+    title: Verify/verify-yuki/yuki-117.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -37,12 +37,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Math/BinomialCoefficient_Primemod.hpp
-  requiredBy:
-  - Verify/verify-yuki/yuki-117.cpp
+  requiredBy: []
   timestamp: '2024-03-12 16:50:48+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+  - Verify/verify-yuki/yuki-117.test.cpp
 documentation_of: Math/BinomialCoefficient_Primemod.hpp
 layout: document
 redirect_from:

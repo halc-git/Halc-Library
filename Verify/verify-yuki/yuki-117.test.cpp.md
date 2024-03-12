@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: Math/BinomialCoefficient_Primemod.hpp
     title: Math/BinomialCoefficient_Primemod.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/MontgomeryModint.hpp
     title: Math/MontgomeryModint.hpp
   - icon: ':question:'
@@ -12,14 +12,16 @@ data:
     title: Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://yukicoder.me/problems/no/117
     links:
     - https://yukicoder.me/problems/no/117
-  bundledCode: "#line 1 \"Verify/verify-yuki/yuki-117.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/117\"\
-    \n#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
+  bundledCode: "#line 1 \"Verify/verify-yuki/yuki-117.test.cpp\"\n#define PROBLEM\
+    \ \"https://yukicoder.me/problems/no/117\"\n#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
     const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
@@ -212,7 +214,7 @@ data:
     \ k){\n        if(n<0||k<0||n<k)return 0;\n        resize(n);\n        return\
     \ fact[n]*rev[n-k]*rev[k];\n    }\n    T perm(int32_t n,int32_t k){\n        if(n<0||k<0||n<k)return\
     \ 0;\n        resize(n);\n        return fact[n]*rev[n-k];\n    }\n    T multi_comb(int32_t\
-    \ n,int32_t k){\n        return comb(n+k-1,k);\n    }\n};\n#line 5 \"Verify/verify-yuki/yuki-117.cpp\"\
+    \ n,int32_t k){\n        return comb(n+k-1,k);\n    }\n};\n#line 5 \"Verify/verify-yuki/yuki-117.test.cpp\"\
     \nusing mint=MontgomeryModint<MODD>;\nvoid solve(){\n    LL(T);\n    BinomialCoefficient_Primemod<mint>\
     \ comb;\n    comb.resize(1000000);\n    rep(i,T){\n        STR(S);\n        ll\
     \ N=0,K=0;\n        bool flg=false;\n        each(j,S){\n            if(0<=j-'0'&&j-'0'<=9){\n\
@@ -237,16 +239,16 @@ data:
   - Template.hpp
   - Math/MontgomeryModint.hpp
   - Math/BinomialCoefficient_Primemod.hpp
-  isVerificationFile: false
-  path: Verify/verify-yuki/yuki-117.cpp
+  isVerificationFile: true
+  path: Verify/verify-yuki/yuki-117.test.cpp
   requiredBy: []
-  timestamp: '2024-03-12 16:50:48+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2024-03-12 16:58:27+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Verify/verify-yuki/yuki-117.cpp
+documentation_of: Verify/verify-yuki/yuki-117.test.cpp
 layout: document
 redirect_from:
-- /library/Verify/verify-yuki/yuki-117.cpp
-- /library/Verify/verify-yuki/yuki-117.cpp.html
-title: Verify/verify-yuki/yuki-117.cpp
+- /verify/Verify/verify-yuki/yuki-117.test.cpp
+- /verify/Verify/verify-yuki/yuki-117.test.cpp.html
+title: Verify/verify-yuki/yuki-117.test.cpp
 ---

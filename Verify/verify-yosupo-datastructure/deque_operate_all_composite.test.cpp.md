@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/FoldableDeque.hpp
     title: DataStructure/FoldableDeque.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/MontgomeryModint.hpp
     title: Math/MontgomeryModint.hpp
   - icon: ':question:'
