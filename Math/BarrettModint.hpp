@@ -25,7 +25,7 @@ struct BarrettModint{
     constexpr uint32_t mod(){
         return N;
     }
-    constexpr int64_t _get_mod(uint64_t x){
+    constexpr int64_t _get_mod(int64_t x){
         uint64_t ret=((unsigned __int128)x*Nr)>>64;
         if(x-ret*N<0){
             return x-(ret-1)*N;
@@ -145,7 +145,7 @@ struct ArbitraryBarrettModint{
     uint32_t mod(){
         return N;
     }
-    int64_t _get_mod(uint64_t x){
+    int64_t _get_mod(int64_t x){
         uint64_t ret=((unsigned __int128)x*Nr)>>64;
         if(x-ret*N<0){
             return x-(ret-1)*N;
