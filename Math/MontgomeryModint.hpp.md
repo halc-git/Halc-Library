@@ -9,18 +9,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - icon: ':x:'
-    path: Verify/verify-yuki/yuki-117.test.cpp
-    title: Verify/verify-yuki/yuki-117.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_1092-montgomery.test.cpp
     title: Verify/verify-yuki/yuki_1092-montgomery.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/yuki_336-montgomery.test.cpp
     title: Verify/verify-yuki/yuki_336-montgomery.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Math/MontgomeryModint.hpp\"\ntemplate<uint32_t N>\nstruct\
@@ -242,9 +239,8 @@ data:
   path: Math/MontgomeryModint.hpp
   requiredBy: []
   timestamp: '2024-03-11 18:45:54+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-yuki/yuki-117.test.cpp
   - Verify/verify-yuki/yuki_1092-montgomery.test.cpp
   - Verify/verify-yuki/yuki_336-montgomery.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp

@@ -14,10 +14,7 @@ data:
     - icon: ':question:'
       path: Math/BarrettModint.hpp
       title: Math/BarrettModint.hpp
-    - icon: ':x:'
-      path: Math/BinomialCoefficient_Primemod.hpp
-      title: Math/BinomialCoefficient_Primemod.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Math/MontgomeryModint.hpp
       title: Math/MontgomeryModint.hpp
   - name: String
@@ -53,11 +50,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - name: Verify/verify-yosupo-math
-    pages:
-    - icon: ':x:'
-      path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-      title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-sample
     pages:
     - icon: ':heavy_check_mark:'
