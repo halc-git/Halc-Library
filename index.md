@@ -72,9 +72,6 @@ data:
   - name: Verify/verify-yuki
     pages:
     - icon: ':x:'
-      path: Verify/verify-yuki/yuki-117.test.cpp
-      title: Verify/verify-yuki/yuki-117.test.cpp
-    - icon: ':x:'
       path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
       title: Verify/verify-yuki/yuki_1092-barrett.test.cpp
     - icon: ':heavy_check_mark:'

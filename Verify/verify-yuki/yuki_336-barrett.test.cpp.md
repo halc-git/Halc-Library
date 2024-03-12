@@ -105,36 +105,36 @@ data:
     \     ret-=ret/prime_fact;\n        }\n        return ret;\n    }\n    static\
     \ constexpr uint64_t Nr=(-1ULL)/N+1;\n    static constexpr uint32_t inv_power=_phi()-1;\n\
     \    static_assert(1<N);\n    static_assert(N<(1<<30));\n    int64_t x;\n    constexpr\
-    \ uint32_t mod(){\n        return N;\n    }\n    constexpr int64_t _mul(uint64_t\
-    \ x,uint64_t y){\n        uint64_t ret=((unsigned __int128)x*y*Nr)>>64;\n    \
-    \    if(x-ret*N<0){\n            return x-(ret-1)*N;\n        }\n        return\
-    \ x-ret*N;\n    }\n    constexpr BarrettModint()noexcept{\n        x=0;\n    }\n\
-    \    constexpr BarrettModint(int64_t val)noexcept{\n        x=((val%N)+N)%N;\n\
-    \    }\n    constexpr uint64_t val()noexcept{\n        return x;\n    }\n    friend\
-    \ ostream &operator<<(ostream &os,BarrettModint &b){\n        return os<<b.val();\n\
-    \    }\n    constexpr BarrettModint operator+()noexcept{return *this;}\n    constexpr\
-    \ BarrettModint operator-()noexcept{return BarrettModint()-(*this);}\n    constexpr\
-    \ friend BarrettModint operator+(BarrettModint lhs,BarrettModint rhs)noexcept{\n\
-    \        return BarrettModint(lhs)+=rhs;\n    }\n    constexpr friend BarrettModint\
-    \ operator-(BarrettModint lhs,BarrettModint rhs)noexcept{\n        return BarrettModint(lhs)-=rhs;\n\
-    \    }\n    constexpr friend BarrettModint operator*(BarrettModint lhs,BarrettModint\
-    \ rhs)noexcept{\n        return BarrettModint(lhs)*=rhs;\n    }\n    constexpr\
-    \ friend BarrettModint operator/(BarrettModint lhs,BarrettModint rhs){\n     \
-    \   return BarrettModint(lhs)/=rhs;\n    }\n    constexpr BarrettModint operator+=(BarrettModint\
-    \ rhs)noexcept{\n        x+=rhs.x;\n        if(x>=N)x-=N;\n        return *this;\n\
-    \    }\n    constexpr BarrettModint operator-=(BarrettModint rhs)noexcept{\n \
-    \       x-=rhs.x;\n        if(x<0)x+=N;\n        return *this;\n    }\n    constexpr\
-    \ BarrettModint operator*=(BarrettModint rhs)noexcept{\n        x=_mul(x,rhs.x);\n\
-    \        return *this;\n    }\n    constexpr BarrettModint operator/=(BarrettModint\
-    \ rhs){\n        (*this)*=rhs.inv();\n        return *this;\n    }\n    constexpr\
-    \ BarrettModint& operator++(){\n        (*this)+=1;\n        return *this;\n \
-    \   }\n    constexpr BarrettModint& operator--(){\n        (*this)-=1;\n     \
-    \   return *this;\n    }\n    constexpr BarrettModint operator++(int){\n     \
-    \   (*this)+=1;\n        return *this;\n    }\n    constexpr BarrettModint operator--(int){\n\
-    \        (*this)-=1;\n        return *this;\n    }\n    constexpr bool operator==(BarrettModint\
-    \ rhs)noexcept{\n        return (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n\
-    \    constexpr bool operator!=(BarrettModint rhs)noexcept{\n        return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n\
-    \    }\n    constexpr BarrettModint inv(){\n        BarrettModint ret=(*this).pow(inv_power);\n\
+    \ uint32_t mod(){\n        return N;\n    }\n    constexpr int64_t _get_mod(uint64_t\
+    \ x){\n        uint64_t ret=((unsigned __int128)x*Nr)>>64;\n        if(x-ret*N<0){\n\
+    \            return x-(ret-1)*N;\n        }\n        return x-ret*N;\n    }\n\
+    \    constexpr BarrettModint()noexcept{\n        x=0;\n    }\n    constexpr BarrettModint(int64_t\
+    \ val)noexcept{\n        x=((val%N)+N)%N;\n    }\n    constexpr uint64_t val()noexcept{\n\
+    \        return x;\n    }\n    friend ostream &operator<<(ostream &os,BarrettModint\
+    \ &b){\n        return os<<b.val();\n    }\n    constexpr BarrettModint operator+()noexcept{return\
+    \ *this;}\n    constexpr BarrettModint operator-()noexcept{return BarrettModint()-(*this);}\n\
+    \    constexpr friend BarrettModint operator+(BarrettModint lhs,BarrettModint\
+    \ rhs)noexcept{\n        return BarrettModint(lhs)+=rhs;\n    }\n    constexpr\
+    \ friend BarrettModint operator-(BarrettModint lhs,BarrettModint rhs)noexcept{\n\
+    \        return BarrettModint(lhs)-=rhs;\n    }\n    constexpr friend BarrettModint\
+    \ operator*(BarrettModint lhs,BarrettModint rhs)noexcept{\n        return BarrettModint(lhs)*=rhs;\n\
+    \    }\n    constexpr friend BarrettModint operator/(BarrettModint lhs,BarrettModint\
+    \ rhs){\n        return BarrettModint(lhs)/=rhs;\n    }\n    constexpr BarrettModint\
+    \ operator+=(BarrettModint rhs)noexcept{\n        x+=rhs.x;\n        if(x>=N)x-=N;\n\
+    \        return *this;\n    }\n    constexpr BarrettModint operator-=(BarrettModint\
+    \ rhs)noexcept{\n        x-=rhs.x;\n        if(x<0)x+=N;\n        return *this;\n\
+    \    }\n    constexpr BarrettModint operator*=(BarrettModint rhs)noexcept{\n \
+    \       x=_get_mod(x*rhs.x);\n        return *this;\n    }\n    constexpr BarrettModint\
+    \ operator/=(BarrettModint rhs){\n        (*this)*=rhs.inv();\n        return\
+    \ *this;\n    }\n    constexpr BarrettModint& operator++(){\n        (*this)+=1;\n\
+    \        return *this;\n    }\n    constexpr BarrettModint& operator--(){\n  \
+    \      (*this)-=1;\n        return *this;\n    }\n    constexpr BarrettModint\
+    \ operator++(int){\n        (*this)+=1;\n        return *this;\n    }\n    constexpr\
+    \ BarrettModint operator--(int){\n        (*this)-=1;\n        return *this;\n\
+    \    }\n    constexpr bool operator==(BarrettModint rhs)noexcept{\n        return\
+    \ (x>=N?x-N:x)==(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n    constexpr bool operator!=(BarrettModint\
+    \ rhs)noexcept{\n        return (x>=N?x-N:x)!=(rhs.x>=N?rhs.x-N:rhs.x);\n    }\n\
+    \    constexpr BarrettModint inv(){\n        BarrettModint ret=(*this).pow(inv_power);\n\
     \        assert(ret*(*this)==1);\n        return ret;\n    }\n    constexpr BarrettModint\
     \ pow(uint64_t x)noexcept{\n        BarrettModint ret=1;\n        BarrettModint\
     \ bin=(*this);\n        while(x){\n            if(x&1)ret*=bin;\n            bin*=bin;\n\
@@ -148,8 +148,8 @@ data:
     \ uint64_t N,Nr;\n    static uint32_t inv_power;\n    int64_t x;\n    static void\
     \ set_mod(uint32_t mod){\n        N=mod;\n        Nr=(-1ULL)/N+1;\n        inv_power=_phi(N)-1;\n\
     \        assert(1<mod);\n        assert(mod<(1<<30));\n    }\n    uint32_t mod(){\n\
-    \        return N;\n    }\n    int64_t _mul(uint64_t x,uint64_t y){\n        uint64_t\
-    \ ret=((unsigned __int128)x*y*Nr)>>64;\n        if(x-ret*N<0){\n            return\
+    \        return N;\n    }\n    int64_t _get_mod(uint64_t x){\n        uint64_t\
+    \ ret=((unsigned __int128)x*Nr)>>64;\n        if(x-ret*N<0){\n            return\
     \ x-(ret-1)*N;\n        }\n        return x-ret*N;\n    }\n    ArbitraryBarrettModint()noexcept{\n\
     \        x=0;\n    }\n    ArbitraryBarrettModint(int64_t val)noexcept{\n     \
     \   x=((val%N)+N)%N;\n    }\n    uint64_t val()noexcept{\n        return x;\n\
@@ -168,7 +168,7 @@ data:
     \ if(x>=N)x-=N;\n        return *this;\n    }\n    ArbitraryBarrettModint operator-=(ArbitraryBarrettModint\
     \ rhs)noexcept{\n        x-=rhs.x;\n        if(x<0)x+=N;\n        return *this;\n\
     \    }\n    ArbitraryBarrettModint operator*=(ArbitraryBarrettModint rhs)noexcept{\n\
-    \        x=_mul(x,rhs.x);\n        return *this;\n    }\n    ArbitraryBarrettModint\
+    \        x=_get_mod(x*rhs.x);\n        return *this;\n    }\n    ArbitraryBarrettModint\
     \ operator/=(ArbitraryBarrettModint rhs){\n        (*this)*=rhs.inv();\n     \
     \   return *this;\n    }\n    ArbitraryBarrettModint& operator++(){\n        (*this)+=1;\n\
     \        return *this;\n    }\n    ArbitraryBarrettModint& operator--(){\n   \
@@ -212,7 +212,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yuki/yuki_336-barrett.test.cpp
   requiredBy: []
-  timestamp: '2024-03-12 17:07:14+09:00'
+  timestamp: '2024-03-12 18:43:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yuki/yuki_336-barrett.test.cpp
