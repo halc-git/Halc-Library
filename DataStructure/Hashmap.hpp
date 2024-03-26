@@ -14,4 +14,4 @@ struct custom_hash {
         return splitmix64(x+FIXED_RANDOM);
     }
 };
-template<typename Key,typename Val>using Hashmap=gp_hash_table<Key,Val,custom_hash>;
+template<typename Key,typename Val>using Hashmap=__gnu_pbds::gp_hash_table<Key,Val,custom_hash>;
