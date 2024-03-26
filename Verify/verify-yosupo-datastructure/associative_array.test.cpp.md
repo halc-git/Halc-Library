@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/Hashmap.hpp
     title: DataStructure/Hashmap.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/associative_array
@@ -104,11 +104,12 @@ data:
     \        x=(x^(x>>27))*0x94d049bb133111eb;\n        return x^(x>>31);\n    }\n\
     \    uint64_t operator()(uint64_t x) const {\n        static const uint64_t FIXED_RANDOM=chrono::steady_clock::now().time_since_epoch().count();\n\
     \        return splitmix64(x+FIXED_RANDOM);\n    }\n};\ntemplate<typename Key,typename\
-    \ Val>using Hashmap=gp_hash_table<Key,Val,custom_hash>;\n#line 4 \"Verify/verify-yosupo-datastructure/associative_array.test.cpp\"\
-    \nvoid solve(){\n    LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n\
-    \        if(t==0){\n            LL(v);\n            a[k]=v;\n        }\n     \
-    \   else{\n            out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n\
-    \    return 0;\n}\n"
+    \ Val>using Hashmap=__gnu_pbds::gp_hash_table<Key,Val,custom_hash>;\n#line 4 \"\
+    Verify/verify-yosupo-datastructure/associative_array.test.cpp\"\nvoid solve(){\n\
+    \    LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n        if(t==0){\n\
+    \            LL(v);\n            a[k]=v;\n        }\n        else{\n         \
+    \   out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/associative_array\"\n#include\"\
     ../../Template.hpp\"\n#include\"../../DataStructure/Hashmap.hpp\"\nvoid solve(){\n\
     \    LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n        if(t==0){\n\
@@ -121,8 +122,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
   requiredBy: []
-  timestamp: '2024-03-26 14:02:10+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-03-26 14:10:07+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/associative_array.test.cpp
 layout: document
