@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/FoldableDeque.hpp
       title: DataStructure/FoldableDeque.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
   - name: Math
@@ -30,7 +30,7 @@ data:
       title: String/Z_algorithm.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template.hpp
       title: Template.hpp
   verificationCategories:
@@ -41,7 +41,7 @@ data:
       title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - name: Verify/verify-yosupo-datastructure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
       title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     - icon: ':heavy_check_mark:'
