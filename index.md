@@ -9,6 +9,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
+  - name: .
+    pages:
+    - icon: ':warning:'
+      path: Heuristic.hpp
+      title: Heuristic.hpp
+    - icon: ':heavy_check_mark:'
+      path: Template.hpp
+      title: Template.hpp
   - name: Math
     pages:
     - icon: ':heavy_check_mark:'
@@ -28,11 +36,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/Z_algorithm.hpp
       title: String/Z_algorithm.hpp
-  - name: .
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: Template.hpp
-      title: Template.hpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:

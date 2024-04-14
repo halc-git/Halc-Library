@@ -78,8 +78,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-  - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
+  - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
 documentation_of: String/RollingHash.hpp
 layout: document
 redirect_from:

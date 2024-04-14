@@ -132,8 +132,8 @@ data:
   timestamp: '2024-03-10 09:07:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
 documentation_of: DataStructure/FoldableDeque.hpp
 layout: document
 redirect_from:

@@ -201,8 +201,8 @@ data:
   timestamp: '2024-03-12 18:53:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-yuki/yuki_336-barrett.test.cpp
   - Verify/verify-yuki/yuki_1092-barrett.test.cpp
+  - Verify/verify-yuki/yuki_336-barrett.test.cpp
 documentation_of: Math/BarrettModint.hpp
 layout: document
 redirect_from:
