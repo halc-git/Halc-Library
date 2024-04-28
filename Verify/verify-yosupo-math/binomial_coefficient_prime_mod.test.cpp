@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/1092"
+#define PROBLEM "https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod"
 #include"../../Template.hpp"
 #include"../../Modint/Modint.hpp"
 #include"../../Math/ModCombination.hpp"
