@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"Tree/StaticTopTree.hpp\"\ntemplate<class M>\nstruct StaticTopTree{\n\
+  bundledCode: "#line 2 \"Tree/StaticTopTree.hpp\"\ntemplate<class M>\nstruct StaticTopTree{\n\
     \    using point=M::point;\n    using path=M::path;\n    struct Node{\n      \
     \  bool is_path;\n        point point_val;\n        path path_val;\n        int32_t\
     \ pos;\n        int32_t left;\n        int32_t right;\n        int32_t parent;\n\
@@ -79,8 +79,8 @@ data:
     \            _calc_val(change);\n            change=nodes[change].parent;\n  \
     \      }\n        _calc_val(change);\n    }\n    size_t size(){\n        return\
     \ sz;\n    }\n};\n"
-  code: "template<class M>\nstruct StaticTopTree{\n    using point=M::point;\n   \
-    \ using path=M::path;\n    struct Node{\n        bool is_path;\n        point\
+  code: "#pragma once\ntemplate<class M>\nstruct StaticTopTree{\n    using point=M::point;\n\
+    \    using path=M::path;\n    struct Node{\n        bool is_path;\n        point\
     \ point_val;\n        path path_val;\n        int32_t pos;\n        int32_t left;\n\
     \        int32_t right;\n        int32_t parent;\n        Node(bool pat,int32_t\
     \ po=-1,int32_t lf=-1,int32_t ri=-1){\n            is_path=pat;\n            pos=po;\n\
@@ -153,7 +153,7 @@ data:
   isVerificationFile: false
   path: Tree/StaticTopTree.hpp
   requiredBy: []
-  timestamp: '2024-04-28 19:52:14+09:00'
+  timestamp: '2024-04-28 21:17:21+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Tree/StaticTopTree.hpp
