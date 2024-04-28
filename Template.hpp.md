@@ -13,6 +13,12 @@ data:
     path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-sample/aplusb.test.cpp
     title: Verify/verify-yosupo-sample/aplusb.test.cpp
   - icon: ':heavy_check_mark:'
@@ -511,7 +517,9 @@ data:
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - Verify/verify-yosupo-datastructure/associative_array.test.cpp
+  - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   - Verify/verify-yosupo-string/zalgorithm.test.cpp

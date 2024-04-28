@@ -5,10 +5,16 @@ data:
   - icon: ':warning:'
     path: Verify/verify-yuki/1092.cpp
     title: Verify/verify-yuki/1092.cpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n\
@@ -140,8 +146,10 @@ data:
   requiredBy:
   - Verify/verify-yuki/1092.cpp
   timestamp: '2024-04-28 11:23:02+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
 documentation_of: Modint/Modint.hpp
 layout: document
 redirect_from:

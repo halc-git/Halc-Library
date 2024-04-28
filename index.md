@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/FoldableDeque.hpp
       title: DataStructure/FoldableDeque.hpp
     - icon: ':heavy_check_mark:'
@@ -19,7 +19,7 @@ data:
       title: Template.hpp
   - name: Modint
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -49,10 +49,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
       title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - name: Verify/verify-yosupo-sample
