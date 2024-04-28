@@ -1,3 +1,4 @@
+#pragma once
 template<class M>
 struct StaticTopTree{
     using point=M::point;
