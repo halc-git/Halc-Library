@@ -194,18 +194,19 @@ data:
     \  return x;\n    }\n    constexpr ArbitraryModint operator+(){\n        return\
     \ (*this);\n    }\n    constexpr ArbitraryModint operator-(){\n        return\
     \ ArbitraryModint()-(*this);\n    }\n    constexpr ArbitraryModint operator+(const\
-    \ ArbitraryModint rhs){\n        return Modint(*this)+=rhs;\n    }\n    constexpr\
-    \ ArbitraryModint operator-(const ArbitraryModint rhs){\n        return Modint(*this)-=rhs;\n\
-    \    }\n    constexpr ArbitraryModint operator*(const ArbitraryModint rhs){\n\
-    \        return Modint(*this)*=rhs;\n    }\n    constexpr ArbitraryModint operator/(const\
-    \ ArbitraryModint rhs){\n        return Modint(*this)/=rhs;\n    }\n    constexpr\
-    \ ArbitraryModint &operator+=(const ArbitraryModint rhs){\n        x+=rhs.x;\n\
-    \        if(x>=get_mod())x-=get_mod();\n        return *this;\n    }\n    constexpr\
-    \ ArbitraryModint &operator-=(const ArbitraryModint rhs){\n        if(x<rhs.x)x+=get_mod();\n\
-    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint\
-    \ &operator*=(const ArbitraryModint rhs){\n        x=_get_mod(x*rhs.x);\n    \
-    \    return *this;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint\
-    \ rhs){\n        return (*this)*=rhs.inv();\n    }\n    constexpr bool operator==(ArbitraryModint\
+    \ ArbitraryModint rhs){\n        return ArbitraryModint(*this)+=rhs;\n    }\n\
+    \    constexpr ArbitraryModint operator-(const ArbitraryModint rhs){\n       \
+    \ return ArbitraryModint(*this)-=rhs;\n    }\n    constexpr ArbitraryModint operator*(const\
+    \ ArbitraryModint rhs){\n        return ArbitraryModint(*this)*=rhs;\n    }\n\
+    \    constexpr ArbitraryModint operator/(const ArbitraryModint rhs){\n       \
+    \ return ArbitraryModint(*this)/=rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const\
+    \ ArbitraryModint rhs){\n        x+=rhs.x;\n        if(x>=get_mod())x-=get_mod();\n\
+    \        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
+    \ ArbitraryModint rhs){\n        if(x<rhs.x)x+=get_mod();\n        x-=rhs.x;\n\
+    \        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
+    \ ArbitraryModint rhs){\n        x=_get_mod(x*rhs.x);\n        return *this;\n\
+    \    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint rhs){\n    \
+    \    return (*this)*=rhs.inv();\n    }\n    constexpr bool operator==(ArbitraryModint\
     \ rhs){\n        return x==rhs.x;\n    }\n    constexpr bool operator!=(ArbitraryModint\
     \ rhs){\n        return x!=rhs.x;\n    }\n    constexpr ArbitraryModint inv(){\n\
     \        return (*this).pow(get_mod()-2);\n    }\n    constexpr ArbitraryModint\
@@ -245,7 +246,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-04-28 11:23:45+09:00'
+  timestamp: '2024-04-28 11:35:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp

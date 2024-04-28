@@ -19,7 +19,7 @@ data:
       title: Template.hpp
   - name: Math
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: Math/ModCombination.hpp
       title: Math/ModCombination.hpp
   - name: Modint
@@ -55,6 +55,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - name: Verify/verify-yosupo-math
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+      title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-sample
     pages:
     - icon: ':heavy_check_mark:'

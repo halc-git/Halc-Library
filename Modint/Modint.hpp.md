@@ -10,6 +10,9 @@ data:
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+    title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/1092.test.cpp
     title: Verify/verify-yuki/1092.test.cpp
   - icon: ':x:'
@@ -60,18 +63,19 @@ data:
     \  return x;\n    }\n    constexpr ArbitraryModint operator+(){\n        return\
     \ (*this);\n    }\n    constexpr ArbitraryModint operator-(){\n        return\
     \ ArbitraryModint()-(*this);\n    }\n    constexpr ArbitraryModint operator+(const\
-    \ ArbitraryModint rhs){\n        return Modint(*this)+=rhs;\n    }\n    constexpr\
-    \ ArbitraryModint operator-(const ArbitraryModint rhs){\n        return Modint(*this)-=rhs;\n\
-    \    }\n    constexpr ArbitraryModint operator*(const ArbitraryModint rhs){\n\
-    \        return Modint(*this)*=rhs;\n    }\n    constexpr ArbitraryModint operator/(const\
-    \ ArbitraryModint rhs){\n        return Modint(*this)/=rhs;\n    }\n    constexpr\
-    \ ArbitraryModint &operator+=(const ArbitraryModint rhs){\n        x+=rhs.x;\n\
-    \        if(x>=get_mod())x-=get_mod();\n        return *this;\n    }\n    constexpr\
-    \ ArbitraryModint &operator-=(const ArbitraryModint rhs){\n        if(x<rhs.x)x+=get_mod();\n\
-    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint\
-    \ &operator*=(const ArbitraryModint rhs){\n        x=_get_mod(x*rhs.x);\n    \
-    \    return *this;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint\
-    \ rhs){\n        return (*this)*=rhs.inv();\n    }\n    constexpr bool operator==(ArbitraryModint\
+    \ ArbitraryModint rhs){\n        return ArbitraryModint(*this)+=rhs;\n    }\n\
+    \    constexpr ArbitraryModint operator-(const ArbitraryModint rhs){\n       \
+    \ return ArbitraryModint(*this)-=rhs;\n    }\n    constexpr ArbitraryModint operator*(const\
+    \ ArbitraryModint rhs){\n        return ArbitraryModint(*this)*=rhs;\n    }\n\
+    \    constexpr ArbitraryModint operator/(const ArbitraryModint rhs){\n       \
+    \ return ArbitraryModint(*this)/=rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const\
+    \ ArbitraryModint rhs){\n        x+=rhs.x;\n        if(x>=get_mod())x-=get_mod();\n\
+    \        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
+    \ ArbitraryModint rhs){\n        if(x<rhs.x)x+=get_mod();\n        x-=rhs.x;\n\
+    \        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
+    \ ArbitraryModint rhs){\n        x=_get_mod(x*rhs.x);\n        return *this;\n\
+    \    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint rhs){\n    \
+    \    return (*this)*=rhs.inv();\n    }\n    constexpr bool operator==(ArbitraryModint\
     \ rhs){\n        return x==rhs.x;\n    }\n    constexpr bool operator!=(ArbitraryModint\
     \ rhs){\n        return x!=rhs.x;\n    }\n    constexpr ArbitraryModint inv(){\n\
     \        return (*this).pow(get_mod()-2);\n    }\n    constexpr ArbitraryModint\
@@ -121,18 +125,19 @@ data:
     \  return x;\n    }\n    constexpr ArbitraryModint operator+(){\n        return\
     \ (*this);\n    }\n    constexpr ArbitraryModint operator-(){\n        return\
     \ ArbitraryModint()-(*this);\n    }\n    constexpr ArbitraryModint operator+(const\
-    \ ArbitraryModint rhs){\n        return Modint(*this)+=rhs;\n    }\n    constexpr\
-    \ ArbitraryModint operator-(const ArbitraryModint rhs){\n        return Modint(*this)-=rhs;\n\
-    \    }\n    constexpr ArbitraryModint operator*(const ArbitraryModint rhs){\n\
-    \        return Modint(*this)*=rhs;\n    }\n    constexpr ArbitraryModint operator/(const\
-    \ ArbitraryModint rhs){\n        return Modint(*this)/=rhs;\n    }\n    constexpr\
-    \ ArbitraryModint &operator+=(const ArbitraryModint rhs){\n        x+=rhs.x;\n\
-    \        if(x>=get_mod())x-=get_mod();\n        return *this;\n    }\n    constexpr\
-    \ ArbitraryModint &operator-=(const ArbitraryModint rhs){\n        if(x<rhs.x)x+=get_mod();\n\
-    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint\
-    \ &operator*=(const ArbitraryModint rhs){\n        x=_get_mod(x*rhs.x);\n    \
-    \    return *this;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint\
-    \ rhs){\n        return (*this)*=rhs.inv();\n    }\n    constexpr bool operator==(ArbitraryModint\
+    \ ArbitraryModint rhs){\n        return ArbitraryModint(*this)+=rhs;\n    }\n\
+    \    constexpr ArbitraryModint operator-(const ArbitraryModint rhs){\n       \
+    \ return ArbitraryModint(*this)-=rhs;\n    }\n    constexpr ArbitraryModint operator*(const\
+    \ ArbitraryModint rhs){\n        return ArbitraryModint(*this)*=rhs;\n    }\n\
+    \    constexpr ArbitraryModint operator/(const ArbitraryModint rhs){\n       \
+    \ return ArbitraryModint(*this)/=rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const\
+    \ ArbitraryModint rhs){\n        x+=rhs.x;\n        if(x>=get_mod())x-=get_mod();\n\
+    \        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
+    \ ArbitraryModint rhs){\n        if(x<rhs.x)x+=get_mod();\n        x-=rhs.x;\n\
+    \        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
+    \ ArbitraryModint rhs){\n        x=_get_mod(x*rhs.x);\n        return *this;\n\
+    \    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint rhs){\n    \
+    \    return (*this)*=rhs.inv();\n    }\n    constexpr bool operator==(ArbitraryModint\
     \ rhs){\n        return x==rhs.x;\n    }\n    constexpr bool operator!=(ArbitraryModint\
     \ rhs){\n        return x!=rhs.x;\n    }\n    constexpr ArbitraryModint inv(){\n\
     \        return (*this).pow(get_mod()-2);\n    }\n    constexpr ArbitraryModint\
@@ -147,9 +152,10 @@ data:
   isVerificationFile: false
   path: Modint/Modint.hpp
   requiredBy: []
-  timestamp: '2024-04-28 11:23:02+09:00'
+  timestamp: '2024-04-28 11:35:54+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-yuki/1092.test.cpp
   - Verify/verify-yuki/117.test.cpp
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
