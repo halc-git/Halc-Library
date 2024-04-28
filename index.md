@@ -38,6 +38,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/Z_algorithm.hpp
       title: String/Z_algorithm.hpp
+  - name: Tree
+    pages:
+    - icon: ':warning:'
+      path: Tree/StaticTopTree.hpp
+      title: Tree/StaticTopTree.hpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:
