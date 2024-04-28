@@ -5,7 +5,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: DataStructure/FoldableDeque.hpp
-      title: DataStructure/FoldableDeque.hpp
+      title: Foldable Deque
     - icon: ':heavy_check_mark:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
@@ -42,7 +42,7 @@ data:
     pages:
     - icon: ':warning:'
       path: Tree/StaticTopTree.hpp
-      title: Tree/StaticTopTree.hpp
+      title: Static Top Tree
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:

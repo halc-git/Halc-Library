@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: DataStructure/FoldableDeque.hpp
-    title: DataStructure/FoldableDeque.hpp
+    title: Foldable Deque
   - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp

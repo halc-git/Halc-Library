@@ -136,8 +136,21 @@ data:
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
 documentation_of: DataStructure/FoldableDeque.hpp
 layout: document
-redirect_from:
-- /library/DataStructure/FoldableDeque.hpp
-- /library/DataStructure/FoldableDeque.hpp.html
-title: DataStructure/FoldableDeque.hpp
+title: Foldable Deque
 ---
+## 関数の設定
+```cpp
+struct func{
+    using T;
+
+    static T op(T x,T y){
+    }
+
+    static inline T e;
+};
+```
+* `T`: モノイドの型です。
+* `T op(T x,T y)`: 演算です。モノイドであることを要求します。
+* `T e`: 単位元です。
+
+使用例: [Deque Operate All Composite](https://judge.yosupo.jp/submission/196059)
