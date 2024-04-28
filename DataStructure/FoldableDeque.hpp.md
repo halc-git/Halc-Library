@@ -138,6 +138,7 @@ documentation_of: DataStructure/FoldableDeque.hpp
 layout: document
 title: Foldable Deque
 ---
+
 ## 関数の設定
 ```cpp
 struct func{
