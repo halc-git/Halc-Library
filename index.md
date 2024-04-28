@@ -14,17 +14,17 @@ data:
     - icon: ':warning:'
       path: Heuristic.hpp
       title: Heuristic.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template.hpp
       title: Template.hpp
   - name: Math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Math/ModCombination.hpp
       title: Math/ModCombination.hpp
   - name: Modint
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -84,7 +84,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/1092.test.cpp
       title: Verify/verify-yuki/1092.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/117.test.cpp
       title: Verify/verify-yuki/117.test.cpp
 layout: toppage

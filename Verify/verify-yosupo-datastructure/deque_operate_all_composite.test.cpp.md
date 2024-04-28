@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/FoldableDeque.hpp
     title: DataStructure/FoldableDeque.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []

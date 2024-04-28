@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ModCombination.hpp
     title: Math/ModCombination.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
@@ -171,8 +171,9 @@ data:
     \ 0;\n        resize(n);\n        return fact[n]*rev[n-k]*rev[k];\n    }\n   \
     \ T perm(int32_t n,int32_t k){\n        if(n<0||k<0||n<k)return 0;\n        resize(n);\n\
     \        return fact[n]*rev[n-k];\n    }\n    T multi_comb(int32_t n,int32_t k){\n\
-    \        return comb(n+k-1,k);\n    }\n};\n#line 5 \"Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp\"\
-    \nusing mint=ArbitraryModint<-1>;\nvoid solve(){\n    LL(T,m);\n    mint::set_mod(m);\n\
+    \        if(k==0)return 1;\n        return comb(n+k-1,k);\n    }\n};\n#line 5\
+    \ \"Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp\"\nusing\
+    \ mint=ArbitraryModint<-1>;\nvoid solve(){\n    LL(T,m);\n    mint::set_mod(m);\n\
     \    ModCombination<mint> comb;\n    comb.resize(min(m,10000000LL));\n    rep(i,T){\n\
     \        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint main(){\n    solve();\n\
     \    return 0;\n}\n"
@@ -189,7 +190,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-04-28 11:46:33+09:00'
+  timestamp: '2024-04-28 11:53:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp

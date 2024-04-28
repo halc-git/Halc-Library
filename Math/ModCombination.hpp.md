@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Math/ModCombination.hpp\"\ntemplate<typename T>\nstruct\
@@ -23,7 +23,7 @@ data:
     \ 0;\n        resize(n);\n        return fact[n]*rev[n-k]*rev[k];\n    }\n   \
     \ T perm(int32_t n,int32_t k){\n        if(n<0||k<0||n<k)return 0;\n        resize(n);\n\
     \        return fact[n]*rev[n-k];\n    }\n    T multi_comb(int32_t n,int32_t k){\n\
-    \        return comb(n+k-1,k);\n    }\n};\n"
+    \        if(k==0)return 1;\n        return comb(n+k-1,k);\n    }\n};\n"
   code: "template<typename T>\nstruct ModCombination{\n    vector<T> fact={1},rev{1};\n\
     \    void resize(uint32_t sz){\n        sz++;\n        if(fact.size()>=sz)return;\n\
     \        uint32_t before=fact.size();\n        fact.resize(sz);\n        rev.resize(sz);\n\
@@ -32,13 +32,14 @@ data:
     \ k){\n        if(n<0||k<0||n<k)return 0;\n        resize(n);\n        return\
     \ fact[n]*rev[n-k]*rev[k];\n    }\n    T perm(int32_t n,int32_t k){\n        if(n<0||k<0||n<k)return\
     \ 0;\n        resize(n);\n        return fact[n]*rev[n-k];\n    }\n    T multi_comb(int32_t\
-    \ n,int32_t k){\n        return comb(n+k-1,k);\n    }\n};"
+    \ n,int32_t k){\n        if(k==0)return 1;\n        return comb(n+k-1,k);\n  \
+    \  }\n};"
   dependsOn: []
   isVerificationFile: false
   path: Math/ModCombination.hpp
   requiredBy: []
-  timestamp: '2024-04-28 11:29:13+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-04-28 11:53:01+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-yuki/117.test.cpp
