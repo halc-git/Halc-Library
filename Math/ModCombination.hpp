@@ -23,6 +23,7 @@ struct ModCombination{
         return fact[n]*rev[n-k];
     }
     T multi_comb(int32_t n,int32_t k){
+        if(k==0)return 1;
         return comb(n+k-1,k);
     }
 };
