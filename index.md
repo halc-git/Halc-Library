@@ -17,6 +17,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template.hpp
       title: Template.hpp
+  - name: Modint
+    pages:
+    - icon: ':warning:'
+      path: Modint/Modint.hpp
+      title: Modint/Modint.hpp
   - name: String
     pages:
     - icon: ':heavy_check_mark:'
@@ -28,6 +33,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/Z_algorithm.hpp
       title: String/Z_algorithm.hpp
+  - name: Verify/verify-yuki
+    pages:
+    - icon: ':warning:'
+      path: Verify/verify-yuki/1092.cpp
+      title: Verify/verify-yuki/1092.cpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:

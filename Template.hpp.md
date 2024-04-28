@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Verify/verify-yuki/1092.cpp
+    title: Verify/verify-yuki/1092.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -501,7 +504,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Template.hpp
-  requiredBy: []
+  requiredBy:
+  - Verify/verify-yuki/1092.cpp
   timestamp: '2024-03-08 20:45:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
