@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/Hashmap.hpp
     title: DataStructure/Hashmap.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []

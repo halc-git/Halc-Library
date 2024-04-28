@@ -14,12 +14,17 @@ data:
     - icon: ':warning:'
       path: Heuristic.hpp
       title: Heuristic.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template.hpp
       title: Template.hpp
+  - name: Math
+    pages:
+    - icon: ':x:'
+      path: Math/ModCombination.hpp
+      title: Math/ModCombination.hpp
   - name: Modint
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -33,11 +38,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/Z_algorithm.hpp
       title: String/Z_algorithm.hpp
-  - name: Verify/verify-yuki
-    pages:
-    - icon: ':warning:'
-      path: Verify/verify-yuki/1092.cpp
-      title: Verify/verify-yuki/1092.cpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:
@@ -74,6 +74,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-string/zalgorithm.test.cpp
       title: Verify/verify-yosupo-string/zalgorithm.test.cpp
+  - name: Verify/verify-yuki
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yuki/1092.test.cpp
+      title: Verify/verify-yuki/1092.test.cpp
+    - icon: ':x:'
+      path: Verify/verify-yuki/117.test.cpp
+      title: Verify/verify-yuki/117.test.cpp
 layout: toppage
 ---
 [![hirayuu_At](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fhirayuu_At)](https://atcoder.jp/users/hirayuu_At)

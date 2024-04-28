@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yuki/1092.cpp
-    title: Verify/verify-yuki/1092.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
@@ -12,9 +9,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  _isVerificationFailed: false
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yuki/1092.test.cpp
+    title: Verify/verify-yuki/1092.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yuki/117.test.cpp
+    title: Verify/verify-yuki/117.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n\
@@ -143,11 +146,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Modint/Modint.hpp
-  requiredBy:
-  - Verify/verify-yuki/1092.cpp
+  requiredBy: []
   timestamp: '2024-04-28 11:23:02+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - Verify/verify-yuki/1092.test.cpp
+  - Verify/verify-yuki/117.test.cpp
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
 documentation_of: Modint/Modint.hpp
