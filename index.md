@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: DataStructure/FoldableDeque.hpp
       title: DataStructure/FoldableDeque.hpp
     - icon: ':heavy_check_mark:'
@@ -17,14 +17,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template.hpp
       title: Template.hpp
-  - name: Math
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: Math/BarrettModint.hpp
-      title: Math/BarrettModint.hpp
-    - icon: ':heavy_check_mark:'
-      path: Math/MontgomeryModint.hpp
-      title: Math/MontgomeryModint.hpp
   - name: String
     pages:
     - icon: ':heavy_check_mark:'
@@ -47,10 +39,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
       title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - name: Verify/verify-yosupo-sample
@@ -72,20 +64,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-string/zalgorithm.test.cpp
       title: Verify/verify-yosupo-string/zalgorithm.test.cpp
-  - name: Verify/verify-yuki
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: Verify/verify-yuki/yuki_1092-barrett.test.cpp
-      title: Verify/verify-yuki/yuki_1092-barrett.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: Verify/verify-yuki/yuki_1092-montgomery.test.cpp
-      title: Verify/verify-yuki/yuki_1092-montgomery.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: Verify/verify-yuki/yuki_336-barrett.test.cpp
-      title: Verify/verify-yuki/yuki_336-barrett.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: Verify/verify-yuki/yuki_336-montgomery.test.cpp
-      title: Verify/verify-yuki/yuki_336-montgomery.test.cpp
 layout: toppage
 ---
 [![hirayuu_At](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fhirayuu_At)](https://atcoder.jp/users/hirayuu_At)
