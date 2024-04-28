@@ -26,10 +26,9 @@ void solve(){
                 flg=true;
             }
         }
-        if(i<=50000)continue;
-        else if(S[0]=='C')out(comb.comb(N,K),i);
-        else if(S[0]=='P')out(comb.perm(N,K),i);
-        else if(S[0]=='H')out(comb.multi_comb(N,K),i);
+        if(S[0]=='C')out(comb.comb(N,K));
+        else if(S[0]=='P')out(comb.perm(N,K));
+        else if(S[0]=='H')out(comb.multi_comb(N,K));
     }
 }
 int main(){

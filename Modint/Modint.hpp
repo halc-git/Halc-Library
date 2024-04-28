@@ -116,16 +116,16 @@ struct ArbitraryModint{
         return ArbitraryModint()-(*this);
     }
     constexpr ArbitraryModint operator+(const ArbitraryModint rhs){
-        return Modint(*this)+=rhs;
+        return ArbitraryModint(*this)+=rhs;
     }
     constexpr ArbitraryModint operator-(const ArbitraryModint rhs){
-        return Modint(*this)-=rhs;
+        return ArbitraryModint(*this)-=rhs;
     }
     constexpr ArbitraryModint operator*(const ArbitraryModint rhs){
-        return Modint(*this)*=rhs;
+        return ArbitraryModint(*this)*=rhs;
     }
     constexpr ArbitraryModint operator/(const ArbitraryModint rhs){
-        return Modint(*this)/=rhs;
+        return ArbitraryModint(*this)/=rhs;
     }
     constexpr ArbitraryModint &operator+=(const ArbitraryModint rhs){
         x+=rhs.x;
