@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: Verify/verify-yuki/901.test.cpp
+    title: Verify/verify-yuki/901.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Tree/StaticTopTree.hpp\"\ntemplate<class M>\nstruct StaticTopTree{\n\
@@ -155,8 +158,9 @@ data:
   path: Tree/StaticTopTree.hpp
   requiredBy: []
   timestamp: '2024-04-29 09:35:47+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - Verify/verify-yuki/901.test.cpp
 documentation_of: Tree/StaticTopTree.hpp
 layout: document
 title: Static Top Tree
