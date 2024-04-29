@@ -1,8 +1,8 @@
 #pragma once
 template<class M>
 struct StaticTopTree{
-    using point=M::point;
-    using path=M::path;
+    using point=typename M::point;
+    using path=typename M::path;
     struct Node{
         bool is_path;
         point point_val;
