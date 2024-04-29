@@ -40,6 +40,9 @@ data:
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yuki/2338.test.cpp
+    title: Verify/verify-yuki/2338.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
   _isVerificationFailed: false
@@ -528,6 +531,7 @@ data:
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - Verify/verify-yuki/1092.test.cpp
   - Verify/verify-yuki/117.test.cpp
+  - Verify/verify-yuki/2338.test.cpp
   - Verify/verify-yuki/901.test.cpp
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - Verify/verify-yosupo-datastructure/associative_array.test.cpp

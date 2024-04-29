@@ -9,7 +9,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/Mo.hpp
       title: Mo's Algorithm
   - name: Math
@@ -95,6 +95,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/117.test.cpp
       title: Verify/verify-yuki/117.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yuki/2338.test.cpp
+      title: Verify/verify-yuki/2338.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/901.test.cpp
       title: Verify/verify-yuki/901.test.cpp
