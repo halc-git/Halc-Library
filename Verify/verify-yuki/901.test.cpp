@@ -1,5 +1,5 @@
 #define PROBLEM "https://yukicoder.me/problems/no/901"
-#include"../../Template.hpp"
+#include"../../Template/Template.hpp"
 #include"../../Tree/StaticTopTree.hpp"
 vector<bool> mark;
 vector<ll> weight;

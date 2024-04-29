@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
-#include"../../Template.hpp"
+#include"../../Template/Template.hpp"
 #include"../../String/RollingHash.hpp"
 void solve(){
     STR(S);

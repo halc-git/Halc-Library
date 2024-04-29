@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/deque_operate_all_composite"
-#include"../../Template.hpp"
+#include"../../Template/Template.hpp"
 #include"../../DataStructure/FoldableDeque.hpp"
 #include"../../Modint/Modint.hpp"
 using mint=Modint<MOD>;

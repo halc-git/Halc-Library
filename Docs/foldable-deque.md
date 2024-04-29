@@ -5,7 +5,7 @@ documentation_of: ../DataStructure/FoldableDeque.hpp
 
 ## 関数の設定
 ```cpp
-struct func{
+struct M{
     using T;
 
     static T op(T x,T y){

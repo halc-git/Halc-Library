@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod"
-#include"../../Template.hpp"
+#include"../../Template/Template.hpp"
 #include"../../Modint/Modint.hpp"
 #include"../../Math/ModCombination.hpp"
 using mint=ArbitraryModint<-1>;

@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
-#include"../../Template.hpp"
+#include"../../Template/Template.hpp"
 #include"../../String/Z_algorithm.hpp"
 void solve(){
     STR(S);

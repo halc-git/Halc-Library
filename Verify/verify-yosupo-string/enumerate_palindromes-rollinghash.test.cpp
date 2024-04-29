@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/enumerate_palindromes"
-#include"../../Template.hpp"
+#include"../../Template/Template.hpp"
 #include"String/RollingHash.hpp"
 void solve(){
     STR(S);

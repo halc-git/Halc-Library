@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B"
-#include"../../Template.hpp"
+#include"../../Template/Template.hpp"
 #include"../../String/RollingHash.hpp"
 void solve(){
     STR(T);

@@ -1,5 +1,5 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1092"
-#include"../../Template.hpp"
+#include"../../Template/Template.hpp"
 #include"../../Modint/Modint.hpp"
 using mint=ArbitraryModint<-1>;
 void solve(){
