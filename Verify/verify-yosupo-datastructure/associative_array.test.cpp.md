@@ -121,10 +121,10 @@ data:
     \   else{\n            out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/associative_array\"\n#include\"\
-    Template.hpp\"\n#include\"DataStructure/Hashmap.hpp\"\nvoid solve(){\n    LL(Q);\n\
-    \    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n        if(t==0){\n \
-    \           LL(v);\n            a[k]=v;\n        }\n        else{\n          \
-    \  out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n\
+    ../../Template.hpp\"\n#include\"../../DataStructure/Hashmap.hpp\"\nvoid solve(){\n\
+    \    LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n        if(t==0){\n\
+    \            LL(v);\n            a[k]=v;\n        }\n        else{\n         \
+    \   out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n\
     }"
   dependsOn:
   - Template.hpp
@@ -133,7 +133,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:11:21+09:00'
+  timestamp: '2024-04-29 10:52:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/associative_array.test.cpp

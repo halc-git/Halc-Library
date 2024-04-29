@@ -137,11 +137,11 @@ data:
     \        if(roll.query(tb,i,i+len(P))==hash)out(i);\n    }\n}\nint main(){\n \
     \   solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
-    \n#include\"Template.hpp\"\n#include\"String/RollingHash.hpp\"\nvoid solve(){\n\
-    \    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n    auto tb=roll.build(T);\n\
-    \    auto pb=roll.build(P);\n    ll hash=roll.query(pb,0,len(P));\n    rep(i,len(T)-len(P)+1){\n\
-    \        if(roll.query(tb,i,i+len(P))==hash)out(i);\n    }\n}\nint main(){\n \
-    \   solve();\n    return 0;\n}"
+    \n#include\"../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nvoid\
+    \ solve(){\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n    auto\
+    \ tb=roll.build(T);\n    auto pb=roll.build(P);\n    ll hash=roll.query(pb,0,len(P));\n\
+    \    rep(i,len(T)-len(P)+1){\n        if(roll.query(tb,i,i+len(P))==hash)out(i);\n\
+    \    }\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
   - String/RollingHash.hpp
@@ -149,7 +149,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:04:27+09:00'
+  timestamp: '2024-04-29 10:52:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp

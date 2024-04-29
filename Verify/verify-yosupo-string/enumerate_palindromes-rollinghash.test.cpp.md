@@ -144,7 +144,7 @@ data:
     \            }\n        }\n        ans[(i<<1)+1]=ok<<1;\n    }\n    out(ans);\n\
     }\nint main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
-    \n#include\"Template.hpp\"\n#include\"String/RollingHash.hpp\"\nvoid solve(){\n\
+    \n#include\"../../Template.hpp\"\n#include\"String/RollingHash.hpp\"\nvoid solve(){\n\
     \    STR(S);\n    RollingHash<string> roll;\n    auto st=roll.build(S);\n    reverse(all(S));\n\
     \    auto rev=roll.build(S);\n    vec(ll,ans,len(S)*2-1);\n    rep(i,len(S)){\n\
     \        ll ok=1,ng=min(i+1,len(S)-i)+1;\n        while(ng-ok>1){\n          \
@@ -163,7 +163,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:04:27+09:00'
+  timestamp: '2024-04-29 10:52:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp

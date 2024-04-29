@@ -31,7 +31,7 @@ data:
     \        uniform_int_distribution<uint64_t> rand(0,1ULL<<63);\n        static\
     \ const uint64_t FIXED_RANDOM=rand(mt);\n        return splitmix64(x+FIXED_RANDOM);\n\
     \    }\n};\ntemplate<typename Key,typename Val>using Hashmap=__gnu_pbds::gp_hash_table<Key,Val,custom_hash>;\n"
-  code: "#pragma once\n#include<ext/pb_ds/assoc_container.hpp>\n#include\"Heuristic.hpp\"\
+  code: "#pragma once\n#include<ext/pb_ds/assoc_container.hpp>\n#include\"../Heuristic.hpp\"\
     \n//https://codeforces.com/blog/entry/62393?locale=en\nstruct custom_hash {\n\
     \    //http://xorshift.di.unimi.it/splitmix64.c\n    static uint64_t splitmix64(uint64_t\
     \ x) {\n        x+=0x9e3779b97f4a7c15;\n        x=(x^(x>>30))*0xbf58476d1ce4e5b9;\n\
@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: DataStructure/Hashmap.hpp
   requiredBy: []
-  timestamp: '2024-04-29 10:11:21+09:00'
+  timestamp: '2024-04-29 10:52:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-datastructure/associative_array.test.cpp

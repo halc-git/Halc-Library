@@ -96,7 +96,7 @@ data:
     #define se second\n#line 3 \"Verify/verify-yosupo-sample/aplusb.test.cpp\"\nvoid\
     \ solve(){\n    LL(A,B);\n    out(A+B);\n}\nint main(){\n    solve();\n    return\
     \ 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include\"Template.hpp\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include\"../../Template.hpp\"\
     \nvoid solve(){\n    LL(A,B);\n    out(A+B);\n}\nint main(){\n    solve();\n \
     \   return 0;\n}"
   dependsOn:
@@ -104,7 +104,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-sample/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:04:27+09:00'
+  timestamp: '2024-04-29 10:52:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-sample/aplusb.test.cpp

@@ -105,15 +105,16 @@ data:
     \nvoid solve(){\n    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
-    Template.hpp\"\n#include\"String/Z_algorithm.hpp\"\nvoid solve(){\n    STR(S);\n\
-    \    out(z_algorithm(S));\n}\nint main(){\n    solve();\n    return 0;\n}"
+    ../../Template.hpp\"\n#include\"../../String/Z_algorithm.hpp\"\nvoid solve(){\n\
+    \    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n    return\
+    \ 0;\n}"
   dependsOn:
   - Template.hpp
   - String/Z_algorithm.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:04:27+09:00'
+  timestamp: '2024-04-29 10:52:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/zalgorithm.test.cpp

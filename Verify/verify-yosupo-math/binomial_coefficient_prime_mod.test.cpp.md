@@ -100,7 +100,7 @@ data:
     ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}\n\
     int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
     \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
-    #define se second\n#line 1 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct\
+    #define se second\n#line 2 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct\
     \ Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n        x=0;\n  \
     \  }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
     \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
@@ -165,7 +165,7 @@ data:
     \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
     \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){cout\
     \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){cout <<\
-    \ a;}\n#line 1 \"Math/ModCombination.hpp\"\ntemplate<typename T>\nstruct ModCombination{\n\
+    \ a;}\n#line 2 \"Math/ModCombination.hpp\"\ntemplate<typename T>\nstruct ModCombination{\n\
     \    vector<T> fact={1},rev{1};\n    void resize(uint32_t sz){\n        sz++;\n\
     \        if(fact.size()>=sz)return;\n        uint32_t before=fact.size();\n  \
     \      fact.resize(sz);\n        rev.resize(sz);\n        for(uint32_t i=before;\
@@ -181,11 +181,11 @@ data:
     \        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint main(){\n    solve();\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
-    \n#include\"Template.hpp\"\n#include\"Modint/Modint.hpp\"\n#include\"Math/ModCombination.hpp\"\
-    \nusing mint=ArbitraryModint<-1>;\nvoid solve(){\n    LL(T,m);\n    mint::set_mod(m);\n\
-    \    ModCombination<mint> comb;\n    comb.resize(min(m,10000000LL));\n    rep(i,T){\n\
-    \        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint main(){\n    solve();\n\
-    \    return 0;\n}"
+    \n#include\"../../Template.hpp\"\n#include\"../../Modint/Modint.hpp\"\n#include\"\
+    ../../Math/ModCombination.hpp\"\nusing mint=ArbitraryModint<-1>;\nvoid solve(){\n\
+    \    LL(T,m);\n    mint::set_mod(m);\n    ModCombination<mint> comb;\n    comb.resize(min(m,10000000LL));\n\
+    \    rep(i,T){\n        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint\
+    \ main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
   - Modint/Modint.hpp
@@ -193,7 +193,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:04:27+09:00'
+  timestamp: '2024-04-29 10:54:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp

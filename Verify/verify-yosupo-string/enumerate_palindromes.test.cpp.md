@@ -109,16 +109,16 @@ data:
     \nvoid solve(){\n    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
-    \n#include\"Template.hpp\"\n#include\"String/Manacher.hpp\"\nvoid solve(){\n \
-    \   STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n    return 0;\n\
-    }"
+    \n#include\"../../Template.hpp\"\n#include\"String/Manacher.hpp\"\nvoid solve(){\n\
+    \    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n    return\
+    \ 0;\n}"
   dependsOn:
   - Template.hpp
   - String/Manacher.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:04:27+09:00'
+  timestamp: '2024-04-29 10:52:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp

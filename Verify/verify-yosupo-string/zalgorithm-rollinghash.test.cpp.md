@@ -135,9 +135,9 @@ data:
     \ table=roll.build(S);\n    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
     \    }\n    out(ans);\n}\nint main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
-    Template.hpp\"\n#include\"String/RollingHash.hpp\"\nvoid solve(){\n    STR(S);\n\
-    \    vec(ll,ans,len(S));\n    RollingHash<string> roll;\n    auto table=roll.build(S);\n\
-    \    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
+    ../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nvoid solve(){\n\
+    \    STR(S);\n    vec(ll,ans,len(S));\n    RollingHash<string> roll;\n    auto\
+    \ table=roll.build(S);\n    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
     \    }\n    out(ans);\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template.hpp
@@ -146,7 +146,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:04:27+09:00'
+  timestamp: '2024-04-29 10:52:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp

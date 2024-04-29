@@ -52,7 +52,7 @@ data:
     \ &b,uint32_t l2,uint32_t r2){\n        uint32_t ok=0,ng=min((r1-l1),(r2-l2))+1;\n\
     \        while(ng-ok>1){\n            uint32_t mid=(ok+ng)>>1;\n            if(query(a,l1,l1+mid)==query(b,l2,l2+mid))ok=mid;\n\
     \            else ng=mid;\n        }\n        return ok;\n    }\n};\n"
-  code: "#pragma once\n#include\"Heuristic.hpp\"\n//https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
+  code: "#pragma once\n#include\"../Heuristic.hpp\"\n//https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
     template<typename S>\nstruct RollingHash{\n    using u64=uint64_t;\n    static\
     \ const u64 MOD=(1ULL<<61)-1;\n    static const u64 MASK31=(1ULL<<31)-1;\n   \
     \ static const u64 MASK30=(1ULL<<30)-1;\n    vector<u64> powers;\n    u64 base,fixed;\n\
@@ -82,7 +82,7 @@ data:
   isVerificationFile: false
   path: String/RollingHash.hpp
   requiredBy: []
-  timestamp: '2024-04-29 10:04:27+09:00'
+  timestamp: '2024-04-29 10:52:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp

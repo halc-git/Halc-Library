@@ -23,7 +23,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n\
+  bundledCode: "#line 2 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n\
     \    uint64_t x;\n    constexpr Modint()noexcept{\n        x=0;\n    }\n    constexpr\
     \ Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
     \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
@@ -89,10 +89,11 @@ data:
     \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){cout\
     \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){cout <<\
     \ a;}\n"
-  code: "template<uint64_t Mod>\nstruct Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n\
-    \        x=0;\n    }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
-    \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
-    \ uint64_t m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
+  code: "#pragma once\ntemplate<uint64_t Mod>\nstruct Modint{\n    uint64_t x;\n \
+    \   constexpr Modint()noexcept{\n        x=0;\n    }\n    constexpr Modint(int64_t\
+    \ val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n    }\n  \
+    \  inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static uint64_t\
+    \ m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
     \        uint64_t pro=ret*Mod;\n        return (val-pro+(val<pro?Mod:0));\n  \
     \  }\n    friend ostream &operator<<(ostream &os,Modint &b){\n        return os<<b.x;\n\
     \    }\n    friend istream &operator>>(istream &is,Modint &b){\n        return\
@@ -158,7 +159,7 @@ data:
   isVerificationFile: false
   path: Modint/Modint.hpp
   requiredBy: []
-  timestamp: '2024-04-28 12:56:30+09:00'
+  timestamp: '2024-04-29 10:54:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
