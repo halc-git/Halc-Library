@@ -36,7 +36,7 @@ struct StaticTopTree{
     int32_t _path_cluster(int32_t pos,vector<int32_t> &tree_sz){
         if(tree[pos].empty()){
             node_pos[pos]=nodes.size();
-            nodes.push_back(Node(1,pos));
+            nodes.emplace_back(Node(1,pos));
             _calc_val(nodes.size()-1);
             return nodes.size()-1;
         }
@@ -55,34 +55,34 @@ struct StaticTopTree{
             next_pos=tree[pos].back();
             tree[pos].pop_back();
             tree_sz[pos]-=tree_sz[next_pos];
-            sizes.push_back(tree_sz[pos]);
-            address.push_back(_point_cluster(pos,tree_sz));
+            sizes.emplace_back(tree_sz[pos]);
+            address.emplace_back(_point_cluster(pos,tree_sz));
             pos=next_pos;
         }
-        address.push_back(_point_cluster(pos,tree_sz));
-        sizes.push_back(tree_sz[pos]);
+        address.emplace_back(_point_cluster(pos,tree_sz));
+        sizes.emplace_back(tree_sz[pos]);
         return _merge(address,sizes,0,address.size(),1);
     }
     int32_t _point_cluster(int32_t pos,vector<int32_t> &tree_sz){
         if(tree[pos].empty()){
             node_pos[pos]=nodes.size();
-            nodes.push_back(Node(1,pos));
+            nodes.emplace_back(Node(1,pos));
             _calc_val(nodes.size()-1);
             return nodes.size()-1;
         }
         vector<int32_t> address;
         vector<int32_t> sizes;
         for(int32_t i:tree[pos]){
-            sizes.push_back(tree_sz[i]);
+            sizes.emplace_back(tree_sz[i]);
             int32_t vert=_path_cluster(i,tree_sz);
-            nodes.push_back(Node(0,-1,vert));
+            nodes.emplace_back(Node(0,-1,vert));
             nodes[vert].parent=nodes.size()-1;
-            address.push_back(nodes.size()-1);
+            address.emplace_back(nodes.size()-1);
             _calc_val(nodes.size()-1);
         }
         int32_t vert=_merge(address,sizes,0,address.size(),0);
         node_pos[pos]=nodes.size();
-        nodes.push_back(Node(1,pos,vert));
+        nodes.emplace_back(Node(1,pos,vert));
         nodes[vert].parent=nodes.size()-1;
         _calc_val(nodes.size()-1);
         return nodes.size()-1;
@@ -101,7 +101,7 @@ struct StaticTopTree{
                 if(now+now-add>bef)i--;
                 int32_t left=_merge(address,sizes,lf,i+1,pat);
                 int32_t right=_merge(address,sizes,i+1,ri,pat);
-                nodes.push_back(Node(pat,-1,left,right));
+                nodes.emplace_back(Node(pat,-1,left,right));
                 nodes[left].parent=nodes.size()-1;
                 nodes[right].parent=nodes.size()-1;
                 _calc_val(nodes.size()-1);
@@ -109,7 +109,6 @@ struct StaticTopTree{
             }
             bef=add-now-now;
         }
-        assert(false);
     }
     void _calc_val(int32_t pos){
         if(nodes[pos].is_path){
