@@ -20,7 +20,7 @@ data:
     \        node_pos.resize(sz);\n    }\n    void add_edge(int32_t s,int32_t v){\n\
     \        tree[s].emplace_back(v);\n        tree[v].emplace_back(s);\n    }\n \
     \   int32_t _path_cluster(int32_t pos,vector<int32_t> &tree_sz){\n        if(tree[pos].empty()){\n\
-    \            node_pos[pos]=nodes.size();\n            nodes.push_back(Node(1,pos));\n\
+    \            node_pos[pos]=nodes.size();\n            nodes.emplace_back(Node(1,pos));\n\
     \            _calc_val(nodes.size()-1);\n            return nodes.size()-1;\n\
     \        }\n        vector<int32_t> address;\n        vector<int32_t> sizes;\n\
     \        while(!tree[pos].empty()){\n            int32_t max_size=-1;\n      \
@@ -29,19 +29,19 @@ data:
     \                    next_pos=i;\n                }\n            }\n         \
     \   swap(tree[pos][next_pos],tree[pos].back());\n            next_pos=tree[pos].back();\n\
     \            tree[pos].pop_back();\n            tree_sz[pos]-=tree_sz[next_pos];\n\
-    \            sizes.push_back(tree_sz[pos]);\n            address.push_back(_point_cluster(pos,tree_sz));\n\
-    \            pos=next_pos;\n        }\n        address.push_back(_point_cluster(pos,tree_sz));\n\
-    \        sizes.push_back(tree_sz[pos]);\n        return _merge(address,sizes,0,address.size(),1);\n\
+    \            sizes.emplace_back(tree_sz[pos]);\n            address.emplace_back(_point_cluster(pos,tree_sz));\n\
+    \            pos=next_pos;\n        }\n        address.emplace_back(_point_cluster(pos,tree_sz));\n\
+    \        sizes.emplace_back(tree_sz[pos]);\n        return _merge(address,sizes,0,address.size(),1);\n\
     \    }\n    int32_t _point_cluster(int32_t pos,vector<int32_t> &tree_sz){\n  \
     \      if(tree[pos].empty()){\n            node_pos[pos]=nodes.size();\n     \
-    \       nodes.push_back(Node(1,pos));\n            _calc_val(nodes.size()-1);\n\
+    \       nodes.emplace_back(Node(1,pos));\n            _calc_val(nodes.size()-1);\n\
     \            return nodes.size()-1;\n        }\n        vector<int32_t> address;\n\
     \        vector<int32_t> sizes;\n        for(int32_t i:tree[pos]){\n         \
-    \   sizes.push_back(tree_sz[i]);\n            int32_t vert=_path_cluster(i,tree_sz);\n\
-    \            nodes.push_back(Node(0,-1,vert));\n            nodes[vert].parent=nodes.size()-1;\n\
-    \            address.push_back(nodes.size()-1);\n            _calc_val(nodes.size()-1);\n\
+    \   sizes.emplace_back(tree_sz[i]);\n            int32_t vert=_path_cluster(i,tree_sz);\n\
+    \            nodes.emplace_back(Node(0,-1,vert));\n            nodes[vert].parent=nodes.size()-1;\n\
+    \            address.emplace_back(nodes.size()-1);\n            _calc_val(nodes.size()-1);\n\
     \        }\n        int32_t vert=_merge(address,sizes,0,address.size(),0);\n \
-    \       node_pos[pos]=nodes.size();\n        nodes.push_back(Node(1,pos,vert));\n\
+    \       node_pos[pos]=nodes.size();\n        nodes.emplace_back(Node(1,pos,vert));\n\
     \        nodes[vert].parent=nodes.size()-1;\n        _calc_val(nodes.size()-1);\n\
     \        return nodes.size()-1;\n    }\n    int32_t _merge(vector<int32_t> &address,vector<int32_t>\
     \ &sizes,int32_t lf,int32_t ri,bool pat){\n        if(lf+1==ri)return address[lf];\n\
@@ -50,14 +50,14 @@ data:
     \ i=lf; i<ri; i++){\n            now+=sizes[i];\n            if(now>add-now){\n\
     \                if(now+now-add>bef)i--;\n                int32_t left=_merge(address,sizes,lf,i+1,pat);\n\
     \                int32_t right=_merge(address,sizes,i+1,ri,pat);\n           \
-    \     nodes.push_back(Node(pat,-1,left,right));\n                nodes[left].parent=nodes.size()-1;\n\
+    \     nodes.emplace_back(Node(pat,-1,left,right));\n                nodes[left].parent=nodes.size()-1;\n\
     \                nodes[right].parent=nodes.size()-1;\n                _calc_val(nodes.size()-1);\n\
     \                return nodes.size()-1;\n            }\n            bef=add-now-now;\n\
-    \        }\n        assert(false);\n    }\n    void _calc_val(int32_t pos){\n\
-    \        if(nodes[pos].is_path){\n            if((nodes[pos].left==-1) && (nodes[pos].right==-1)){\n\
-    \                nodes[pos].path_val=M::vertex(nodes[pos].pos);\n            }\n\
-    \            else if((nodes[pos].left!=-1) && (nodes[pos].right!=-1)){\n     \
-    \           nodes[pos].path_val=M::compress(nodes[nodes[pos].left].path_val,nodes[nodes[pos].right].path_val);\n\
+    \        }\n    }\n    void _calc_val(int32_t pos){\n        if(nodes[pos].is_path){\n\
+    \            if((nodes[pos].left==-1) && (nodes[pos].right==-1)){\n          \
+    \      nodes[pos].path_val=M::vertex(nodes[pos].pos);\n            }\n       \
+    \     else if((nodes[pos].left!=-1) && (nodes[pos].right!=-1)){\n            \
+    \    nodes[pos].path_val=M::compress(nodes[nodes[pos].left].path_val,nodes[nodes[pos].right].path_val);\n\
     \            }\n            else{\n                nodes[pos].path_val=M::add_vertex(nodes[nodes[pos].left].point_val,nodes[pos].pos);\n\
     \            }\n        }\n        else{\n            if((nodes[pos].left!=-1)\
     \ && (nodes[pos].right!=-1)){\n                nodes[pos].point_val=M::rake(nodes[nodes[pos].left].point_val,nodes[nodes[pos].right].point_val);\n\
@@ -91,7 +91,7 @@ data:
     \    }\n    void add_edge(int32_t s,int32_t v){\n        tree[s].emplace_back(v);\n\
     \        tree[v].emplace_back(s);\n    }\n    int32_t _path_cluster(int32_t pos,vector<int32_t>\
     \ &tree_sz){\n        if(tree[pos].empty()){\n            node_pos[pos]=nodes.size();\n\
-    \            nodes.push_back(Node(1,pos));\n            _calc_val(nodes.size()-1);\n\
+    \            nodes.emplace_back(Node(1,pos));\n            _calc_val(nodes.size()-1);\n\
     \            return nodes.size()-1;\n        }\n        vector<int32_t> address;\n\
     \        vector<int32_t> sizes;\n        while(!tree[pos].empty()){\n        \
     \    int32_t max_size=-1;\n            int32_t next_pos=-1;\n            for(int\
@@ -99,19 +99,20 @@ data:
     \                    max_size=tree_sz[tree[pos][i]];\n                    next_pos=i;\n\
     \                }\n            }\n            swap(tree[pos][next_pos],tree[pos].back());\n\
     \            next_pos=tree[pos].back();\n            tree[pos].pop_back();\n \
-    \           tree_sz[pos]-=tree_sz[next_pos];\n            sizes.push_back(tree_sz[pos]);\n\
-    \            address.push_back(_point_cluster(pos,tree_sz));\n            pos=next_pos;\n\
-    \        }\n        address.push_back(_point_cluster(pos,tree_sz));\n        sizes.push_back(tree_sz[pos]);\n\
-    \        return _merge(address,sizes,0,address.size(),1);\n    }\n    int32_t\
-    \ _point_cluster(int32_t pos,vector<int32_t> &tree_sz){\n        if(tree[pos].empty()){\n\
-    \            node_pos[pos]=nodes.size();\n            nodes.push_back(Node(1,pos));\n\
-    \            _calc_val(nodes.size()-1);\n            return nodes.size()-1;\n\
-    \        }\n        vector<int32_t> address;\n        vector<int32_t> sizes;\n\
-    \        for(int32_t i:tree[pos]){\n            sizes.push_back(tree_sz[i]);\n\
-    \            int32_t vert=_path_cluster(i,tree_sz);\n            nodes.push_back(Node(0,-1,vert));\n\
-    \            nodes[vert].parent=nodes.size()-1;\n            address.push_back(nodes.size()-1);\n\
-    \            _calc_val(nodes.size()-1);\n        }\n        int32_t vert=_merge(address,sizes,0,address.size(),0);\n\
-    \        node_pos[pos]=nodes.size();\n        nodes.push_back(Node(1,pos,vert));\n\
+    \           tree_sz[pos]-=tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n\
+    \            address.emplace_back(_point_cluster(pos,tree_sz));\n            pos=next_pos;\n\
+    \        }\n        address.emplace_back(_point_cluster(pos,tree_sz));\n     \
+    \   sizes.emplace_back(tree_sz[pos]);\n        return _merge(address,sizes,0,address.size(),1);\n\
+    \    }\n    int32_t _point_cluster(int32_t pos,vector<int32_t> &tree_sz){\n  \
+    \      if(tree[pos].empty()){\n            node_pos[pos]=nodes.size();\n     \
+    \       nodes.emplace_back(Node(1,pos));\n            _calc_val(nodes.size()-1);\n\
+    \            return nodes.size()-1;\n        }\n        vector<int32_t> address;\n\
+    \        vector<int32_t> sizes;\n        for(int32_t i:tree[pos]){\n         \
+    \   sizes.emplace_back(tree_sz[i]);\n            int32_t vert=_path_cluster(i,tree_sz);\n\
+    \            nodes.emplace_back(Node(0,-1,vert));\n            nodes[vert].parent=nodes.size()-1;\n\
+    \            address.emplace_back(nodes.size()-1);\n            _calc_val(nodes.size()-1);\n\
+    \        }\n        int32_t vert=_merge(address,sizes,0,address.size(),0);\n \
+    \       node_pos[pos]=nodes.size();\n        nodes.emplace_back(Node(1,pos,vert));\n\
     \        nodes[vert].parent=nodes.size()-1;\n        _calc_val(nodes.size()-1);\n\
     \        return nodes.size()-1;\n    }\n    int32_t _merge(vector<int32_t> &address,vector<int32_t>\
     \ &sizes,int32_t lf,int32_t ri,bool pat){\n        if(lf+1==ri)return address[lf];\n\
@@ -120,14 +121,14 @@ data:
     \ i=lf; i<ri; i++){\n            now+=sizes[i];\n            if(now>add-now){\n\
     \                if(now+now-add>bef)i--;\n                int32_t left=_merge(address,sizes,lf,i+1,pat);\n\
     \                int32_t right=_merge(address,sizes,i+1,ri,pat);\n           \
-    \     nodes.push_back(Node(pat,-1,left,right));\n                nodes[left].parent=nodes.size()-1;\n\
+    \     nodes.emplace_back(Node(pat,-1,left,right));\n                nodes[left].parent=nodes.size()-1;\n\
     \                nodes[right].parent=nodes.size()-1;\n                _calc_val(nodes.size()-1);\n\
     \                return nodes.size()-1;\n            }\n            bef=add-now-now;\n\
-    \        }\n        assert(false);\n    }\n    void _calc_val(int32_t pos){\n\
-    \        if(nodes[pos].is_path){\n            if((nodes[pos].left==-1) && (nodes[pos].right==-1)){\n\
-    \                nodes[pos].path_val=M::vertex(nodes[pos].pos);\n            }\n\
-    \            else if((nodes[pos].left!=-1) && (nodes[pos].right!=-1)){\n     \
-    \           nodes[pos].path_val=M::compress(nodes[nodes[pos].left].path_val,nodes[nodes[pos].right].path_val);\n\
+    \        }\n    }\n    void _calc_val(int32_t pos){\n        if(nodes[pos].is_path){\n\
+    \            if((nodes[pos].left==-1) && (nodes[pos].right==-1)){\n          \
+    \      nodes[pos].path_val=M::vertex(nodes[pos].pos);\n            }\n       \
+    \     else if((nodes[pos].left!=-1) && (nodes[pos].right!=-1)){\n            \
+    \    nodes[pos].path_val=M::compress(nodes[nodes[pos].left].path_val,nodes[nodes[pos].right].path_val);\n\
     \            }\n            else{\n                nodes[pos].path_val=M::add_vertex(nodes[nodes[pos].left].point_val,nodes[pos].pos);\n\
     \            }\n        }\n        else{\n            if((nodes[pos].left!=-1)\
     \ && (nodes[pos].right!=-1)){\n                nodes[pos].point_val=M::rake(nodes[nodes[pos].left].point_val,nodes[nodes[pos].right].point_val);\n\
@@ -153,7 +154,7 @@ data:
   isVerificationFile: false
   path: Tree/StaticTopTree.hpp
   requiredBy: []
-  timestamp: '2024-04-28 21:17:21+09:00'
+  timestamp: '2024-04-29 09:35:47+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Tree/StaticTopTree.hpp
