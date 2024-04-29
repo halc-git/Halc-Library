@@ -5,8 +5,8 @@ data:
     path: String/Manacher.hpp
     title: String/Manacher.hpp
   - icon: ':heavy_check_mark:'
-    path: Template.hpp
-    title: Template.hpp
+    path: Template/Template.hpp
+    title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -19,7 +19,7 @@ data:
     - https://judge.yosupo.jp/problem/enumerate_palindromes
   bundledCode: "#line 1 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\n\
-    #line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
+    #line 2 \"Template/Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
     const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
@@ -109,16 +109,16 @@ data:
     \nvoid solve(){\n    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
-    \n#include\"../../Template.hpp\"\n#include\"String/Manacher.hpp\"\nvoid solve(){\n\
-    \    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n    return\
-    \ 0;\n}"
+    \n#include\"../../Template/Template.hpp\"\n#include\"String/Manacher.hpp\"\nvoid\
+    \ solve(){\n    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}"
   dependsOn:
-  - Template.hpp
+  - Template/Template.hpp
   - String/Manacher.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:52:34+09:00'
+  timestamp: '2024-04-29 14:38:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp

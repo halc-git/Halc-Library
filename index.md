@@ -6,17 +6,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/FoldableDeque.hpp
       title: Foldable Deque
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
-  - name: .
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: Heuristic.hpp
-      title: Heuristic.hpp
-    - icon: ':heavy_check_mark:'
-      path: Template.hpp
-      title: Template.hpp
   - name: Math
     pages:
     - icon: ':heavy_check_mark:'
@@ -38,6 +30,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/Z_algorithm.hpp
       title: String/Z_algorithm.hpp
+  - name: Template
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Template/Heuristic.hpp
+      title: Template/Heuristic.hpp
+    - icon: ':heavy_check_mark:'
+      path: Template/Template.hpp
+      title: Template/Template.hpp
   - name: Tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -51,7 +51,7 @@ data:
       title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - name: Verify/verify-yosupo-datastructure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
       title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     - icon: ':heavy_check_mark:'

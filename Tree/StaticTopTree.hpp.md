@@ -169,7 +169,7 @@ title: Static Top Tree
 
 ## 関数の設定
 ```cpp
-struct func{
+struct M{
     using point;
     using path;
 

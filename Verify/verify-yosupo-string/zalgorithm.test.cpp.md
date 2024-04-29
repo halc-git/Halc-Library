@@ -5,8 +5,8 @@ data:
     path: String/Z_algorithm.hpp
     title: String/Z_algorithm.hpp
   - icon: ':heavy_check_mark:'
-    path: Template.hpp
-    title: Template.hpp
+    path: Template/Template.hpp
+    title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -18,7 +18,7 @@ data:
     links:
     - https://judge.yosupo.jp/problem/zalgorithm
   bundledCode: "#line 1 \"Verify/verify-yosupo-string/zalgorithm.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#line 2 \"Template.hpp\"\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#line 2 \"Template/Template.hpp\"\
     \n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n#include<bits/stdc++.h>\n\
     using namespace std;\nusing ll=long long;\ntemplate<class T> using pq=priority_queue<T,vector<T>,greater<T>>;\n\
     using pll=pair<ll,ll>;\nconst ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...)\
@@ -105,16 +105,16 @@ data:
     \nvoid solve(){\n    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
-    ../../Template.hpp\"\n#include\"../../String/Z_algorithm.hpp\"\nvoid solve(){\n\
-    \    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n    return\
-    \ 0;\n}"
+    ../../Template/Template.hpp\"\n#include\"../../String/Z_algorithm.hpp\"\nvoid\
+    \ solve(){\n    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}"
   dependsOn:
-  - Template.hpp
+  - Template/Template.hpp
   - String/Z_algorithm.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:52:34+09:00'
+  timestamp: '2024-04-29 14:38:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/zalgorithm.test.cpp

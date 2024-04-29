@@ -7,9 +7,6 @@ data:
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
     title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-    title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -48,7 +45,7 @@ data:
   attributes:
     links:
     - https://tatyam.hatenablog.com/entry/2019/12/15/003634
-  bundledCode: '#line 2 "Template.hpp"
+  bundledCode: '#line 2 "Template/Template.hpp"
 
     //https://tatyam.hatenablog.com/entry/2019/12/15/003634
 
@@ -518,9 +515,9 @@ data:
     #define se second'
   dependsOn: []
   isVerificationFile: false
-  path: Template.hpp
+  path: Template/Template.hpp
   requiredBy: []
-  timestamp: '2024-03-08 20:45:00+09:00'
+  timestamp: '2024-04-29 14:38:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb.test.cpp
@@ -530,16 +527,15 @@ data:
   - Verify/verify-yuki/117.test.cpp
   - Verify/verify-yuki/901.test.cpp
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/associative_array.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   - Verify/verify-yosupo-string/zalgorithm.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-documentation_of: Template.hpp
+documentation_of: Template/Template.hpp
 layout: document
 redirect_from:
-- /library/Template.hpp
-- /library/Template.hpp.html
-title: Template.hpp
+- /library/Template/Template.hpp
+- /library/Template/Template.hpp.html
+title: Template/Template.hpp
 ---

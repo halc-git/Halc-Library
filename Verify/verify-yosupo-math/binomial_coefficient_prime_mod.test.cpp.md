@@ -8,8 +8,8 @@ data:
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
   - icon: ':heavy_check_mark:'
-    path: Template.hpp
-    title: Template.hpp
+    path: Template/Template.hpp
+    title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -22,7 +22,7 @@ data:
     - https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
   bundledCode: "#line 1 \"Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
-    \n#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
+    \n#line 2 \"Template/Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
     const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
@@ -181,19 +181,19 @@ data:
     \        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint main(){\n    solve();\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
-    \n#include\"../../Template.hpp\"\n#include\"../../Modint/Modint.hpp\"\n#include\"\
-    ../../Math/ModCombination.hpp\"\nusing mint=ArbitraryModint<-1>;\nvoid solve(){\n\
-    \    LL(T,m);\n    mint::set_mod(m);\n    ModCombination<mint> comb;\n    comb.resize(min(m,10000000LL));\n\
-    \    rep(i,T){\n        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint\
-    \ main(){\n    solve();\n    return 0;\n}"
+    \n#include\"../../Template/Template.hpp\"\n#include\"../../Modint/Modint.hpp\"\
+    \n#include\"../../Math/ModCombination.hpp\"\nusing mint=ArbitraryModint<-1>;\n\
+    void solve(){\n    LL(T,m);\n    mint::set_mod(m);\n    ModCombination<mint> comb;\n\
+    \    comb.resize(min(m,10000000LL));\n    rep(i,T){\n        LL(n,k);\n      \
+    \  out(comb.comb(n,k));\n    }\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
-  - Template.hpp
+  - Template/Template.hpp
   - Modint/Modint.hpp
   - Math/ModCombination.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:54:50+09:00'
+  timestamp: '2024-04-29 14:38:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp

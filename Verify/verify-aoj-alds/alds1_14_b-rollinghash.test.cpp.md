@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Heuristic.hpp
-    title: Heuristic.hpp
-  - icon: ':heavy_check_mark:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
   - icon: ':heavy_check_mark:'
-    path: Template.hpp
-    title: Template.hpp
+    path: Template/Heuristic.hpp
+    title: Template/Heuristic.hpp
+  - icon: ':heavy_check_mark:'
+    path: Template/Template.hpp
+    title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -22,7 +22,7 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
   bundledCode: "#line 1 \"Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp\"\
     \n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
-    \n#line 2 \"Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
+    \n#line 2 \"Template/Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
     const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
@@ -100,8 +100,8 @@ data:
     ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}\n\
     int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
     \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
-    #define se second\n#line 2 \"Heuristic.hpp\"\nusing namespace chrono;\nuint32_t\
-    \ pcg32_fast(){\n    static uint64_t state=(steady_clock::now().time_since_epoch().count()<<1)+1;\n\
+    #define se second\n#line 2 \"Template/Heuristic.hpp\"\nusing namespace chrono;\n\
+    uint32_t pcg32_fast(){\n    static uint64_t state=(steady_clock::now().time_since_epoch().count()<<1)+1;\n\
     \    uint64_t x=state;\n    uint8_t count=x>>61;\n    state*=0xf13283ad;\n   \
     \ x^=x>>22;\n    return (uint32_t)(x>>(22+count));\n}\n\nint32_t randint(int32_t\
     \ l,int32_t r){\n    return l+(((int64_t)pcg32_fast()*(r-l+1))>>32);\n}\n\nauto\
@@ -137,19 +137,19 @@ data:
     \        if(roll.query(tb,i,i+len(P))==hash)out(i);\n    }\n}\nint main(){\n \
     \   solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
-    \n#include\"../../Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nvoid\
-    \ solve(){\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n    auto\
-    \ tb=roll.build(T);\n    auto pb=roll.build(P);\n    ll hash=roll.query(pb,0,len(P));\n\
+    \n#include\"../../Template/Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\
+    \nvoid solve(){\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n   \
+    \ auto tb=roll.build(T);\n    auto pb=roll.build(P);\n    ll hash=roll.query(pb,0,len(P));\n\
     \    rep(i,len(T)-len(P)+1){\n        if(roll.query(tb,i,i+len(P))==hash)out(i);\n\
     \    }\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
-  - Template.hpp
+  - Template/Template.hpp
   - String/RollingHash.hpp
-  - Heuristic.hpp
+  - Template/Heuristic.hpp
   isVerificationFile: true
   path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 10:52:34+09:00'
+  timestamp: '2024-04-29 14:38:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
