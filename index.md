@@ -11,7 +11,7 @@ data:
       title: DataStructure/Hashmap.hpp
   - name: .
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Heuristic.hpp
       title: Heuristic.hpp
     - icon: ':heavy_check_mark:'

@@ -181,11 +181,11 @@ data:
     \        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint main(){\n    solve();\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
-    \n#include\"../../Template.hpp\"\n#include\"../../Modint/Modint.hpp\"\n#include\"\
-    ../../Math/ModCombination.hpp\"\nusing mint=ArbitraryModint<-1>;\nvoid solve(){\n\
-    \    LL(T,m);\n    mint::set_mod(m);\n    ModCombination<mint> comb;\n    comb.resize(min(m,10000000LL));\n\
-    \    rep(i,T){\n        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint\
-    \ main(){\n    solve();\n    return 0;\n}"
+    \n#include\"Template.hpp\"\n#include\"Modint/Modint.hpp\"\n#include\"Math/ModCombination.hpp\"\
+    \nusing mint=ArbitraryModint<-1>;\nvoid solve(){\n    LL(T,m);\n    mint::set_mod(m);\n\
+    \    ModCombination<mint> comb;\n    comb.resize(min(m,10000000LL));\n    rep(i,T){\n\
+    \        LL(n,k);\n        out(comb.comb(n,k));\n    }\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}"
   dependsOn:
   - Template.hpp
   - Modint/Modint.hpp
@@ -193,7 +193,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-04-28 12:56:30+09:00'
+  timestamp: '2024-04-29 10:04:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp

@@ -5,6 +5,9 @@ data:
     path: DataStructure/Hashmap.hpp
     title: DataStructure/Hashmap.hpp
   - icon: ':heavy_check_mark:'
+    path: Heuristic.hpp
+    title: Heuristic.hpp
+  - icon: ':heavy_check_mark:'
     path: Template.hpp
     title: Template.hpp
   _extendedRequiredBy: []
@@ -98,31 +101,39 @@ data:
     int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
     \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
     #define se second\n#line 2 \"DataStructure/Hashmap.hpp\"\n#include<ext/pb_ds/assoc_container.hpp>\n\
-    //https://codeforces.com/blog/entry/62393?locale=en\nstruct custom_hash {\n  \
-    \  //http://xorshift.di.unimi.it/splitmix64.c\n    static uint64_t splitmix64(uint64_t\
-    \ x) {\n        x+=0x9e3779b97f4a7c15;\n        x=(x^(x>>30))*0xbf58476d1ce4e5b9;\n\
+    #line 2 \"Heuristic.hpp\"\nusing namespace chrono;\nuint32_t pcg32_fast(){\n \
+    \   static uint64_t state=(steady_clock::now().time_since_epoch().count()<<1)+1;\n\
+    \    uint64_t x=state;\n    uint8_t count=x>>61;\n    state*=0xf13283ad;\n   \
+    \ x^=x>>22;\n    return (uint32_t)(x>>(22+count));\n}\n\nint32_t randint(int32_t\
+    \ l,int32_t r){\n    return l+(((int64_t)pcg32_fast()*(r-l+1))>>32);\n}\n\nauto\
+    \ startTime=system_clock::now();\nint32_t getTime(){\n    return duration_cast<microseconds>(system_clock::now()-startTime).count();\n\
+    }\n#line 4 \"DataStructure/Hashmap.hpp\"\n//https://codeforces.com/blog/entry/62393?locale=en\n\
+    struct custom_hash {\n    //http://xorshift.di.unimi.it/splitmix64.c\n    static\
+    \ uint64_t splitmix64(uint64_t x) {\n        x+=0x9e3779b97f4a7c15;\n        x=(x^(x>>30))*0xbf58476d1ce4e5b9;\n\
     \        x=(x^(x>>27))*0x94d049bb133111eb;\n        return x^(x>>31);\n    }\n\
-    \    uint64_t operator()(uint64_t x) const {\n        static const uint64_t FIXED_RANDOM=chrono::steady_clock::now().time_since_epoch().count();\n\
-    \        return splitmix64(x+FIXED_RANDOM);\n    }\n};\ntemplate<typename Key,typename\
-    \ Val>using Hashmap=__gnu_pbds::gp_hash_table<Key,Val,custom_hash>;\n#line 4 \"\
-    Verify/verify-yosupo-datastructure/associative_array.test.cpp\"\nvoid solve(){\n\
-    \    LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n        if(t==0){\n\
-    \            LL(v);\n            a[k]=v;\n        }\n        else{\n         \
-    \   out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n\
-    }\n"
+    \    uint64_t operator()(uint64_t x) const {\n        mt19937_64 mt(pcg32_fast());\n\
+    \        uniform_int_distribution<uint64_t> rand(0,1ULL<<63);\n        static\
+    \ const uint64_t FIXED_RANDOM=rand(mt);\n        return splitmix64(x+FIXED_RANDOM);\n\
+    \    }\n};\ntemplate<typename Key,typename Val>using Hashmap=__gnu_pbds::gp_hash_table<Key,Val,custom_hash>;\n\
+    #line 4 \"Verify/verify-yosupo-datastructure/associative_array.test.cpp\"\nvoid\
+    \ solve(){\n    LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n\
+    \        if(t==0){\n            LL(v);\n            a[k]=v;\n        }\n     \
+    \   else{\n            out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/associative_array\"\n#include\"\
-    ../../Template.hpp\"\n#include\"../../DataStructure/Hashmap.hpp\"\nvoid solve(){\n\
-    \    LL(Q);\n    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n        if(t==0){\n\
-    \            LL(v);\n            a[k]=v;\n        }\n        else{\n         \
-    \   out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n\
+    Template.hpp\"\n#include\"DataStructure/Hashmap.hpp\"\nvoid solve(){\n    LL(Q);\n\
+    \    Hashmap<ll,ll> a;\n    rep(i,Q){\n        LL(t,k);\n        if(t==0){\n \
+    \           LL(v);\n            a[k]=v;\n        }\n        else{\n          \
+    \  out(a[k]);\n        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n\
     }"
   dependsOn:
   - Template.hpp
   - DataStructure/Hashmap.hpp
+  - Heuristic.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
   requiredBy: []
-  timestamp: '2024-03-26 14:10:07+09:00'
+  timestamp: '2024-04-29 10:04:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/associative_array.test.cpp

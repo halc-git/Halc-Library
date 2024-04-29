@@ -229,9 +229,9 @@ data:
     \ ope=que.get_all();\n            out(ope.fi*x+ope.se);\n        }\n    }\n}\n\
     int main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/queue_operate_all_composite\"\
-    \n#include\"../../Template.hpp\"\n#include\"../../DataStructure/FoldableDeque.hpp\"\
-    \n#include\"../../Modint/Modint.hpp\"\nusing mint=Modint<MOD>;\nstruct composite{\n\
-    \    using T=pair<mint,mint>;\n    static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
+    \n#include\"Template.hpp\"\n#include\"DataStructure/FoldableDeque.hpp\"\n#include\"\
+    Modint/Modint.hpp\"\nusing mint=Modint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n\
+    \    static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
     \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableQueue<composite>\
     \ que;\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n\
     \            que.push(pll(a,b));\n        }\n        if(t==1){\n            que.pop();\n\
@@ -245,7 +245,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-04-28 12:56:30+09:00'
+  timestamp: '2024-04-29 10:04:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
