@@ -9,6 +9,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
+    - icon: ':warning:'
+      path: DataStructure/Mo.hpp
+      title: Mo's Algorithm
   - name: Math
     pages:
     - icon: ':heavy_check_mark:'
