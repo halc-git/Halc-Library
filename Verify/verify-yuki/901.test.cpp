@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/901"
-#include"../../Template/Template.hpp"
-#include"../../Tree/StaticTopTree.hpp"
+#include"Template/Template.hpp"
+#include"Tree/StaticTopTree.hpp"
 void solve(){
     LL(N);
     static vector<bool> mark(N,0);

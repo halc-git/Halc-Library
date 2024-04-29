@@ -23,21 +23,21 @@ struct Mo{
         });
         int32_t nl=0,nr=0;
         for(int32_t i:order){
-            while(nl<left[i]){
-                M::delete_left(nl);
-                nl++;
-            }
             while(nl>left[i]){
                 nl--;
                 M::add_left(nl);
             }
-            while(right[i]<nr){
-                nr--;
-                M::delete_right(nr);
-            }
             while(right[i]>nr){
                 M::add_right(nr);
                 nr++;
+            }
+            while(nl<left[i]){
+                M::delete_left(nl);
+                nl++;
+            }
+            while(right[i]<nr){
+                nr--;
+                M::delete_right(nr);
             }
             answer[i]=M::rem();
         }

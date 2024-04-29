@@ -21,7 +21,7 @@ struct M{
 ```
 * `T`: 答えの型です。
 * `void add_left(int pos)`: `pos` 番目の要素を左に追加するときの処理です。
-* * `void delete_left(int pos)`: `pos` 番目の要素を左から削除するときの処理です。
+* `void delete_left(int pos)`: `pos` 番目の要素を左から削除するときの処理です。
 * `void add_right(int pos)`: `pos` 番目の要素を右に追加するときの処理です。
 * `void delete_right(int pos)`: `pos` 番目の要素を右から削除するときの処理です。
 * `T rem()`: 現時点でのクエリに対する答えを返す処理です。
