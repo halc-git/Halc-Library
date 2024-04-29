@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/117"
-#include"Template.hpp"
-#include"Modint/Modint.hpp"
-#include"Math/ModCombination.hpp"
+#include"../../Template.hpp"
+#include"../../Modint/Modint.hpp"
+#include"../../Math/ModCombination.hpp"
 using mint=Modint<MODD>;
 void solve(){
     LL(T);

@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
-#include"Template.hpp"
-#include"String/RollingHash.hpp"
+#include"../../Template.hpp"
+#include"../../String/RollingHash.hpp"
 void solve(){
     STR(S);
     vec(ll,ans,len(S));
