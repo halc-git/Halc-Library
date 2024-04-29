@@ -1,3 +1,4 @@
+#pragma once
 template<typename T>
 struct ModCombination{
     vector<T> fact={1},rev{1};

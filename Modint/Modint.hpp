@@ -1,3 +1,4 @@
+#pragma once
 template<uint64_t Mod>
 struct Modint{
     uint64_t x;
