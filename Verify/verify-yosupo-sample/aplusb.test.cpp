@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
-#include"../../Template.hpp"
+#include"Template.hpp"
 void solve(){
     LL(A,B);
     out(A+B);

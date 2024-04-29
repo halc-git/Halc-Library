@@ -1,4 +1,5 @@
 #pragma once
+#include"Heuristic.hpp"
 //https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
 template<typename S>
 struct RollingHash{
@@ -25,7 +26,7 @@ struct RollingHash{
         return calc_mod(((au*bu)<<1)+midu+(midd<<31)+ad*bd);
     }
     static inline u64 generate_base(){
-        mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());
+        mt19937_64 mt(pcg32_fast());
         uniform_int_distribution<u64> rand(1ULL<<60,MOD-1);
         return rand(mt);
     }

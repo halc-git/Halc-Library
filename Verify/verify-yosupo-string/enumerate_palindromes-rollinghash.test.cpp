@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/enumerate_palindromes"
-#include"../../Template.hpp"
-#include"../../String/RollingHash.hpp"
+#include"Template.hpp"
+#include"String/RollingHash.hpp"
 void solve(){
     STR(S);
     RollingHash<string> roll;

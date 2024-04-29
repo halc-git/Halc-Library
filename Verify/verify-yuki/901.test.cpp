@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/901"
-#include"../../Template.hpp"
-#include"../../Tree/StaticTopTree.hpp"
+#include"Template.hpp"
+#include"Tree/StaticTopTree.hpp"
 vector<bool> mark;
 vector<ll> weight;
 struct steiner{

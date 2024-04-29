@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1092"
-#include"../../Template.hpp"
-#include"../../Modint/Modint.hpp"
+#include"Template.hpp"
+#include"Modint/Modint.hpp"
 using mint=ArbitraryModint<-1>;
 void solve(){
     LL(P,N);

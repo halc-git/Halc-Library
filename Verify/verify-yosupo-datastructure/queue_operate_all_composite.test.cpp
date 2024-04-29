@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/queue_operate_all_composite"
-#include"../../Template.hpp"
-#include"../../DataStructure/FoldableDeque.hpp"
-#include"../../Modint/Modint.hpp"
+#include"Template.hpp"
+#include"DataStructure/FoldableDeque.hpp"
+#include"Modint/Modint.hpp"
 using mint=Modint<MOD>;
 struct composite{
     using T=pair<mint,mint>;

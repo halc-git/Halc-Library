@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/associative_array"
-#include"../../Template.hpp"
-#include"../../DataStructure/Hashmap.hpp"
+#include"Template.hpp"
+#include"DataStructure/Hashmap.hpp"
 void solve(){
     LL(Q);
     Hashmap<ll,ll> a;
