@@ -11,8 +11,8 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"DataStructure/Mo.hpp\"\ntemplate<class M>\nstruct Mo{\n\
-    \    using T=typename M::T;\n    int32_t backet;\n    vector<int32_t> left,right,order;\n\
+  bundledCode: "#line 2 \"Misc/Mo.hpp\"\ntemplate<class M>\nstruct Mo{\n    using\
+    \ T=typename M::T;\n    int32_t backet;\n    vector<int32_t> left,right,order;\n\
     \    Mo(int32_t N,int32_t Q){\n        order.resize(Q);\n        backet=max<int32_t>(1,(double)(N)/max<double>(1,sqrt(Q*2.0/3)));\n\
     \        iota(order.begin(),order.end(),0);\n    }\n    void add_query(int32_t\
     \ lf,int32_t ri){\n        left.emplace_back(lf);\n        right.emplace_back(ri);\n\
@@ -47,13 +47,13 @@ data:
     \    }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: DataStructure/Mo.hpp
+  path: Misc/Mo.hpp
   requiredBy: []
-  timestamp: '2024-04-29 19:31:23+09:00'
+  timestamp: '2024-05-01 16:53:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yuki/2338.test.cpp
-documentation_of: DataStructure/Mo.hpp
+documentation_of: Misc/Mo.hpp
 layout: document
 title: Mo's Algorithm
 ---
