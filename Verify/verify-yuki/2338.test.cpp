@@ -1,6 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/2338"
 #include"../../Template/Template.hpp"
-#include"../../DataStructure/Mo.hpp"
+#include"../../Misc/Mo.hpp"
 void solve(){
     LL(N,M,Q);
     static vec(ll,P,N);
