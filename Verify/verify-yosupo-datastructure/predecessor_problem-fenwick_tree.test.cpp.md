@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
+    PROBLEM: https://judge.yosupo.jp/problem/predecessor_problem
     links:
-    - https://judge.yosupo.jp/problem/point_add_range_sum
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n#line\
+    - https://judge.yosupo.jp/problem/predecessor_problem
+  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/predecessor_problem\"\n#line\
     \ 2 \"Template/Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
@@ -111,31 +111,44 @@ data:
     \      if(now+i<=siz&&val+tree[now+i]<w){\n                now+=i;\n         \
     \       val+=tree[now];\n            }\n        }\n        return now+1;\n   \
     \ }\n    size_t size(){\n        return tree.size()-1;\n    }\n};\n#line 4 \"\
-    Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\nvoid solve(){\n\
-    \    LL(N,Q);\n    FenwickTree<ll> a(N);\n    rep(i,N){\n        LL(a_i);\n  \
-    \      a.add(i,a_i);\n    }\n    rep(i,Q){\n        LL(t,x,y);\n        if(t==0){\n\
-    \            a.add(x,y);\n        }\n        else{\n            out(a.sum(x,y));\n\
-    \        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
+    Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp\"\
+    \nvoid solve(){\n    LL(N,Q);\n    STR(T);\n    FenwickTree<ll> fw(N);\n    rep(i,N){\n\
+    \        if(T[i]=='1')fw.add(i,1);\n    }\n    rep(i,Q){\n        LL(c,k);\n \
+    \       if(c==0){\n            if(fw.sum(k,k+1)==0){\n                fw.add(k,1);\n\
+    \            }\n        }\n        if(c==1){\n            if(fw.sum(k,k+1)==1)fw.add(k,-1);\n\
+    \        }\n        if(c==2){\n            out(fw.sum(k,k+1));\n        }\n  \
+    \      if(c==3){\n            ll cnt=fw.sum(0,k)+1;\n            ll ans=fw.lower_bound(cnt);\n\
+    \            if(fw.sum(0,ans)==cnt){\n                out(ans-1);\n          \
+    \  }\n            else{\n                out(-1);\n            }\n        }\n\
+    \        if(c==4){\n            ll cnt=fw.sum(0,k+1);\n            ll ans=fw.lower_bound(cnt);\n\
+    \            out(ans-1);\n        }\n    }\n}\nint main(){\n    solve();\n   \
+    \ return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/predecessor_problem\"\n\
     #include\"../../Template/Template.hpp\"\n#include\"../../DataStructure/FenwickTree.hpp\"\
-    \nvoid solve(){\n    LL(N,Q);\n    FenwickTree<ll> a(N);\n    rep(i,N){\n    \
-    \    LL(a_i);\n        a.add(i,a_i);\n    }\n    rep(i,Q){\n        LL(t,x,y);\n\
-    \        if(t==0){\n            a.add(x,y);\n        }\n        else{\n      \
-    \      out(a.sum(x,y));\n        }\n    }\n}\nint main(){\n    solve();\n    return\
-    \ 0;\n}"
+    \nvoid solve(){\n    LL(N,Q);\n    STR(T);\n    FenwickTree<ll> fw(N);\n    rep(i,N){\n\
+    \        if(T[i]=='1')fw.add(i,1);\n    }\n    rep(i,Q){\n        LL(c,k);\n \
+    \       if(c==0){\n            if(fw.sum(k,k+1)==0){\n                fw.add(k,1);\n\
+    \            }\n        }\n        if(c==1){\n            if(fw.sum(k,k+1)==1)fw.add(k,-1);\n\
+    \        }\n        if(c==2){\n            out(fw.sum(k,k+1));\n        }\n  \
+    \      if(c==3){\n            ll cnt=fw.sum(0,k)+1;\n            ll ans=fw.lower_bound(cnt);\n\
+    \            if(fw.sum(0,ans)==cnt){\n                out(ans-1);\n          \
+    \  }\n            else{\n                out(-1);\n            }\n        }\n\
+    \        if(c==4){\n            ll cnt=fw.sum(0,k+1);\n            ll ans=fw.lower_bound(cnt);\n\
+    \            out(ans-1);\n        }\n    }\n}\nint main(){\n    solve();\n   \
+    \ return 0;\n}\n"
   dependsOn:
   - Template/Template.hpp
   - DataStructure/FenwickTree.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+  path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
   requiredBy: []
   timestamp: '2024-05-01 20:27:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+documentation_of: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp.html
-title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp.html
+title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
 ---

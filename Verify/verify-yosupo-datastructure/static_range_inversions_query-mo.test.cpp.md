@@ -5,6 +5,12 @@ data:
     path: DataStructure/FenwickTree.hpp
     title: DataStructure/FenwickTree.hpp
   - icon: ':heavy_check_mark:'
+    path: Misc/Compress.hpp
+    title: Misc/Compress.hpp
+  - icon: ':heavy_check_mark:'
+    path: Misc/Mo.hpp
+    title: Mo's Algorithm
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -14,12 +20,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
+    PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
     links:
-    - https://judge.yosupo.jp/problem/point_add_range_sum
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n#line\
-    \ 2 \"Template/Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
+    - https://judge.yosupo.jp/problem/static_range_inversions_query
+  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
+    \n#line 2 \"Template/Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
     const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
@@ -110,32 +116,74 @@ data:
     \ now=0;\n        T val=0;\n        for(int32_t i=start; i>0; i>>=1){\n      \
     \      if(now+i<=siz&&val+tree[now+i]<w){\n                now+=i;\n         \
     \       val+=tree[now];\n            }\n        }\n        return now+1;\n   \
-    \ }\n    size_t size(){\n        return tree.size()-1;\n    }\n};\n#line 4 \"\
-    Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\nvoid solve(){\n\
-    \    LL(N,Q);\n    FenwickTree<ll> a(N);\n    rep(i,N){\n        LL(a_i);\n  \
-    \      a.add(i,a_i);\n    }\n    rep(i,Q){\n        LL(t,x,y);\n        if(t==0){\n\
-    \            a.add(x,y);\n        }\n        else{\n            out(a.sum(x,y));\n\
-    \        }\n    }\n}\nint main(){\n    solve();\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
-    #include\"../../Template/Template.hpp\"\n#include\"../../DataStructure/FenwickTree.hpp\"\
-    \nvoid solve(){\n    LL(N,Q);\n    FenwickTree<ll> a(N);\n    rep(i,N){\n    \
-    \    LL(a_i);\n        a.add(i,a_i);\n    }\n    rep(i,Q){\n        LL(t,x,y);\n\
-    \        if(t==0){\n            a.add(x,y);\n        }\n        else{\n      \
-    \      out(a.sum(x,y));\n        }\n    }\n}\nint main(){\n    solve();\n    return\
-    \ 0;\n}"
+    \ }\n    size_t size(){\n        return tree.size()-1;\n    }\n};\n#line 5 \"\
+    Misc/Mo.hpp\"\ntemplate<class M>\nstruct Mo{\n    using T=typename M::T;\n   \
+    \ int32_t backet;\n    std::vector<int32_t> left,right,order;\n    Mo(int32_t\
+    \ N,int32_t Q){\n        order.resize(Q);\n        backet=std::max<int32_t>(1,(double)(N)/std::max<double>(1,std::sqrt(Q*2.0/3)));\n\
+    \        std::iota(order.begin(),order.end(),0);\n    }\n    void add_query(int32_t\
+    \ lf,int32_t ri){\n        left.emplace_back(lf);\n        right.emplace_back(ri);\n\
+    \    }\n    std::vector<T> run(){\n        std::vector<T> answer(order.size());\n\
+    \        sort(order.begin(),order.end(),[&](int32_t a,int32_t b){\n          \
+    \  int32_t ab=left[a]/backet,bb=left[b]/backet;\n            if(ab!=bb)return\
+    \ ab<bb;\n            if(ab&1)return right[a]<right[b];\n            return right[a]>right[b];\n\
+    \        });\n        int32_t nl=0,nr=0;\n        for(int32_t i:order){\n    \
+    \        while(nl>left[i]){\n                nl--;\n                M::add_left(nl);\n\
+    \            }\n            while(right[i]>nr){\n                M::add_right(nr);\n\
+    \                nr++;\n            }\n            while(nl<left[i]){\n      \
+    \          M::delete_left(nl);\n                nl++;\n            }\n       \
+    \     while(right[i]<nr){\n                nr--;\n                M::delete_right(nr);\n\
+    \            }\n            answer[i]=M::rem();\n        }\n        return answer;\n\
+    \    }\n};\n#line 3 \"Misc/Compress.hpp\"\ntemplate<class T>\nstruct Compress{\n\
+    \    std::vector<T> data;\n    void add(T x){\n        data.emplace_back(x);\n\
+    \    }\n    void add(std::vector<T> x){\n        for(T i:x)add(i);\n    }\n  \
+    \  void build(){\n        sort(data.begin(),data.end());\n        data.erase(unique(data.begin(),data.end()),data.end());\n\
+    \    }\n    int32_t get(T x){\n        return std::lower_bound(data.begin(),data.end(),x)-data.begin();\n\
+    \    }\n    inline int32_t operator()(T x){\n        return get(x);\n    }\n \
+    \   T operator[](int32_t i){\n        return data[i];\n    }\n    size_t size(){\n\
+    \        return data.size();\n    }\n};\n#line 6 \"Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp\"\
+    \nvoid solve(){\n    LL(N,Q);\n    static VEC(ll,A,N);\n    static Compress<ll>\
+    \ cp;\n    cp.add(A);\n    cp.build();\n    rep(i,N){\n        A[i]=cp(A[i]);\n\
+    \    }\n    static FenwickTree<ll> fw(len(cp));\n    static ll ans=0;\n    struct\
+    \ inversions{\n        using T=ll;\n        static void add_left(int pos){\n \
+    \           ans+=fw.sum(0,A[pos]);\n            fw.add(A[pos],1);\n        }\n\
+    \        static void delete_left(int pos){\n            ans-=fw.sum(0,A[pos]);\n\
+    \            fw.add(A[pos],-1);\n        }\n        static void add_right(int\
+    \ pos){\n            ans+=fw.sum(A[pos]+1,len(cp));\n            fw.add(A[pos],1);\n\
+    \        }\n        static void delete_right(int pos){\n            ans-=fw.sum(A[pos]+1,len(cp));\n\
+    \            fw.add(A[pos],-1);\n        }\n        static T rem(){\n        \
+    \    return ans;\n        }\n    };\n    Mo<inversions> mo(N,Q);\n    rep(i,Q){\n\
+    \        LL(l,r);\n        mo.add_query(l,r);\n    }\n    vector<ll> fin=mo.run();\n\
+    \    each(i,fin)out(i);\n}\nint main(){\n    solve();\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
+    \n#include\"Template/Template.hpp\"\n#include\"DataStructure/FenwickTree.hpp\"\
+    \n#include\"Misc/Mo.hpp\"\n#include\"Misc/Compress.hpp\"\nvoid solve(){\n    LL(N,Q);\n\
+    \    static VEC(ll,A,N);\n    static Compress<ll> cp;\n    cp.add(A);\n    cp.build();\n\
+    \    rep(i,N){\n        A[i]=cp(A[i]);\n    }\n    static FenwickTree<ll> fw(len(cp));\n\
+    \    static ll ans=0;\n    struct inversions{\n        using T=ll;\n        static\
+    \ void add_left(int pos){\n            ans+=fw.sum(0,A[pos]);\n            fw.add(A[pos],1);\n\
+    \        }\n        static void delete_left(int pos){\n            ans-=fw.sum(0,A[pos]);\n\
+    \            fw.add(A[pos],-1);\n        }\n        static void add_right(int\
+    \ pos){\n            ans+=fw.sum(A[pos]+1,len(cp));\n            fw.add(A[pos],1);\n\
+    \        }\n        static void delete_right(int pos){\n            ans-=fw.sum(A[pos]+1,len(cp));\n\
+    \            fw.add(A[pos],-1);\n        }\n        static T rem(){\n        \
+    \    return ans;\n        }\n    };\n    Mo<inversions> mo(N,Q);\n    rep(i,Q){\n\
+    \        LL(l,r);\n        mo.add_query(l,r);\n    }\n    vector<ll> fin=mo.run();\n\
+    \    each(i,fin)out(i);\n}\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template/Template.hpp
   - DataStructure/FenwickTree.hpp
+  - Misc/Mo.hpp
+  - Misc/Compress.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+  path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   requiredBy: []
   timestamp: '2024-05-01 20:27:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+documentation_of: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp.html
-title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp.html
+title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
 ---

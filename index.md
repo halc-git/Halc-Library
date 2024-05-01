@@ -20,6 +20,9 @@ data:
   - name: Misc
     pages:
     - icon: ':heavy_check_mark:'
+      path: Misc/Compress.hpp
+      title: Misc/Compress.hpp
+    - icon: ':heavy_check_mark:'
       path: Misc/Mo.hpp
       title: Mo's Algorithm
   - name: Modint
@@ -69,8 +72,14 @@ data:
       path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
       title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
+      title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+      title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   - name: Verify/verify-yosupo-math
     pages:
     - icon: ':heavy_check_mark:'

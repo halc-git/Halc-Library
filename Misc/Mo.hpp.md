@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+    title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
   _isVerificationFailed: false
@@ -55,6 +58,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yuki/2338.test.cpp
+  - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
 documentation_of: Misc/Mo.hpp
 layout: document
 title: Mo's Algorithm

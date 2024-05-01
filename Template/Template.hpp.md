@@ -16,8 +16,14 @@ data:
     path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
+    title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+    title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
@@ -539,7 +545,9 @@ data:
   - Verify/verify-yuki/2338.test.cpp
   - Verify/verify-yuki/901.test.cpp
   - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   - Verify/verify-yosupo-datastructure/associative_array.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
