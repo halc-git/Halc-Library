@@ -1,4 +1,5 @@
 #pragma once
+#include<vector>
 template<class M>
 struct StaticTopTree{
     using point=typename M::point;
@@ -20,9 +21,9 @@ struct StaticTopTree{
         }
     };
     size_t sz;
-    vector<vector<int32_t>> tree;
-    vector<int32_t> node_pos;
-    vector<Node> nodes;
+    std::vector<std::vector<int32_t>> tree;
+    std::vector<int32_t> node_pos;
+    std::vector<Node> nodes;
     int32_t rt;
     StaticTopTree(size_t size){
         sz=size;
@@ -33,15 +34,15 @@ struct StaticTopTree{
         tree[s].emplace_back(v);
         tree[v].emplace_back(s);
     }
-    int32_t _path_cluster(int32_t pos,vector<int32_t> &tree_sz){
+    int32_t _path_cluster(int32_t pos,std::vector<int32_t> &tree_sz){
         if(tree[pos].empty()){
             node_pos[pos]=nodes.size();
             nodes.emplace_back(Node(1,pos));
             _calc_val(nodes.size()-1);
             return nodes.size()-1;
         }
-        vector<int32_t> address;
-        vector<int32_t> sizes;
+        std::vector<int32_t> address;
+        std::vector<int32_t> sizes;
         while(!tree[pos].empty()){
             int32_t max_size=-1;
             int32_t next_pos=-1;
@@ -51,7 +52,7 @@ struct StaticTopTree{
                     next_pos=i;
                 }
             }
-            swap(tree[pos][next_pos],tree[pos].back());
+            std::swap(tree[pos][next_pos],tree[pos].back());
             next_pos=tree[pos].back();
             tree[pos].pop_back();
             tree_sz[pos]-=tree_sz[next_pos];
@@ -63,15 +64,15 @@ struct StaticTopTree{
         sizes.emplace_back(tree_sz[pos]);
         return _merge(address,sizes,0,address.size(),1);
     }
-    int32_t _point_cluster(int32_t pos,vector<int32_t> &tree_sz){
+    int32_t _point_cluster(int32_t pos,std::vector<int32_t> &tree_sz){
         if(tree[pos].empty()){
             node_pos[pos]=nodes.size();
             nodes.emplace_back(Node(1,pos));
             _calc_val(nodes.size()-1);
             return nodes.size()-1;
         }
-        vector<int32_t> address;
-        vector<int32_t> sizes;
+        std::vector<int32_t> address;
+        std::vector<int32_t> sizes;
         for(int32_t i:tree[pos]){
             sizes.emplace_back(tree_sz[i]);
             int32_t vert=_path_cluster(i,tree_sz);
@@ -87,7 +88,7 @@ struct StaticTopTree{
         _calc_val(nodes.size()-1);
         return nodes.size()-1;
     }
-    int32_t _merge(vector<int32_t> &address,vector<int32_t> &sizes,int32_t lf,int32_t ri,bool pat){
+    int32_t _merge(std::vector<int32_t> &address,std::vector<int32_t> &sizes,int32_t lf,int32_t ri,bool pat){
         if(lf+1==ri)return address[lf];
         int32_t add=0;
         for(int32_t i=lf; i<ri; i++){
@@ -132,8 +133,8 @@ struct StaticTopTree{
         }
     }
     void build(int32_t root){
-        vector<int32_t> vert(sz);
-        vector<int32_t> tree_sz(sz,-1);
+        std::vector<int32_t> vert(sz);
+        std::vector<int32_t> tree_sz(sz,-1);
         vert[0]=root;
         tree_sz[0]=0;
         int32_t cnt=1;
@@ -156,7 +157,7 @@ struct StaticTopTree{
                 tree_sz[vert[i]]+=tree_sz[j];
             }
             if(parent<0){
-                swap(tree[vert[i]][-parent-1],tree[vert[i]].back());
+                std::swap(tree[vert[i]][-parent-1],tree[vert[i]].back());
                 tree[vert[i]].pop_back();
             }
             tree_sz[vert[i]]++;

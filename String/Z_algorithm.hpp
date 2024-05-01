@@ -1,9 +1,10 @@
 #pragma once
+#include<vector>
 //https://snuke.hatenablog.com/entry/2014/12/03/214243
 template<typename S>
-vector<int32_t> z_algorithm(S s){
+std::vector<int32_t> z_algorithm(S s){
     int32_t sz=s.size(),i=1,j=0,k;
-    vector<int32_t> ret(sz);
+    std::vector<int32_t> ret(sz);
     ret[0]=sz;
     while(i<sz){
         while(i+j<sz&&s[j]==s[i+j])j++;

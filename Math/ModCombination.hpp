@@ -1,7 +1,9 @@
 #pragma once
+#include<vector>
+#include<cstdint>
 template<typename T>
 struct ModCombination{
-    vector<T> fact={1},rev{1};
+    std::vector<T> fact={1},rev{1};
     void resize(uint32_t sz){
         sz++;
         if(fact.size()>=sz)return;

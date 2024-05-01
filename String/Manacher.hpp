@@ -1,9 +1,10 @@
 #pragma once
+#include<vector>
 //https://snuke.hatenablog.com/entry/2014/12/02/235837
 template<typename S>
-vector<int32_t> manacher(S s,bool is_even=true){
+std::vector<int32_t> manacher(S s,bool is_even=true){
     int32_t i=0,j=0,k,sz=(s.size()<<is_even)-is_even;
-    vector<int32_t> ret(sz);
+    std::vector<int32_t> ret(sz);
     while(i<sz){
         if(is_even){
             while(i-j>=-1&&i+j<=sz&&(((i-j)&1)||s[(i-j)>>1]==s[(i+j)>>1]))j++;

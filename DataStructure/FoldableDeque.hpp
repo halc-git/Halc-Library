@@ -1,9 +1,12 @@
 #pragma once
+#include<vector>
+#include<stack>
+#include<cstdint>
 //https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1
 template<class M>
 struct FoldableQueue{
     using T=typename M::T;
-    stack<T> top,bottom,topfold,bottomfold;
+    std::stack<T> top,bottom,topfold,bottomfold;
     FoldableQueue(){
         topfold.push(M::e);
         bottomfold.push(M::e);
@@ -48,7 +51,7 @@ struct FoldableQueue{
 template<class M>
 struct FoldableDeque{
     using T=typename M::T;
-    stack<T> top,bottom,topfold,bottomfold;
+    std::stack<T> top,bottom,topfold,bottomfold;
     FoldableDeque(){
         topfold.push(M::e);
         bottomfold.push(M::e);
@@ -63,7 +66,7 @@ struct FoldableDeque{
     }
     void pop_front(){
         if(top.empty()){
-            vector<T> change;
+            std::vector<T> change;
             while(!bottom.empty()){
                 change.emplace_back(bottom.top());
                 bottom.pop();
@@ -84,7 +87,7 @@ struct FoldableDeque{
     }
     void pop_back(){
         if(bottom.empty()){
-            vector<T> change;
+            std::vector<T> change;
             while(!top.empty()){
                 change.emplace_back(top.top());
                 top.pop();
@@ -105,7 +108,7 @@ struct FoldableDeque{
     }
     T front(){
         if(top.empty()){
-            vector<T> change;
+            std::vector<T> change;
             while(!bottom.empty()){
                 change.emplace_back(bottom.top());
                 bottom.pop();
@@ -125,7 +128,7 @@ struct FoldableDeque{
     }
     T back(){
         if(bottom.empty()){
-            vector<T> change;
+            std::vector<T> change;
             while(!top.empty()){
                 change.emplace_back(top.top());
                 top.pop();

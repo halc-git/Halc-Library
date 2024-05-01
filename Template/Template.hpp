@@ -100,9 +100,9 @@ const ld EPS=1e-9;
 const ld PI=3.1415926535897932;
 const ll four[]={0,1,0,-1,0};
 const ll eight[]={0,1,1,0,-1,-1,1,-1,0};
-ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}
-int Yes(bool i=true){return out(i?"Yes":"No");}
-int No(bool i=true){return out(i?"No":"Yes");}
+static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}
+inline int Yes(bool i=true){return out(i?"Yes":"No");}
+inline int No(bool i=true){return out(i?"No":"Yes");}
 #define len(x) ((int)(x).size())
 #define fi first
 #define se second

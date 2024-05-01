@@ -1,4 +1,6 @@
 #pragma once
+#include<cstdint>
+#include<iostream>
 template<uint64_t Mod>
 struct Modint{
     uint64_t x;
@@ -14,10 +16,10 @@ struct Modint{
         uint64_t pro=ret*Mod;
         return (val-pro+(val<pro?Mod:0));
     }
-    friend ostream &operator<<(ostream &os,Modint &b){
+    friend std::ostream &operator<<(std::ostream &os,Modint &b){
         return os<<b.x;
     }
-    friend istream &operator>>(istream &is,Modint &b){
+    friend std::istream &operator>>(std::istream &is,Modint &b){
         return is>>b.x;
     }
     constexpr uint64_t val()noexcept{
@@ -101,10 +103,10 @@ struct ArbitraryModint{
         uint64_t pro=ret*get_mod();
         return (val-pro+(val<pro?get_mod():0));
     }
-    friend ostream &operator<<(ostream &os,ArbitraryModint &b){
+    friend std::ostream &operator<<(std::ostream &os,ArbitraryModint &b){
         return os<<b.x;
     }
-    friend istream &operator>>(istream &is,ArbitraryModint &b){
+    friend std::istream &operator>>(std::istream &is,ArbitraryModint &b){
         return is>>b.x;
     }
     constexpr uint64_t val()noexcept{
@@ -171,5 +173,5 @@ struct ArbitraryModint{
         return mod();
     }
 };
-template<uint64_t N> inline void print(Modint<N> a){cout << a;}
-template<int64_t id> inline void print(ArbitraryModint<id> a){cout << a;}
+template<uint64_t N> inline void print(Modint<N> a){std::cout << a;}
+template<int64_t id> inline void print(ArbitraryModint<id> a){std::cout << a;}
