@@ -3,16 +3,16 @@
 template<class T>
 struct FenwickTree{
     std::vector<T> tree;
-    size_t size;
     int32_t start=1;
+    size_t siz;
     FenwickTree(int32_t sz){
-        size=sz;
-        tree.resize(size+1,0);
-        while((start<<1)<=size)start<<=1;
+        siz=sz;
+        tree.resize(sz+1,0);
+        while((start<<1)<=siz)start<<=1;
     }
     void add(int32_t pos,T val){
         pos++;
-        while(pos<=size){
+        while(pos<=siz){
             tree[pos]+=val;
             pos+=pos&-pos;
         }
@@ -29,15 +29,18 @@ struct FenwickTree{
         return _sum(ri)-_sum(lf);
     }
     int32_t lower_bound(T w){
-        if(w<0)return 0;
+        if(w<=0)return 0;
         int32_t now=0;
         T val=0;
-        for(int i=start; i==0; i>>=1){
-            if(now+i<=size&&val+tree[now+i]<w){
+        for(int32_t i=start; i>0; i>>=1){
+            if(now+i<=siz&&val+tree[now+i]<w){
                 now+=i;
                 val+=tree[now];
             }
         }
         return now+1;
+    }
+    size_t size(){
+        return tree.size()-1;
     }
 };
