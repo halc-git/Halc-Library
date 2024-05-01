@@ -93,17 +93,18 @@ data:
     \ int INF=INT_MAX>>1;\nconst ll MINF=1LL<<40;\nconst ld DINF=numeric_limits<ld>::infinity();\n\
     const int MODD=1000000007;\nconst int MOD=998244353;\nconst ld EPS=1e-9;\nconst\
     \ ld PI=3.1415926535897932;\nconst ll four[]={0,1,0,-1,0};\nconst ll eight[]={0,1,1,0,-1,-1,1,-1,0};\n\
-    ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}\n\
-    int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
-    \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
-    #define se second\n#line 2 \"String/Z_algorithm.hpp\"\n//https://snuke.hatenablog.com/entry/2014/12/03/214243\n\
-    template<typename S>\nvector<int32_t> z_algorithm(S s){\n    int32_t sz=s.size(),i=1,j=0,k;\n\
-    \    vector<int32_t> ret(sz);\n    ret[0]=sz;\n    while(i<sz){\n        while(i+j<sz&&s[j]==s[i+j])j++;\n\
-    \        ret[i]=j;\n        if(j==0){i++;continue;}\n        k=1;\n        while(i+k<sz&&k+ret[k]<j){\n\
-    \            ret[i+k]=ret[k];\n            k++;\n        }\n        i+=k;\n  \
-    \      j-=k;\n    }\n    return ret;\n}\n#line 4 \"Verify/verify-yosupo-string/zalgorithm.test.cpp\"\
-    \nvoid solve(){\n    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n\
-    \    return 0;\n}\n"
+    static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
+    \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
+    \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
+    #define fi first\n#define se second\n#line 3 \"String/Z_algorithm.hpp\"\n//https://snuke.hatenablog.com/entry/2014/12/03/214243\n\
+    template<typename S>\nstd::vector<int32_t> z_algorithm(S s){\n    int32_t sz=s.size(),i=1,j=0,k;\n\
+    \    std::vector<int32_t> ret(sz);\n    ret[0]=sz;\n    while(i<sz){\n       \
+    \ while(i+j<sz&&s[j]==s[i+j])j++;\n        ret[i]=j;\n        if(j==0){i++;continue;}\n\
+    \        k=1;\n        while(i+k<sz&&k+ret[k]<j){\n            ret[i+k]=ret[k];\n\
+    \            k++;\n        }\n        i+=k;\n        j-=k;\n    }\n    return\
+    \ ret;\n}\n#line 4 \"Verify/verify-yosupo-string/zalgorithm.test.cpp\"\nvoid solve(){\n\
+    \    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
     ../../Template/Template.hpp\"\n#include\"../../String/Z_algorithm.hpp\"\nvoid\
     \ solve(){\n    STR(S);\n    out(z_algorithm(S));\n}\nint main(){\n    solve();\n\
@@ -114,7 +115,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 14:38:08+09:00'
+  timestamp: '2024-05-01 17:42:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/zalgorithm.test.cpp

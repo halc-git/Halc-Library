@@ -97,29 +97,29 @@ data:
     \ int INF=INT_MAX>>1;\nconst ll MINF=1LL<<40;\nconst ld DINF=numeric_limits<ld>::infinity();\n\
     const int MODD=1000000007;\nconst int MOD=998244353;\nconst ld EPS=1e-9;\nconst\
     \ ld PI=3.1415926535897932;\nconst ll four[]={0,1,0,-1,0};\nconst ll eight[]={0,1,1,0,-1,-1,1,-1,0};\n\
-    ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}\n\
-    int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
-    \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
-    #define se second\n#line 2 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct\
-    \ Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n        x=0;\n  \
-    \  }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
+    static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
+    \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
+    \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
+    #define fi first\n#define se second\n#line 4 \"Modint/Modint.hpp\"\ntemplate<uint64_t\
+    \ Mod>\nstruct Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n   \
+    \     x=0;\n    }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
     \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
     \ uint64_t m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
     \        uint64_t pro=ret*Mod;\n        return (val-pro+(val<pro?Mod:0));\n  \
-    \  }\n    friend ostream &operator<<(ostream &os,Modint &b){\n        return os<<b.x;\n\
-    \    }\n    friend istream &operator>>(istream &is,Modint &b){\n        return\
-    \ is>>b.x;\n    }\n    constexpr uint64_t val()noexcept{\n        return x;\n\
-    \    }\n    constexpr Modint operator+()noexcept{\n        return (*this);\n \
-    \   }\n    constexpr Modint operator-()noexcept{\n        return Modint()-(*this);\n\
-    \    }\n    constexpr Modint operator+(const Modint rhs)noexcept{\n        return\
-    \ Modint(*this)+=rhs;\n    }\n    constexpr Modint operator-(const Modint rhs)noexcept{\n\
-    \        return Modint(*this)-=rhs;\n    }\n    constexpr Modint operator*(const\
-    \ Modint rhs)noexcept{\n        return Modint(*this)*=rhs;\n    }\n    constexpr\
-    \ Modint operator/(const Modint rhs)noexcept{\n        return Modint(*this)/=rhs;\n\
-    \    }\n    constexpr Modint &operator+=(const Modint rhs)noexcept{\n        x+=rhs.x;\n\
-    \        if(x>=Mod)x-=Mod;\n        return *this;\n    }\n    constexpr Modint\
-    \ &operator-=(const Modint rhs)noexcept{\n        if(x<rhs.x)x+=Mod;\n       \
-    \ x-=rhs.x;\n        return *this;\n    }\n    constexpr Modint &operator*=(const\
+    \  }\n    friend std::ostream &operator<<(std::ostream &os,Modint &b){\n     \
+    \   return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream &is,Modint\
+    \ &b){\n        return is>>b.x;\n    }\n    constexpr uint64_t val()noexcept{\n\
+    \        return x;\n    }\n    constexpr Modint operator+()noexcept{\n       \
+    \ return (*this);\n    }\n    constexpr Modint operator-()noexcept{\n        return\
+    \ Modint()-(*this);\n    }\n    constexpr Modint operator+(const Modint rhs)noexcept{\n\
+    \        return Modint(*this)+=rhs;\n    }\n    constexpr Modint operator-(const\
+    \ Modint rhs)noexcept{\n        return Modint(*this)-=rhs;\n    }\n    constexpr\
+    \ Modint operator*(const Modint rhs)noexcept{\n        return Modint(*this)*=rhs;\n\
+    \    }\n    constexpr Modint operator/(const Modint rhs)noexcept{\n        return\
+    \ Modint(*this)/=rhs;\n    }\n    constexpr Modint &operator+=(const Modint rhs)noexcept{\n\
+    \        x+=rhs.x;\n        if(x>=Mod)x-=Mod;\n        return *this;\n    }\n\
+    \    constexpr Modint &operator-=(const Modint rhs)noexcept{\n        if(x<rhs.x)x+=Mod;\n\
+    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr Modint &operator*=(const\
     \ Modint rhs)noexcept{\n        x=_get_mod(x*rhs.x);\n        return *this;\n\
     \    }\n    constexpr bool operator==(Modint rhs)noexcept{\n        return x==rhs.x;\n\
     \    }\n    constexpr bool operator!=(Modint rhs)noexcept{\n        return x!=rhs.x;\n\
@@ -136,10 +136,10 @@ data:
     \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
     \ uint64_t m_inv=(-1ULL)/get_mod()+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
     \        uint64_t pro=ret*get_mod();\n        return (val-pro+(val<pro?get_mod():0));\n\
-    \    }\n    friend ostream &operator<<(ostream &os,ArbitraryModint &b){\n    \
-    \    return os<<b.x;\n    }\n    friend istream &operator>>(istream &is,ArbitraryModint\
-    \ &b){\n        return is>>b.x;\n    }\n    constexpr uint64_t val()noexcept{\n\
-    \        return x;\n    }\n    constexpr ArbitraryModint operator+()noexcept{\n\
+    \    }\n    friend std::ostream &operator<<(std::ostream &os,ArbitraryModint &b){\n\
+    \        return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is,ArbitraryModint &b){\n        return is>>b.x;\n    }\n    constexpr uint64_t\
+    \ val()noexcept{\n        return x;\n    }\n    constexpr ArbitraryModint operator+()noexcept{\n\
     \        return (*this);\n    }\n    constexpr ArbitraryModint operator-()noexcept{\n\
     \        return ArbitraryModint()-(*this);\n    }\n    constexpr ArbitraryModint\
     \ operator+(const ArbitraryModint rhs)noexcept{\n        return ArbitraryModint(*this)+=rhs;\n\
@@ -163,10 +163,10 @@ data:
     \  if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n  \
     \      return ret;\n    }\n    static void set_mod(const uint64_t x)noexcept{\n\
     \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){cout\
-    \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){cout <<\
-    \ a;}\n#line 2 \"Math/ModCombination.hpp\"\ntemplate<typename T>\nstruct ModCombination{\n\
-    \    vector<T> fact={1},rev{1};\n    void resize(uint32_t sz){\n        sz++;\n\
+    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){std::cout\
+    \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){std::cout\
+    \ << a;}\n#line 4 \"Math/ModCombination.hpp\"\ntemplate<typename T>\nstruct ModCombination{\n\
+    \    std::vector<T> fact={1},rev{1};\n    void resize(uint32_t sz){\n        sz++;\n\
     \        if(fact.size()>=sz)return;\n        uint32_t before=fact.size();\n  \
     \      fact.resize(sz);\n        rev.resize(sz);\n        for(uint32_t i=before;\
     \ i<sz; i++){\n            fact[i]=fact[i-1]*i;\n            rev[i]=rev[i-1]/i;\n\
@@ -193,7 +193,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 14:38:08+09:00'
+  timestamp: '2024-05-01 17:42:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp

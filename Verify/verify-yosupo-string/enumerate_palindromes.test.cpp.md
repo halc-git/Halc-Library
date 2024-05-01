@@ -94,13 +94,13 @@ data:
     \ int INF=INT_MAX>>1;\nconst ll MINF=1LL<<40;\nconst ld DINF=numeric_limits<ld>::infinity();\n\
     const int MODD=1000000007;\nconst int MOD=998244353;\nconst ld EPS=1e-9;\nconst\
     \ ld PI=3.1415926535897932;\nconst ll four[]={0,1,0,-1,0};\nconst ll eight[]={0,1,1,0,-1,-1,1,-1,0};\n\
-    ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}\n\
-    int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
-    \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
-    #define se second\n#line 2 \"String/Manacher.hpp\"\n//https://snuke.hatenablog.com/entry/2014/12/02/235837\n\
-    template<typename S>\nvector<int32_t> manacher(S s,bool is_even=true){\n    int32_t\
-    \ i=0,j=0,k,sz=(s.size()<<is_even)-is_even;\n    vector<int32_t> ret(sz);\n  \
-    \  while(i<sz){\n        if(is_even){\n            while(i-j>=-1&&i+j<=sz&&(((i-j)&1)||s[(i-j)>>1]==s[(i+j)>>1]))j++;\n\
+    static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
+    \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
+    \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
+    #define fi first\n#define se second\n#line 3 \"String/Manacher.hpp\"\n//https://snuke.hatenablog.com/entry/2014/12/02/235837\n\
+    template<typename S>\nstd::vector<int32_t> manacher(S s,bool is_even=true){\n\
+    \    int32_t i=0,j=0,k,sz=(s.size()<<is_even)-is_even;\n    std::vector<int32_t>\
+    \ ret(sz);\n    while(i<sz){\n        if(is_even){\n            while(i-j>=-1&&i+j<=sz&&(((i-j)&1)||s[(i-j)>>1]==s[(i+j)>>1]))j++;\n\
     \        }\n        else{\n            while(i-j>=0&&i+j<sz&&s[i-j]==s[i+j])j++;\n\
     \        }\n        ret[i]=j;\n        k=1;\n        while(i-k>=0&&k+ret[i-k]<j){ret[i+k]=ret[i-k];k++;}\n\
     \        i+=k;\n        j-=k;\n    }\n    for(int32_t i=0; i<sz; i++){\n     \
@@ -118,7 +118,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 14:38:08+09:00'
+  timestamp: '2024-05-01 17:42:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp

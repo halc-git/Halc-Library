@@ -2,11 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: String/RollingHash.hpp
-    title: String/RollingHash.hpp
-  - icon: ':heavy_check_mark:'
-    path: Template/Heuristic.hpp
-    title: Template/Heuristic.hpp
+    path: DataStructure/FenwickTree.hpp
+    title: DataStructure/FenwickTree.hpp
   - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
@@ -17,23 +14,24 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/zalgorithm
+    PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
     links:
-    - https://judge.yosupo.jp/problem/zalgorithm
-  bundledCode: "#line 1 \"Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#line 2 \"Template/Template.hpp\"\
-    \n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n#include<bits/stdc++.h>\n\
-    using namespace std;\nusing ll=long long;\ntemplate<class T> using pq=priority_queue<T,vector<T>,greater<T>>;\n\
-    using pll=pair<ll,ll>;\nconst ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...)\
-    \ name\n#define _overload4(_1,_2,_3,_4,name,...) name\n#define _rep1(i,n) for(ll\
-    \ i=0; i<(n); i++)\n#define _rep2(i,a,b) for(ll i=(a); i<(b); i++)\n#define _rep3(i,a,b,c)\
-    \ for(ll i=(a); i<(b); i+=(c))\n#define rep(...) _overload4(__VA_ARGS__,_rep3,_rep2,_rep1)(__VA_ARGS__)\n\
-    #define _rrep1(i,n) for(ll i=(n); i-->0;)\n#define _rrep2(i,a,b) for(ll i=(b);\
-    \ i-->(a);)\n#define rrep(...) _overload3(__VA_ARGS__,_rrep2,_rrep1)(__VA_ARGS__)\n\
-    #define each(i,...) for(auto&& i:__VA_ARGS__)\n#define all(i) begin(i),end(i)\n\
-    #define rall(i) rbegin(i),rend(i)\ntemplate<class T> bool chmin(T &a,const T &b){if(a>b){a=b;return\
-    \ true;}else return false;}\ntemplate<class T> bool chmax(T &a,const T &b){if(a<b){a=b;return\
-    \ true;}else return false;}\ntemplate<class T> ll sum(const T &a){return accumulate(all(a),0LL);}\n\
+    - https://judge.yosupo.jp/problem/point_add_range_sum
+  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n#line\
+    \ 2 \"Template/Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
+    #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
+    \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
+    const ll LINF=1LL<<60;\n#define _overload3(_1,_2,_3,name,...) name\n#define _overload4(_1,_2,_3,_4,name,...)\
+    \ name\n#define _rep1(i,n) for(ll i=0; i<(n); i++)\n#define _rep2(i,a,b) for(ll\
+    \ i=(a); i<(b); i++)\n#define _rep3(i,a,b,c) for(ll i=(a); i<(b); i+=(c))\n#define\
+    \ rep(...) _overload4(__VA_ARGS__,_rep3,_rep2,_rep1)(__VA_ARGS__)\n#define _rrep1(i,n)\
+    \ for(ll i=(n); i-->0;)\n#define _rrep2(i,a,b) for(ll i=(b); i-->(a);)\n#define\
+    \ rrep(...) _overload3(__VA_ARGS__,_rrep2,_rrep1)(__VA_ARGS__)\n#define each(i,...)\
+    \ for(auto&& i:__VA_ARGS__)\n#define all(i) begin(i),end(i)\n#define rall(i) rbegin(i),rend(i)\n\
+    template<class T> bool chmin(T &a,const T &b){if(a>b){a=b;return true;}else return\
+    \ false;}\ntemplate<class T> bool chmax(T &a,const T &b){if(a<b){a=b;return true;}else\
+    \ return false;}\ntemplate<class T> ll sum(const T &a){return accumulate(all(a),0LL);}\n\
     template<class T> auto min(const T &a){return *min_element(all(a));}\ntemplate<class\
     \ T> auto max(const T &a){return *max_element(all(a));}\ninline int scan(){ return\
     \ getchar(); }\ninline void scan(int &a){ scanf(\"%d\", &a); }\ninline void scan(unsigned\
@@ -99,62 +97,45 @@ data:
     static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
-    #define fi first\n#define se second\n#line 4 \"Template/Heuristic.hpp\"\ninline\
-    \ uint32_t pcg32_fast(){\n    static uint64_t state=(std::chrono::steady_clock::now().time_since_epoch().count()<<1)+1;\n\
-    \    uint64_t x=state;\n    uint8_t count=x>>61;\n    state*=0xf13283ad;\n   \
-    \ x^=x>>22;\n    return (uint32_t)(x>>(22+count));\n}\ninline int32_t randint(int32_t\
-    \ l,int32_t r){\n    return l+(((int64_t)pcg32_fast()*(r-l+1))>>32);\n}\nstatic\
-    \ auto startTime=std::chrono::system_clock::now();\ninline int32_t getTime(){\n\
-    \    return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now()-startTime).count();\n\
-    }\n#line 5 \"String/RollingHash.hpp\"\n//https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
-    template<typename S>\nstruct RollingHash{\n    using u64=uint64_t;\n    static\
-    \ const u64 MOD=(1ULL<<61)-1;\n    static const u64 MASK31=(1ULL<<31)-1;\n   \
-    \ static const u64 MASK30=(1ULL<<30)-1;\n    std::vector<u64> powers;\n    u64\
-    \ base,fixed;\n    static inline u64 add(u64 a,u64 b){\n        if((a+=b)>=MOD)a-=MOD;\n\
-    \        return a;\n    }\n    static inline u64 calc_mod(u64 x){\n        u64\
-    \ xu=x>>61,xd=x&MOD;\n        u64 ret=xu+xd;\n        if(ret>=MOD)ret-=MOD;\n\
-    \        return ret;\n    }\n    static inline u64 mul(u64 a,u64 b){\n       \
-    \ u64 au=a>>31,ad=a&MASK31,bu=b>>31,bd=b&MASK31;\n        u64 mid=ad*bu+au*bd;\n\
-    \        u64 midu=mid>>30,midd=mid&MASK30;\n        return calc_mod(((au*bu)<<1)+midu+(midd<<31)+ad*bd);\n\
-    \    }\n    static inline u64 generate_base(){\n        std::mt19937_64 mt(pcg32_fast());\n\
-    \        std::uniform_int_distribution<u64> rand(1ULL<<60,MOD-1);\n        return\
-    \ rand(mt);\n    }\n    explicit RollingHash(u64 base_number=generate_base(),u64\
-    \ fixed_number=1ULL<<31){\n        base=base_number;\n        fixed=fixed_number;\n\
-    \        powers={1};\n    }\n    std::vector<u64> build(const S &s){\n       \
-    \ uint32_t sz=s.size();\n        std::vector<u64> hashed(sz+1,0);\n        while(powers.size()<=sz){\n\
-    \            powers.emplace_back(mul(powers.back(),base));\n        }\n      \
-    \  for(uint32_t i=0; i<sz; i++){\n            hashed[i+1]=add(mul(hashed[i],base),s[i]+fixed);\n\
-    \        }\n        return hashed;\n    }\n    u64 query(const std::vector<u64>\
-    \ &s,uint32_t lf,uint32_t ri){\n        int64_t ret=s[ri]-mul(s[lf],powers[ri-lf]);\n\
-    \        if(ret<0)ret+=MOD;\n        return ret;\n    }\n    u64 combine(u64 h1,u64\
-    \ h2,uint32_t h2len){\n        return add(mul(h1,powers[h2len]),h2);\n    }\n\
-    \    uint32_t lcp(const std::vector<u64> &a,uint32_t l1,uint32_t r1,const std::vector<u64>\
-    \ &b,uint32_t l2,uint32_t r2){\n        uint32_t ok=0,ng=std::min((r1-l1),(r2-l2))+1;\n\
-    \        while(ng-ok>1){\n            uint32_t mid=(ok+ng)>>1;\n            if(query(a,l1,l1+mid)==query(b,l2,l2+mid))ok=mid;\n\
-    \            else ng=mid;\n        }\n        return ok;\n    }\n};\n#line 4 \"\
-    Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp\"\nvoid solve(){\n\
-    \    STR(S);\n    vec(ll,ans,len(S));\n    RollingHash<string> roll;\n    auto\
-    \ table=roll.build(S);\n    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
-    \    }\n    out(ans);\n}\nint main(){\n    solve();\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
-    ../../Template/Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nvoid\
-    \ solve(){\n    STR(S);\n    vec(ll,ans,len(S));\n    RollingHash<string> roll;\n\
-    \    auto table=roll.build(S);\n    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
-    \    }\n    out(ans);\n}\nint main(){\n    solve();\n    return 0;\n}"
+    #define fi first\n#define se second\n#line 3 \"DataStructure/FenwickTree.hpp\"\
+    \ntemplate<class T>\nstruct FenwickTree{\n    std::vector<T> tree;\n    size_t\
+    \ size;\n    int32_t start=1;\n    FenwickTree(int32_t sz){\n        size=sz;\n\
+    \        tree.resize(size+1,0);\n        while((start<<1)<=size)start<<=1;\n \
+    \   }\n    void add(int32_t pos,T val){\n        pos++;\n        while(pos<=size){\n\
+    \            tree[pos]+=val;\n            pos+=pos&-pos;\n        }\n    }\n \
+    \   T _sum(int32_t pos){\n        T ret=0;\n        while(pos>0){\n          \
+    \  ret+=tree[pos];\n            pos-=pos&-pos;\n        }\n        return ret;\n\
+    \    }\n    T sum(int32_t lf,int32_t ri){\n        return _sum(ri)-_sum(lf);\n\
+    \    }\n    int32_t lower_bound(T w){\n        if(w<0)return 0;\n        int32_t\
+    \ now=0;\n        T val=0;\n        for(int i=start; i==0; i>>=1){\n         \
+    \   if(now+i<=size&&val+tree[now+i]<w){\n                now+=i;\n           \
+    \     val+=tree[now];\n            }\n        }\n        return now+1;\n    }\n\
+    };\n#line 4 \"Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\
+    \nvoid solve(){\n    LL(N,Q);\n    FenwickTree<ll> a(N);\n    rep(i,N){\n    \
+    \    LL(a_i);\n        a.add(i,a_i);\n    }\n    rep(i,Q){\n        LL(t,x,y);\n\
+    \        if(t==0){\n            a.add(x,y);\n        }\n        else{\n      \
+    \      out(a.sum(x,y));\n        }\n    }\n}\nint main(){\n    solve();\n    return\
+    \ 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
+    #include\"../../Template/Template.hpp\"\n#include\"../../DataStructure/FenwickTree.hpp\"\
+    \nvoid solve(){\n    LL(N,Q);\n    FenwickTree<ll> a(N);\n    rep(i,N){\n    \
+    \    LL(a_i);\n        a.add(i,a_i);\n    }\n    rep(i,Q){\n        LL(t,x,y);\n\
+    \        if(t==0){\n            a.add(x,y);\n        }\n        else{\n      \
+    \      out(a.sum(x,y));\n        }\n    }\n}\nint main(){\n    solve();\n    return\
+    \ 0;\n}"
   dependsOn:
   - Template/Template.hpp
-  - String/RollingHash.hpp
-  - Template/Heuristic.hpp
+  - DataStructure/FenwickTree.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
+  path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   requiredBy: []
   timestamp: '2024-05-01 17:42:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
+documentation_of: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-- /verify/Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp.html
-title: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp.html
+title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
 ---

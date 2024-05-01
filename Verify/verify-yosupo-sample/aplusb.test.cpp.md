@@ -90,12 +90,12 @@ data:
     \ int INF=INT_MAX>>1;\nconst ll MINF=1LL<<40;\nconst ld DINF=numeric_limits<ld>::infinity();\n\
     const int MODD=1000000007;\nconst int MOD=998244353;\nconst ld EPS=1e-9;\nconst\
     \ ld PI=3.1415926535897932;\nconst ll four[]={0,1,0,-1,0};\nconst ll eight[]={0,1,1,0,-1,-1,1,-1,0};\n\
-    ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}\n\
-    int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\nint No(bool i=true){return\
-    \ out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n#define fi first\n\
-    #define se second\n#line 3 \"Verify/verify-yosupo-sample/aplusb.test.cpp\"\nvoid\
-    \ solve(){\n    LL(A,B);\n    out(A+B);\n}\nint main(){\n    solve();\n    return\
-    \ 0;\n}\n"
+    static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
+    \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
+    \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
+    #define fi first\n#define se second\n#line 3 \"Verify/verify-yosupo-sample/aplusb.test.cpp\"\
+    \nvoid solve(){\n    LL(A,B);\n    out(A+B);\n}\nint main(){\n    solve();\n \
+    \   return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include\"../../Template/Template.hpp\"\
     \nvoid solve(){\n    LL(A,B);\n    out(A+B);\n}\nint main(){\n    solve();\n \
     \   return 0;\n}"
@@ -104,7 +104,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-sample/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-04-29 14:38:08+09:00'
+  timestamp: '2024-05-01 17:42:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-sample/aplusb.test.cpp

@@ -13,6 +13,9 @@ data:
     path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+    title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -273,11 +276,12 @@ data:
 
     const ll eight[]={0,1,1,0,-1,-1,1,-1,0};
 
-    ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}
+    static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return
+    ret;}
 
-    int Yes(bool i=true){return out(i?"Yes":"No");}
+    inline int Yes(bool i=true){return out(i?"Yes":"No");}
 
-    int No(bool i=true){return out(i?"No":"Yes");}
+    inline int No(bool i=true){return out(i?"No":"Yes");}
 
     #define len(x) ((int)(x).size())
 
@@ -508,11 +512,12 @@ data:
 
     const ll eight[]={0,1,1,0,-1,-1,1,-1,0};
 
-    ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return ret;}
+    static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return
+    ret;}
 
-    int Yes(bool i=true){return out(i?"Yes":"No");}
+    inline int Yes(bool i=true){return out(i?"Yes":"No");}
 
-    int No(bool i=true){return out(i?"No":"Yes");}
+    inline int No(bool i=true){return out(i?"No":"Yes");}
 
     #define len(x) ((int)(x).size())
 
@@ -523,7 +528,7 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy: []
-  timestamp: '2024-04-29 14:38:08+09:00'
+  timestamp: '2024-05-01 17:42:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb.test.cpp
@@ -533,6 +538,7 @@ data:
   - Verify/verify-yuki/117.test.cpp
   - Verify/verify-yuki/2338.test.cpp
   - Verify/verify-yuki/901.test.cpp
+  - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - Verify/verify-yosupo-datastructure/associative_array.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp

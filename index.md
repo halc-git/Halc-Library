@@ -4,6 +4,9 @@ data:
   - name: DataStructure
     pages:
     - icon: ':heavy_check_mark:'
+      path: DataStructure/FenwickTree.hpp
+      title: DataStructure/FenwickTree.hpp
+    - icon: ':heavy_check_mark:'
       path: DataStructure/FoldableDeque.hpp
       title: Foldable Deque
     - icon: ':heavy_check_mark:'
@@ -62,6 +65,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+      title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
