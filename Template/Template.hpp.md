@@ -27,6 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
+    title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-sample/aplusb.test.cpp
     title: Verify/verify-yosupo-sample/aplusb.test.cpp
@@ -54,9 +57,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://tatyam.hatenablog.com/entry/2019/12/15/003634
@@ -535,7 +538,7 @@ data:
   path: Template/Template.hpp
   requiredBy: []
   timestamp: '2024-05-01 17:42:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb.test.cpp
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
@@ -550,6 +553,7 @@ data:
   - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   - Verify/verify-yosupo-datastructure/associative_array.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   - Verify/verify-yosupo-string/zalgorithm.test.cpp

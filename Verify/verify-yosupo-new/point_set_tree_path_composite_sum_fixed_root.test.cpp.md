@@ -1,27 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: DataStructure/FoldableDeque.hpp
-    title: Foldable Deque
   - icon: ':question:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
   - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
+  - icon: ':question:'
+    path: Tree/StaticTopTree.hpp
+    title: Static Top Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/queue_operate_all_composite
+    PROBLEM: https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
     links:
-    - https://judge.yosupo.jp/problem/queue_operate_all_composite
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/queue_operate_all_composite\"\
+    - https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
+  bundledCode: "#line 1 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
     \n#line 2 \"Template/Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
@@ -100,63 +100,9 @@ data:
     static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
-    #define fi first\n#define se second\n#line 5 \"DataStructure/FoldableDeque.hpp\"\
-    \n//https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\ntemplate<class M>\n\
-    struct FoldableQueue{\n    using T=typename M::T;\n    std::stack<T> top,bottom,topfold,bottomfold;\n\
-    \    FoldableQueue(){\n        topfold.push(M::e);\n        bottomfold.push(M::e);\n\
-    \    }\n    void push(T v){\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),v));\n\
-    \    }\n    void pop(){\n        if(top.empty()){\n            while(!bottom.empty()){\n\
-    \                top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),topfold.top()));\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n        }\n        top.pop();\n        topfold.pop();\n    }\n    T front(){\n\
-    \        if(top.empty()){\n            while(!bottom.empty()){\n             \
-    \   top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),topfold.top()));\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n        }\n        return top.top();\n    }\n    T get_all(){\n        return\
-    \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
-    \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\ntemplate<class M>\nstruct FoldableDeque{\n    using T=typename M::T;\n\
-    \    std::stack<T> top,bottom,topfold,bottomfold;\n    FoldableDeque(){\n    \
-    \    topfold.push(M::e);\n        bottomfold.push(M::e);\n    }\n    void push_front(T\
-    \ v){\n        top.push(v);\n        topfold.push(M::op(v,topfold.top()));\n \
-    \   }\n    void push_back(T v){\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),v));\n\
-    \    }\n    void pop_front(){\n        if(top.empty()){\n            std::vector<T>\
-    \ change;\n            while(!bottom.empty()){\n                change.emplace_back(bottom.top());\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n            size_t sz=change.size();\n            for(int32_t i=(sz>>1);\
-    \ i>=0; i--){\n                top.push(change[sz-i-1]);\n                topfold.push(M::op(change[sz-i-1],topfold.top()));\n\
-    \            }\n            for(int32_t i=(sz>>1)+1; i<sz; i++){\n           \
-    \     bottom.push(change[sz-i-1]);\n                bottomfold.push(M::op(bottomfold.top(),change[sz-i-1]));\n\
-    \            }\n        }\n        top.pop();\n        topfold.pop();\n    }\n\
-    \    void pop_back(){\n        if(bottom.empty()){\n            std::vector<T>\
-    \ change;\n            while(!top.empty()){\n                change.emplace_back(top.top());\n\
-    \                top.pop();\n                topfold.pop();\n            }\n \
-    \           size_t sz=change.size();\n            for(int32_t i=(sz>>1); i>=0;\
-    \ i--){\n                bottom.push(change[sz-i-1]);\n                bottomfold.push(M::op(bottomfold.top(),change[sz-i-1]));\n\
-    \            }\n            for(int32_t i=(sz>>1)+1; i<sz; i++){\n           \
-    \     top.push(change[sz-i-1]);\n                topfold.push(M::op(change[sz-i-1],topfold.top()));\n\
-    \            }\n        }\n        bottom.pop();\n        bottomfold.pop();\n\
-    \    }\n    T front(){\n        if(top.empty()){\n            std::vector<T> change;\n\
-    \            while(!bottom.empty()){\n                change.emplace_back(bottom.top());\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n            size_t sz=change.size();\n            for(uint32_t i=(sz>>1);\
-    \ i>=0; i--){\n                top.push(change[i]);\n                topfold.push(M::op(change[i],topfold.top()));\n\
-    \            }\n            for(uint32_t i=(sz>>1)+1; i<sz; i++){\n          \
-    \      bottom.push(change[i]);\n                bottomfold.push(M::op(bottomfold.top(),change[i]));\n\
-    \            }\n        }\n        return top.top();\n    }\n    T back(){\n \
-    \       if(bottom.empty()){\n            std::vector<T> change;\n            while(!top.empty()){\n\
-    \                change.emplace_back(top.top());\n                top.pop();\n\
-    \                topfold.pop();\n            }\n            size_t sz=change.size();\n\
-    \            for(uint32_t i=(sz>>1); i>=0; i--){\n                bottom.push(change[i]);\n\
-    \                bottomfold.push(M::op(bottomfold.top(),change[i]));\n       \
-    \     }\n            for(uint32_t i=(sz>>1)+1; i<sz; i++){\n                top.push(change[i]);\n\
-    \                topfold.push(M::op(change[i],topfold.top()));\n            }\n\
-    \        }\n        return bottom.top();\n    }\n    T get_all(){\n        return\
-    \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
-    \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\n#line 4 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n\
-    \    uint64_t x;\n    constexpr Modint()noexcept{\n        x=0;\n    }\n    constexpr\
-    \ Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
+    #define fi first\n#define se second\n#line 4 \"Modint/Modint.hpp\"\ntemplate<uint64_t\
+    \ Mod>\nstruct Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n   \
+    \     x=0;\n    }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
     \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
     \ uint64_t m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
     \        uint64_t pro=ret*Mod;\n        return (val-pro+(val<pro?Mod:0));\n  \
@@ -219,39 +165,143 @@ data:
     \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
     \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){std::cout\
     \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){std::cout\
-    \ << a;}\n#line 5 \"Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp\"\
-    \nusing mint=Modint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n \
-    \   static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
-    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableQueue<composite>\
-    \ que;\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n\
-    \            que.push(pll(a,b));\n        }\n        if(t==1){\n            que.pop();\n\
-    \        }\n        if(t==2){\n            LL(x);\n            pair<mint,mint>\
-    \ ope=que.get_all();\n            out(ope.fi*x+ope.se);\n        }\n    }\n}\n\
-    int main(){\n    solve();\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/queue_operate_all_composite\"\
-    \n#include\"../../Template/Template.hpp\"\n#include\"../../DataStructure/FoldableDeque.hpp\"\
-    \n#include\"../../Modint/Modint.hpp\"\nusing mint=Modint<MOD>;\nstruct composite{\n\
-    \    using T=pair<mint,mint>;\n    static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
-    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableQueue<composite>\
-    \ que;\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n\
-    \            que.push(pll(a,b));\n        }\n        if(t==1){\n            que.pop();\n\
-    \        }\n        if(t==2){\n            LL(x);\n            pair<mint,mint>\
-    \ ope=que.get_all();\n            out(ope.fi*x+ope.se);\n        }\n    }\n}\n\
-    int main(){\n    solve();\n    return 0;\n}"
+    \ << a;}\n#line 4 \"Tree/StaticTopTree.hpp\"\ntemplate<class M>\nstruct StaticTopTree{\n\
+    \    using point=typename M::point;\n    using path=typename M::path;\n    struct\
+    \ Node{\n        bool is_path;\n        point point_val;\n        path path_val;\n\
+    \        int32_t pos;\n        int32_t left;\n        int32_t right;\n       \
+    \ int32_t parent;\n        Node(bool pat,int32_t po=-1,int32_t lf=-1,int32_t ri=-1){\n\
+    \            is_path=pat;\n            pos=po;\n            left=lf;\n       \
+    \     right=ri;\n            parent=-1;\n        }\n    };\n    size_t sz;\n \
+    \   std::vector<std::vector<int32_t>> tree;\n    std::vector<int32_t> node_pos;\n\
+    \    std::vector<Node> nodes;\n    int32_t rt;\n    StaticTopTree(size_t size){\n\
+    \        sz=size;\n        tree.resize(sz);\n        node_pos.resize(sz);\n  \
+    \  }\n    void add_edge(int32_t s,int32_t v){\n        tree[s].emplace_back(v);\n\
+    \        tree[v].emplace_back(s);\n    }\n    int32_t _path_cluster(int32_t pos,std::vector<int32_t>\
+    \ &tree_sz){\n        if(tree[pos].empty()){\n            node_pos[pos]=nodes.size();\n\
+    \            nodes.emplace_back(Node(1,pos));\n            _calc_val(nodes.size()-1);\n\
+    \            return nodes.size()-1;\n        }\n        std::vector<int32_t> address;\n\
+    \        std::vector<int32_t> sizes;\n        while(!tree[pos].empty()){\n   \
+    \         int32_t max_size=-1;\n            int32_t next_pos=-1;\n           \
+    \ for(int i=0; i<tree[pos].size(); i++){\n                if(tree_sz[tree[pos][i]]>max_size){\n\
+    \                    max_size=tree_sz[tree[pos][i]];\n                    next_pos=i;\n\
+    \                }\n            }\n            std::swap(tree[pos][next_pos],tree[pos].back());\n\
+    \            next_pos=tree[pos].back();\n            tree[pos].pop_back();\n \
+    \           tree_sz[pos]-=tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n\
+    \            address.emplace_back(_point_cluster(pos,tree_sz));\n            pos=next_pos;\n\
+    \        }\n        address.emplace_back(_point_cluster(pos,tree_sz));\n     \
+    \   sizes.emplace_back(tree_sz[pos]);\n        return _merge(address,sizes,0,address.size(),1);\n\
+    \    }\n    int32_t _point_cluster(int32_t pos,std::vector<int32_t> &tree_sz){\n\
+    \        if(tree[pos].empty()){\n            node_pos[pos]=nodes.size();\n   \
+    \         nodes.emplace_back(Node(1,pos));\n            _calc_val(nodes.size()-1);\n\
+    \            return nodes.size()-1;\n        }\n        std::vector<int32_t> address;\n\
+    \        std::vector<int32_t> sizes;\n        for(int32_t i:tree[pos]){\n    \
+    \        sizes.emplace_back(tree_sz[i]);\n            int32_t vert=_path_cluster(i,tree_sz);\n\
+    \            nodes.emplace_back(Node(0,-1,vert));\n            nodes[vert].parent=nodes.size()-1;\n\
+    \            address.emplace_back(nodes.size()-1);\n            _calc_val(nodes.size()-1);\n\
+    \        }\n        int32_t vert=_merge(address,sizes,0,address.size(),0);\n \
+    \       node_pos[pos]=nodes.size();\n        nodes.emplace_back(Node(1,pos,vert));\n\
+    \        nodes[vert].parent=nodes.size()-1;\n        _calc_val(nodes.size()-1);\n\
+    \        return nodes.size()-1;\n    }\n    int32_t _merge(std::vector<int32_t>\
+    \ &address,std::vector<int32_t> &sizes,int32_t lf,int32_t ri,bool pat){\n    \
+    \    if(lf+1==ri)return address[lf];\n        int32_t add=0;\n        for(int32_t\
+    \ i=lf; i<ri; i++){\n            add+=sizes[i];\n        }\n        int32_t now=0;\n\
+    \        int32_t bef=add+1;\n        for(int32_t i=lf; i<ri; i++){\n         \
+    \   now+=sizes[i];\n            if(now>add-now){\n                if(now+now-add>bef)i--;\n\
+    \                int32_t left=_merge(address,sizes,lf,i+1,pat);\n            \
+    \    int32_t right=_merge(address,sizes,i+1,ri,pat);\n                nodes.emplace_back(Node(pat,-1,left,right));\n\
+    \                nodes[left].parent=nodes.size()-1;\n                nodes[right].parent=nodes.size()-1;\n\
+    \                _calc_val(nodes.size()-1);\n                return nodes.size()-1;\n\
+    \            }\n            bef=add-now-now;\n        }\n        assert(false);\n\
+    \    }\n    void _calc_val(int32_t pos){\n        if(nodes[pos].is_path){\n  \
+    \          if((nodes[pos].left==-1) && (nodes[pos].right==-1)){\n            \
+    \    nodes[pos].path_val=M::vertex(nodes[pos].pos);\n            }\n         \
+    \   else if((nodes[pos].left!=-1) && (nodes[pos].right!=-1)){\n              \
+    \  nodes[pos].path_val=M::compress(nodes[nodes[pos].left].path_val,nodes[nodes[pos].right].path_val);\n\
+    \            }\n            else{\n                nodes[pos].path_val=M::add_vertex(nodes[nodes[pos].left].point_val,nodes[pos].pos);\n\
+    \            }\n        }\n        else{\n            if((nodes[pos].left!=-1)\
+    \ && (nodes[pos].right!=-1)){\n                nodes[pos].point_val=M::rake(nodes[nodes[pos].left].point_val,nodes[nodes[pos].right].point_val);\n\
+    \            }\n            else{\n                nodes[pos].point_val=M::add_edge(nodes[nodes[pos].left].path_val);\n\
+    \            }\n        }\n    }\n    void build(int32_t root){\n        std::vector<int32_t>\
+    \ vert(sz);\n        std::vector<int32_t> tree_sz(sz,-1);\n        vert[0]=root;\n\
+    \        tree_sz[root]=0;\n        int32_t cnt=1;\n        for(int32_t i=0; i<sz;\
+    \ i++){\n            for(int32_t j:tree[vert[i]]){\n                if(tree_sz[j]){\n\
+    \                    tree_sz[j]=0;\n                    vert[cnt]=j;\n       \
+    \             cnt++;\n                }\n            }\n        }\n        for(int32_t\
+    \ i=sz-1; i>=0; i--){\n            int32_t parent=0;\n            for(int32_t\
+    \ j:tree[vert[i]]){\n                if(tree_sz[j]==0){\n                    parent=-parent-1;\n\
+    \                }\n                if(parent>=0)parent++;\n                tree_sz[vert[i]]+=tree_sz[j];\n\
+    \            }\n            if(parent<0){\n                std::swap(tree[vert[i]][-parent-1],tree[vert[i]].back());\n\
+    \                tree[vert[i]].pop_back();\n            }\n            tree_sz[vert[i]]++;\n\
+    \        }\n        rt=_path_cluster(root,tree_sz);\n    }\n    path root_value(){\n\
+    \        return nodes[rt].path_val;\n    }\n    void calc(int32_t pos){\n    \
+    \    int32_t change=node_pos[pos];\n        while(nodes[change].parent!=-1){\n\
+    \            _calc_val(change);\n            change=nodes[change].parent;\n  \
+    \      }\n        _calc_val(change);\n    }\n    size_t size(){\n        return\
+    \ sz;\n    }\n};\n#line 5 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+    \nusing mint=Modint<MOD>;\nusing edge_type=array<ll,4>;\nusing func_type=pair<mint,mint>;\n\
+    void solve(){\n    LL(N,Q);\n    static VEC(mint,a,N);\n    VEC(edge_type,edge,N-1);\n\
+    \    vv(ll,gr,N);\n    rep(i,N-1){\n        gr[edge[i][0]].emplace_back(edge[i][1]);\n\
+    \        gr[edge[i][1]].emplace_back(edge[i][0]);\n    }\n    vec(ll,dist,N,-1);\n\
+    \    dist[0]=0;\n    stack<ll> vert;\n    vert.push(0);\n    while(!vert.empty()){\n\
+    \        ll pos=vert.top();\n        vert.pop();\n        each(i,gr[pos]){\n \
+    \           if(dist[i]==-1){\n                dist[i]=dist[pos]+1;\n         \
+    \       vert.push(i);\n            }\n        }\n    }\n    static vec(func_type,func,N,{1,0});\n\
+    \    struct ops{\n        using point=array<mint,2>;\n        using path=array<mint,4>;\n\
+    \n        static path vertex(int v){\n            return {1,a[v]*func[v].fi+func[v].se,func[v].fi,func[v].se};\n\
+    \        }\n\n        static path compress(path p,path c){\n            return\
+    \ {p[0]+p[1],p[1]+c[1]*p[2]+c[0]*p[3],p[2]*c[2],p[2]*c[3]+p[3]};\n        }\n\n\
+    \        static path add_vertex(point t,int v){\n            return {t[0]+1,(a[v]+t[1])*func[v].fi+(t[0]+1)*func[v].se,func[v].fi,func[v].se};\n\
+    \        }\n\n        static point rake(point x,point y){\n            return\
+    \ {x[0]+y[0],x[1]+y[1]};\n        }\n\n        static point add_edge(path t){\n\
+    \            return {t[0],t[1]};\n        }\n    };\n    StaticTopTree<ops> tree(N);\n\
+    \    rep(i,N-1){\n        if(dist[edge[i][0]]<dist[edge[i][1]]){\n           \
+    \ swap(edge[i][0],edge[i][1]);\n        }\n        func[edge[i][0]]={edge[i][2],edge[i][3]};\n\
+    \        tree.add_edge(edge[i][0],edge[i][1]);\n    }\n    tree.build(0);\n  \
+    \  rep(_,Q){\n        LL(t);\n        if(t==0){\n            LL(w,x);\n      \
+    \      a[w]=x;\n            tree.calc(w);\n        }\n        else{\n        \
+    \    LL(e,y,z);\n            func[edge[e][0]]={y,z};\n            tree.calc(edge[e][0]);\n\
+    \        }\n        out(tree.root_value()[1]);\n    }\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
+    \n#include\"../../Template/Template.hpp\"\n#include\"../../Modint/Modint.hpp\"\
+    \n#include\"../../Tree/StaticTopTree.hpp\"\nusing mint=Modint<MOD>;\nusing edge_type=array<ll,4>;\n\
+    using func_type=pair<mint,mint>;\nvoid solve(){\n    LL(N,Q);\n    static VEC(mint,a,N);\n\
+    \    VEC(edge_type,edge,N-1);\n    vv(ll,gr,N);\n    rep(i,N-1){\n        gr[edge[i][0]].emplace_back(edge[i][1]);\n\
+    \        gr[edge[i][1]].emplace_back(edge[i][0]);\n    }\n    vec(ll,dist,N,-1);\n\
+    \    dist[0]=0;\n    stack<ll> vert;\n    vert.push(0);\n    while(!vert.empty()){\n\
+    \        ll pos=vert.top();\n        vert.pop();\n        each(i,gr[pos]){\n \
+    \           if(dist[i]==-1){\n                dist[i]=dist[pos]+1;\n         \
+    \       vert.push(i);\n            }\n        }\n    }\n    static vec(func_type,func,N,{1,0});\n\
+    \    struct ops{\n        using point=array<mint,2>;\n        using path=array<mint,4>;\n\
+    \n        static path vertex(int v){\n            return {1,a[v]*func[v].fi+func[v].se,func[v].fi,func[v].se};\n\
+    \        }\n\n        static path compress(path p,path c){\n            return\
+    \ {p[0]+p[1],p[1]+c[1]*p[2]+c[0]*p[3],p[2]*c[2],p[2]*c[3]+p[3]};\n        }\n\n\
+    \        static path add_vertex(point t,int v){\n            return {t[0]+1,(a[v]+t[1])*func[v].fi+(t[0]+1)*func[v].se,func[v].fi,func[v].se};\n\
+    \        }\n\n        static point rake(point x,point y){\n            return\
+    \ {x[0]+y[0],x[1]+y[1]};\n        }\n\n        static point add_edge(path t){\n\
+    \            return {t[0],t[1]};\n        }\n    };\n    StaticTopTree<ops> tree(N);\n\
+    \    rep(i,N-1){\n        if(dist[edge[i][0]]<dist[edge[i][1]]){\n           \
+    \ swap(edge[i][0],edge[i][1]);\n        }\n        func[edge[i][0]]={edge[i][2],edge[i][3]};\n\
+    \        tree.add_edge(edge[i][0],edge[i][1]);\n    }\n    tree.build(0);\n  \
+    \  rep(_,Q){\n        LL(t);\n        if(t==0){\n            LL(w,x);\n      \
+    \      a[w]=x;\n            tree.calc(w);\n        }\n        else{\n        \
+    \    LL(e,y,z);\n            func[edge[e][0]]={y,z};\n            tree.calc(edge[e][0]);\n\
+    \        }\n        out(tree.root_value()[1]);\n    }\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}"
   dependsOn:
   - Template/Template.hpp
-  - DataStructure/FoldableDeque.hpp
   - Modint/Modint.hpp
+  - Tree/StaticTopTree.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-01 17:42:37+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-03 16:56:00+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+documentation_of: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp.html
-title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+- /verify/Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
+- /verify/Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp.html
+title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
 ---
