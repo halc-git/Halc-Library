@@ -32,23 +32,18 @@ void solve(){
     struct ops{
         using point=array<mint,2>;
         using path=array<mint,4>;
-
         static path vertex(int v){
             return {1,a[v]*func[v].fi+func[v].se,func[v].fi,func[v].se};
         }
-
         static path compress(path p,path c){
-            return {p[0]+p[1],p[1]+c[1]*p[2]+c[0]*p[3],p[2]*c[2],p[2]*c[3]+p[3]};
+            return {p[0]+c[0],p[1]+c[1]*p[2]+c[0]*p[3],p[2]*c[2],p[2]*c[3]+p[3]};
         }
-
         static path add_vertex(point t,int v){
             return {t[0]+1,(a[v]+t[1])*func[v].fi+(t[0]+1)*func[v].se,func[v].fi,func[v].se};
         }
-
         static point rake(point x,point y){
             return {x[0]+y[0],x[1]+y[1]};
         }
-
         static point add_edge(path t){
             return {t[0],t[1]};
         }
