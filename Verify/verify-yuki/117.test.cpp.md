@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Math/ModCombination.hpp
     title: Math/ModCombination.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

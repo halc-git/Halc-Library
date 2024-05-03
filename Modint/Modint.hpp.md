@@ -12,7 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - icon: ':heavy_check_mark:'
@@ -21,9 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Modint/Modint.hpp\"\n#include<cstdint>\n#include<iostream>\n\
@@ -163,7 +163,7 @@ data:
   path: Modint/Modint.hpp
   requiredBy: []
   timestamp: '2024-05-01 17:42:37+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-yuki/1092.test.cpp

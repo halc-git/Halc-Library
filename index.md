@@ -27,7 +27,7 @@ data:
       title: Mo's Algorithm
   - name: Modint
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -46,12 +46,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template/Heuristic.hpp
       title: Template/Heuristic.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   - name: Tree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
   verificationCategories:
@@ -87,7 +87,7 @@ data:
       title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-new
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
       title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - name: Verify/verify-yosupo-sample
