@@ -1,5 +1,6 @@
 #pragma once
 #include<vector>
+#include<cassert>
 template<class M>
 struct StaticTopTree{
     using point=typename M::point;
@@ -110,6 +111,7 @@ struct StaticTopTree{
             }
             bef=add-now-now;
         }
+        assert(false);
     }
     void _calc_val(int32_t pos){
         if(nodes[pos].is_path){
@@ -136,7 +138,7 @@ struct StaticTopTree{
         std::vector<int32_t> vert(sz);
         std::vector<int32_t> tree_sz(sz,-1);
         vert[0]=root;
-        tree_sz[0]=0;
+        tree_sz[root]=0;
         int32_t cnt=1;
         for(int32_t i=0; i<sz; i++){
             for(int32_t j:tree[vert[i]]){
