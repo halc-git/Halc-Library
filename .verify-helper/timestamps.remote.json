@@ -6,6 +6,7 @@
 "Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp": "2024-05-01 20:27:09 +0900",
 "Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp": "2024-05-01 17:42:37 +0900",
 "Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp": "2024-05-01 20:27:09 +0900",
+"Verify/verify-yosupo-datastructure/unionfind.test.cpp": "2024-05-06 20:08:30 +0900",
 "Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp": "2024-05-01 17:42:37 +0900",
 "Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp": "2024-05-03 17:10:23 +0900",
 "Verify/verify-yosupo-sample/aplusb.test.cpp": "2024-05-01 17:42:37 +0900",
