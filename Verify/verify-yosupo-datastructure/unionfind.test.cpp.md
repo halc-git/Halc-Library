@@ -109,14 +109,18 @@ data:
     \     a=root(a);\n        b=root(b);\n        if(a==b)return false;\n        if(tree[a].first>tree[b].first)std::swap(a,b);\n\
     \        tree[a]={tree[a].first+tree[b].first,M::op(tree[a].second,tree[b].second)};\n\
     \        tree[b].first=a;\n        return true;\n    }\n    size_t size(int32_t\
-    \ pos){\n        return -tree[root(pos)].first;\n    }\n};\nstruct void_monoid{\n\
-    \    using T=bool;\n    constexpr static inline bool op(bool a,bool b){return\
-    \ 0;}\n    constexpr static inline T e=0;\n};\nusing UnionFind=MonoidUnionFind<void_monoid>;\n\
-    #line 4 \"Verify/verify-yosupo-datastructure/unionfind.test.cpp\"\nvoid solve(){\n\
-    \    LL(N,Q);\n    UnionFind uni(N);\n    rep(i,Q){\n        LL(t,u,v);\n    \
-    \    if(t==0){\n            uni.merge(u,v);\n        }\n        else{\n      \
-    \      out(uni.same(u,v));\n        }\n    }\n}\nint main(){\n    solve();\n \
-    \   return 0;\n}\n"
+    \ pos){\n        return -tree[root(pos)].first;\n    }\n    std::vector<std::vector<int32_t>>\
+    \ groups(){\n        std::vector<std::vector<int32_t>> members(tree.size());\n\
+    \        for(int32_t i=0; i<tree.size(); i++){\n            members[root(i)].emplace_back(i);\n\
+    \        }\n        std::vector<std::vector<int32_t>> ret;\n        for(int32_t\
+    \ i=0; i<tree.size(); i++){\n            if(!members[i].empty())ret.emplace_back(members[i]);\n\
+    \        }\n        return ret;\n    }\n};\nstruct void_monoid{\n    using T=bool;\n\
+    \    constexpr static inline T op(T a,T b){return 0;}\n    constexpr static inline\
+    \ T e=0;\n};\nusing UnionFind=MonoidUnionFind<void_monoid>;\n#line 4 \"Verify/verify-yosupo-datastructure/unionfind.test.cpp\"\
+    \nvoid solve(){\n    LL(N,Q);\n    UnionFind uni(N);\n    rep(i,Q){\n        LL(t,u,v);\n\
+    \        if(t==0){\n            uni.merge(u,v);\n        }\n        else{\n  \
+    \          out(uni.same(u,v));\n        }\n    }\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n#include\"\
     ../../Template/Template.hpp\"\n#include\"../../DataStructure/UnionFind.hpp\"\n\
     void solve(){\n    LL(N,Q);\n    UnionFind uni(N);\n    rep(i,Q){\n        LL(t,u,v);\n\
@@ -129,7 +133,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2024-05-06 20:50:45+09:00'
+  timestamp: '2024-05-06 21:09:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/unionfind.test.cpp
