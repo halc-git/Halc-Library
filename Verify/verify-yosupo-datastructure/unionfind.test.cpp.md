@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: DataStructure/UnionFind.hpp
-    title: DataStructure/UnionFind.hpp
+    title: Union Find
   - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp

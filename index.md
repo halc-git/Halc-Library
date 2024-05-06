@@ -14,7 +14,7 @@ data:
       title: DataStructure/Hashmap.hpp
     - icon: ':heavy_check_mark:'
       path: DataStructure/UnionFind.hpp
-      title: DataStructure/UnionFind.hpp
+      title: Union Find
   - name: Math
     pages:
     - icon: ':heavy_check_mark:'

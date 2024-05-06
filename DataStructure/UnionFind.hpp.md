@@ -53,8 +53,22 @@ data:
   - Verify/verify-yosupo-datastructure/unionfind.test.cpp
 documentation_of: DataStructure/UnionFind.hpp
 layout: document
-redirect_from:
-- /library/DataStructure/UnionFind.hpp
-- /library/DataStructure/UnionFind.hpp.html
-title: DataStructure/UnionFind.hpp
+title: Union Find
 ---
+
+## 関数の設定
+```cpp
+struct M{
+    using T;
+
+    static T op(T x,T y){
+    }
+
+    static inline T e;
+};
+```
+* `T`: モノイドの型です。
+* `T op(T x,T y)`: 演算です。可換モノイドであることを要求します。
+* `T e`: 単位元です。
+
+`UnionFind` は `MonoidUnionFind<M>` に意味のない演算を載せたものです。
