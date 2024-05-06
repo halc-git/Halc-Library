@@ -12,6 +12,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
+    - icon: ':heavy_check_mark:'
+      path: DataStructure/UnionFind.hpp
+      title: DataStructure/UnionFind.hpp
   - name: Math
     pages:
     - icon: ':heavy_check_mark:'
@@ -80,6 +83,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
+      title: Verify/verify-yosupo-datastructure/unionfind.test.cpp
   - name: Verify/verify-yosupo-math
     pages:
     - icon: ':heavy_check_mark:'
