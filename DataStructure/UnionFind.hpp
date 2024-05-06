@@ -6,7 +6,7 @@ struct MonoidUnionFind{
     using T=typename M::T;
     std::vector<std::pair<int32_t,T>> tree;
     MonoidUnionFind(int32_t sz){
-        tree.resize(sz,{-1,M::e()});
+        tree.resize(sz,{-1,M::e});
     }
     int32_t root(int32_t pos){
         int32_t ret=pos;
@@ -45,6 +45,6 @@ struct MonoidUnionFind{
 struct void_monoid{
     using T=bool;
     constexpr static inline bool op(bool a,bool b){return 0;}
-    constexpr static inline bool e(){return 0;}
+    constexpr static inline T e=0;
 };
 using UnionFind=MonoidUnionFind<void_monoid>;
