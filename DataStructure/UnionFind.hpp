@@ -41,10 +41,21 @@ struct MonoidUnionFind{
     size_t size(int32_t pos){
         return -tree[root(pos)].first;
     }
+    std::vector<std::vector<int32_t>> groups(){
+        std::vector<std::vector<int32_t>> members(tree.size());
+        for(int32_t i=0; i<tree.size(); i++){
+            members[root(i)].emplace_back(i);
+        }
+        std::vector<std::vector<int32_t>> ret;
+        for(int32_t i=0; i<tree.size(); i++){
+            if(!members[i].empty())ret.emplace_back(members[i]);
+        }
+        return ret;
+    }
 };
 struct void_monoid{
     using T=bool;
-    constexpr static inline bool op(bool a,bool b){return 0;}
+    constexpr static inline T op(T a,T b){return 0;}
     constexpr static inline T e=0;
 };
 using UnionFind=MonoidUnionFind<void_monoid>;
