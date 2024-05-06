@@ -98,7 +98,7 @@ data:
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#line 4 \"DataStructure/UnionFind.hpp\"\n\
     template<class M>\nstruct MonoidUnionFind{\n    using T=typename M::T;\n    std::vector<std::pair<int32_t,T>>\
-    \ tree;\n    MonoidUnionFind(int32_t sz){\n        tree.resize(sz,{-1,M::e()});\n\
+    \ tree;\n    MonoidUnionFind(int32_t sz){\n        tree.resize(sz,{-1,M::e});\n\
     \    }\n    int32_t root(int32_t pos){\n        int32_t ret=pos;\n        while(tree[ret].first>=0){\n\
     \            ret=tree[ret].first;\n        }\n        while(tree[pos].first>=0){\n\
     \            int32_t now=pos;\n            pos=tree[pos].first;\n            tree[now].first=ret;\n\
@@ -111,7 +111,7 @@ data:
     \        tree[b].first=a;\n        return true;\n    }\n    size_t size(int32_t\
     \ pos){\n        return -tree[root(pos)].first;\n    }\n};\nstruct void_monoid{\n\
     \    using T=bool;\n    constexpr static inline bool op(bool a,bool b){return\
-    \ 0;}\n    constexpr static inline bool e(){return 0;}\n};\nusing UnionFind=MonoidUnionFind<void_monoid>;\n\
+    \ 0;}\n    constexpr static inline T e=0;\n};\nusing UnionFind=MonoidUnionFind<void_monoid>;\n\
     #line 4 \"Verify/verify-yosupo-datastructure/unionfind.test.cpp\"\nvoid solve(){\n\
     \    LL(N,Q);\n    UnionFind uni(N);\n    rep(i,Q){\n        LL(t,u,v);\n    \
     \    if(t==0){\n            uni.merge(u,v);\n        }\n        else{\n      \
@@ -129,7 +129,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2024-05-06 20:08:30+09:00'
+  timestamp: '2024-05-06 20:50:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/unionfind.test.cpp
