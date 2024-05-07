@@ -18,7 +18,7 @@ void solve(){
         in(a,b);
         seg.set(i,{a,b});
     }
-    rep(i,N){
+    rep(i,Q){
         LL(t);
         if(t==0){
             LL(p);
