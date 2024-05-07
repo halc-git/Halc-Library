@@ -12,6 +12,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
+    - icon: ':warning:'
+      path: DataStructure/SegmentTree.hpp
+      title: DataStructure/SegmentTree.hpp
     - icon: ':heavy_check_mark:'
       path: DataStructure/UnionFind.hpp
       title: Union Find
@@ -57,6 +60,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
+  - name: Verify/verify-yosupo-datastructure
+    pages:
+    - icon: ':warning:'
+      path: Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
+      title: Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:
