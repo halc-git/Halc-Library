@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
-    title: Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
@@ -50,8 +47,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: DataStructure/FenwickTree.hpp
-  requiredBy:
-  - Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
+  requiredBy: []
   timestamp: '2024-05-01 20:27:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

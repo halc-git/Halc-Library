@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: DataStructure/FoldableDeque.hpp
-    title: Foldable Deque
+  - icon: ':x:'
+    path: DataStructure/SegmentTree.hpp
+    title: DataStructure/SegmentTree.hpp
   - icon: ':question:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
@@ -12,16 +12,16 @@ data:
     title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/queue_operate_all_composite
+    PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
     links:
-    - https://judge.yosupo.jp/problem/queue_operate_all_composite
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/queue_operate_all_composite\"\
+    - https://judge.yosupo.jp/problem/point_set_range_composite
+  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
     \n#line 2 \"Template/Template.hpp\"\n//https://tatyam.hatenablog.com/entry/2019/12/15/003634\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\ntemplate<class\
     \ T> using pq=priority_queue<T,vector<T>,greater<T>>;\nusing pll=pair<ll,ll>;\n\
@@ -100,63 +100,20 @@ data:
     static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
-    #define fi first\n#define se second\n#line 5 \"DataStructure/FoldableDeque.hpp\"\
-    \n//https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\ntemplate<class M>\n\
-    struct FoldableQueue{\n    using T=typename M::T;\n    std::stack<T> top,bottom,topfold,bottomfold;\n\
-    \    FoldableQueue(){\n        topfold.push(M::e);\n        bottomfold.push(M::e);\n\
-    \    }\n    void push(T v){\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),v));\n\
-    \    }\n    void pop(){\n        if(top.empty()){\n            while(!bottom.empty()){\n\
-    \                top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),topfold.top()));\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n        }\n        top.pop();\n        topfold.pop();\n    }\n    T front(){\n\
-    \        if(top.empty()){\n            while(!bottom.empty()){\n             \
-    \   top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),topfold.top()));\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n        }\n        return top.top();\n    }\n    T get_all(){\n        return\
-    \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
-    \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\ntemplate<class M>\nstruct FoldableDeque{\n    using T=typename M::T;\n\
-    \    std::stack<T> top,bottom,topfold,bottomfold;\n    FoldableDeque(){\n    \
-    \    topfold.push(M::e);\n        bottomfold.push(M::e);\n    }\n    void push_front(T\
-    \ v){\n        top.push(v);\n        topfold.push(M::op(v,topfold.top()));\n \
-    \   }\n    void push_back(T v){\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),v));\n\
-    \    }\n    void pop_front(){\n        if(top.empty()){\n            std::vector<T>\
-    \ change;\n            while(!bottom.empty()){\n                change.emplace_back(bottom.top());\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n            size_t sz=change.size();\n            for(int32_t i=(sz>>1);\
-    \ i>=0; i--){\n                top.push(change[sz-i-1]);\n                topfold.push(M::op(change[sz-i-1],topfold.top()));\n\
-    \            }\n            for(int32_t i=(sz>>1)+1; i<sz; i++){\n           \
-    \     bottom.push(change[sz-i-1]);\n                bottomfold.push(M::op(bottomfold.top(),change[sz-i-1]));\n\
-    \            }\n        }\n        top.pop();\n        topfold.pop();\n    }\n\
-    \    void pop_back(){\n        if(bottom.empty()){\n            std::vector<T>\
-    \ change;\n            while(!top.empty()){\n                change.emplace_back(top.top());\n\
-    \                top.pop();\n                topfold.pop();\n            }\n \
-    \           size_t sz=change.size();\n            for(int32_t i=(sz>>1); i>=0;\
-    \ i--){\n                bottom.push(change[sz-i-1]);\n                bottomfold.push(M::op(bottomfold.top(),change[sz-i-1]));\n\
-    \            }\n            for(int32_t i=(sz>>1)+1; i<sz; i++){\n           \
-    \     top.push(change[sz-i-1]);\n                topfold.push(M::op(change[sz-i-1],topfold.top()));\n\
-    \            }\n        }\n        bottom.pop();\n        bottomfold.pop();\n\
-    \    }\n    T front(){\n        if(top.empty()){\n            std::vector<T> change;\n\
-    \            while(!bottom.empty()){\n                change.emplace_back(bottom.top());\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n            size_t sz=change.size();\n            for(uint32_t i=(sz>>1);\
-    \ i>=0; i--){\n                top.push(change[i]);\n                topfold.push(M::op(change[i],topfold.top()));\n\
-    \            }\n            for(uint32_t i=(sz>>1)+1; i<sz; i++){\n          \
-    \      bottom.push(change[i]);\n                bottomfold.push(M::op(bottomfold.top(),change[i]));\n\
-    \            }\n        }\n        return top.top();\n    }\n    T back(){\n \
-    \       if(bottom.empty()){\n            std::vector<T> change;\n            while(!top.empty()){\n\
-    \                change.emplace_back(top.top());\n                top.pop();\n\
-    \                topfold.pop();\n            }\n            size_t sz=change.size();\n\
-    \            for(uint32_t i=(sz>>1); i>=0; i--){\n                bottom.push(change[i]);\n\
-    \                bottomfold.push(M::op(bottomfold.top(),change[i]));\n       \
-    \     }\n            for(uint32_t i=(sz>>1)+1; i<sz; i++){\n                top.push(change[i]);\n\
-    \                topfold.push(M::op(change[i],topfold.top()));\n            }\n\
-    \        }\n        return bottom.top();\n    }\n    T get_all(){\n        return\
-    \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
-    \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\n#line 4 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n\
-    \    uint64_t x;\n    constexpr Modint()noexcept{\n        x=0;\n    }\n    constexpr\
-    \ Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
+    #define fi first\n#define se second\n#line 4 \"DataStructure/SegmentTree.hpp\"\
+    \ntemplate<class M>\nstruct SegmentTree{\n    using T=typename M::T;\n    int32_t\
+    \ size;\n    std::vector<T> tree;\n    SegmentTree(int32_t sz){\n        size=sz;\n\
+    \        tree=vector<T>(size*2,M::e);\n    }\n    void set(int32_t p,T v){\n \
+    \       p+=size;\n        tree[p]=v;\n        p>>=1;\n        while(p>0){\n  \
+    \          tree[p]=op(tree[p<<1],tree[(p<<1)+1]);\n            p>>=1;\n      \
+    \  }\n    }\n    T prod(int32_t lf,int32_t ri){\n        lf+=size;\n        ri+=size;\n\
+    \        T rel=M::e;\n        T rer=M::e;\n        while(lf<ri){\n           \
+    \ if(lf%2==1){\n                rel=M::op(rel,tree[lf]);\n                lf++;\n\
+    \            }\n            if(ri%2==1){\n                ri--;\n            \
+    \    rer=M::op(tree[ri],rer);\n            }\n            lf>>=1;\n          \
+    \  ri>>=1;\n        }\n        return op(rel,rer);\n    }\n};\n#line 4 \"Modint/Modint.hpp\"\
+    \ntemplate<uint64_t Mod>\nstruct Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n\
+    \        x=0;\n    }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
     \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
     \ uint64_t m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
     \        uint64_t pro=ret*Mod;\n        return (val-pro+(val<pro?Mod:0));\n  \
@@ -219,39 +176,41 @@ data:
     \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
     \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){std::cout\
     \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){std::cout\
-    \ << a;}\n#line 5 \"Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp\"\
+    \ << a;}\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
     \nusing mint=Modint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n \
     \   static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
-    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableQueue<composite>\
-    \ que;\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n\
-    \            que.push(pll(a,b));\n        }\n        if(t==1){\n            que.pop();\n\
-    \        }\n        if(t==2){\n            LL(x);\n            pair<mint,mint>\
-    \ ope=que.get_all();\n            out(ope.fi*x+ope.se);\n        }\n    }\n}\n\
-    int main(){\n    solve();\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/queue_operate_all_composite\"\
-    \n#include\"../../Template/Template.hpp\"\n#include\"../../DataStructure/FoldableDeque.hpp\"\
+    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    SegmentTree<composite>\
+    \ seg(N);\n    rep(i,N){\n        mint a,b;\n        in(a,b);\n        seg.set(i,{a,b});\n\
+    \    }\n    rep(i,N){\n        LL(t);\n        if(t==0){\n            LL(p);\n\
+    \            mint c,d;\n            in(c,d);\n            seg.set(p,{c,d});\n\
+    \        }\n        else{\n            LL(l,r,x);\n            pair<mint,mint>\
+    \ func=seg.prod(l,r);\n            out(func.fi*x+func.se);\n        }\n    }\n\
+    }\nint main(){\n    solve();\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
+    \n#include\"../../Template/Template.hpp\"\n#include\"../../DataStructure/SegmentTree.hpp\"\
     \n#include\"../../Modint/Modint.hpp\"\nusing mint=Modint<MOD>;\nstruct composite{\n\
     \    using T=pair<mint,mint>;\n    static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
-    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableQueue<composite>\
-    \ que;\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(a,b);\n\
-    \            que.push(pll(a,b));\n        }\n        if(t==1){\n            que.pop();\n\
-    \        }\n        if(t==2){\n            LL(x);\n            pair<mint,mint>\
-    \ ope=que.get_all();\n            out(ope.fi*x+ope.se);\n        }\n    }\n}\n\
-    int main(){\n    solve();\n    return 0;\n}"
+    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    SegmentTree<composite>\
+    \ seg(N);\n    rep(i,N){\n        mint a,b;\n        in(a,b);\n        seg.set(i,{a,b});\n\
+    \    }\n    rep(i,N){\n        LL(t);\n        if(t==0){\n            LL(p);\n\
+    \            mint c,d;\n            in(c,d);\n            seg.set(p,{c,d});\n\
+    \        }\n        else{\n            LL(l,r,x);\n            pair<mint,mint>\
+    \ func=seg.prod(l,r);\n            out(func.fi*x+func.se);\n        }\n    }\n\
+    }\nint main(){\n    solve();\n    return 0;\n}"
   dependsOn:
   - Template/Template.hpp
-  - DataStructure/FoldableDeque.hpp
+  - DataStructure/SegmentTree.hpp
   - Modint/Modint.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-01 17:42:37+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-07 22:05:25+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp.html
-title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp.html
+title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
 ---

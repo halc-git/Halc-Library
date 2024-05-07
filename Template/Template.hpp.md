@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
-    title: Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -18,6 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
@@ -63,9 +63,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://tatyam.hatenablog.com/entry/2019/12/15/003634
@@ -542,10 +542,9 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Template/Template.hpp
-  requiredBy:
-  - Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
+  requiredBy: []
   timestamp: '2024-05-01 17:42:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb.test.cpp
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
@@ -554,6 +553,7 @@ data:
   - Verify/verify-yuki/117.test.cpp
   - Verify/verify-yuki/2338.test.cpp
   - Verify/verify-yuki/901.test.cpp
+  - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/unionfind.test.cpp
   - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp

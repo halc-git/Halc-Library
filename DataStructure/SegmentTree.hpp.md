@@ -2,24 +2,47 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: '#line 1 "DataStructure/SegmentTree.hpp"
-
-
-    '
-  code: ''
+  bundledCode: "#line 2 \"DataStructure/SegmentTree.hpp\"\n#include<cstdint>\n#include<vector>\n\
+    template<class M>\nstruct SegmentTree{\n    using T=typename M::T;\n    int32_t\
+    \ size;\n    std::vector<T> tree;\n    SegmentTree(int32_t sz){\n        size=sz;\n\
+    \        tree=vector<T>(size*2,M::e);\n    }\n    void set(int32_t p,T v){\n \
+    \       p+=size;\n        tree[p]=v;\n        p>>=1;\n        while(p>0){\n  \
+    \          tree[p]=op(tree[p<<1],tree[(p<<1)+1]);\n            p>>=1;\n      \
+    \  }\n    }\n    T prod(int32_t lf,int32_t ri){\n        lf+=size;\n        ri+=size;\n\
+    \        T rel=M::e;\n        T rer=M::e;\n        while(lf<ri){\n           \
+    \ if(lf%2==1){\n                rel=M::op(rel,tree[lf]);\n                lf++;\n\
+    \            }\n            if(ri%2==1){\n                ri--;\n            \
+    \    rer=M::op(tree[ri],rer);\n            }\n            lf>>=1;\n          \
+    \  ri>>=1;\n        }\n        return op(rel,rer);\n    }\n};\n"
+  code: "#pragma once\n#include<cstdint>\n#include<vector>\ntemplate<class M>\nstruct\
+    \ SegmentTree{\n    using T=typename M::T;\n    int32_t size;\n    std::vector<T>\
+    \ tree;\n    SegmentTree(int32_t sz){\n        size=sz;\n        tree=vector<T>(size*2,M::e);\n\
+    \    }\n    void set(int32_t p,T v){\n        p+=size;\n        tree[p]=v;\n \
+    \       p>>=1;\n        while(p>0){\n            tree[p]=op(tree[p<<1],tree[(p<<1)+1]);\n\
+    \            p>>=1;\n        }\n    }\n    T prod(int32_t lf,int32_t ri){\n  \
+    \      lf+=size;\n        ri+=size;\n        T rel=M::e;\n        T rer=M::e;\n\
+    \        while(lf<ri){\n            if(lf%2==1){\n                rel=M::op(rel,tree[lf]);\n\
+    \                lf++;\n            }\n            if(ri%2==1){\n            \
+    \    ri--;\n                rer=M::op(tree[ri],rer);\n            }\n        \
+    \    lf>>=1;\n            ri>>=1;\n        }\n        return op(rel,rer);\n  \
+    \  }\n};"
   dependsOn: []
   isVerificationFile: false
   path: DataStructure/SegmentTree.hpp
   requiredBy: []
-  timestamp: '2024-05-07 21:53:19+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2024-05-07 22:05:25+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
 documentation_of: DataStructure/SegmentTree.hpp
 layout: document
 redirect_from:

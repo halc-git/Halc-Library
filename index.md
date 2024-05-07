@@ -12,7 +12,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: DataStructure/SegmentTree.hpp
       title: DataStructure/SegmentTree.hpp
     - icon: ':heavy_check_mark:'
@@ -33,7 +33,7 @@ data:
       title: Mo's Algorithm
   - name: Modint
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -52,7 +52,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template/Heuristic.hpp
       title: Template/Heuristic.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   - name: Tree
@@ -60,11 +60,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
-  - name: Verify/verify-yosupo-datastructure
-    pages:
-    - icon: ':warning:'
-      path: Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
-      title: Verify/verify-yosupo-datastructure/point_add_range_sum.cpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:
@@ -82,6 +77,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
       title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+    - icon: ':x:'
+      path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+      title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
       title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
