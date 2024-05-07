@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Template/Heuristic.hpp
     title: Template/Heuristic.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

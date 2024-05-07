@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/SegmentTree.hpp
     title: DataStructure/SegmentTree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
@@ -182,7 +182,7 @@ data:
     \   static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
     \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    SegmentTree<composite>\
     \ seg(N);\n    rep(i,N){\n        mint a,b;\n        in(a,b);\n        seg.set(i,{a,b});\n\
-    \    }\n    rep(i,N){\n        LL(t);\n        if(t==0){\n            LL(p);\n\
+    \    }\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(p);\n\
     \            mint c,d;\n            in(c,d);\n            seg.set(p,{c,d});\n\
     \        }\n        else{\n            LL(l,r,x);\n            pair<mint,mint>\
     \ func=seg.prod(l,r);\n            out(func.fi*x+func.se);\n        }\n    }\n\
@@ -193,7 +193,7 @@ data:
     \    using T=pair<mint,mint>;\n    static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
     \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    SegmentTree<composite>\
     \ seg(N);\n    rep(i,N){\n        mint a,b;\n        in(a,b);\n        seg.set(i,{a,b});\n\
-    \    }\n    rep(i,N){\n        LL(t);\n        if(t==0){\n            LL(p);\n\
+    \    }\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(p);\n\
     \            mint c,d;\n            in(c,d);\n            seg.set(p,{c,d});\n\
     \        }\n        else{\n            LL(l,r,x);\n            pair<mint,mint>\
     \ func=seg.prod(l,r);\n            out(func.fi*x+func.se);\n        }\n    }\n\
@@ -205,8 +205,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-07 22:08:08+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-07 22:15:34+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
 layout: document
