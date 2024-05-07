@@ -15,7 +15,7 @@ struct SegmentTree{
         tree[p]=v;
         p>>=1;
         while(p>0){
-            tree[p]=op(tree[p<<1],tree[(p<<1)+1]);
+            tree[p]=M::op(tree[p<<1],tree[(p<<1)+1]);
             p>>=1;
         }
     }
@@ -36,6 +36,6 @@ struct SegmentTree{
             lf>>=1;
             ri>>=1;
         }
-        return op(rel,rer);
+        return M::op(rel,rer);
     }
 };
