@@ -105,17 +105,18 @@ data:
     \ size;\n    std::vector<T> tree;\n    SegmentTree(int32_t sz){\n        size=sz;\n\
     \        tree=vector<T>(size*2,M::e);\n    }\n    void set(int32_t p,T v){\n \
     \       p+=size;\n        tree[p]=v;\n        p>>=1;\n        while(p>0){\n  \
-    \          tree[p]=op(tree[p<<1],tree[(p<<1)+1]);\n            p>>=1;\n      \
-    \  }\n    }\n    T prod(int32_t lf,int32_t ri){\n        lf+=size;\n        ri+=size;\n\
-    \        T rel=M::e;\n        T rer=M::e;\n        while(lf<ri){\n           \
-    \ if(lf%2==1){\n                rel=M::op(rel,tree[lf]);\n                lf++;\n\
-    \            }\n            if(ri%2==1){\n                ri--;\n            \
-    \    rer=M::op(tree[ri],rer);\n            }\n            lf>>=1;\n          \
-    \  ri>>=1;\n        }\n        return op(rel,rer);\n    }\n};\n#line 4 \"Modint/Modint.hpp\"\
-    \ntemplate<uint64_t Mod>\nstruct Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n\
-    \        x=0;\n    }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
-    \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
-    \ uint64_t m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
+    \          tree[p]=M::op(tree[p<<1],tree[(p<<1)+1]);\n            p>>=1;\n   \
+    \     }\n    }\n    T prod(int32_t lf,int32_t ri){\n        lf+=size;\n      \
+    \  ri+=size;\n        T rel=M::e;\n        T rer=M::e;\n        while(lf<ri){\n\
+    \            if(lf%2==1){\n                rel=M::op(rel,tree[lf]);\n        \
+    \        lf++;\n            }\n            if(ri%2==1){\n                ri--;\n\
+    \                rer=M::op(tree[ri],rer);\n            }\n            lf>>=1;\n\
+    \            ri>>=1;\n        }\n        return M::op(rel,rer);\n    }\n};\n#line\
+    \ 4 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n    uint64_t\
+    \ x;\n    constexpr Modint()noexcept{\n        x=0;\n    }\n    constexpr Modint(int64_t\
+    \ val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n    }\n  \
+    \  inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static uint64_t\
+    \ m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
     \        uint64_t pro=ret*Mod;\n        return (val-pro+(val<pro?Mod:0));\n  \
     \  }\n    friend std::ostream &operator<<(std::ostream &os,Modint &b){\n     \
     \   return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream &is,Modint\
@@ -204,7 +205,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-07 22:05:25+09:00'
+  timestamp: '2024-05-07 22:08:08+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
