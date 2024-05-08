@@ -3,11 +3,8 @@
 #include"../../DataStructure/FenwickTree.hpp"
 void solve(){
     LL(N,Q);
-    FenwickTree<ll> a(N);
-    rep(i,N){
-        LL(a_i);
-        a.add(i,a_i);
-    }
+    VEC(ll,A,N);
+    FenwickTree<ll> a(A);
     rep(i,Q){
         LL(t,x,y);
         if(t==0){

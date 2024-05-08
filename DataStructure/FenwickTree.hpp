@@ -10,6 +10,17 @@ struct FenwickTree{
         tree.resize(sz+1,0);
         while((start<<1)<=siz)start<<=1;
     }
+    FenwickTree(std::vector<T> def){
+        siz=def.size();
+        tree.resize(siz+1,0);
+        while((start<<1)<=siz)start<<=1;
+        for(int32_t i=0; i<siz; i++){
+            tree[i+1]+=def[i];
+            if(i+(i&-i)<=siz){
+                tree[i+(i&-i)]+=tree[i];
+            }
+        }
+    }
     void add(int32_t pos,T val){
         pos++;
         while(pos<=siz){
@@ -41,6 +52,6 @@ struct FenwickTree{
         return now+1;
     }
     size_t size(){
-        return tree.size()-1;
+        return siz;
     }
 };

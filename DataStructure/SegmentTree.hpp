@@ -4,14 +4,24 @@
 template<class M>
 struct SegmentTree{
     using T=typename M::T;
-    int32_t size;
+    int32_t siz;
     std::vector<T> tree;
     SegmentTree(int32_t sz){
-        size=sz;
-        tree=vector<T>(size*2,M::e);
+        siz=sz;
+        tree=std::vector<T>(siz*2,M::e);
+    }
+    SegmentTree(std::vector<T> def){
+        siz=def.size();
+        tree=vector<T>(siz*2,M::e);
+        for(int32_t i=0; i<siz; i++){
+            tree[i+siz]=def[i];
+        }
+        for(int32_t i=siz-1; i>0; i--){
+            tree[i]=M::op(tree[i<<1],tree[(i<<1)+1]);
+        }
     }
     void set(int32_t p,T v){
-        p+=size;
+        p+=siz;
         tree[p]=v;
         p>>=1;
         while(p>0){
@@ -20,8 +30,8 @@ struct SegmentTree{
         }
     }
     T prod(int32_t lf,int32_t ri){
-        lf+=size;
-        ri+=size;
+        lf+=siz;
+        ri+=siz;
         T rel=M::e;
         T rer=M::e;
         while(lf<ri){
@@ -37,5 +47,8 @@ struct SegmentTree{
             ri>>=1;
         }
         return M::op(rel,rer);
+    }
+    size_t size(){
+        return siz;
     }
 };

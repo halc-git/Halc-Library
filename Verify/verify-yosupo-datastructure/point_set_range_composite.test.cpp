@@ -12,18 +12,12 @@ struct composite{
 };
 void solve(){
     LL(N,Q);
-    SegmentTree<composite> seg(N);
-    rep(i,N){
-        mint a,b;
-        in(a,b);
-        seg.set(i,{a,b});
-    }
+    VEC(composite::T,ab,N);
+    SegmentTree<composite> seg(ab);
     rep(i,Q){
         LL(t);
         if(t==0){
-            LL(p);
-            mint c,d;
-            in(c,d);
+            LL(p,c,d);
             seg.set(p,{c,d});
         }
         else{
