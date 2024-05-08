@@ -1,6 +1,8 @@
 #pragma once
 #include <algorithm>
 #include <cstdint>
+#include <queue>
+#include <stack>
 #include <vector>
 template <class M>
 struct SegmentTree {
@@ -30,6 +32,7 @@ struct SegmentTree {
             p >>= 1;
         }
     }
+    T get(int32_t p) { return tree[p + siz]; }
     T prod(int32_t lf, int32_t ri) {
         lf += siz;
         ri += siz;
@@ -57,21 +60,24 @@ struct SegmentTree {
     int32_t max_right(int32_t lf, F f) {
         lf += siz;
         int32_t ri = siz << 1;
-        std::vector<int32_t> lfp, rip;
+        std::queue<int32_t> lfp;
+        std::stack<int32_t> rip;
         while (lf < ri) {
             if (lf & 1) {
-                lfp.emplace_back(lf);
+                lfp.push(lf);
                 lf++;
             }
             if (ri & 1) {
                 ri--;
-                rip.emplace_back(ri);
+                rip.push(ri);
             }
             lf >>= 1;
             ri >>= 1;
         }
         T val = M::e;
-        for (int32_t i : lfp) {
+        while (!lfp.empty()) {
+            int32_t i = lfp.front();
+            lfp.pop();
             if (!f(M::op(val, tree[i]))) {
                 while (i < siz) {
                     i <<= 1;
@@ -84,8 +90,9 @@ struct SegmentTree {
             }
             val = M::op(val, tree[i]);
         }
-        std::reverse(rip.begin(), rip.end());
-        for (int32_t i : rip) {
+        while (!rip.empty()) {
+            int32_t i = rip.top();
+            rip.pop();
             if (!f(M::op(val, tree[i]))) {
                 while (i < siz) {
                     i <<= 1;
@@ -108,21 +115,24 @@ struct SegmentTree {
     int32_t min_left(int32_t ri, F f) {
         ri += siz;
         int32_t lf = siz;
-        std::vector<int32_t> lfp, rip;
+        std::queue<int32_t> rip;
+        std::stack<int32_t> lfp;
         while (lf < ri) {
             if (lf & 1) {
-                lfp.emplace_back(lf);
+                lfp.push(lf);
                 lf++;
             }
             if (ri & 1) {
                 ri--;
-                rip.emplace_back(ri);
+                rip.push(ri);
             }
             lf >>= 1;
             ri >>= 1;
         }
         T val = M::e;
-        for (int32_t i : rip) {
+        while (!rip.empty()) {
+            int32_t i = rip.front();
+            rip.pop();
             if (!f(M::op(val, tree[i]))) {
                 while (i < siz) {
                     i <<= 1;
@@ -136,8 +146,9 @@ struct SegmentTree {
             }
             val = M::op(tree[i], val);
         }
-        std::reverse(lfp.begin(), lfp.end());
-        for (int32_t i : lfp) {
+        while (!lfp.empty()) {
+            int32_t i = lfp.top();
+            lfp.pop();
             if (!f(M::op(val, tree[i]))) {
                 while (i < siz) {
                     i <<= 1;
