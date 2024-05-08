@@ -92,9 +92,11 @@ data:
     \  if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n  \
     \      return ret;\n    }\n    static void set_mod(const uint64_t x)noexcept{\n\
     \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){std::cout\
-    \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){std::cout\
-    \ << a;}\n"
+    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void scan(Modint<N> &a){ scanf(\"\
+    %lu\", &a.x); }\ntemplate<int64_t id> inline void scan(ArbitraryModint<id> &a){\
+    \ scanf(\"%lu\", &a.x); }\ntemplate<uint64_t N> inline void print(Modint<N> a){printf(\"\
+    %lu\", a.x);}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){printf(\"\
+    %lu\", a.x);}\n"
   code: "#pragma once\n#include<cstdint>\n#include<iostream>\ntemplate<uint64_t Mod>\n\
     struct Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n        x=0;\n\
     \    }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
@@ -158,14 +160,16 @@ data:
     \  if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n  \
     \      return ret;\n    }\n    static void set_mod(const uint64_t x)noexcept{\n\
     \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){std::cout\
-    \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){std::cout\
-    \ << a;}\n"
+    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void scan(Modint<N> &a){ scanf(\"\
+    %lu\", &a.x); }\ntemplate<int64_t id> inline void scan(ArbitraryModint<id> &a){\
+    \ scanf(\"%lu\", &a.x); }\ntemplate<uint64_t N> inline void print(Modint<N> a){printf(\"\
+    %lu\", a.x);}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){printf(\"\
+    %lu\", a.x);}\n"
   dependsOn: []
   isVerificationFile: false
   path: Modint/Modint.hpp
   requiredBy: []
-  timestamp: '2024-05-01 17:42:37+09:00'
+  timestamp: '2024-05-08 16:15:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp

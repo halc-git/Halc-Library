@@ -108,10 +108,10 @@ data:
     \          tree[p]=M::op(tree[p<<1],tree[(p<<1)+1]);\n            p>>=1;\n   \
     \     }\n    }\n    T prod(int32_t lf,int32_t ri){\n        lf+=size;\n      \
     \  ri+=size;\n        T rel=M::e;\n        T rer=M::e;\n        while(lf<ri){\n\
-    \            if(lf%2==1){\n                rel=M::op(rel,tree[lf]);\n        \
-    \        lf++;\n            }\n            if(ri%2==1){\n                ri--;\n\
-    \                rer=M::op(tree[ri],rer);\n            }\n            lf>>=1;\n\
-    \            ri>>=1;\n        }\n        return M::op(rel,rer);\n    }\n};\n#line\
+    \            if(lf&1){\n                rel=M::op(rel,tree[lf]);\n           \
+    \     lf++;\n            }\n            if(ri&1){\n                ri--;\n   \
+    \             rer=M::op(tree[ri],rer);\n            }\n            lf>>=1;\n \
+    \           ri>>=1;\n        }\n        return M::op(rel,rer);\n    }\n};\n#line\
     \ 4 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n    uint64_t\
     \ x;\n    constexpr Modint()noexcept{\n        x=0;\n    }\n    constexpr Modint(int64_t\
     \ val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n    }\n  \
@@ -175,9 +175,11 @@ data:
     \  if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n  \
     \      return ret;\n    }\n    static void set_mod(const uint64_t x)noexcept{\n\
     \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){std::cout\
-    \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){std::cout\
-    \ << a;}\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
+    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void scan(Modint<N> &a){ scanf(\"\
+    %lu\", &a.x); }\ntemplate<int64_t id> inline void scan(ArbitraryModint<id> &a){\
+    \ scanf(\"%lu\", &a.x); }\ntemplate<uint64_t N> inline void print(Modint<N> a){printf(\"\
+    %lu\", a.x);}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){printf(\"\
+    %lu\", a.x);}\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
     \nusing mint=Modint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n \
     \   static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
     \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    SegmentTree<composite>\
@@ -205,7 +207,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-07 22:15:34+09:00'
+  timestamp: '2024-05-08 16:15:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp

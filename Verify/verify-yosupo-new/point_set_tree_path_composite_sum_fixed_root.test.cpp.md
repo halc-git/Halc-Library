@@ -163,9 +163,11 @@ data:
     \  if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n  \
     \      return ret;\n    }\n    static void set_mod(const uint64_t x)noexcept{\n\
     \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){std::cout\
-    \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){std::cout\
-    \ << a;}\n#line 4 \"Tree/StaticTopTree.hpp\"\ntemplate<class M>\nstruct StaticTopTree{\n\
+    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void scan(Modint<N> &a){ scanf(\"\
+    %lu\", &a.x); }\ntemplate<int64_t id> inline void scan(ArbitraryModint<id> &a){\
+    \ scanf(\"%lu\", &a.x); }\ntemplate<uint64_t N> inline void print(Modint<N> a){printf(\"\
+    %lu\", a.x);}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){printf(\"\
+    %lu\", a.x);}\n#line 4 \"Tree/StaticTopTree.hpp\"\ntemplate<class M>\nstruct StaticTopTree{\n\
     \    using point=typename M::point;\n    using path=typename M::path;\n    struct\
     \ Node{\n        bool is_path;\n        point point_val;\n        path path_val;\n\
     \        int32_t pos;\n        int32_t left;\n        int32_t right;\n       \
@@ -293,7 +295,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-03 17:10:23+09:00'
+  timestamp: '2024-05-08 16:15:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp

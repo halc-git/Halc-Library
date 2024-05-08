@@ -217,9 +217,11 @@ data:
     \  if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n  \
     \      return ret;\n    }\n    static void set_mod(const uint64_t x)noexcept{\n\
     \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void print(Modint<N> a){std::cout\
-    \ << a;}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){std::cout\
-    \ << a;}\n#line 5 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
+    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void scan(Modint<N> &a){ scanf(\"\
+    %lu\", &a.x); }\ntemplate<int64_t id> inline void scan(ArbitraryModint<id> &a){\
+    \ scanf(\"%lu\", &a.x); }\ntemplate<uint64_t N> inline void print(Modint<N> a){printf(\"\
+    %lu\", a.x);}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){printf(\"\
+    %lu\", a.x);}\n#line 5 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
     \nusing mint=Modint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n \
     \   static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
     \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableDeque<composite>\
@@ -249,7 +251,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-01 17:42:37+09:00'
+  timestamp: '2024-05-08 16:15:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
