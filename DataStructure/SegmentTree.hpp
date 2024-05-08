@@ -25,11 +25,11 @@ struct SegmentTree{
         T rel=M::e;
         T rer=M::e;
         while(lf<ri){
-            if(lf%2==1){
+            if(lf&1){
                 rel=M::op(rel,tree[lf]);
                 lf++;
             }
-            if(ri%2==1){
+            if(ri&1){
                 ri--;
                 rer=M::op(tree[ri],rer);
             }

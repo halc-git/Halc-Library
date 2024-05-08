@@ -173,5 +173,7 @@ struct ArbitraryModint{
         return mod();
     }
 };
-template<uint64_t N> inline void print(Modint<N> a){std::cout << a;}
-template<int64_t id> inline void print(ArbitraryModint<id> a){std::cout << a;}
+template<uint64_t N> inline void scan(Modint<N> &a){ scanf("%lu", &a.x); }
+template<int64_t id> inline void scan(ArbitraryModint<id> &a){ scanf("%lu", &a.x); }
+template<uint64_t N> inline void print(Modint<N> a){printf("%lu", a.x);}
+template<int64_t id> inline void print(ArbitraryModint<id> a){printf("%lu", a.x);}
