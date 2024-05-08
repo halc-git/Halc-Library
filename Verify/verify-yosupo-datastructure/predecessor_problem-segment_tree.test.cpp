@@ -1,6 +1,13 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/predecessor_problem"
 #include"../../Template/Template.hpp"
-#include"../../DataStructure/FenwickTree.hpp"
+#include"../../DataStructure/SegmentTree.hpp"
+struct raq{
+    using T=ll;
+    static T op(T x,T y){
+        return x+y;
+    }
+    static inline T e=0;
+};
 void solve(){
     LL(N,Q);
     STR(T);
@@ -8,35 +15,33 @@ void solve(){
     rep(i,N){
         if(T[i]=='1')t[i]=1;
     }
-    FenwickTree<ll> fw(t);
+    SegmentTree<raq> seg(t);
     rep(i,Q){
         LL(c,k);
         if(c==0){
-            if(!fw.sum(k,k+1)){
-                fw.add(k,1);
+            if(!seg.get(k)){
+                seg.set(k,1);
             }
         }
         if(c==1){
-            if(fw.sum(k,k+1)){
-                fw.add(k,-1);
+            if(seg.get(k)){
+                seg.set(k,0);
             }
         }
         if(c==2){
-            out(fw.sum(k,k+1));
+            out(seg.get(k));
         }
         if(c==3){
-            ll cnt=fw.sum(0,k)+1;
-            ll ans=fw.lower_bound(cnt);
-            if(fw.sum(0,ans)==cnt){
-                out(ans-1);
+            ll ans=seg.max_right(k,[](ll x){return x==0;});
+            if(ans<N){
+                out(ans);
             }
             else{
                 out(-1);
             }
         }
         if(c==4){
-            ll cnt=fw.sum(0,k+1);
-            ll ans=fw.lower_bound(cnt);
+            ll ans=seg.min_left(k+1,[](ll x){return x==0;});
             out(ans-1);
         }
     }
