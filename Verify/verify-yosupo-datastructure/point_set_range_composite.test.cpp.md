@@ -102,21 +102,24 @@ data:
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#line 4 \"DataStructure/SegmentTree.hpp\"\
     \ntemplate<class M>\nstruct SegmentTree{\n    using T=typename M::T;\n    int32_t\
-    \ size;\n    std::vector<T> tree;\n    SegmentTree(int32_t sz){\n        size=sz;\n\
-    \        tree=vector<T>(size*2,M::e);\n    }\n    void set(int32_t p,T v){\n \
-    \       p+=size;\n        tree[p]=v;\n        p>>=1;\n        while(p>0){\n  \
-    \          tree[p]=M::op(tree[p<<1],tree[(p<<1)+1]);\n            p>>=1;\n   \
-    \     }\n    }\n    T prod(int32_t lf,int32_t ri){\n        lf+=size;\n      \
-    \  ri+=size;\n        T rel=M::e;\n        T rer=M::e;\n        while(lf<ri){\n\
-    \            if(lf&1){\n                rel=M::op(rel,tree[lf]);\n           \
-    \     lf++;\n            }\n            if(ri&1){\n                ri--;\n   \
-    \             rer=M::op(tree[ri],rer);\n            }\n            lf>>=1;\n \
-    \           ri>>=1;\n        }\n        return M::op(rel,rer);\n    }\n};\n#line\
-    \ 4 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n    uint64_t\
-    \ x;\n    constexpr Modint()noexcept{\n        x=0;\n    }\n    constexpr Modint(int64_t\
-    \ val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n    }\n  \
-    \  inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static uint64_t\
-    \ m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
+    \ siz;\n    std::vector<T> tree;\n    SegmentTree(int32_t sz){\n        siz=sz;\n\
+    \        tree=std::vector<T>(siz*2,M::e);\n    }\n    SegmentTree(std::vector<T>\
+    \ def){\n        siz=def.size();\n        tree=vector<T>(siz*2,M::e);\n      \
+    \  for(int32_t i=0; i<siz; i++){\n            tree[i+siz]=def[i];\n        }\n\
+    \        for(int32_t i=siz-1; i>0; i--){\n            tree[i]=M::op(tree[i<<1],tree[(i<<1)+1]);\n\
+    \        }\n    }\n    void set(int32_t p,T v){\n        p+=siz;\n        tree[p]=v;\n\
+    \        p>>=1;\n        while(p>0){\n            tree[p]=M::op(tree[p<<1],tree[(p<<1)+1]);\n\
+    \            p>>=1;\n        }\n    }\n    T prod(int32_t lf,int32_t ri){\n  \
+    \      lf+=siz;\n        ri+=siz;\n        T rel=M::e;\n        T rer=M::e;\n\
+    \        while(lf<ri){\n            if(lf&1){\n                rel=M::op(rel,tree[lf]);\n\
+    \                lf++;\n            }\n            if(ri&1){\n               \
+    \ ri--;\n                rer=M::op(tree[ri],rer);\n            }\n           \
+    \ lf>>=1;\n            ri>>=1;\n        }\n        return M::op(rel,rer);\n  \
+    \  }\n    size_t size(){\n        return siz;\n    }\n};\n#line 4 \"Modint/Modint.hpp\"\
+    \ntemplate<uint64_t Mod>\nstruct Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n\
+    \        x=0;\n    }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
+    \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
+    \ uint64_t m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
     \        uint64_t pro=ret*Mod;\n        return (val-pro+(val<pro?Mod:0));\n  \
     \  }\n    friend std::ostream &operator<<(std::ostream &os,Modint &b){\n     \
     \   return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream &is,Modint\
@@ -182,24 +185,22 @@ data:
     %lu\", a.x);}\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
     \nusing mint=Modint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n \
     \   static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
-    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    SegmentTree<composite>\
-    \ seg(N);\n    rep(i,N){\n        mint a,b;\n        in(a,b);\n        seg.set(i,{a,b});\n\
-    \    }\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(p);\n\
-    \            mint c,d;\n            in(c,d);\n            seg.set(p,{c,d});\n\
-    \        }\n        else{\n            LL(l,r,x);\n            pair<mint,mint>\
-    \ func=seg.prod(l,r);\n            out(func.fi*x+func.se);\n        }\n    }\n\
-    }\nint main(){\n    solve();\n    return 0;\n}\n"
+    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    VEC(composite::T,ab,N);\n\
+    \    SegmentTree<composite> seg(ab);\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n\
+    \            LL(p,c,d);\n            seg.set(p,{c,d});\n        }\n        else{\n\
+    \            LL(l,r,x);\n            pair<mint,mint> func=seg.prod(l,r);\n   \
+    \         out(func.fi*x+func.se);\n        }\n    }\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
     \n#include\"../../Template/Template.hpp\"\n#include\"../../DataStructure/SegmentTree.hpp\"\
     \n#include\"../../Modint/Modint.hpp\"\nusing mint=Modint<MOD>;\nstruct composite{\n\
     \    using T=pair<mint,mint>;\n    static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
-    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    SegmentTree<composite>\
-    \ seg(N);\n    rep(i,N){\n        mint a,b;\n        in(a,b);\n        seg.set(i,{a,b});\n\
-    \    }\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n            LL(p);\n\
-    \            mint c,d;\n            in(c,d);\n            seg.set(p,{c,d});\n\
-    \        }\n        else{\n            LL(l,r,x);\n            pair<mint,mint>\
-    \ func=seg.prod(l,r);\n            out(func.fi*x+func.se);\n        }\n    }\n\
-    }\nint main(){\n    solve();\n    return 0;\n}"
+    \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    VEC(composite::T,ab,N);\n\
+    \    SegmentTree<composite> seg(ab);\n    rep(i,Q){\n        LL(t);\n        if(t==0){\n\
+    \            LL(p,c,d);\n            seg.set(p,{c,d});\n        }\n        else{\n\
+    \            LL(l,r,x);\n            pair<mint,mint> func=seg.prod(l,r);\n   \
+    \         out(func.fi*x+func.se);\n        }\n    }\n}\nint main(){\n    solve();\n\
+    \    return 0;\n}"
   dependsOn:
   - Template/Template.hpp
   - DataStructure/SegmentTree.hpp
@@ -207,7 +208,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-08 16:15:32+09:00'
+  timestamp: '2024-05-08 20:19:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp

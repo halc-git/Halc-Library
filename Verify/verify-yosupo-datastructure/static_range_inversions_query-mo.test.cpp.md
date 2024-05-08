@@ -107,19 +107,22 @@ data:
     \ntemplate<class T>\nstruct FenwickTree{\n    std::vector<T> tree;\n    int32_t\
     \ start=1;\n    size_t siz;\n    FenwickTree(int32_t sz){\n        siz=sz;\n \
     \       tree.resize(sz+1,0);\n        while((start<<1)<=siz)start<<=1;\n    }\n\
-    \    void add(int32_t pos,T val){\n        pos++;\n        while(pos<=siz){\n\
-    \            tree[pos]+=val;\n            pos+=pos&-pos;\n        }\n    }\n \
-    \   T _sum(int32_t pos){\n        T ret=0;\n        while(pos>0){\n          \
-    \  ret+=tree[pos];\n            pos-=pos&-pos;\n        }\n        return ret;\n\
-    \    }\n    T sum(int32_t lf,int32_t ri){\n        return _sum(ri)-_sum(lf);\n\
-    \    }\n    int32_t lower_bound(T w){\n        if(w<=0)return 0;\n        int32_t\
-    \ now=0;\n        T val=0;\n        for(int32_t i=start; i>0; i>>=1){\n      \
-    \      if(now+i<=siz&&val+tree[now+i]<w){\n                now+=i;\n         \
-    \       val+=tree[now];\n            }\n        }\n        return now+1;\n   \
-    \ }\n    size_t size(){\n        return tree.size()-1;\n    }\n};\n#line 5 \"\
-    Misc/Mo.hpp\"\ntemplate<class M>\nstruct Mo{\n    using T=typename M::T;\n   \
-    \ int32_t backet;\n    std::vector<int32_t> left,right,order;\n    Mo(int32_t\
-    \ N,int32_t Q){\n        order.resize(Q);\n        backet=std::max<int32_t>(1,(double)(N)/std::max<double>(1,std::sqrt(Q*2.0/3)));\n\
+    \    FenwickTree(std::vector<T> def){\n        siz=def.size();\n        tree.resize(siz+1,0);\n\
+    \        while((start<<1)<=siz)start<<=1;\n        for(int32_t i=0; i<siz; i++){\n\
+    \            tree[i+1]+=def[i];\n            if(i+(i&-i)<=siz){\n            \
+    \    tree[i+(i&-i)]+=tree[i];\n            }\n        }\n    }\n    void add(int32_t\
+    \ pos,T val){\n        pos++;\n        while(pos<=siz){\n            tree[pos]+=val;\n\
+    \            pos+=pos&-pos;\n        }\n    }\n    T _sum(int32_t pos){\n    \
+    \    T ret=0;\n        while(pos>0){\n            ret+=tree[pos];\n          \
+    \  pos-=pos&-pos;\n        }\n        return ret;\n    }\n    T sum(int32_t lf,int32_t\
+    \ ri){\n        return _sum(ri)-_sum(lf);\n    }\n    int32_t lower_bound(T w){\n\
+    \        if(w<=0)return 0;\n        int32_t now=0;\n        T val=0;\n       \
+    \ for(int32_t i=start; i>0; i>>=1){\n            if(now+i<=siz&&val+tree[now+i]<w){\n\
+    \                now+=i;\n                val+=tree[now];\n            }\n   \
+    \     }\n        return now+1;\n    }\n    size_t size(){\n        return siz;\n\
+    \    }\n};\n#line 5 \"Misc/Mo.hpp\"\ntemplate<class M>\nstruct Mo{\n    using\
+    \ T=typename M::T;\n    int32_t backet;\n    std::vector<int32_t> left,right,order;\n\
+    \    Mo(int32_t N,int32_t Q){\n        order.resize(Q);\n        backet=std::max<int32_t>(1,(double)(N)/std::max<double>(1,std::sqrt(Q*2.0/3)));\n\
     \        std::iota(order.begin(),order.end(),0);\n    }\n    void add_query(int32_t\
     \ lf,int32_t ri){\n        left.emplace_back(lf);\n        right.emplace_back(ri);\n\
     \    }\n    std::vector<T> run(){\n        std::vector<T> answer(order.size());\n\
@@ -177,7 +180,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   requiredBy: []
-  timestamp: '2024-05-01 20:27:09+09:00'
+  timestamp: '2024-05-08 20:19:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
