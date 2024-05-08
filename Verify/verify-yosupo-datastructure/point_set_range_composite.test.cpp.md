@@ -100,7 +100,7 @@ data:
     static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
-    #define fi first\n#define se second\n#line 7 \"DataStructure/SegmentTree.hpp\"\
+    #define fi first\n#define se second\n#line 6 \"DataStructure/SegmentTree.hpp\"\
     \ntemplate <class M>\nstruct SegmentTree {\n    using T = typename M::T;\n   \
     \ int32_t siz;\n    std::vector<T> tree;\n    SegmentTree(int32_t sz) {\n    \
     \    siz = sz;\n        tree = std::vector<T>(siz << 1, M::e);\n    }\n    SegmentTree(std::vector<T>\
@@ -256,7 +256,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 07:59:37+09:00'
+  timestamp: '2024-05-09 08:19:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
