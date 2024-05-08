@@ -100,7 +100,7 @@ data:
     static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
-    #define fi first\n#define se second\n#line 5 \"DataStructure/SegmentTree.hpp\"\
+    #define fi first\n#define se second\n#line 7 \"DataStructure/SegmentTree.hpp\"\
     \ntemplate <class M>\nstruct SegmentTree {\n    using T = typename M::T;\n   \
     \ int32_t siz;\n    std::vector<T> tree;\n    SegmentTree(int32_t sz) {\n    \
     \    siz = sz;\n        tree = std::vector<T>(siz << 1, M::e);\n    }\n    SegmentTree(std::vector<T>\
@@ -110,71 +110,74 @@ data:
     \ = M::op(tree[i << 1], tree[(i << 1) + 1]);\n        }\n    }\n    void set(int32_t\
     \ p, T v) {\n        p += siz;\n        tree[p] = v;\n        p >>= 1;\n     \
     \   while (p > 0) {\n            tree[p] = M::op(tree[p << 1], tree[(p << 1) +\
-    \ 1]);\n            p >>= 1;\n        }\n    }\n    T prod(int32_t lf, int32_t\
-    \ ri) {\n        lf += siz;\n        ri += siz;\n        T rel = M::e;\n     \
-    \   T rer = M::e;\n        while (lf < ri) {\n            if (lf & 1) {\n    \
-    \            rel = M::op(rel, tree[lf]);\n                lf++;\n            }\n\
-    \            if (ri & 1) {\n                ri--;\n                rer = M::op(tree[ri],\
-    \ rer);\n            }\n            lf >>= 1;\n            ri >>= 1;\n       \
-    \ }\n        return M::op(rel, rer);\n    }\n    template <bool (*f)(T)>\n   \
-    \ int32_t max_right(int lf) {\n        return max_right(lf, [](T x) { return f(x);\
-    \ });\n    }\n    template <class F>\n    int32_t max_right(int32_t lf, F f) {\n\
-    \        lf += siz;\n        int32_t ri = siz << 1;\n        std::vector<int32_t>\
-    \ lfp, rip;\n        while (lf < ri) {\n            if (lf & 1) {\n          \
-    \      lfp.emplace_back(lf);\n                lf++;\n            }\n         \
-    \   if (ri & 1) {\n                ri--;\n                rip.emplace_back(ri);\n\
+    \ 1]);\n            p >>= 1;\n        }\n    }\n    T get(int32_t p) { return\
+    \ tree[p + siz]; }\n    T prod(int32_t lf, int32_t ri) {\n        lf += siz;\n\
+    \        ri += siz;\n        T rel = M::e;\n        T rer = M::e;\n        while\
+    \ (lf < ri) {\n            if (lf & 1) {\n                rel = M::op(rel, tree[lf]);\n\
+    \                lf++;\n            }\n            if (ri & 1) {\n           \
+    \     ri--;\n                rer = M::op(tree[ri], rer);\n            }\n    \
+    \        lf >>= 1;\n            ri >>= 1;\n        }\n        return M::op(rel,\
+    \ rer);\n    }\n    template <bool (*f)(T)>\n    int32_t max_right(int lf) {\n\
+    \        return max_right(lf, [](T x) { return f(x); });\n    }\n    template\
+    \ <class F>\n    int32_t max_right(int32_t lf, F f) {\n        lf += siz;\n  \
+    \      int32_t ri = siz << 1;\n        std::queue<int32_t> lfp;\n        std::stack<int32_t>\
+    \ rip;\n        while (lf < ri) {\n            if (lf & 1) {\n               \
+    \ lfp.push(lf);\n                lf++;\n            }\n            if (ri & 1)\
+    \ {\n                ri--;\n                rip.push(ri);\n            }\n   \
+    \         lf >>= 1;\n            ri >>= 1;\n        }\n        T val = M::e;\n\
+    \        while (!lfp.empty()) {\n            int32_t i = lfp.front();\n      \
+    \      lfp.pop();\n            if (!f(M::op(val, tree[i]))) {\n              \
+    \  while (i < siz) {\n                    i <<= 1;\n                    if (f(M::op(val,\
+    \ tree[i]))) {\n                        val = M::op(val, tree[i]);\n         \
+    \               i++;\n                    }\n                }\n             \
+    \   return i - siz;\n            }\n            val = M::op(val, tree[i]);\n \
+    \       }\n        while (!rip.empty()) {\n            int32_t i = rip.top();\n\
+    \            rip.pop();\n            if (!f(M::op(val, tree[i]))) {\n        \
+    \        while (i < siz) {\n                    i <<= 1;\n                   \
+    \ if (f(M::op(val, tree[i]))) {\n                        val = M::op(val, tree[i]);\n\
+    \                        i++;\n                    }\n                }\n    \
+    \            return i - siz;\n            }\n            val = M::op(val, tree[i]);\n\
+    \        }\n        return siz;\n    }\n    template <bool (*f)(T)>\n    int32_t\
+    \ min_left(int ri) {\n        return min_left(ri, [](T x) { return f(x); });\n\
+    \    }\n    template <class F>\n    int32_t min_left(int32_t ri, F f) {\n    \
+    \    ri += siz;\n        int32_t lf = siz;\n        std::queue<int32_t> rip;\n\
+    \        std::stack<int32_t> lfp;\n        while (lf < ri) {\n            if (lf\
+    \ & 1) {\n                lfp.push(lf);\n                lf++;\n            }\n\
+    \            if (ri & 1) {\n                ri--;\n                rip.push(ri);\n\
     \            }\n            lf >>= 1;\n            ri >>= 1;\n        }\n    \
-    \    T val = M::e;\n        for (int32_t i : lfp) {\n            if (!f(M::op(val,\
-    \ tree[i]))) {\n                while (i < siz) {\n                    i <<= 1;\n\
-    \                    if (f(M::op(val, tree[i]))) {\n                        val\
-    \ = M::op(val, tree[i]);\n                        i++;\n                    }\n\
-    \                }\n                return i - siz;\n            }\n         \
-    \   val = M::op(val, tree[i]);\n        }\n        std::reverse(rip.begin(), rip.end());\n\
-    \        for (int32_t i : rip) {\n            if (!f(M::op(val, tree[i]))) {\n\
-    \                while (i < siz) {\n                    i <<= 1;\n           \
-    \         if (f(M::op(val, tree[i]))) {\n                        val = M::op(val,\
-    \ tree[i]);\n                        i++;\n                    }\n           \
-    \     }\n                return i - siz;\n            }\n            val = M::op(val,\
-    \ tree[i]);\n        }\n        return siz;\n    }\n    template <bool (*f)(T)>\n\
-    \    int32_t min_left(int ri) {\n        return min_left(ri, [](T x) { return\
-    \ f(x); });\n    }\n    template <class F>\n    int32_t min_left(int32_t ri, F\
-    \ f) {\n        ri += siz;\n        int32_t lf = siz;\n        std::vector<int32_t>\
-    \ lfp, rip;\n        while (lf < ri) {\n            if (lf & 1) {\n          \
-    \      lfp.emplace_back(lf);\n                lf++;\n            }\n         \
-    \   if (ri & 1) {\n                ri--;\n                rip.emplace_back(ri);\n\
-    \            }\n            lf >>= 1;\n            ri >>= 1;\n        }\n    \
-    \    T val = M::e;\n        for (int32_t i : rip) {\n            if (!f(M::op(val,\
-    \ tree[i]))) {\n                while (i < siz) {\n                    i <<= 1;\n\
-    \                    i++;\n                    if (f(M::op(tree[i], val))) {\n\
-    \                        val = M::op(tree[i], val);\n                        i--;\n\
-    \                    }\n                }\n                return i - siz + 1;\n\
-    \            }\n            val = M::op(tree[i], val);\n        }\n        std::reverse(lfp.begin(),\
-    \ lfp.end());\n        for (int32_t i : lfp) {\n            if (!f(M::op(val,\
-    \ tree[i]))) {\n                while (i < siz) {\n                    i <<= 1;\n\
-    \                    i++;\n                    if (f(M::op(tree[i], val))) {\n\
-    \                        val = M::op(tree[i], val);\n                        i--;\n\
-    \                    }\n                }\n                return i - siz + 1;\n\
-    \            }\n            val = M::op(tree[i], val);\n        }\n        return\
-    \ 0;\n    }\n    size_t size() { return siz; }\n};\n#line 4 \"Modint/Modint.hpp\"\
-    \ntemplate <uint64_t Mod>\nstruct Modint {\n    uint64_t x;\n    constexpr Modint()\
-    \ noexcept { x = 0; }\n    constexpr Modint(int64_t val) noexcept {\n        x\
-    \ = (val < 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n    }\n    inline uint64_t\
-    \ _get_mod(uint64_t val) noexcept {\n        const static uint64_t m_inv = (-1ULL)\
-    \ / Mod + 1;\n        uint64_t ret = ((unsigned __int128)(val)*m_inv) >> 64;\n\
-    \        uint64_t pro = ret * Mod;\n        return (val - pro + (val < pro ? Mod\
-    \ : 0));\n    }\n    friend std::ostream &operator<<(std::ostream &os, Modint\
-    \ &b) {\n        return os << b.x;\n    }\n    friend std::istream &operator>>(std::istream\
-    \ &is, Modint &b) {\n        return is >> b.x;\n    }\n    constexpr uint64_t\
-    \ val() noexcept { return x; }\n    constexpr Modint operator+() noexcept { return\
-    \ (*this); }\n    constexpr Modint operator-() noexcept { return Modint() - (*this);\
-    \ }\n    constexpr Modint operator+(const Modint rhs) noexcept {\n        return\
-    \ Modint(*this) += rhs;\n    }\n    constexpr Modint operator-(const Modint rhs)\
-    \ noexcept {\n        return Modint(*this) -= rhs;\n    }\n    constexpr Modint\
-    \ operator*(const Modint rhs) noexcept {\n        return Modint(*this) *= rhs;\n\
-    \    }\n    constexpr Modint operator/(const Modint rhs) noexcept {\n        return\
-    \ Modint(*this) /= rhs;\n    }\n    constexpr Modint &operator+=(const Modint\
-    \ rhs) noexcept {\n        x += rhs.x;\n        if (x >= Mod) x -= Mod;\n    \
-    \    return *this;\n    }\n    constexpr Modint &operator-=(const Modint rhs)\
+    \    T val = M::e;\n        while (!rip.empty()) {\n            int32_t i = rip.front();\n\
+    \            rip.pop();\n            if (!f(M::op(val, tree[i]))) {\n        \
+    \        while (i < siz) {\n                    i <<= 1;\n                   \
+    \ i++;\n                    if (f(M::op(tree[i], val))) {\n                  \
+    \      val = M::op(tree[i], val);\n                        i--;\n            \
+    \        }\n                }\n                return i - siz + 1;\n         \
+    \   }\n            val = M::op(tree[i], val);\n        }\n        while (!lfp.empty())\
+    \ {\n            int32_t i = lfp.top();\n            lfp.pop();\n            if\
+    \ (!f(M::op(val, tree[i]))) {\n                while (i < siz) {\n           \
+    \         i <<= 1;\n                    i++;\n                    if (f(M::op(tree[i],\
+    \ val))) {\n                        val = M::op(tree[i], val);\n             \
+    \           i--;\n                    }\n                }\n                return\
+    \ i - siz + 1;\n            }\n            val = M::op(tree[i], val);\n      \
+    \  }\n        return 0;\n    }\n    size_t size() { return siz; }\n};\n#line 4\
+    \ \"Modint/Modint.hpp\"\ntemplate <uint64_t Mod>\nstruct Modint {\n    uint64_t\
+    \ x;\n    constexpr Modint() noexcept { x = 0; }\n    constexpr Modint(int64_t\
+    \ val) noexcept {\n        x = (val < 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n\
+    \    }\n    inline uint64_t _get_mod(uint64_t val) noexcept {\n        const static\
+    \ uint64_t m_inv = (-1ULL) / Mod + 1;\n        uint64_t ret = ((unsigned __int128)(val)*m_inv)\
+    \ >> 64;\n        uint64_t pro = ret * Mod;\n        return (val - pro + (val\
+    \ < pro ? Mod : 0));\n    }\n    friend std::ostream &operator<<(std::ostream\
+    \ &os, Modint &b) {\n        return os << b.x;\n    }\n    friend std::istream\
+    \ &operator>>(std::istream &is, Modint &b) {\n        return is >> b.x;\n    }\n\
+    \    constexpr uint64_t val() noexcept { return x; }\n    constexpr Modint operator+()\
+    \ noexcept { return (*this); }\n    constexpr Modint operator-() noexcept { return\
+    \ Modint() - (*this); }\n    constexpr Modint operator+(const Modint rhs) noexcept\
+    \ {\n        return Modint(*this) += rhs;\n    }\n    constexpr Modint operator-(const\
+    \ Modint rhs) noexcept {\n        return Modint(*this) -= rhs;\n    }\n    constexpr\
+    \ Modint operator*(const Modint rhs) noexcept {\n        return Modint(*this)\
+    \ *= rhs;\n    }\n    constexpr Modint operator/(const Modint rhs) noexcept {\n\
+    \        return Modint(*this) /= rhs;\n    }\n    constexpr Modint &operator+=(const\
+    \ Modint rhs) noexcept {\n        x += rhs.x;\n        if (x >= Mod) x -= Mod;\n\
+    \        return *this;\n    }\n    constexpr Modint &operator-=(const Modint rhs)\
     \ noexcept {\n        if (x < rhs.x) x += Mod;\n        x -= rhs.x;\n        return\
     \ *this;\n    }\n    constexpr Modint &operator*=(const Modint rhs) noexcept {\n\
     \        x = _get_mod(x * rhs.x);\n        return *this;\n    }\n    constexpr\
@@ -253,7 +256,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-08 22:46:15+09:00'
+  timestamp: '2024-05-09 07:59:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
