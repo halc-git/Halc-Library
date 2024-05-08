@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
+    title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -139,6 +142,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
 documentation_of: DataStructure/SegmentTree.hpp
 layout: document
 redirect_from:

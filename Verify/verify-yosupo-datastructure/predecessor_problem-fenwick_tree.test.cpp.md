@@ -116,12 +116,13 @@ data:
     \ + i <= siz && val + tree[now + i] < w) {\n                now += i;\n      \
     \          val += tree[now];\n            }\n        }\n        return now + 1;\n\
     \    }\n    size_t size() { return siz; }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp\"\
-    \nvoid solve(){\n    LL(N,Q);\n    STR(T);\n    FenwickTree<ll> fw(N);\n    rep(i,N){\n\
-    \        if(T[i]=='1')fw.add(i,1);\n    }\n    rep(i,Q){\n        LL(c,k);\n \
-    \       if(c==0){\n            if(fw.sum(k,k+1)==0){\n                fw.add(k,1);\n\
-    \            }\n        }\n        if(c==1){\n            if(fw.sum(k,k+1)==1)fw.add(k,-1);\n\
-    \        }\n        if(c==2){\n            out(fw.sum(k,k+1));\n        }\n  \
-    \      if(c==3){\n            ll cnt=fw.sum(0,k)+1;\n            ll ans=fw.lower_bound(cnt);\n\
+    \nvoid solve(){\n    LL(N,Q);\n    STR(T);\n    vec(ll,t,N,0);\n    rep(i,N){\n\
+    \        if(T[i]=='1')t[i]=1;\n    }\n    FenwickTree<ll> fw(t);\n    rep(i,Q){\n\
+    \        LL(c,k);\n        if(c==0){\n            if(!fw.sum(k,k+1)){\n      \
+    \          fw.add(k,1);\n            }\n        }\n        if(c==1){\n       \
+    \     if(fw.sum(k,k+1)){\n                fw.add(k,-1);\n            }\n     \
+    \   }\n        if(c==2){\n            out(fw.sum(k,k+1));\n        }\n       \
+    \ if(c==3){\n            ll cnt=fw.sum(0,k)+1;\n            ll ans=fw.lower_bound(cnt);\n\
     \            if(fw.sum(0,ans)==cnt){\n                out(ans-1);\n          \
     \  }\n            else{\n                out(-1);\n            }\n        }\n\
     \        if(c==4){\n            ll cnt=fw.sum(0,k+1);\n            ll ans=fw.lower_bound(cnt);\n\
@@ -129,12 +130,13 @@ data:
     \ return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/predecessor_problem\"\n\
     #include\"../../Template/Template.hpp\"\n#include\"../../DataStructure/FenwickTree.hpp\"\
-    \nvoid solve(){\n    LL(N,Q);\n    STR(T);\n    FenwickTree<ll> fw(N);\n    rep(i,N){\n\
-    \        if(T[i]=='1')fw.add(i,1);\n    }\n    rep(i,Q){\n        LL(c,k);\n \
-    \       if(c==0){\n            if(fw.sum(k,k+1)==0){\n                fw.add(k,1);\n\
-    \            }\n        }\n        if(c==1){\n            if(fw.sum(k,k+1)==1)fw.add(k,-1);\n\
-    \        }\n        if(c==2){\n            out(fw.sum(k,k+1));\n        }\n  \
-    \      if(c==3){\n            ll cnt=fw.sum(0,k)+1;\n            ll ans=fw.lower_bound(cnt);\n\
+    \nvoid solve(){\n    LL(N,Q);\n    STR(T);\n    vec(ll,t,N,0);\n    rep(i,N){\n\
+    \        if(T[i]=='1')t[i]=1;\n    }\n    FenwickTree<ll> fw(t);\n    rep(i,Q){\n\
+    \        LL(c,k);\n        if(c==0){\n            if(!fw.sum(k,k+1)){\n      \
+    \          fw.add(k,1);\n            }\n        }\n        if(c==1){\n       \
+    \     if(fw.sum(k,k+1)){\n                fw.add(k,-1);\n            }\n     \
+    \   }\n        if(c==2){\n            out(fw.sum(k,k+1));\n        }\n       \
+    \ if(c==3){\n            ll cnt=fw.sum(0,k)+1;\n            ll ans=fw.lower_bound(cnt);\n\
     \            if(fw.sum(0,ans)==cnt){\n                out(ans-1);\n          \
     \  }\n            else{\n                out(-1);\n            }\n        }\n\
     \        if(c==4){\n            ll cnt=fw.sum(0,k+1);\n            ll ans=fw.lower_bound(cnt);\n\
@@ -146,7 +148,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-05-08 20:46:35+09:00'
+  timestamp: '2024-05-09 08:35:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp

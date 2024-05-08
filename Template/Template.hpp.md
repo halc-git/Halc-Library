@@ -22,6 +22,9 @@ data:
     path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
+    title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -555,6 +558,7 @@ data:
   - Verify/verify-yuki/901.test.cpp
   - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
   - Verify/verify-yosupo-datastructure/unionfind.test.cpp
   - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp

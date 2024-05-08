@@ -84,6 +84,9 @@ data:
       path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
       title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
     - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
+      title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
