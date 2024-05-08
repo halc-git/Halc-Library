@@ -101,88 +101,94 @@ data:
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#line 4 \"DataStructure/SegmentTree.hpp\"\
-    \ntemplate<class M>\nstruct SegmentTree{\n    using T=typename M::T;\n    int32_t\
-    \ siz;\n    std::vector<T> tree;\n    SegmentTree(int32_t sz){\n        siz=sz;\n\
-    \        tree=std::vector<T>(siz*2,M::e);\n    }\n    SegmentTree(std::vector<T>\
-    \ def){\n        siz=def.size();\n        tree=vector<T>(siz*2,M::e);\n      \
-    \  for(int32_t i=0; i<siz; i++){\n            tree[i+siz]=def[i];\n        }\n\
-    \        for(int32_t i=siz-1; i>0; i--){\n            tree[i]=M::op(tree[i<<1],tree[(i<<1)+1]);\n\
-    \        }\n    }\n    void set(int32_t p,T v){\n        p+=siz;\n        tree[p]=v;\n\
-    \        p>>=1;\n        while(p>0){\n            tree[p]=M::op(tree[p<<1],tree[(p<<1)+1]);\n\
-    \            p>>=1;\n        }\n    }\n    T prod(int32_t lf,int32_t ri){\n  \
-    \      lf+=siz;\n        ri+=siz;\n        T rel=M::e;\n        T rer=M::e;\n\
-    \        while(lf<ri){\n            if(lf&1){\n                rel=M::op(rel,tree[lf]);\n\
-    \                lf++;\n            }\n            if(ri&1){\n               \
-    \ ri--;\n                rer=M::op(tree[ri],rer);\n            }\n           \
-    \ lf>>=1;\n            ri>>=1;\n        }\n        return M::op(rel,rer);\n  \
-    \  }\n    size_t size(){\n        return siz;\n    }\n};\n#line 4 \"Modint/Modint.hpp\"\
-    \ntemplate<uint64_t Mod>\nstruct Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n\
-    \        x=0;\n    }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
-    \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
-    \ uint64_t m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
-    \        uint64_t pro=ret*Mod;\n        return (val-pro+(val<pro?Mod:0));\n  \
-    \  }\n    friend std::ostream &operator<<(std::ostream &os,Modint &b){\n     \
-    \   return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream &is,Modint\
-    \ &b){\n        return is>>b.x;\n    }\n    constexpr uint64_t val()noexcept{\n\
-    \        return x;\n    }\n    constexpr Modint operator+()noexcept{\n       \
-    \ return (*this);\n    }\n    constexpr Modint operator-()noexcept{\n        return\
-    \ Modint()-(*this);\n    }\n    constexpr Modint operator+(const Modint rhs)noexcept{\n\
-    \        return Modint(*this)+=rhs;\n    }\n    constexpr Modint operator-(const\
-    \ Modint rhs)noexcept{\n        return Modint(*this)-=rhs;\n    }\n    constexpr\
-    \ Modint operator*(const Modint rhs)noexcept{\n        return Modint(*this)*=rhs;\n\
-    \    }\n    constexpr Modint operator/(const Modint rhs)noexcept{\n        return\
-    \ Modint(*this)/=rhs;\n    }\n    constexpr Modint &operator+=(const Modint rhs)noexcept{\n\
-    \        x+=rhs.x;\n        if(x>=Mod)x-=Mod;\n        return *this;\n    }\n\
-    \    constexpr Modint &operator-=(const Modint rhs)noexcept{\n        if(x<rhs.x)x+=Mod;\n\
-    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr Modint &operator*=(const\
-    \ Modint rhs)noexcept{\n        x=_get_mod(x*rhs.x);\n        return *this;\n\
-    \    }\n    constexpr bool operator==(Modint rhs)noexcept{\n        return x==rhs.x;\n\
-    \    }\n    constexpr bool operator!=(Modint rhs)noexcept{\n        return x!=rhs.x;\n\
-    \    }\n    constexpr Modint &operator/=(Modint rhs)noexcept{\n        return\
-    \ (*this)*=rhs.inv();\n    }\n    constexpr Modint inv()noexcept{\n        return\
-    \ (*this).pow(Mod-2);\n    }\n    constexpr Modint pow(uint64_t x)noexcept{\n\
-    \        Modint ret=1;\n        Modint bin=(*this);\n        while(x){\n     \
-    \       if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n\
-    \        return ret;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ Mod;\n    }\n};\n\ntemplate<int64_t id>\nstruct ArbitraryModint{\n    uint64_t\
-    \ x;\n    static uint64_t &mod()noexcept{\n        static uint64_t Mod=0;\n  \
-    \      return Mod;\n    }\n    constexpr ArbitraryModint()noexcept{\n        x=0;\n\
-    \    }\n    constexpr ArbitraryModint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(get_mod())+get_mod():val%get_mod());\n\
-    \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
-    \ uint64_t m_inv=(-1ULL)/get_mod()+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
-    \        uint64_t pro=ret*get_mod();\n        return (val-pro+(val<pro?get_mod():0));\n\
-    \    }\n    friend std::ostream &operator<<(std::ostream &os,ArbitraryModint &b){\n\
-    \        return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream\
-    \ &is,ArbitraryModint &b){\n        return is>>b.x;\n    }\n    constexpr uint64_t\
-    \ val()noexcept{\n        return x;\n    }\n    constexpr ArbitraryModint operator+()noexcept{\n\
-    \        return (*this);\n    }\n    constexpr ArbitraryModint operator-()noexcept{\n\
-    \        return ArbitraryModint()-(*this);\n    }\n    constexpr ArbitraryModint\
-    \ operator+(const ArbitraryModint rhs)noexcept{\n        return ArbitraryModint(*this)+=rhs;\n\
-    \    }\n    constexpr ArbitraryModint operator-(const ArbitraryModint rhs)noexcept{\n\
-    \        return ArbitraryModint(*this)-=rhs;\n    }\n    constexpr ArbitraryModint\
-    \ operator*(const ArbitraryModint rhs)noexcept{\n        return ArbitraryModint(*this)*=rhs;\n\
-    \    }\n    constexpr ArbitraryModint operator/(const ArbitraryModint rhs)noexcept{\n\
-    \        return ArbitraryModint(*this)/=rhs;\n    }\n    constexpr ArbitraryModint\
-    \ &operator+=(const ArbitraryModint rhs)noexcept{\n        x+=rhs.x;\n       \
-    \ if(x>=get_mod())x-=get_mod();\n        return *this;\n    }\n    constexpr ArbitraryModint\
-    \ &operator-=(const ArbitraryModint rhs)noexcept{\n        if(x<rhs.x)x+=get_mod();\n\
-    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint\
-    \ &operator*=(const ArbitraryModint rhs)noexcept{\n        x=_get_mod(x*rhs.x);\n\
-    \        return *this;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint\
-    \ rhs)noexcept{\n        return (*this)*=rhs.inv();\n    }\n    constexpr bool\
-    \ operator==(ArbitraryModint rhs)noexcept{\n        return x==rhs.x;\n    }\n\
-    \    constexpr bool operator!=(ArbitraryModint rhs)noexcept{\n        return x!=rhs.x;\n\
-    \    }\n    constexpr ArbitraryModint inv()noexcept{\n        return (*this).pow(get_mod()-2);\n\
-    \    }\n    constexpr ArbitraryModint pow(uint64_t x)noexcept{\n        ArbitraryModint\
-    \ ret=1;\n        ArbitraryModint bin=(*this);\n        while(x){\n          \
-    \  if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n  \
-    \      return ret;\n    }\n    static void set_mod(const uint64_t x)noexcept{\n\
-    \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void scan(Modint<N> &a){ scanf(\"\
-    %lu\", &a.x); }\ntemplate<int64_t id> inline void scan(ArbitraryModint<id> &a){\
-    \ scanf(\"%lu\", &a.x); }\ntemplate<uint64_t N> inline void print(Modint<N> a){printf(\"\
-    %lu\", a.x);}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){printf(\"\
-    %lu\", a.x);}\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
+    \ntemplate <class M>\nstruct SegmentTree {\n    using T = typename M::T;\n   \
+    \ int32_t siz;\n    std::vector<T> tree;\n    SegmentTree(int32_t sz) {\n    \
+    \    siz = sz;\n        tree = std::vector<T>(siz * 2, M::e);\n    }\n    SegmentTree(std::vector<T>\
+    \ def) {\n        siz = def.size();\n        tree = vector<T>(siz * 2, M::e);\n\
+    \        for (int32_t i = 0; i < siz; i++) {\n            tree[i + siz] = def[i];\n\
+    \        }\n        for (int32_t i = siz - 1; i > 0; i--) {\n            tree[i]\
+    \ = M::op(tree[i << 1], tree[(i << 1) + 1]);\n        }\n    }\n    void set(int32_t\
+    \ p, T v) {\n        p += siz;\n        tree[p] = v;\n        p >>= 1;\n     \
+    \   while (p > 0) {\n            tree[p] = M::op(tree[p << 1], tree[(p << 1) +\
+    \ 1]);\n            p >>= 1;\n        }\n    }\n    T prod(int32_t lf, int32_t\
+    \ ri) {\n        lf += siz;\n        ri += siz;\n        T rel = M::e;\n     \
+    \   T rer = M::e;\n        while (lf < ri) {\n            if (lf & 1) {\n    \
+    \            rel = M::op(rel, tree[lf]);\n                lf++;\n            }\n\
+    \            if (ri & 1) {\n                ri--;\n                rer = M::op(tree[ri],\
+    \ rer);\n            }\n            lf >>= 1;\n            ri >>= 1;\n       \
+    \ }\n        return M::op(rel, rer);\n    }\n    size_t size() { return siz; }\n\
+    };\n#line 4 \"Modint/Modint.hpp\"\ntemplate <uint64_t Mod>\nstruct Modint {\n\
+    \    uint64_t x;\n    constexpr Modint() noexcept { x = 0; }\n    constexpr Modint(int64_t\
+    \ val) noexcept {\n        x = (val < 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n\
+    \    }\n    inline uint64_t _get_mod(uint64_t val) noexcept {\n        const static\
+    \ uint64_t m_inv = (-1ULL) / Mod + 1;\n        uint64_t ret = ((unsigned __int128)(val)*m_inv)\
+    \ >> 64;\n        uint64_t pro = ret * Mod;\n        return (val - pro + (val\
+    \ < pro ? Mod : 0));\n    }\n    friend std::ostream &operator<<(std::ostream\
+    \ &os, Modint &b) {\n        return os << b.x;\n    }\n    friend std::istream\
+    \ &operator>>(std::istream &is, Modint &b) {\n        return is >> b.x;\n    }\n\
+    \    constexpr uint64_t val() noexcept { return x; }\n    constexpr Modint operator+()\
+    \ noexcept { return (*this); }\n    constexpr Modint operator-() noexcept { return\
+    \ Modint() - (*this); }\n    constexpr Modint operator+(const Modint rhs) noexcept\
+    \ {\n        return Modint(*this) += rhs;\n    }\n    constexpr Modint operator-(const\
+    \ Modint rhs) noexcept {\n        return Modint(*this) -= rhs;\n    }\n    constexpr\
+    \ Modint operator*(const Modint rhs) noexcept {\n        return Modint(*this)\
+    \ *= rhs;\n    }\n    constexpr Modint operator/(const Modint rhs) noexcept {\n\
+    \        return Modint(*this) /= rhs;\n    }\n    constexpr Modint &operator+=(const\
+    \ Modint rhs) noexcept {\n        x += rhs.x;\n        if (x >= Mod) x -= Mod;\n\
+    \        return *this;\n    }\n    constexpr Modint &operator-=(const Modint rhs)\
+    \ noexcept {\n        if (x < rhs.x) x += Mod;\n        x -= rhs.x;\n        return\
+    \ *this;\n    }\n    constexpr Modint &operator*=(const Modint rhs) noexcept {\n\
+    \        x = _get_mod(x * rhs.x);\n        return *this;\n    }\n    constexpr\
+    \ bool operator==(Modint rhs) noexcept { return x == rhs.x; }\n    constexpr bool\
+    \ operator!=(Modint rhs) noexcept { return x != rhs.x; }\n    constexpr Modint\
+    \ &operator/=(Modint rhs) noexcept {\n        return (*this) *= rhs.inv();\n \
+    \   }\n    constexpr Modint inv() noexcept { return (*this).pow(Mod - 2); }\n\
+    \    constexpr Modint pow(uint64_t x) noexcept {\n        Modint ret = 1;\n  \
+    \      Modint bin = (*this);\n        while (x) {\n            if (x & 1) ret\
+    \ *= bin;\n            bin *= bin;\n            x >>= 1;\n        }\n        return\
+    \ ret;\n    }\n    static uint64_t get_mod() noexcept { return Mod; }\n};\n\n\
+    template <int64_t id>\nstruct ArbitraryModint {\n    uint64_t x;\n    static uint64_t\
+    \ &mod() noexcept {\n        static uint64_t Mod = 0;\n        return Mod;\n \
+    \   }\n    constexpr ArbitraryModint() noexcept { x = 0; }\n    constexpr ArbitraryModint(int64_t\
+    \ val) noexcept {\n        x = (val < 0 ? val % (int64_t)(get_mod()) + get_mod()\n\
+    \                     : val % get_mod());\n    }\n    inline uint64_t _get_mod(uint64_t\
+    \ val) noexcept {\n        const static uint64_t m_inv = (-1ULL) / get_mod() +\
+    \ 1;\n        uint64_t ret = ((unsigned __int128)(val)*m_inv) >> 64;\n       \
+    \ uint64_t pro = ret * get_mod();\n        return (val - pro + (val < pro ? get_mod()\
+    \ : 0));\n    }\n    friend std::ostream &operator<<(std::ostream &os, ArbitraryModint\
+    \ &b) {\n        return os << b.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is, ArbitraryModint &b) {\n        return is >> b.x;\n    }\n    constexpr\
+    \ uint64_t val() noexcept { return x; }\n    constexpr ArbitraryModint operator+()\
+    \ noexcept { return (*this); }\n    constexpr ArbitraryModint operator-() noexcept\
+    \ {\n        return ArbitraryModint() - (*this);\n    }\n    constexpr ArbitraryModint\
+    \ operator+(const ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(*this)\
+    \ += rhs;\n    }\n    constexpr ArbitraryModint operator-(const ArbitraryModint\
+    \ rhs) noexcept {\n        return ArbitraryModint(*this) -= rhs;\n    }\n    constexpr\
+    \ ArbitraryModint operator*(const ArbitraryModint rhs) noexcept {\n        return\
+    \ ArbitraryModint(*this) *= rhs;\n    }\n    constexpr ArbitraryModint operator/(const\
+    \ ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(*this) /= rhs;\n\
+    \    }\n    constexpr ArbitraryModint &operator+=(const ArbitraryModint rhs) noexcept\
+    \ {\n        x += rhs.x;\n        if (x >= get_mod()) x -= get_mod();\n      \
+    \  return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const ArbitraryModint\
+    \ rhs) noexcept {\n        if (x < rhs.x) x += get_mod();\n        x -= rhs.x;\n\
+    \        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
+    \ ArbitraryModint rhs) noexcept {\n        x = _get_mod(x * rhs.x);\n        return\
+    \ *this;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint rhs)\
+    \ noexcept {\n        return (*this) *= rhs.inv();\n    }\n    constexpr bool\
+    \ operator==(ArbitraryModint rhs) noexcept {\n        return x == rhs.x;\n   \
+    \ }\n    constexpr bool operator!=(ArbitraryModint rhs) noexcept {\n        return\
+    \ x != rhs.x;\n    }\n    constexpr ArbitraryModint inv() noexcept {\n       \
+    \ return (*this).pow(get_mod() - 2);\n    }\n    constexpr ArbitraryModint pow(uint64_t\
+    \ x) noexcept {\n        ArbitraryModint ret = 1;\n        ArbitraryModint bin\
+    \ = (*this);\n        while (x) {\n            if (x & 1) ret *= bin;\n      \
+    \      bin *= bin;\n            x >>= 1;\n        }\n        return ret;\n   \
+    \ }\n    static void set_mod(const uint64_t x) noexcept { mod() = x; }\n    static\
+    \ uint64_t get_mod() noexcept { return mod(); }\n};\ntemplate <uint64_t N>\ninline\
+    \ void scan(Modint<N> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate <int64_t id>\n\
+    inline void scan(ArbitraryModint<id> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate\
+    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    printf(\"%lu\", a.x);\n\
+    }\ntemplate <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    printf(\"\
+    %lu\", a.x);\n}\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
     \nusing mint=Modint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n \
     \   static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
     \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(N,Q);\n    VEC(composite::T,ab,N);\n\
@@ -208,7 +214,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-08 20:19:18+09:00'
+  timestamp: '2024-05-08 20:46:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp

@@ -97,17 +97,21 @@ data:
     static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
-    #define fi first\n#define se second\n#line 3 \"String/Manacher.hpp\"\n//https://snuke.hatenablog.com/entry/2014/12/02/235837\n\
-    template<typename S>\nstd::vector<int32_t> manacher(S s,bool is_even=true){\n\
-    \    int32_t i=0,j=0,k,sz=(s.size()<<is_even)-is_even;\n    std::vector<int32_t>\
-    \ ret(sz);\n    while(i<sz){\n        if(is_even){\n            while(i-j>=-1&&i+j<=sz&&(((i-j)&1)||s[(i-j)>>1]==s[(i+j)>>1]))j++;\n\
-    \        }\n        else{\n            while(i-j>=0&&i+j<sz&&s[i-j]==s[i+j])j++;\n\
-    \        }\n        ret[i]=j;\n        k=1;\n        while(i-k>=0&&k+ret[i-k]<j){ret[i+k]=ret[i-k];k++;}\n\
-    \        i+=k;\n        j-=k;\n    }\n    for(int32_t i=0; i<sz; i++){\n     \
-    \   if(is_even){\n            ret[i]--;\n        }\n        else{\n          \
-    \  ret[i]=(ret[i]<<1)-1;\n        }\n    }\n    return ret;\n}\n#line 4 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\
-    \nvoid solve(){\n    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n\
-    \    return 0;\n}\n"
+    #define fi first\n#define se second\n#line 3 \"String/Manacher.hpp\"\n// https://snuke.hatenablog.com/entry/2014/12/02/235837\n\
+    template <typename S>\nstd::vector<int32_t> manacher(S s, bool is_even = true)\
+    \ {\n    int32_t i = 0, j = 0, k, sz = (s.size() << is_even) - is_even;\n    std::vector<int32_t>\
+    \ ret(sz);\n    while (i < sz) {\n        if (is_even) {\n            while (i\
+    \ - j >= -1 && i + j <= sz &&\n                   (((i - j) & 1) || s[(i - j)\
+    \ >> 1] == s[(i + j) >> 1]))\n                j++;\n        } else {\n       \
+    \     while (i - j >= 0 && i + j < sz && s[i - j] == s[i + j]) j++;\n        }\n\
+    \        ret[i] = j;\n        k = 1;\n        while (i - k >= 0 && k + ret[i -\
+    \ k] < j) {\n            ret[i + k] = ret[i - k];\n            k++;\n        }\n\
+    \        i += k;\n        j -= k;\n    }\n    for (int32_t i = 0; i < sz; i++)\
+    \ {\n        if (is_even) {\n            ret[i]--;\n        } else {\n       \
+    \     ret[i] = (ret[i] << 1) - 1;\n        }\n    }\n    return ret;\n}\n#line\
+    \ 4 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\nvoid solve(){\n\
+    \    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n#include\"../../Template/Template.hpp\"\n#include\"String/Manacher.hpp\"\nvoid\
     \ solve(){\n    STR(S);\n    out(manacher(S));\n}\nint main(){\n    solve();\n\
@@ -118,7 +122,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-05-01 17:42:37+09:00'
+  timestamp: '2024-05-08 20:46:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp

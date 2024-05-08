@@ -100,146 +100,161 @@ data:
     static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
-    #define fi first\n#define se second\n#line 4 \"Modint/Modint.hpp\"\ntemplate<uint64_t\
-    \ Mod>\nstruct Modint{\n    uint64_t x;\n    constexpr Modint()noexcept{\n   \
-    \     x=0;\n    }\n    constexpr Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
-    \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
-    \ uint64_t m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
-    \        uint64_t pro=ret*Mod;\n        return (val-pro+(val<pro?Mod:0));\n  \
-    \  }\n    friend std::ostream &operator<<(std::ostream &os,Modint &b){\n     \
-    \   return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream &is,Modint\
-    \ &b){\n        return is>>b.x;\n    }\n    constexpr uint64_t val()noexcept{\n\
-    \        return x;\n    }\n    constexpr Modint operator+()noexcept{\n       \
-    \ return (*this);\n    }\n    constexpr Modint operator-()noexcept{\n        return\
-    \ Modint()-(*this);\n    }\n    constexpr Modint operator+(const Modint rhs)noexcept{\n\
-    \        return Modint(*this)+=rhs;\n    }\n    constexpr Modint operator-(const\
-    \ Modint rhs)noexcept{\n        return Modint(*this)-=rhs;\n    }\n    constexpr\
-    \ Modint operator*(const Modint rhs)noexcept{\n        return Modint(*this)*=rhs;\n\
-    \    }\n    constexpr Modint operator/(const Modint rhs)noexcept{\n        return\
-    \ Modint(*this)/=rhs;\n    }\n    constexpr Modint &operator+=(const Modint rhs)noexcept{\n\
-    \        x+=rhs.x;\n        if(x>=Mod)x-=Mod;\n        return *this;\n    }\n\
-    \    constexpr Modint &operator-=(const Modint rhs)noexcept{\n        if(x<rhs.x)x+=Mod;\n\
-    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr Modint &operator*=(const\
-    \ Modint rhs)noexcept{\n        x=_get_mod(x*rhs.x);\n        return *this;\n\
-    \    }\n    constexpr bool operator==(Modint rhs)noexcept{\n        return x==rhs.x;\n\
-    \    }\n    constexpr bool operator!=(Modint rhs)noexcept{\n        return x!=rhs.x;\n\
-    \    }\n    constexpr Modint &operator/=(Modint rhs)noexcept{\n        return\
-    \ (*this)*=rhs.inv();\n    }\n    constexpr Modint inv()noexcept{\n        return\
-    \ (*this).pow(Mod-2);\n    }\n    constexpr Modint pow(uint64_t x)noexcept{\n\
-    \        Modint ret=1;\n        Modint bin=(*this);\n        while(x){\n     \
-    \       if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n\
-    \        return ret;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ Mod;\n    }\n};\n\ntemplate<int64_t id>\nstruct ArbitraryModint{\n    uint64_t\
-    \ x;\n    static uint64_t &mod()noexcept{\n        static uint64_t Mod=0;\n  \
-    \      return Mod;\n    }\n    constexpr ArbitraryModint()noexcept{\n        x=0;\n\
-    \    }\n    constexpr ArbitraryModint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(get_mod())+get_mod():val%get_mod());\n\
-    \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
-    \ uint64_t m_inv=(-1ULL)/get_mod()+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
-    \        uint64_t pro=ret*get_mod();\n        return (val-pro+(val<pro?get_mod():0));\n\
-    \    }\n    friend std::ostream &operator<<(std::ostream &os,ArbitraryModint &b){\n\
-    \        return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream\
-    \ &is,ArbitraryModint &b){\n        return is>>b.x;\n    }\n    constexpr uint64_t\
-    \ val()noexcept{\n        return x;\n    }\n    constexpr ArbitraryModint operator+()noexcept{\n\
-    \        return (*this);\n    }\n    constexpr ArbitraryModint operator-()noexcept{\n\
-    \        return ArbitraryModint()-(*this);\n    }\n    constexpr ArbitraryModint\
-    \ operator+(const ArbitraryModint rhs)noexcept{\n        return ArbitraryModint(*this)+=rhs;\n\
-    \    }\n    constexpr ArbitraryModint operator-(const ArbitraryModint rhs)noexcept{\n\
-    \        return ArbitraryModint(*this)-=rhs;\n    }\n    constexpr ArbitraryModint\
-    \ operator*(const ArbitraryModint rhs)noexcept{\n        return ArbitraryModint(*this)*=rhs;\n\
-    \    }\n    constexpr ArbitraryModint operator/(const ArbitraryModint rhs)noexcept{\n\
-    \        return ArbitraryModint(*this)/=rhs;\n    }\n    constexpr ArbitraryModint\
-    \ &operator+=(const ArbitraryModint rhs)noexcept{\n        x+=rhs.x;\n       \
-    \ if(x>=get_mod())x-=get_mod();\n        return *this;\n    }\n    constexpr ArbitraryModint\
-    \ &operator-=(const ArbitraryModint rhs)noexcept{\n        if(x<rhs.x)x+=get_mod();\n\
-    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint\
-    \ &operator*=(const ArbitraryModint rhs)noexcept{\n        x=_get_mod(x*rhs.x);\n\
-    \        return *this;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint\
-    \ rhs)noexcept{\n        return (*this)*=rhs.inv();\n    }\n    constexpr bool\
-    \ operator==(ArbitraryModint rhs)noexcept{\n        return x==rhs.x;\n    }\n\
-    \    constexpr bool operator!=(ArbitraryModint rhs)noexcept{\n        return x!=rhs.x;\n\
-    \    }\n    constexpr ArbitraryModint inv()noexcept{\n        return (*this).pow(get_mod()-2);\n\
-    \    }\n    constexpr ArbitraryModint pow(uint64_t x)noexcept{\n        ArbitraryModint\
-    \ ret=1;\n        ArbitraryModint bin=(*this);\n        while(x){\n          \
-    \  if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n  \
-    \      return ret;\n    }\n    static void set_mod(const uint64_t x)noexcept{\n\
-    \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void scan(Modint<N> &a){ scanf(\"\
-    %lu\", &a.x); }\ntemplate<int64_t id> inline void scan(ArbitraryModint<id> &a){\
-    \ scanf(\"%lu\", &a.x); }\ntemplate<uint64_t N> inline void print(Modint<N> a){printf(\"\
-    %lu\", a.x);}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){printf(\"\
-    %lu\", a.x);}\n#line 4 \"Tree/StaticTopTree.hpp\"\ntemplate<class M>\nstruct StaticTopTree{\n\
-    \    using point=typename M::point;\n    using path=typename M::path;\n    struct\
-    \ Node{\n        bool is_path;\n        point point_val;\n        path path_val;\n\
-    \        int32_t pos;\n        int32_t left;\n        int32_t right;\n       \
-    \ int32_t parent;\n        Node(bool pat,int32_t po=-1,int32_t lf=-1,int32_t ri=-1){\n\
-    \            is_path=pat;\n            pos=po;\n            left=lf;\n       \
-    \     right=ri;\n            parent=-1;\n        }\n    };\n    size_t sz;\n \
-    \   std::vector<std::vector<int32_t>> tree;\n    std::vector<int32_t> node_pos;\n\
-    \    std::vector<Node> nodes;\n    int32_t rt;\n    StaticTopTree(size_t size){\n\
-    \        sz=size;\n        tree.resize(sz);\n        node_pos.resize(sz);\n  \
-    \  }\n    void add_edge(int32_t s,int32_t v){\n        tree[s].emplace_back(v);\n\
-    \        tree[v].emplace_back(s);\n    }\n    int32_t _path_cluster(int32_t pos,std::vector<int32_t>\
-    \ &tree_sz){\n        if(tree[pos].empty()){\n            node_pos[pos]=nodes.size();\n\
-    \            nodes.emplace_back(Node(1,pos));\n            _calc_val(nodes.size()-1);\n\
-    \            return nodes.size()-1;\n        }\n        std::vector<int32_t> address;\n\
-    \        std::vector<int32_t> sizes;\n        while(!tree[pos].empty()){\n   \
-    \         int32_t max_size=-1;\n            int32_t next_pos=-1;\n           \
-    \ for(int i=0; i<tree[pos].size(); i++){\n                if(tree_sz[tree[pos][i]]>max_size){\n\
-    \                    max_size=tree_sz[tree[pos][i]];\n                    next_pos=i;\n\
-    \                }\n            }\n            std::swap(tree[pos][next_pos],tree[pos].back());\n\
-    \            next_pos=tree[pos].back();\n            tree[pos].pop_back();\n \
-    \           tree_sz[pos]-=tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n\
-    \            address.emplace_back(_point_cluster(pos,tree_sz));\n            pos=next_pos;\n\
-    \        }\n        address.emplace_back(_point_cluster(pos,tree_sz));\n     \
-    \   sizes.emplace_back(tree_sz[pos]);\n        return _merge(address,sizes,0,address.size(),1);\n\
-    \    }\n    int32_t _point_cluster(int32_t pos,std::vector<int32_t> &tree_sz){\n\
-    \        if(tree[pos].empty()){\n            node_pos[pos]=nodes.size();\n   \
-    \         nodes.emplace_back(Node(1,pos));\n            _calc_val(nodes.size()-1);\n\
-    \            return nodes.size()-1;\n        }\n        std::vector<int32_t> address;\n\
-    \        std::vector<int32_t> sizes;\n        for(int32_t i:tree[pos]){\n    \
-    \        sizes.emplace_back(tree_sz[i]);\n            int32_t vert=_path_cluster(i,tree_sz);\n\
-    \            nodes.emplace_back(Node(0,-1,vert));\n            nodes[vert].parent=nodes.size()-1;\n\
-    \            address.emplace_back(nodes.size()-1);\n            _calc_val(nodes.size()-1);\n\
-    \        }\n        int32_t vert=_merge(address,sizes,0,address.size(),0);\n \
-    \       node_pos[pos]=nodes.size();\n        nodes.emplace_back(Node(1,pos,vert));\n\
-    \        nodes[vert].parent=nodes.size()-1;\n        _calc_val(nodes.size()-1);\n\
-    \        return nodes.size()-1;\n    }\n    int32_t _merge(std::vector<int32_t>\
-    \ &address,std::vector<int32_t> &sizes,int32_t lf,int32_t ri,bool pat){\n    \
-    \    if(lf+1==ri)return address[lf];\n        int32_t add=0;\n        for(int32_t\
-    \ i=lf; i<ri; i++){\n            add+=sizes[i];\n        }\n        int32_t now=0;\n\
-    \        int32_t bef=add+1;\n        for(int32_t i=lf; i<ri; i++){\n         \
-    \   now+=sizes[i];\n            if(now>add-now){\n                if(now+now-add>bef)i--;\n\
-    \                int32_t left=_merge(address,sizes,lf,i+1,pat);\n            \
-    \    int32_t right=_merge(address,sizes,i+1,ri,pat);\n                nodes.emplace_back(Node(pat,-1,left,right));\n\
-    \                nodes[left].parent=nodes.size()-1;\n                nodes[right].parent=nodes.size()-1;\n\
-    \                _calc_val(nodes.size()-1);\n                return nodes.size()-1;\n\
-    \            }\n            bef=add-now-now;\n        }\n        assert(false);\n\
-    \    }\n    void _calc_val(int32_t pos){\n        if(nodes[pos].is_path){\n  \
-    \          if((nodes[pos].left==-1) && (nodes[pos].right==-1)){\n            \
-    \    nodes[pos].path_val=M::vertex(nodes[pos].pos);\n            }\n         \
-    \   else if((nodes[pos].left!=-1) && (nodes[pos].right!=-1)){\n              \
-    \  nodes[pos].path_val=M::compress(nodes[nodes[pos].left].path_val,nodes[nodes[pos].right].path_val);\n\
-    \            }\n            else{\n                nodes[pos].path_val=M::add_vertex(nodes[nodes[pos].left].point_val,nodes[pos].pos);\n\
-    \            }\n        }\n        else{\n            if((nodes[pos].left!=-1)\
-    \ && (nodes[pos].right!=-1)){\n                nodes[pos].point_val=M::rake(nodes[nodes[pos].left].point_val,nodes[nodes[pos].right].point_val);\n\
-    \            }\n            else{\n                nodes[pos].point_val=M::add_edge(nodes[nodes[pos].left].path_val);\n\
-    \            }\n        }\n    }\n    void build(int32_t root){\n        std::vector<int32_t>\
-    \ vert(sz);\n        std::vector<int32_t> tree_sz(sz,-1);\n        vert[0]=root;\n\
-    \        tree_sz[root]=0;\n        int32_t cnt=1;\n        for(int32_t i=0; i<sz;\
-    \ i++){\n            for(int32_t j:tree[vert[i]]){\n                if(tree_sz[j]){\n\
-    \                    tree_sz[j]=0;\n                    vert[cnt]=j;\n       \
-    \             cnt++;\n                }\n            }\n        }\n        for(int32_t\
-    \ i=sz-1; i>=0; i--){\n            int32_t parent=0;\n            for(int32_t\
-    \ j:tree[vert[i]]){\n                if(tree_sz[j]==0){\n                    parent=-parent-1;\n\
-    \                }\n                if(parent>=0)parent++;\n                tree_sz[vert[i]]+=tree_sz[j];\n\
-    \            }\n            if(parent<0){\n                std::swap(tree[vert[i]][-parent-1],tree[vert[i]].back());\n\
+    #define fi first\n#define se second\n#line 4 \"Modint/Modint.hpp\"\ntemplate <uint64_t\
+    \ Mod>\nstruct Modint {\n    uint64_t x;\n    constexpr Modint() noexcept { x\
+    \ = 0; }\n    constexpr Modint(int64_t val) noexcept {\n        x = (val < 0 ?\
+    \ val % (int64_t)(Mod) + Mod : val % Mod);\n    }\n    inline uint64_t _get_mod(uint64_t\
+    \ val) noexcept {\n        const static uint64_t m_inv = (-1ULL) / Mod + 1;\n\
+    \        uint64_t ret = ((unsigned __int128)(val)*m_inv) >> 64;\n        uint64_t\
+    \ pro = ret * Mod;\n        return (val - pro + (val < pro ? Mod : 0));\n    }\n\
+    \    friend std::ostream &operator<<(std::ostream &os, Modint &b) {\n        return\
+    \ os << b.x;\n    }\n    friend std::istream &operator>>(std::istream &is, Modint\
+    \ &b) {\n        return is >> b.x;\n    }\n    constexpr uint64_t val() noexcept\
+    \ { return x; }\n    constexpr Modint operator+() noexcept { return (*this); }\n\
+    \    constexpr Modint operator-() noexcept { return Modint() - (*this); }\n  \
+    \  constexpr Modint operator+(const Modint rhs) noexcept {\n        return Modint(*this)\
+    \ += rhs;\n    }\n    constexpr Modint operator-(const Modint rhs) noexcept {\n\
+    \        return Modint(*this) -= rhs;\n    }\n    constexpr Modint operator*(const\
+    \ Modint rhs) noexcept {\n        return Modint(*this) *= rhs;\n    }\n    constexpr\
+    \ Modint operator/(const Modint rhs) noexcept {\n        return Modint(*this)\
+    \ /= rhs;\n    }\n    constexpr Modint &operator+=(const Modint rhs) noexcept\
+    \ {\n        x += rhs.x;\n        if (x >= Mod) x -= Mod;\n        return *this;\n\
+    \    }\n    constexpr Modint &operator-=(const Modint rhs) noexcept {\n      \
+    \  if (x < rhs.x) x += Mod;\n        x -= rhs.x;\n        return *this;\n    }\n\
+    \    constexpr Modint &operator*=(const Modint rhs) noexcept {\n        x = _get_mod(x\
+    \ * rhs.x);\n        return *this;\n    }\n    constexpr bool operator==(Modint\
+    \ rhs) noexcept { return x == rhs.x; }\n    constexpr bool operator!=(Modint rhs)\
+    \ noexcept { return x != rhs.x; }\n    constexpr Modint &operator/=(Modint rhs)\
+    \ noexcept {\n        return (*this) *= rhs.inv();\n    }\n    constexpr Modint\
+    \ inv() noexcept { return (*this).pow(Mod - 2); }\n    constexpr Modint pow(uint64_t\
+    \ x) noexcept {\n        Modint ret = 1;\n        Modint bin = (*this);\n    \
+    \    while (x) {\n            if (x & 1) ret *= bin;\n            bin *= bin;\n\
+    \            x >>= 1;\n        }\n        return ret;\n    }\n    static uint64_t\
+    \ get_mod() noexcept { return Mod; }\n};\n\ntemplate <int64_t id>\nstruct ArbitraryModint\
+    \ {\n    uint64_t x;\n    static uint64_t &mod() noexcept {\n        static uint64_t\
+    \ Mod = 0;\n        return Mod;\n    }\n    constexpr ArbitraryModint() noexcept\
+    \ { x = 0; }\n    constexpr ArbitraryModint(int64_t val) noexcept {\n        x\
+    \ = (val < 0 ? val % (int64_t)(get_mod()) + get_mod()\n                     :\
+    \ val % get_mod());\n    }\n    inline uint64_t _get_mod(uint64_t val) noexcept\
+    \ {\n        const static uint64_t m_inv = (-1ULL) / get_mod() + 1;\n        uint64_t\
+    \ ret = ((unsigned __int128)(val)*m_inv) >> 64;\n        uint64_t pro = ret *\
+    \ get_mod();\n        return (val - pro + (val < pro ? get_mod() : 0));\n    }\n\
+    \    friend std::ostream &operator<<(std::ostream &os, ArbitraryModint &b) {\n\
+    \        return os << b.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is, ArbitraryModint &b) {\n        return is >> b.x;\n    }\n    constexpr\
+    \ uint64_t val() noexcept { return x; }\n    constexpr ArbitraryModint operator+()\
+    \ noexcept { return (*this); }\n    constexpr ArbitraryModint operator-() noexcept\
+    \ {\n        return ArbitraryModint() - (*this);\n    }\n    constexpr ArbitraryModint\
+    \ operator+(const ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(*this)\
+    \ += rhs;\n    }\n    constexpr ArbitraryModint operator-(const ArbitraryModint\
+    \ rhs) noexcept {\n        return ArbitraryModint(*this) -= rhs;\n    }\n    constexpr\
+    \ ArbitraryModint operator*(const ArbitraryModint rhs) noexcept {\n        return\
+    \ ArbitraryModint(*this) *= rhs;\n    }\n    constexpr ArbitraryModint operator/(const\
+    \ ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(*this) /= rhs;\n\
+    \    }\n    constexpr ArbitraryModint &operator+=(const ArbitraryModint rhs) noexcept\
+    \ {\n        x += rhs.x;\n        if (x >= get_mod()) x -= get_mod();\n      \
+    \  return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const ArbitraryModint\
+    \ rhs) noexcept {\n        if (x < rhs.x) x += get_mod();\n        x -= rhs.x;\n\
+    \        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
+    \ ArbitraryModint rhs) noexcept {\n        x = _get_mod(x * rhs.x);\n        return\
+    \ *this;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint rhs)\
+    \ noexcept {\n        return (*this) *= rhs.inv();\n    }\n    constexpr bool\
+    \ operator==(ArbitraryModint rhs) noexcept {\n        return x == rhs.x;\n   \
+    \ }\n    constexpr bool operator!=(ArbitraryModint rhs) noexcept {\n        return\
+    \ x != rhs.x;\n    }\n    constexpr ArbitraryModint inv() noexcept {\n       \
+    \ return (*this).pow(get_mod() - 2);\n    }\n    constexpr ArbitraryModint pow(uint64_t\
+    \ x) noexcept {\n        ArbitraryModint ret = 1;\n        ArbitraryModint bin\
+    \ = (*this);\n        while (x) {\n            if (x & 1) ret *= bin;\n      \
+    \      bin *= bin;\n            x >>= 1;\n        }\n        return ret;\n   \
+    \ }\n    static void set_mod(const uint64_t x) noexcept { mod() = x; }\n    static\
+    \ uint64_t get_mod() noexcept { return mod(); }\n};\ntemplate <uint64_t N>\ninline\
+    \ void scan(Modint<N> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate <int64_t id>\n\
+    inline void scan(ArbitraryModint<id> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate\
+    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    printf(\"%lu\", a.x);\n\
+    }\ntemplate <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    printf(\"\
+    %lu\", a.x);\n}\n#line 4 \"Tree/StaticTopTree.hpp\"\ntemplate <class M>\nstruct\
+    \ StaticTopTree {\n    using point = typename M::point;\n    using path = typename\
+    \ M::path;\n    struct Node {\n        bool is_path;\n        point point_val;\n\
+    \        path path_val;\n        int32_t pos;\n        int32_t left;\n       \
+    \ int32_t right;\n        int32_t parent;\n        Node(bool pat, int32_t po =\
+    \ -1, int32_t lf = -1, int32_t ri = -1) {\n            is_path = pat;\n      \
+    \      pos = po;\n            left = lf;\n            right = ri;\n          \
+    \  parent = -1;\n        }\n    };\n    size_t sz;\n    std::vector<std::vector<int32_t>>\
+    \ tree;\n    std::vector<int32_t> node_pos;\n    std::vector<Node> nodes;\n  \
+    \  int32_t rt;\n    StaticTopTree(size_t size) {\n        sz = size;\n       \
+    \ tree.resize(sz);\n        node_pos.resize(sz);\n    }\n    void add_edge(int32_t\
+    \ s, int32_t v) {\n        tree[s].emplace_back(v);\n        tree[v].emplace_back(s);\n\
+    \    }\n    int32_t _path_cluster(int32_t pos, std::vector<int32_t> &tree_sz)\
+    \ {\n        if (tree[pos].empty()) {\n            node_pos[pos] = nodes.size();\n\
+    \            nodes.emplace_back(Node(1, pos));\n            _calc_val(nodes.size()\
+    \ - 1);\n            return nodes.size() - 1;\n        }\n        std::vector<int32_t>\
+    \ address;\n        std::vector<int32_t> sizes;\n        while (!tree[pos].empty())\
+    \ {\n            int32_t max_size = -1;\n            int32_t next_pos = -1;\n\
+    \            for (int i = 0; i < tree[pos].size(); i++) {\n                if\
+    \ (tree_sz[tree[pos][i]] > max_size) {\n                    max_size = tree_sz[tree[pos][i]];\n\
+    \                    next_pos = i;\n                }\n            }\n       \
+    \     std::swap(tree[pos][next_pos], tree[pos].back());\n            next_pos\
+    \ = tree[pos].back();\n            tree[pos].pop_back();\n            tree_sz[pos]\
+    \ -= tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n     \
+    \       address.emplace_back(_point_cluster(pos, tree_sz));\n            pos =\
+    \ next_pos;\n        }\n        address.emplace_back(_point_cluster(pos, tree_sz));\n\
+    \        sizes.emplace_back(tree_sz[pos]);\n        return _merge(address, sizes,\
+    \ 0, address.size(), 1);\n    }\n    int32_t _point_cluster(int32_t pos, std::vector<int32_t>\
+    \ &tree_sz) {\n        if (tree[pos].empty()) {\n            node_pos[pos] = nodes.size();\n\
+    \            nodes.emplace_back(Node(1, pos));\n            _calc_val(nodes.size()\
+    \ - 1);\n            return nodes.size() - 1;\n        }\n        std::vector<int32_t>\
+    \ address;\n        std::vector<int32_t> sizes;\n        for (int32_t i : tree[pos])\
+    \ {\n            sizes.emplace_back(tree_sz[i]);\n            int32_t vert = _path_cluster(i,\
+    \ tree_sz);\n            nodes.emplace_back(Node(0, -1, vert));\n            nodes[vert].parent\
+    \ = nodes.size() - 1;\n            address.emplace_back(nodes.size() - 1);\n \
+    \           _calc_val(nodes.size() - 1);\n        }\n        int32_t vert = _merge(address,\
+    \ sizes, 0, address.size(), 0);\n        node_pos[pos] = nodes.size();\n     \
+    \   nodes.emplace_back(Node(1, pos, vert));\n        nodes[vert].parent = nodes.size()\
+    \ - 1;\n        _calc_val(nodes.size() - 1);\n        return nodes.size() - 1;\n\
+    \    }\n    int32_t _merge(std::vector<int32_t> &address, std::vector<int32_t>\
+    \ &sizes,\n                   int32_t lf, int32_t ri, bool pat) {\n        if\
+    \ (lf + 1 == ri) return address[lf];\n        int32_t add = 0;\n        for (int32_t\
+    \ i = lf; i < ri; i++) {\n            add += sizes[i];\n        }\n        int32_t\
+    \ now = 0;\n        int32_t bef = add + 1;\n        for (int32_t i = lf; i < ri;\
+    \ i++) {\n            now += sizes[i];\n            if (now > add - now) {\n \
+    \               if (now + now - add > bef) i--;\n                int32_t left\
+    \ = _merge(address, sizes, lf, i + 1, pat);\n                int32_t right = _merge(address,\
+    \ sizes, i + 1, ri, pat);\n                nodes.emplace_back(Node(pat, -1, left,\
+    \ right));\n                nodes[left].parent = nodes.size() - 1;\n         \
+    \       nodes[right].parent = nodes.size() - 1;\n                _calc_val(nodes.size()\
+    \ - 1);\n                return nodes.size() - 1;\n            }\n           \
+    \ bef = add - now - now;\n        }\n        assert(false);\n    }\n    void _calc_val(int32_t\
+    \ pos) {\n        if (nodes[pos].is_path) {\n            if ((nodes[pos].left\
+    \ == -1) && (nodes[pos].right == -1)) {\n                nodes[pos].path_val =\
+    \ M::vertex(nodes[pos].pos);\n            } else if ((nodes[pos].left != -1) &&\
+    \ (nodes[pos].right != -1)) {\n                nodes[pos].path_val =\n       \
+    \             M::compress(nodes[nodes[pos].left].path_val,\n                 \
+    \               nodes[nodes[pos].right].path_val);\n            } else {\n   \
+    \             nodes[pos].path_val = M::add_vertex(\n                    nodes[nodes[pos].left].point_val,\
+    \ nodes[pos].pos);\n            }\n        } else {\n            if ((nodes[pos].left\
+    \ != -1) && (nodes[pos].right != -1)) {\n                nodes[pos].point_val\
+    \ =\n                    M::rake(nodes[nodes[pos].left].point_val,\n         \
+    \                   nodes[nodes[pos].right].point_val);\n            } else {\n\
+    \                nodes[pos].point_val =\n                    M::add_edge(nodes[nodes[pos].left].path_val);\n\
+    \            }\n        }\n    }\n    void build(int32_t root) {\n        std::vector<int32_t>\
+    \ vert(sz);\n        std::vector<int32_t> tree_sz(sz, -1);\n        vert[0] =\
+    \ root;\n        tree_sz[root] = 0;\n        int32_t cnt = 1;\n        for (int32_t\
+    \ i = 0; i < sz; i++) {\n            for (int32_t j : tree[vert[i]]) {\n     \
+    \           if (tree_sz[j]) {\n                    tree_sz[j] = 0;\n         \
+    \           vert[cnt] = j;\n                    cnt++;\n                }\n  \
+    \          }\n        }\n        for (int32_t i = sz - 1; i >= 0; i--) {\n   \
+    \         int32_t parent = 0;\n            for (int32_t j : tree[vert[i]]) {\n\
+    \                if (tree_sz[j] == 0) {\n                    parent = -parent\
+    \ - 1;\n                }\n                if (parent >= 0) parent++;\n      \
+    \          tree_sz[vert[i]] += tree_sz[j];\n            }\n            if (parent\
+    \ < 0) {\n                std::swap(tree[vert[i]][-parent - 1], tree[vert[i]].back());\n\
     \                tree[vert[i]].pop_back();\n            }\n            tree_sz[vert[i]]++;\n\
-    \        }\n        rt=_path_cluster(root,tree_sz);\n    }\n    path root_value(){\n\
-    \        return nodes[rt].path_val;\n    }\n    void calc(int32_t pos){\n    \
-    \    int32_t change=node_pos[pos];\n        while(nodes[change].parent!=-1){\n\
-    \            _calc_val(change);\n            change=nodes[change].parent;\n  \
-    \      }\n        _calc_val(change);\n    }\n    size_t size(){\n        return\
-    \ sz;\n    }\n};\n#line 5 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+    \        }\n        rt = _path_cluster(root, tree_sz);\n    }\n    path root_value()\
+    \ { return nodes[rt].path_val; }\n    void calc(int32_t pos) {\n        int32_t\
+    \ change = node_pos[pos];\n        while (nodes[change].parent != -1) {\n    \
+    \        _calc_val(change);\n            change = nodes[change].parent;\n    \
+    \    }\n        _calc_val(change);\n    }\n    size_t size() { return sz; }\n\
+    };\n#line 5 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \nusing mint=Modint<MOD>;\nusing edge_type=array<ll,4>;\nusing func_type=pair<mint,mint>;\n\
     void solve(){\n    LL(N,Q);\n    static VEC(mint,a,N);\n    VEC(edge_type,edge,N-1);\n\
     \    vv(ll,gr,N);\n    rep(i,N-1){\n        gr[edge[i][0]].emplace_back(edge[i][1]);\n\
@@ -295,7 +310,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-08 16:15:32+09:00'
+  timestamp: '2024-05-08 20:46:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp

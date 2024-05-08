@@ -99,42 +99,49 @@ data:
     static ll intpow(ll a,ll b){ll ret=1;while(b){if(b&1)ret*=a;a*=a;b>>=1;}return\
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
-    #define fi first\n#define se second\n#line 4 \"Template/Heuristic.hpp\"\ninline\
-    \ uint32_t pcg32_fast(){\n    static uint64_t state=(std::chrono::steady_clock::now().time_since_epoch().count()<<1)+1;\n\
-    \    uint64_t x=state;\n    uint8_t count=x>>61;\n    state*=0xf13283ad;\n   \
-    \ x^=x>>22;\n    return (uint32_t)(x>>(22+count));\n}\ninline int32_t randint(int32_t\
-    \ l,int32_t r){\n    return l+(((int64_t)pcg32_fast()*(r-l+1))>>32);\n}\nstatic\
-    \ auto startTime=std::chrono::system_clock::now();\ninline int32_t getTime(){\n\
-    \    return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now()-startTime).count();\n\
-    }\n#line 5 \"String/RollingHash.hpp\"\n//https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
-    template<typename S>\nstruct RollingHash{\n    using u64=uint64_t;\n    static\
-    \ const u64 MOD=(1ULL<<61)-1;\n    static const u64 MASK31=(1ULL<<31)-1;\n   \
-    \ static const u64 MASK30=(1ULL<<30)-1;\n    std::vector<u64> powers;\n    u64\
-    \ base,fixed;\n    static inline u64 add(u64 a,u64 b){\n        if((a+=b)>=MOD)a-=MOD;\n\
-    \        return a;\n    }\n    static inline u64 calc_mod(u64 x){\n        u64\
-    \ xu=x>>61,xd=x&MOD;\n        u64 ret=xu+xd;\n        if(ret>=MOD)ret-=MOD;\n\
-    \        return ret;\n    }\n    static inline u64 mul(u64 a,u64 b){\n       \
-    \ u64 au=a>>31,ad=a&MASK31,bu=b>>31,bd=b&MASK31;\n        u64 mid=ad*bu+au*bd;\n\
-    \        u64 midu=mid>>30,midd=mid&MASK30;\n        return calc_mod(((au*bu)<<1)+midu+(midd<<31)+ad*bd);\n\
-    \    }\n    static inline u64 generate_base(){\n        std::mt19937_64 mt(pcg32_fast());\n\
-    \        std::uniform_int_distribution<u64> rand(1ULL<<60,MOD-1);\n        return\
-    \ rand(mt);\n    }\n    explicit RollingHash(u64 base_number=generate_base(),u64\
-    \ fixed_number=1ULL<<31){\n        base=base_number;\n        fixed=fixed_number;\n\
-    \        powers={1};\n    }\n    std::vector<u64> build(const S &s){\n       \
-    \ uint32_t sz=s.size();\n        std::vector<u64> hashed(sz+1,0);\n        while(powers.size()<=sz){\n\
-    \            powers.emplace_back(mul(powers.back(),base));\n        }\n      \
-    \  for(uint32_t i=0; i<sz; i++){\n            hashed[i+1]=add(mul(hashed[i],base),s[i]+fixed);\n\
-    \        }\n        return hashed;\n    }\n    u64 query(const std::vector<u64>\
-    \ &s,uint32_t lf,uint32_t ri){\n        int64_t ret=s[ri]-mul(s[lf],powers[ri-lf]);\n\
-    \        if(ret<0)ret+=MOD;\n        return ret;\n    }\n    u64 combine(u64 h1,u64\
-    \ h2,uint32_t h2len){\n        return add(mul(h1,powers[h2len]),h2);\n    }\n\
-    \    uint32_t lcp(const std::vector<u64> &a,uint32_t l1,uint32_t r1,const std::vector<u64>\
-    \ &b,uint32_t l2,uint32_t r2){\n        uint32_t ok=0,ng=std::min((r1-l1),(r2-l2))+1;\n\
-    \        while(ng-ok>1){\n            uint32_t mid=(ok+ng)>>1;\n            if(query(a,l1,l1+mid)==query(b,l2,l2+mid))ok=mid;\n\
-    \            else ng=mid;\n        }\n        return ok;\n    }\n};\n#line 4 \"\
-    Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp\"\nvoid solve(){\n\
-    \    STR(S);\n    vec(ll,ans,len(S));\n    RollingHash<string> roll;\n    auto\
-    \ table=roll.build(S);\n    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
+    #define fi first\n#define se second\n#line 4 \"String/RollingHash.hpp\"\n\n#line\
+    \ 4 \"Template/Heuristic.hpp\"\ninline uint32_t pcg32_fast() {\n    static uint64_t\
+    \ state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
+    \ << 1) + 1;\n    uint64_t x = state;\n    uint8_t count = x >> 61;\n    state\
+    \ *= 0xf13283ad;\n    x ^= x >> 22;\n    return (uint32_t)(x >> (22 + count));\n\
+    }\ninline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)pcg32_fast()\
+    \ * (r - l + 1)) >> 32);\n}\nstatic auto startTime = std::chrono::system_clock::now();\n\
+    inline int32_t getTime() {\n    return std::chrono::duration_cast<std::chrono::microseconds>(\n\
+    \               std::chrono::system_clock::now() - startTime)\n        .count();\n\
+    }\n#line 6 \"String/RollingHash.hpp\"\n// https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
+    template <typename S>\nstruct RollingHash {\n    using u64 = uint64_t;\n    static\
+    \ const u64 MOD = (1ULL << 61) - 1;\n    static const u64 MASK31 = (1ULL << 31)\
+    \ - 1;\n    static const u64 MASK30 = (1ULL << 30) - 1;\n    std::vector<u64>\
+    \ powers;\n    u64 base, fixed;\n    static inline u64 add(u64 a, u64 b) {\n \
+    \       if ((a += b) >= MOD) a -= MOD;\n        return a;\n    }\n    static inline\
+    \ u64 calc_mod(u64 x) {\n        u64 xu = x >> 61, xd = x & MOD;\n        u64\
+    \ ret = xu + xd;\n        if (ret >= MOD) ret -= MOD;\n        return ret;\n \
+    \   }\n    static inline u64 mul(u64 a, u64 b) {\n        u64 au = a >> 31, ad\
+    \ = a & MASK31, bu = b >> 31, bd = b & MASK31;\n        u64 mid = ad * bu + au\
+    \ * bd;\n        u64 midu = mid >> 30, midd = mid & MASK30;\n        return calc_mod(((au\
+    \ * bu) << 1) + midu + (midd << 31) + ad * bd);\n    }\n    static inline u64\
+    \ generate_base() {\n        std::mt19937_64 mt(pcg32_fast());\n        std::uniform_int_distribution<u64>\
+    \ rand(1ULL << 60, MOD - 1);\n        return rand(mt);\n    }\n    explicit RollingHash(u64\
+    \ base_number = generate_base(),\n                         u64 fixed_number =\
+    \ 1ULL << 31) {\n        base = base_number;\n        fixed = fixed_number;\n\
+    \        powers = {1};\n    }\n    std::vector<u64> build(const S &s) {\n    \
+    \    uint32_t sz = s.size();\n        std::vector<u64> hashed(sz + 1, 0);\n  \
+    \      while (powers.size() <= sz) {\n            powers.emplace_back(mul(powers.back(),\
+    \ base));\n        }\n        for (uint32_t i = 0; i < sz; i++) {\n          \
+    \  hashed[i + 1] = add(mul(hashed[i], base), s[i] + fixed);\n        }\n     \
+    \   return hashed;\n    }\n    u64 query(const std::vector<u64> &s, uint32_t lf,\
+    \ uint32_t ri) {\n        int64_t ret = s[ri] - mul(s[lf], powers[ri - lf]);\n\
+    \        if (ret < 0) ret += MOD;\n        return ret;\n    }\n    u64 combine(u64\
+    \ h1, u64 h2, uint32_t h2len) {\n        return add(mul(h1, powers[h2len]), h2);\n\
+    \    }\n    uint32_t lcp(const std::vector<u64> &a, uint32_t l1, uint32_t r1,\n\
+    \                 const std::vector<u64> &b, uint32_t l2, uint32_t r2) {\n   \
+    \     uint32_t ok = 0, ng = std::min((r1 - l1), (r2 - l2)) + 1;\n        while\
+    \ (ng - ok > 1) {\n            uint32_t mid = (ok + ng) >> 1;\n            if\
+    \ (query(a, l1, l1 + mid) == query(b, l2, l2 + mid))\n                ok = mid;\n\
+    \            else\n                ng = mid;\n        }\n        return ok;\n\
+    \    }\n};\n#line 4 \"Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp\"\
+    \nvoid solve(){\n    STR(S);\n    vec(ll,ans,len(S));\n    RollingHash<string>\
+    \ roll;\n    auto table=roll.build(S);\n    rep(i,len(S)){\n        ans[i]=roll.lcp(table,i,len(S),table,0,len(S));\n\
     \    }\n    out(ans);\n}\nint main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n#include\"\
     ../../Template/Template.hpp\"\n#include\"../../String/RollingHash.hpp\"\nvoid\
@@ -148,7 +155,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-05-01 17:42:37+09:00'
+  timestamp: '2024-05-08 20:46:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp

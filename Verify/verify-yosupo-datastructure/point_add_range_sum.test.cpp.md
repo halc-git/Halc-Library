@@ -98,23 +98,24 @@ data:
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#line 3 \"DataStructure/FenwickTree.hpp\"\
-    \ntemplate<class T>\nstruct FenwickTree{\n    std::vector<T> tree;\n    int32_t\
-    \ start=1;\n    size_t siz;\n    FenwickTree(int32_t sz){\n        siz=sz;\n \
-    \       tree.resize(sz+1,0);\n        while((start<<1)<=siz)start<<=1;\n    }\n\
-    \    FenwickTree(std::vector<T> def){\n        siz=def.size();\n        tree.resize(siz+1,0);\n\
-    \        while((start<<1)<=siz)start<<=1;\n        for(int32_t i=0; i<siz; i++){\n\
-    \            tree[i+1]+=def[i];\n            if(i+(i&-i)<=siz){\n            \
-    \    tree[i+(i&-i)]+=tree[i];\n            }\n        }\n    }\n    void add(int32_t\
-    \ pos,T val){\n        pos++;\n        while(pos<=siz){\n            tree[pos]+=val;\n\
-    \            pos+=pos&-pos;\n        }\n    }\n    T _sum(int32_t pos){\n    \
-    \    T ret=0;\n        while(pos>0){\n            ret+=tree[pos];\n          \
-    \  pos-=pos&-pos;\n        }\n        return ret;\n    }\n    T sum(int32_t lf,int32_t\
-    \ ri){\n        return _sum(ri)-_sum(lf);\n    }\n    int32_t lower_bound(T w){\n\
-    \        if(w<=0)return 0;\n        int32_t now=0;\n        T val=0;\n       \
-    \ for(int32_t i=start; i>0; i>>=1){\n            if(now+i<=siz&&val+tree[now+i]<w){\n\
-    \                now+=i;\n                val+=tree[now];\n            }\n   \
-    \     }\n        return now+1;\n    }\n    size_t size(){\n        return siz;\n\
-    \    }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\
+    \ntemplate <class T>\nstruct FenwickTree {\n    std::vector<T> tree;\n    int32_t\
+    \ start = 1;\n    size_t siz;\n    FenwickTree(int32_t sz) {\n        siz = sz;\n\
+    \        tree.resize(sz + 1, 0);\n        while ((start << 1) <= siz) start <<=\
+    \ 1;\n    }\n    FenwickTree(std::vector<T> def) {\n        siz = def.size();\n\
+    \        tree.resize(siz + 1, 0);\n        while ((start << 1) <= siz) start <<=\
+    \ 1;\n        for (int32_t i = 0; i < siz; i++) {\n            tree[i + 1] +=\
+    \ def[i];\n            if (i + (i & -i) <= siz) {\n                tree[i + (i\
+    \ & -i)] += tree[i];\n            }\n        }\n    }\n    void add(int32_t pos,\
+    \ T val) {\n        pos++;\n        while (pos <= siz) {\n            tree[pos]\
+    \ += val;\n            pos += pos & -pos;\n        }\n    }\n    T _sum(int32_t\
+    \ pos) {\n        T ret = 0;\n        while (pos > 0) {\n            ret += tree[pos];\n\
+    \            pos -= pos & -pos;\n        }\n        return ret;\n    }\n    T\
+    \ sum(int32_t lf, int32_t ri) { return _sum(ri) - _sum(lf); }\n    int32_t lower_bound(T\
+    \ w) {\n        if (w <= 0) return 0;\n        int32_t now = 0;\n        T val\
+    \ = 0;\n        for (int32_t i = start; i > 0; i >>= 1) {\n            if (now\
+    \ + i <= siz && val + tree[now + i] < w) {\n                now += i;\n      \
+    \          val += tree[now];\n            }\n        }\n        return now + 1;\n\
+    \    }\n    size_t size() { return siz; }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\
     \nvoid solve(){\n    LL(N,Q);\n    VEC(ll,A,N);\n    FenwickTree<ll> a(A);\n \
     \   rep(i,Q){\n        LL(t,x,y);\n        if(t==0){\n            a.add(x,y);\n\
     \        }\n        else{\n            out(a.sum(x,y));\n        }\n    }\n}\n\
@@ -131,7 +132,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-05-08 20:19:18+09:00'
+  timestamp: '2024-05-08 20:46:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp

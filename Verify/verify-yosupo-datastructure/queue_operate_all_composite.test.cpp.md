@@ -101,127 +101,136 @@ data:
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#line 5 \"DataStructure/FoldableDeque.hpp\"\
-    \n//https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\ntemplate<class M>\n\
-    struct FoldableQueue{\n    using T=typename M::T;\n    std::stack<T> top,bottom,topfold,bottomfold;\n\
-    \    FoldableQueue(){\n        topfold.push(M::e);\n        bottomfold.push(M::e);\n\
-    \    }\n    void push(T v){\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),v));\n\
-    \    }\n    void pop(){\n        if(top.empty()){\n            while(!bottom.empty()){\n\
-    \                top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),topfold.top()));\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n        }\n        top.pop();\n        topfold.pop();\n    }\n    T front(){\n\
-    \        if(top.empty()){\n            while(!bottom.empty()){\n             \
-    \   top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),topfold.top()));\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n        }\n        return top.top();\n    }\n    T get_all(){\n        return\
-    \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
-    \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\ntemplate<class M>\nstruct FoldableDeque{\n    using T=typename M::T;\n\
-    \    std::stack<T> top,bottom,topfold,bottomfold;\n    FoldableDeque(){\n    \
-    \    topfold.push(M::e);\n        bottomfold.push(M::e);\n    }\n    void push_front(T\
-    \ v){\n        top.push(v);\n        topfold.push(M::op(v,topfold.top()));\n \
-    \   }\n    void push_back(T v){\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),v));\n\
-    \    }\n    void pop_front(){\n        if(top.empty()){\n            std::vector<T>\
-    \ change;\n            while(!bottom.empty()){\n                change.emplace_back(bottom.top());\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n            size_t sz=change.size();\n            for(int32_t i=(sz>>1);\
-    \ i>=0; i--){\n                top.push(change[sz-i-1]);\n                topfold.push(M::op(change[sz-i-1],topfold.top()));\n\
-    \            }\n            for(int32_t i=(sz>>1)+1; i<sz; i++){\n           \
-    \     bottom.push(change[sz-i-1]);\n                bottomfold.push(M::op(bottomfold.top(),change[sz-i-1]));\n\
+    \n// https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\ntemplate <class\
+    \ M>\nstruct FoldableQueue {\n    using T = typename M::T;\n    std::stack<T>\
+    \ top, bottom, topfold, bottomfold;\n    FoldableQueue() {\n        topfold.push(M::e);\n\
+    \        bottomfold.push(M::e);\n    }\n    void push(T v) {\n        bottom.push(v);\n\
+    \        bottomfold.push(M::op(bottomfold.top(), v));\n    }\n    void pop() {\n\
+    \        if (top.empty()) {\n            while (!bottom.empty()) {\n         \
+    \       top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),\
+    \ topfold.top()));\n                bottom.pop();\n                bottomfold.pop();\n\
     \            }\n        }\n        top.pop();\n        topfold.pop();\n    }\n\
-    \    void pop_back(){\n        if(bottom.empty()){\n            std::vector<T>\
-    \ change;\n            while(!top.empty()){\n                change.emplace_back(top.top());\n\
+    \    T front() {\n        if (top.empty()) {\n            while (!bottom.empty())\
+    \ {\n                top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),\
+    \ topfold.top()));\n                bottom.pop();\n                bottomfold.pop();\n\
+    \            }\n        }\n        return top.top();\n    }\n    T get_all() {\
+    \ return M::op(topfold.top(), bottomfold.top()); }\n    size_t size() { return\
+    \ top.size() + bottom.size(); }\n    bool empty() { return top.empty() && bottom.empty();\
+    \ }\n};\ntemplate <class M>\nstruct FoldableDeque {\n    using T = typename M::T;\n\
+    \    std::stack<T> top, bottom, topfold, bottomfold;\n    FoldableDeque() {\n\
+    \        topfold.push(M::e);\n        bottomfold.push(M::e);\n    }\n    void\
+    \ push_front(T v) {\n        top.push(v);\n        topfold.push(M::op(v, topfold.top()));\n\
+    \    }\n    void push_back(T v) {\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),\
+    \ v));\n    }\n    void pop_front() {\n        if (top.empty()) {\n          \
+    \  std::vector<T> change;\n            while (!bottom.empty()) {\n           \
+    \     change.emplace_back(bottom.top());\n                bottom.pop();\n    \
+    \            bottomfold.pop();\n            }\n            size_t sz = change.size();\n\
+    \            for (int32_t i = (sz >> 1); i >= 0; i--) {\n                top.push(change[sz\
+    \ - i - 1]);\n                topfold.push(M::op(change[sz - i - 1], topfold.top()));\n\
+    \            }\n            for (int32_t i = (sz >> 1) + 1; i < sz; i++) {\n \
+    \               bottom.push(change[sz - i - 1]);\n                bottomfold.push(M::op(bottomfold.top(),\
+    \ change[sz - i - 1]));\n            }\n        }\n        top.pop();\n      \
+    \  topfold.pop();\n    }\n    void pop_back() {\n        if (bottom.empty()) {\n\
+    \            std::vector<T> change;\n            while (!top.empty()) {\n    \
+    \            change.emplace_back(top.top());\n                top.pop();\n   \
+    \             topfold.pop();\n            }\n            size_t sz = change.size();\n\
+    \            for (int32_t i = (sz >> 1); i >= 0; i--) {\n                bottom.push(change[sz\
+    \ - i - 1]);\n                bottomfold.push(M::op(bottomfold.top(), change[sz\
+    \ - i - 1]));\n            }\n            for (int32_t i = (sz >> 1) + 1; i <\
+    \ sz; i++) {\n                top.push(change[sz - i - 1]);\n                topfold.push(M::op(change[sz\
+    \ - i - 1], topfold.top()));\n            }\n        }\n        bottom.pop();\n\
+    \        bottomfold.pop();\n    }\n    T front() {\n        if (top.empty()) {\n\
+    \            std::vector<T> change;\n            while (!bottom.empty()) {\n \
+    \               change.emplace_back(bottom.top());\n                bottom.pop();\n\
+    \                bottomfold.pop();\n            }\n            size_t sz = change.size();\n\
+    \            for (uint32_t i = (sz >> 1); i >= 0; i--) {\n                top.push(change[i]);\n\
+    \                topfold.push(M::op(change[i], topfold.top()));\n            }\n\
+    \            for (uint32_t i = (sz >> 1) + 1; i < sz; i++) {\n               \
+    \ bottom.push(change[i]);\n                bottomfold.push(M::op(bottomfold.top(),\
+    \ change[i]));\n            }\n        }\n        return top.top();\n    }\n \
+    \   T back() {\n        if (bottom.empty()) {\n            std::vector<T> change;\n\
+    \            while (!top.empty()) {\n                change.emplace_back(top.top());\n\
     \                top.pop();\n                topfold.pop();\n            }\n \
-    \           size_t sz=change.size();\n            for(int32_t i=(sz>>1); i>=0;\
-    \ i--){\n                bottom.push(change[sz-i-1]);\n                bottomfold.push(M::op(bottomfold.top(),change[sz-i-1]));\n\
-    \            }\n            for(int32_t i=(sz>>1)+1; i<sz; i++){\n           \
-    \     top.push(change[sz-i-1]);\n                topfold.push(M::op(change[sz-i-1],topfold.top()));\n\
-    \            }\n        }\n        bottom.pop();\n        bottomfold.pop();\n\
-    \    }\n    T front(){\n        if(top.empty()){\n            std::vector<T> change;\n\
-    \            while(!bottom.empty()){\n                change.emplace_back(bottom.top());\n\
-    \                bottom.pop();\n                bottomfold.pop();\n          \
-    \  }\n            size_t sz=change.size();\n            for(uint32_t i=(sz>>1);\
-    \ i>=0; i--){\n                top.push(change[i]);\n                topfold.push(M::op(change[i],topfold.top()));\n\
-    \            }\n            for(uint32_t i=(sz>>1)+1; i<sz; i++){\n          \
-    \      bottom.push(change[i]);\n                bottomfold.push(M::op(bottomfold.top(),change[i]));\n\
-    \            }\n        }\n        return top.top();\n    }\n    T back(){\n \
-    \       if(bottom.empty()){\n            std::vector<T> change;\n            while(!top.empty()){\n\
-    \                change.emplace_back(top.top());\n                top.pop();\n\
-    \                topfold.pop();\n            }\n            size_t sz=change.size();\n\
-    \            for(uint32_t i=(sz>>1); i>=0; i--){\n                bottom.push(change[i]);\n\
-    \                bottomfold.push(M::op(bottomfold.top(),change[i]));\n       \
-    \     }\n            for(uint32_t i=(sz>>1)+1; i<sz; i++){\n                top.push(change[i]);\n\
-    \                topfold.push(M::op(change[i],topfold.top()));\n            }\n\
-    \        }\n        return bottom.top();\n    }\n    T get_all(){\n        return\
-    \ M::op(topfold.top(),bottomfold.top());\n    }\n    size_t size(){\n        return\
-    \ top.size()+bottom.size();\n    }\n    bool empty(){\n        return top.empty()&&bottom.empty();\n\
-    \    }\n};\n#line 4 \"Modint/Modint.hpp\"\ntemplate<uint64_t Mod>\nstruct Modint{\n\
-    \    uint64_t x;\n    constexpr Modint()noexcept{\n        x=0;\n    }\n    constexpr\
-    \ Modint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(Mod)+Mod:val%Mod);\n\
-    \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
-    \ uint64_t m_inv=(-1ULL)/Mod+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
-    \        uint64_t pro=ret*Mod;\n        return (val-pro+(val<pro?Mod:0));\n  \
-    \  }\n    friend std::ostream &operator<<(std::ostream &os,Modint &b){\n     \
-    \   return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream &is,Modint\
-    \ &b){\n        return is>>b.x;\n    }\n    constexpr uint64_t val()noexcept{\n\
-    \        return x;\n    }\n    constexpr Modint operator+()noexcept{\n       \
-    \ return (*this);\n    }\n    constexpr Modint operator-()noexcept{\n        return\
-    \ Modint()-(*this);\n    }\n    constexpr Modint operator+(const Modint rhs)noexcept{\n\
-    \        return Modint(*this)+=rhs;\n    }\n    constexpr Modint operator-(const\
-    \ Modint rhs)noexcept{\n        return Modint(*this)-=rhs;\n    }\n    constexpr\
-    \ Modint operator*(const Modint rhs)noexcept{\n        return Modint(*this)*=rhs;\n\
-    \    }\n    constexpr Modint operator/(const Modint rhs)noexcept{\n        return\
-    \ Modint(*this)/=rhs;\n    }\n    constexpr Modint &operator+=(const Modint rhs)noexcept{\n\
-    \        x+=rhs.x;\n        if(x>=Mod)x-=Mod;\n        return *this;\n    }\n\
-    \    constexpr Modint &operator-=(const Modint rhs)noexcept{\n        if(x<rhs.x)x+=Mod;\n\
-    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr Modint &operator*=(const\
-    \ Modint rhs)noexcept{\n        x=_get_mod(x*rhs.x);\n        return *this;\n\
-    \    }\n    constexpr bool operator==(Modint rhs)noexcept{\n        return x==rhs.x;\n\
-    \    }\n    constexpr bool operator!=(Modint rhs)noexcept{\n        return x!=rhs.x;\n\
-    \    }\n    constexpr Modint &operator/=(Modint rhs)noexcept{\n        return\
-    \ (*this)*=rhs.inv();\n    }\n    constexpr Modint inv()noexcept{\n        return\
-    \ (*this).pow(Mod-2);\n    }\n    constexpr Modint pow(uint64_t x)noexcept{\n\
-    \        Modint ret=1;\n        Modint bin=(*this);\n        while(x){\n     \
-    \       if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n\
-    \        return ret;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ Mod;\n    }\n};\n\ntemplate<int64_t id>\nstruct ArbitraryModint{\n    uint64_t\
-    \ x;\n    static uint64_t &mod()noexcept{\n        static uint64_t Mod=0;\n  \
-    \      return Mod;\n    }\n    constexpr ArbitraryModint()noexcept{\n        x=0;\n\
-    \    }\n    constexpr ArbitraryModint(int64_t val)noexcept{\n        x=(val<0?val%(int64_t)(get_mod())+get_mod():val%get_mod());\n\
-    \    }\n    inline uint64_t _get_mod(uint64_t val)noexcept{\n        const static\
-    \ uint64_t m_inv=(-1ULL)/get_mod()+1;\n        uint64_t ret=((unsigned __int128)(val)*m_inv)>>64;\n\
-    \        uint64_t pro=ret*get_mod();\n        return (val-pro+(val<pro?get_mod():0));\n\
-    \    }\n    friend std::ostream &operator<<(std::ostream &os,ArbitraryModint &b){\n\
-    \        return os<<b.x;\n    }\n    friend std::istream &operator>>(std::istream\
-    \ &is,ArbitraryModint &b){\n        return is>>b.x;\n    }\n    constexpr uint64_t\
-    \ val()noexcept{\n        return x;\n    }\n    constexpr ArbitraryModint operator+()noexcept{\n\
-    \        return (*this);\n    }\n    constexpr ArbitraryModint operator-()noexcept{\n\
-    \        return ArbitraryModint()-(*this);\n    }\n    constexpr ArbitraryModint\
-    \ operator+(const ArbitraryModint rhs)noexcept{\n        return ArbitraryModint(*this)+=rhs;\n\
-    \    }\n    constexpr ArbitraryModint operator-(const ArbitraryModint rhs)noexcept{\n\
-    \        return ArbitraryModint(*this)-=rhs;\n    }\n    constexpr ArbitraryModint\
-    \ operator*(const ArbitraryModint rhs)noexcept{\n        return ArbitraryModint(*this)*=rhs;\n\
-    \    }\n    constexpr ArbitraryModint operator/(const ArbitraryModint rhs)noexcept{\n\
-    \        return ArbitraryModint(*this)/=rhs;\n    }\n    constexpr ArbitraryModint\
-    \ &operator+=(const ArbitraryModint rhs)noexcept{\n        x+=rhs.x;\n       \
-    \ if(x>=get_mod())x-=get_mod();\n        return *this;\n    }\n    constexpr ArbitraryModint\
-    \ &operator-=(const ArbitraryModint rhs)noexcept{\n        if(x<rhs.x)x+=get_mod();\n\
-    \        x-=rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint\
-    \ &operator*=(const ArbitraryModint rhs)noexcept{\n        x=_get_mod(x*rhs.x);\n\
-    \        return *this;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint\
-    \ rhs)noexcept{\n        return (*this)*=rhs.inv();\n    }\n    constexpr bool\
-    \ operator==(ArbitraryModint rhs)noexcept{\n        return x==rhs.x;\n    }\n\
-    \    constexpr bool operator!=(ArbitraryModint rhs)noexcept{\n        return x!=rhs.x;\n\
-    \    }\n    constexpr ArbitraryModint inv()noexcept{\n        return (*this).pow(get_mod()-2);\n\
-    \    }\n    constexpr ArbitraryModint pow(uint64_t x)noexcept{\n        ArbitraryModint\
-    \ ret=1;\n        ArbitraryModint bin=(*this);\n        while(x){\n          \
-    \  if(x&1)ret*=bin;\n            bin*=bin;\n            x>>=1;\n        }\n  \
-    \      return ret;\n    }\n    static void set_mod(const uint64_t x)noexcept{\n\
-    \        mod()=x;\n    }\n    static uint64_t get_mod()noexcept{\n        return\
-    \ mod();\n    }\n};\ntemplate<uint64_t N> inline void scan(Modint<N> &a){ scanf(\"\
-    %lu\", &a.x); }\ntemplate<int64_t id> inline void scan(ArbitraryModint<id> &a){\
-    \ scanf(\"%lu\", &a.x); }\ntemplate<uint64_t N> inline void print(Modint<N> a){printf(\"\
-    %lu\", a.x);}\ntemplate<int64_t id> inline void print(ArbitraryModint<id> a){printf(\"\
-    %lu\", a.x);}\n#line 5 \"Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp\"\
+    \           size_t sz = change.size();\n            for (uint32_t i = (sz >> 1);\
+    \ i >= 0; i--) {\n                bottom.push(change[i]);\n                bottomfold.push(M::op(bottomfold.top(),\
+    \ change[i]));\n            }\n            for (uint32_t i = (sz >> 1) + 1; i\
+    \ < sz; i++) {\n                top.push(change[i]);\n                topfold.push(M::op(change[i],\
+    \ topfold.top()));\n            }\n        }\n        return bottom.top();\n \
+    \   }\n    T get_all() { return M::op(topfold.top(), bottomfold.top()); }\n  \
+    \  size_t size() { return top.size() + bottom.size(); }\n    bool empty() { return\
+    \ top.empty() && bottom.empty(); }\n};\n#line 4 \"Modint/Modint.hpp\"\ntemplate\
+    \ <uint64_t Mod>\nstruct Modint {\n    uint64_t x;\n    constexpr Modint() noexcept\
+    \ { x = 0; }\n    constexpr Modint(int64_t val) noexcept {\n        x = (val <\
+    \ 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n    }\n    inline uint64_t _get_mod(uint64_t\
+    \ val) noexcept {\n        const static uint64_t m_inv = (-1ULL) / Mod + 1;\n\
+    \        uint64_t ret = ((unsigned __int128)(val)*m_inv) >> 64;\n        uint64_t\
+    \ pro = ret * Mod;\n        return (val - pro + (val < pro ? Mod : 0));\n    }\n\
+    \    friend std::ostream &operator<<(std::ostream &os, Modint &b) {\n        return\
+    \ os << b.x;\n    }\n    friend std::istream &operator>>(std::istream &is, Modint\
+    \ &b) {\n        return is >> b.x;\n    }\n    constexpr uint64_t val() noexcept\
+    \ { return x; }\n    constexpr Modint operator+() noexcept { return (*this); }\n\
+    \    constexpr Modint operator-() noexcept { return Modint() - (*this); }\n  \
+    \  constexpr Modint operator+(const Modint rhs) noexcept {\n        return Modint(*this)\
+    \ += rhs;\n    }\n    constexpr Modint operator-(const Modint rhs) noexcept {\n\
+    \        return Modint(*this) -= rhs;\n    }\n    constexpr Modint operator*(const\
+    \ Modint rhs) noexcept {\n        return Modint(*this) *= rhs;\n    }\n    constexpr\
+    \ Modint operator/(const Modint rhs) noexcept {\n        return Modint(*this)\
+    \ /= rhs;\n    }\n    constexpr Modint &operator+=(const Modint rhs) noexcept\
+    \ {\n        x += rhs.x;\n        if (x >= Mod) x -= Mod;\n        return *this;\n\
+    \    }\n    constexpr Modint &operator-=(const Modint rhs) noexcept {\n      \
+    \  if (x < rhs.x) x += Mod;\n        x -= rhs.x;\n        return *this;\n    }\n\
+    \    constexpr Modint &operator*=(const Modint rhs) noexcept {\n        x = _get_mod(x\
+    \ * rhs.x);\n        return *this;\n    }\n    constexpr bool operator==(Modint\
+    \ rhs) noexcept { return x == rhs.x; }\n    constexpr bool operator!=(Modint rhs)\
+    \ noexcept { return x != rhs.x; }\n    constexpr Modint &operator/=(Modint rhs)\
+    \ noexcept {\n        return (*this) *= rhs.inv();\n    }\n    constexpr Modint\
+    \ inv() noexcept { return (*this).pow(Mod - 2); }\n    constexpr Modint pow(uint64_t\
+    \ x) noexcept {\n        Modint ret = 1;\n        Modint bin = (*this);\n    \
+    \    while (x) {\n            if (x & 1) ret *= bin;\n            bin *= bin;\n\
+    \            x >>= 1;\n        }\n        return ret;\n    }\n    static uint64_t\
+    \ get_mod() noexcept { return Mod; }\n};\n\ntemplate <int64_t id>\nstruct ArbitraryModint\
+    \ {\n    uint64_t x;\n    static uint64_t &mod() noexcept {\n        static uint64_t\
+    \ Mod = 0;\n        return Mod;\n    }\n    constexpr ArbitraryModint() noexcept\
+    \ { x = 0; }\n    constexpr ArbitraryModint(int64_t val) noexcept {\n        x\
+    \ = (val < 0 ? val % (int64_t)(get_mod()) + get_mod()\n                     :\
+    \ val % get_mod());\n    }\n    inline uint64_t _get_mod(uint64_t val) noexcept\
+    \ {\n        const static uint64_t m_inv = (-1ULL) / get_mod() + 1;\n        uint64_t\
+    \ ret = ((unsigned __int128)(val)*m_inv) >> 64;\n        uint64_t pro = ret *\
+    \ get_mod();\n        return (val - pro + (val < pro ? get_mod() : 0));\n    }\n\
+    \    friend std::ostream &operator<<(std::ostream &os, ArbitraryModint &b) {\n\
+    \        return os << b.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is, ArbitraryModint &b) {\n        return is >> b.x;\n    }\n    constexpr\
+    \ uint64_t val() noexcept { return x; }\n    constexpr ArbitraryModint operator+()\
+    \ noexcept { return (*this); }\n    constexpr ArbitraryModint operator-() noexcept\
+    \ {\n        return ArbitraryModint() - (*this);\n    }\n    constexpr ArbitraryModint\
+    \ operator+(const ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(*this)\
+    \ += rhs;\n    }\n    constexpr ArbitraryModint operator-(const ArbitraryModint\
+    \ rhs) noexcept {\n        return ArbitraryModint(*this) -= rhs;\n    }\n    constexpr\
+    \ ArbitraryModint operator*(const ArbitraryModint rhs) noexcept {\n        return\
+    \ ArbitraryModint(*this) *= rhs;\n    }\n    constexpr ArbitraryModint operator/(const\
+    \ ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(*this) /= rhs;\n\
+    \    }\n    constexpr ArbitraryModint &operator+=(const ArbitraryModint rhs) noexcept\
+    \ {\n        x += rhs.x;\n        if (x >= get_mod()) x -= get_mod();\n      \
+    \  return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const ArbitraryModint\
+    \ rhs) noexcept {\n        if (x < rhs.x) x += get_mod();\n        x -= rhs.x;\n\
+    \        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
+    \ ArbitraryModint rhs) noexcept {\n        x = _get_mod(x * rhs.x);\n        return\
+    \ *this;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint rhs)\
+    \ noexcept {\n        return (*this) *= rhs.inv();\n    }\n    constexpr bool\
+    \ operator==(ArbitraryModint rhs) noexcept {\n        return x == rhs.x;\n   \
+    \ }\n    constexpr bool operator!=(ArbitraryModint rhs) noexcept {\n        return\
+    \ x != rhs.x;\n    }\n    constexpr ArbitraryModint inv() noexcept {\n       \
+    \ return (*this).pow(get_mod() - 2);\n    }\n    constexpr ArbitraryModint pow(uint64_t\
+    \ x) noexcept {\n        ArbitraryModint ret = 1;\n        ArbitraryModint bin\
+    \ = (*this);\n        while (x) {\n            if (x & 1) ret *= bin;\n      \
+    \      bin *= bin;\n            x >>= 1;\n        }\n        return ret;\n   \
+    \ }\n    static void set_mod(const uint64_t x) noexcept { mod() = x; }\n    static\
+    \ uint64_t get_mod() noexcept { return mod(); }\n};\ntemplate <uint64_t N>\ninline\
+    \ void scan(Modint<N> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate <int64_t id>\n\
+    inline void scan(ArbitraryModint<id> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate\
+    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    printf(\"%lu\", a.x);\n\
+    }\ntemplate <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    printf(\"\
+    %lu\", a.x);\n}\n#line 5 \"Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp\"\
     \nusing mint=Modint<MOD>;\nstruct composite{\n    using T=pair<mint,mint>;\n \
     \   static T op(T lf,T ri){\n        return T(lf.fi*ri.fi,lf.se*ri.fi+ri.se);\n\
     \    }\n    static inline T e=T(1,0);\n};\nvoid solve(){\n    LL(Q);\n    FoldableQueue<composite>\
@@ -247,7 +256,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-08 16:15:32+09:00'
+  timestamp: '2024-05-08 20:46:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
