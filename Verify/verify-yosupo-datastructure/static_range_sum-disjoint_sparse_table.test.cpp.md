@@ -99,24 +99,24 @@ data:
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#line 5 \"DataStructure/DisjointSparseTable.hpp\"\
     \ntemplate <class M>\nstruct DisjointSparseTable {\n    using T = typename M::T;\n\
-    \    size_t siz;\n    int8_t bitlen = 0;\n    std::vector<T> table;\n    DisjointSparseTable(std::vector<T>\
-    \ def) {\n        siz = def.size();\n        while (1 << bitlen <= siz - 1) bitlen++;\n\
-    \        ;\n        swap(table, def);\n        table.resize(siz * std::max((int8_t)1,\
-    \ bitlen));\n        for (int32_t i = siz; i < siz * bitlen; i++) {\n        \
-    \    table[i] = table[i % siz];\n        }\n        int32_t index = siz;\n   \
-    \     for (int8_t i = 1; i < bitlen; i++) {\n            for (int32_t j = 0; j\
-    \ < siz; j++) {\n                if (((j >> i) << i) == j) continue;\n       \
-    \         if ((j >> i) & 1) {\n                    table[j + index] =\n      \
-    \                  M::op(table[j - 1 + index], table[j, index]);\n           \
-    \     } else {\n                    int32_t pos =\n                        ((j\
-    \ >> i) << i) + ((1 << i) - 1) - (j & ((1 << i) - 1));\n                    if\
-    \ (pos < siz) {\n                        table[pos + index] =\n              \
-    \              M::op(table[pos + index], table[pos + 1 + index]);\n          \
-    \          }\n                }\n            }\n            index += siz;\n  \
-    \      }\n    }\n    T get(int32_t p) { return table[p]; }\n    T prod(int32_t\
+    \    size_t siz;\n    std::vector<T> table;\n    DisjointSparseTable(std::vector<T>\
+    \ def) {\n        siz = def.size();\n        int32_t bitlen = 0;\n        while\
+    \ (1 << bitlen <= siz - 1) bitlen++;\n        swap(table, def);\n        table.resize(siz\
+    \ * std::max(1, bitlen));\n        for (int32_t i = siz; i < siz * bitlen; i++)\
+    \ {\n            table[i] = table[i % siz];\n        }\n        int32_t index\
+    \ = siz;\n        for (int32_t i = 1; i < bitlen; i++) {\n            for (int32_t\
+    \ j = 0; j < siz; j++) {\n                if (((j >> i) << i) == j) continue;\n\
+    \                if ((j >> i) & 1) {\n                    table[j + index] =\n\
+    \                        M::op(table[j - 1 + index], table[j, index]);\n     \
+    \           } else {\n                    int32_t pos =\n                    \
+    \    ((j >> i) << i) + ((1 << i) - 1) - (j & ((1 << i) - 1));\n              \
+    \      if (pos < siz) {\n                        table[pos + index] =\n      \
+    \                      M::op(table[pos + index], table[pos + 1 + index]);\n  \
+    \                  }\n                }\n            }\n            index += siz;\n\
+    \        }\n    }\n    T get(int32_t p) { return table[p]; }\n    T prod(int32_t\
     \ lf, int32_t ri) {\n        if (lf == ri) return M::e;\n        if (lf + 1 ==\
-    \ ri) return table[lf];\n        int8_t nbl = 0;\n        while (1 << (nbl + 1)\
-    \ <= (lf ^ (ri - 1))) nbl++;\n        int32_t pos = nbl * siz;\n        return\
+    \ ri) return table[lf];\n        int32_t nbl = 0;\n        while (1 << (nbl +\
+    \ 1) <= (lf ^ (ri - 1))) nbl++;\n        int32_t pos = nbl * siz;\n        return\
     \ M::op(table[pos + lf], table[pos + ri - 1]);\n    }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp\"\
     \nstruct rsq{\n    using T=ll;\n    static T op(T x,T y){\n        return x+y;\n\
     \    }\n    static inline T e=0;\n};\nvoid solve(){\n    LL(N,Q);\n    VEC(ll,A,N);\n\
@@ -134,7 +134,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 11:31:59+09:00'
+  timestamp: '2024-05-09 15:27:05+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
