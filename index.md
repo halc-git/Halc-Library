@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/FenwickTree.hpp
       title: DataStructure/FenwickTree.hpp
     - icon: ':heavy_check_mark:'
@@ -25,10 +25,10 @@ data:
       title: Math/ModCombination.hpp
   - name: Misc
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Misc/Compress.hpp
       title: Misc/Compress.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Misc/Mo.hpp
       title: Mo's Algorithm
   - name: Modint
@@ -52,7 +52,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template/Heuristic.hpp
       title: Template/Heuristic.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   - name: Tree
@@ -74,13 +74,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
       title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
       title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
     - icon: ':heavy_check_mark:'
@@ -89,7 +89,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     - icon: ':heavy_check_mark:'
