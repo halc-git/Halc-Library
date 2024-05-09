@@ -58,9 +58,6 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':warning:'
-      path: Template/Heuristic.hpp
-      title: Template/Heuristic.hpp
     - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
