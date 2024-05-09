@@ -12,10 +12,8 @@ void solve(){
     LL(N,Q);
     VEC(ll,A,N);
     DisjointSparseTable<rsq> a(A);
-    vector<ll> ans;
     rep(i,Q){
         LL(l,r);
-        ans.push_back(a.prod(l,r));
         out(a.prod(l,r));
     }
 }
