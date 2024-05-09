@@ -3,8 +3,8 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: DataStructure/SegmentTree.hpp
-    title: DataStructure/SegmentTree.hpp
-  - icon: ':heavy_check_mark:'
+    title: Segment Tree
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

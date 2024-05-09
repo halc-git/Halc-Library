@@ -3,11 +3,11 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: DataStructure/SegmentTree.hpp
-    title: DataStructure/SegmentTree.hpp
+    title: Segment Tree
   - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

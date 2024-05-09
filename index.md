@@ -3,6 +3,9 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
+    - icon: ':x:'
+      path: DataStructure/DisjointSparseTable.hpp
+      title: Disjoint Sparse Table
     - icon: ':heavy_check_mark:'
       path: DataStructure/FenwickTree.hpp
       title: DataStructure/FenwickTree.hpp
@@ -14,7 +17,7 @@ data:
       title: DataStructure/Hashmap.hpp
     - icon: ':heavy_check_mark:'
       path: DataStructure/SegmentTree.hpp
-      title: DataStructure/SegmentTree.hpp
+      title: Segment Tree
     - icon: ':heavy_check_mark:'
       path: DataStructure/UnionFind.hpp
       title: Union Find
@@ -52,7 +55,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template/Heuristic.hpp
       title: Template/Heuristic.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   - name: Tree
@@ -92,6 +95,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+    - icon: ':x:'
+      path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
+      title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
+    - icon: ':x:'
+      path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
+      title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
       title: Verify/verify-yosupo-datastructure/unionfind.test.cpp

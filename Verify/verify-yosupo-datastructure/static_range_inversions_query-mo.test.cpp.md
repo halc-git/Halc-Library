@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Misc/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
