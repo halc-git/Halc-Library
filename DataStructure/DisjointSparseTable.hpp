@@ -10,7 +10,7 @@ struct DisjointSparseTable {
     std::vector<T> table;
     DisjointSparseTable(std::vector<T> def) {
         siz = def.size();
-        int32_t bitlen = (32-std::countl_zero(siz-1));
+        int32_t bitlen = 64 - std::countl_zero(siz - 1);
         table.resize(siz * std::max(1, bitlen));
         int32_t pos = 0;
         for (int32_t i = 0; i < table.size(); i++) {
@@ -43,7 +43,7 @@ struct DisjointSparseTable {
     T prod(int32_t lf, int32_t ri) {
         if (lf == ri) return M::e;
         if (lf + 1 == ri) return table[lf];
-        int32_t pos = ((32-std::countl_zero((uint32_t)lf^(ri-1))) - 1) * siz;
+        int32_t pos = (31 - std::countl_zero((uint32_t)lf ^ (ri - 1))) * siz;
         return M::op(table[pos + lf], table[pos + ri - 1]);
     }
 };

@@ -11,12 +11,12 @@ struct FenwickTree {
     FenwickTree(int32_t sz) {
         siz = sz;
         tree.resize(sz + 1, 0);
-        start = 1 << ((32-std::countl_zero(siz)) - 1);
+        start = 1 << ((64 - std::countl_zero(siz)) - 1);
     }
     FenwickTree(std::vector<T> def) {
         siz = def.size();
         tree.resize(siz + 1, 0);
-        start = 1 << ((32-std::countl_zero(siz)) - 1);
+        start = 1 << ((64 - std::countl_zero(siz)) - 1);
         for (int32_t i = 0; i < siz; i++) {
             tree[i + 1] += def[i];
             if (i + (i & -i) <= siz) {
