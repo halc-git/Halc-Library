@@ -2,12 +2,12 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: Misc/Random.hpp
+    title: Misc/Random.hpp
+  - icon: ':heavy_check_mark:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
   - icon: ':heavy_check_mark:'
-    path: Template/Heuristic.hpp
-    title: Template/Heuristic.hpp
-  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -101,15 +101,12 @@ data:
     \ ret;}\ninline int Yes(bool i=true){return out(i?\"Yes\":\"No\");}\ninline int\
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#line 4 \"String/RollingHash.hpp\"\n\n#line\
-    \ 4 \"Template/Heuristic.hpp\"\ninline uint32_t pcg32_fast() {\n    static uint64_t\
-    \ state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
-    \ << 1) + 1;\n    uint64_t x = state;\n    uint8_t count = x >> 61;\n    state\
-    \ *= 0xf13283ad;\n    x ^= x >> 22;\n    return (uint32_t)(x >> (22 + count));\n\
-    }\ninline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)pcg32_fast()\
-    \ * (r - l + 1)) >> 32);\n}\nstatic auto startTime = std::chrono::system_clock::now();\n\
-    inline int32_t getTime() {\n    return std::chrono::duration_cast<std::chrono::microseconds>(\n\
-    \               std::chrono::system_clock::now() - startTime)\n        .count();\n\
-    }\n#line 6 \"String/RollingHash.hpp\"\n// https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
+    \ 4 \"Misc/Random.hpp\"\ninline uint32_t pcg32_fast() {\n    static uint64_t state\
+    \ =\n        (std::chrono::steady_clock::now().time_since_epoch().count() << 1)\
+    \ + 1;\n    uint64_t x = state;\n    uint8_t count = x >> 61;\n    state *= 0xf13283ad;\n\
+    \    x ^= x >> 22;\n    return (uint32_t)(x >> (22 + count));\n}\ninline int32_t\
+    \ randint(int32_t l, int32_t r) {\n    return l + (((int64_t)pcg32_fast() * (r\
+    \ - l + 1)) >> 32);\n}\n#line 6 \"String/RollingHash.hpp\"\n// https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
     template <typename S>\nstruct RollingHash {\n    using u64 = uint64_t;\n    static\
     \ const u64 MOD = (1ULL << 61) - 1;\n    static const u64 MASK31 = (1ULL << 31)\
     \ - 1;\n    static const u64 MASK30 = (1ULL << 30) - 1;\n    std::vector<u64>\
@@ -168,11 +165,11 @@ data:
   dependsOn:
   - Template/Template.hpp
   - String/RollingHash.hpp
-  - Template/Heuristic.hpp
+  - Misc/Random.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-05-08 20:46:35+09:00'
+  timestamp: '2024-05-09 15:56:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp

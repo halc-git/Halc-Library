@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/FenwickTree.hpp
     title: DataStructure/FenwickTree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -99,23 +99,29 @@ data:
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#line 3 \"DataStructure/FenwickTree.hpp\"\
     \ntemplate <class T>\nstruct FenwickTree {\n    std::vector<T> tree;\n    int32_t\
-    \ start = 1;\n    size_t siz;\n    FenwickTree(int32_t sz) {\n        siz = sz;\n\
-    \        tree.resize(sz + 1, 0);\n        while ((start << 1) <= siz) start <<=\
-    \ 1;\n    }\n    FenwickTree(std::vector<T> def) {\n        siz = def.size();\n\
-    \        tree.resize(siz + 1, 0);\n        while ((start << 1) <= siz) start <<=\
-    \ 1;\n        for (int32_t i = 0; i < siz; i++) {\n            tree[i + 1] +=\
-    \ def[i];\n            if (i + (i & -i) <= siz) {\n                tree[i + (i\
-    \ & -i)] += tree[i];\n            }\n        }\n    }\n    void add(int32_t pos,\
-    \ T val) {\n        pos++;\n        while (pos <= siz) {\n            tree[pos]\
-    \ += val;\n            pos += pos & -pos;\n        }\n    }\n    T _sum(int32_t\
-    \ pos) {\n        T ret = 0;\n        while (pos > 0) {\n            ret += tree[pos];\n\
-    \            pos -= pos & -pos;\n        }\n        return ret;\n    }\n    T\
-    \ sum(int32_t lf, int32_t ri) { return _sum(ri) - _sum(lf); }\n    int32_t lower_bound(T\
-    \ w) {\n        if (w <= 0) return 0;\n        int32_t now = 0;\n        T val\
-    \ = 0;\n        for (int32_t i = start; i > 0; i >>= 1) {\n            if (now\
-    \ + i <= siz && val + tree[now + i] < w) {\n                now += i;\n      \
-    \          val += tree[now];\n            }\n        }\n        return now + 1;\n\
-    \    }\n    size_t size() { return siz; }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp\"\
+    \ start = 1;\n    size_t siz;\n    constexpr inline int32_t _bit_length(int32_t\
+    \ x) {\n        x |= x >> 1;\n        x |= x >> 2;\n        x |= x >> 4;\n   \
+    \     x |= x >> 8;\n        x |= x >> 16;\n        x = (x & 0x55555555) + (x >>\
+    \ 1 & 0x55555555);\n        x = (x & 0x33333333) + (x >> 2 & 0x33333333);\n  \
+    \      x = (x & 0x0f0f0f0f) + (x >> 4 & 0x0f0f0f0f);\n        x = (x & 0x00ff00ff)\
+    \ + (x >> 8 & 0x00ff00ff);\n        return (x & 0x0000ffff) + (x >> 16);\n   \
+    \ }\n    FenwickTree(int32_t sz) {\n        siz = sz;\n        tree.resize(sz\
+    \ + 1, 0);\n        start = 1 << (_bit_length(siz) - 1);\n    }\n    FenwickTree(std::vector<T>\
+    \ def) {\n        siz = def.size();\n        tree.resize(siz + 1, 0);\n      \
+    \  start = 1 << (_bit_length(siz) - 1);\n        for (int32_t i = 0; i < siz;\
+    \ i++) {\n            tree[i + 1] += def[i];\n            if (i + (i & -i) <=\
+    \ siz) {\n                tree[i + (i & -i)] += tree[i];\n            }\n    \
+    \    }\n    }\n    void add(int32_t pos, T val) {\n        pos++;\n        while\
+    \ (pos <= siz) {\n            tree[pos] += val;\n            pos += pos & -pos;\n\
+    \        }\n    }\n    T _sum(int32_t pos) {\n        T ret = 0;\n        while\
+    \ (pos > 0) {\n            ret += tree[pos];\n            pos -= pos & -pos;\n\
+    \        }\n        return ret;\n    }\n    T sum(int32_t lf, int32_t ri) { return\
+    \ _sum(ri) - _sum(lf); }\n    int32_t lower_bound(T w) {\n        if (w <= 0)\
+    \ return 0;\n        int32_t now = 0;\n        T val = 0;\n        for (int32_t\
+    \ i = start; i > 0; i >>= 1) {\n            if (now + i <= siz && val + tree[now\
+    \ + i] < w) {\n                now += i;\n                val += tree[now];\n\
+    \            }\n        }\n        return now + 1;\n    }\n    size_t size() {\
+    \ return siz; }\n};\n#line 4 \"Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp\"\
     \nvoid solve(){\n    LL(N,Q);\n    STR(T);\n    vec(ll,t,N,0);\n    rep(i,N){\n\
     \        if(T[i]=='1')t[i]=1;\n    }\n    FenwickTree<ll> fw(t);\n    rep(i,Q){\n\
     \        LL(c,k);\n        if(c==0){\n            if(!fw.sum(k,k+1)){\n      \
@@ -148,7 +154,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 10:51:28+09:00'
+  timestamp: '2024-05-09 15:56:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp

@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Template/Heuristic.hpp
-    title: Template/Heuristic.hpp
+    path: Misc/Random.hpp
+    title: Misc/Random.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -22,15 +22,12 @@ data:
     links:
     - https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
   bundledCode: "#line 2 \"String/RollingHash.hpp\"\n#include <random>\n#include <vector>\n\
-    \n#line 2 \"Template/Heuristic.hpp\"\n#include <chrono>\n#include <cstdint>\n\
-    inline uint32_t pcg32_fast() {\n    static uint64_t state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
+    \n#line 2 \"Misc/Random.hpp\"\n#include <chrono>\n#include <cstdint>\ninline uint32_t\
+    \ pcg32_fast() {\n    static uint64_t state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
     \ << 1) + 1;\n    uint64_t x = state;\n    uint8_t count = x >> 61;\n    state\
     \ *= 0xf13283ad;\n    x ^= x >> 22;\n    return (uint32_t)(x >> (22 + count));\n\
     }\ninline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)pcg32_fast()\
-    \ * (r - l + 1)) >> 32);\n}\nstatic auto startTime = std::chrono::system_clock::now();\n\
-    inline int32_t getTime() {\n    return std::chrono::duration_cast<std::chrono::microseconds>(\n\
-    \               std::chrono::system_clock::now() - startTime)\n        .count();\n\
-    }\n#line 6 \"String/RollingHash.hpp\"\n// https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
+    \ * (r - l + 1)) >> 32);\n}\n#line 6 \"String/RollingHash.hpp\"\n// https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
     template <typename S>\nstruct RollingHash {\n    using u64 = uint64_t;\n    static\
     \ const u64 MOD = (1ULL << 61) - 1;\n    static const u64 MASK31 = (1ULL << 31)\
     \ - 1;\n    static const u64 MASK30 = (1ULL << 30) - 1;\n    std::vector<u64>\
@@ -62,7 +59,7 @@ data:
     \ (query(a, l1, l1 + mid) == query(b, l2, l2 + mid))\n                ok = mid;\n\
     \            else\n                ng = mid;\n        }\n        return ok;\n\
     \    }\n};\n"
-  code: "#pragma once\n#include <random>\n#include <vector>\n\n#include \"../Template/Heuristic.hpp\"\
+  code: "#pragma once\n#include <random>\n#include <vector>\n\n#include \"../Misc/Random.hpp\"\
     \n// https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\ntemplate <typename\
     \ S>\nstruct RollingHash {\n    using u64 = uint64_t;\n    static const u64 MOD\
     \ = (1ULL << 61) - 1;\n    static const u64 MASK31 = (1ULL << 31) - 1;\n    static\
@@ -96,11 +93,11 @@ data:
     \            else\n                ng = mid;\n        }\n        return ok;\n\
     \    }\n};"
   dependsOn:
-  - Template/Heuristic.hpp
+  - Misc/Random.hpp
   isVerificationFile: false
   path: String/RollingHash.hpp
   requiredBy: []
-  timestamp: '2024-05-08 20:46:35+09:00'
+  timestamp: '2024-05-09 15:56:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp

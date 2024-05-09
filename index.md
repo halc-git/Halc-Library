@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/DisjointSparseTable.hpp
       title: Disjoint Sparse Table
     - icon: ':heavy_check_mark:'
@@ -34,6 +34,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: Misc/Mo.hpp
       title: Mo's Algorithm
+    - icon: ':heavy_check_mark:'
+      path: Misc/Random.hpp
+      title: Misc/Random.hpp
+    - icon: ':warning:'
+      path: Misc/Timer.hpp
+      title: Misc/Timer.hpp
   - name: Modint
     pages:
     - icon: ':heavy_check_mark:'
@@ -52,10 +58,10 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: Template/Heuristic.hpp
       title: Template/Heuristic.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   - name: Tree
@@ -95,10 +101,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
       title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     - icon: ':heavy_check_mark:'

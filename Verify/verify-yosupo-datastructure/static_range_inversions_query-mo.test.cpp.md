@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Misc/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -105,45 +105,50 @@ data:
     \ No(bool i=true){return out(i?\"No\":\"Yes\");}\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#line 3 \"DataStructure/FenwickTree.hpp\"\
     \ntemplate <class T>\nstruct FenwickTree {\n    std::vector<T> tree;\n    int32_t\
-    \ start = 1;\n    size_t siz;\n    FenwickTree(int32_t sz) {\n        siz = sz;\n\
-    \        tree.resize(sz + 1, 0);\n        while ((start << 1) <= siz) start <<=\
-    \ 1;\n    }\n    FenwickTree(std::vector<T> def) {\n        siz = def.size();\n\
-    \        tree.resize(siz + 1, 0);\n        while ((start << 1) <= siz) start <<=\
-    \ 1;\n        for (int32_t i = 0; i < siz; i++) {\n            tree[i + 1] +=\
-    \ def[i];\n            if (i + (i & -i) <= siz) {\n                tree[i + (i\
-    \ & -i)] += tree[i];\n            }\n        }\n    }\n    void add(int32_t pos,\
-    \ T val) {\n        pos++;\n        while (pos <= siz) {\n            tree[pos]\
-    \ += val;\n            pos += pos & -pos;\n        }\n    }\n    T _sum(int32_t\
-    \ pos) {\n        T ret = 0;\n        while (pos > 0) {\n            ret += tree[pos];\n\
-    \            pos -= pos & -pos;\n        }\n        return ret;\n    }\n    T\
-    \ sum(int32_t lf, int32_t ri) { return _sum(ri) - _sum(lf); }\n    int32_t lower_bound(T\
-    \ w) {\n        if (w <= 0) return 0;\n        int32_t now = 0;\n        T val\
-    \ = 0;\n        for (int32_t i = start; i > 0; i >>= 1) {\n            if (now\
-    \ + i <= siz && val + tree[now + i] < w) {\n                now += i;\n      \
-    \          val += tree[now];\n            }\n        }\n        return now + 1;\n\
-    \    }\n    size_t size() { return siz; }\n};\n#line 5 \"Misc/Mo.hpp\"\ntemplate\
-    \ <class M>\nstruct Mo {\n    using T = typename M::T;\n    int32_t backet;\n\
-    \    std::vector<int32_t> left, right, order;\n    Mo(int32_t N, int32_t Q) {\n\
-    \        order.resize(Q);\n        backet = std::max<int32_t>(\n            1,\
-    \ (double)(N) / std::max<double>(1, std::sqrt(Q * 2.0 / 3)));\n        std::iota(order.begin(),\
-    \ order.end(), 0);\n    }\n    void add_query(int32_t lf, int32_t ri) {\n    \
-    \    left.emplace_back(lf);\n        right.emplace_back(ri);\n    }\n    std::vector<T>\
-    \ run() {\n        std::vector<T> answer(order.size());\n        sort(order.begin(),\
-    \ order.end(), [&](int32_t a, int32_t b) {\n            int32_t ab = left[a] /\
-    \ backet, bb = left[b] / backet;\n            if (ab != bb) return ab < bb;\n\
-    \            if (ab & 1) return right[a] < right[b];\n            return right[a]\
-    \ > right[b];\n        });\n        int32_t nl = 0, nr = 0;\n        for (int32_t\
-    \ i : order) {\n            while (nl > left[i]) {\n                nl--;\n  \
-    \              M::add_left(nl);\n            }\n            while (right[i] >\
-    \ nr) {\n                M::add_right(nr);\n                nr++;\n          \
-    \  }\n            while (nl < left[i]) {\n                M::delete_left(nl);\n\
-    \                nl++;\n            }\n            while (right[i] < nr) {\n \
-    \               nr--;\n                M::delete_right(nr);\n            }\n \
-    \           answer[i] = M::rem();\n        }\n        return answer;\n    }\n\
-    };\n#line 3 \"Misc/Compress.hpp\"\ntemplate <class T>\nstruct Compress {\n   \
-    \ std::vector<T> data;\n    void add(T x) { data.emplace_back(x); }\n    void\
-    \ add(std::vector<T> x) {\n        for (T i : x) add(i);\n    }\n    void build()\
-    \ {\n        sort(data.begin(), data.end());\n        data.erase(unique(data.begin(),\
+    \ start = 1;\n    size_t siz;\n    constexpr inline int32_t _bit_length(int32_t\
+    \ x) {\n        x |= x >> 1;\n        x |= x >> 2;\n        x |= x >> 4;\n   \
+    \     x |= x >> 8;\n        x |= x >> 16;\n        x = (x & 0x55555555) + (x >>\
+    \ 1 & 0x55555555);\n        x = (x & 0x33333333) + (x >> 2 & 0x33333333);\n  \
+    \      x = (x & 0x0f0f0f0f) + (x >> 4 & 0x0f0f0f0f);\n        x = (x & 0x00ff00ff)\
+    \ + (x >> 8 & 0x00ff00ff);\n        return (x & 0x0000ffff) + (x >> 16);\n   \
+    \ }\n    FenwickTree(int32_t sz) {\n        siz = sz;\n        tree.resize(sz\
+    \ + 1, 0);\n        start = 1 << (_bit_length(siz) - 1);\n    }\n    FenwickTree(std::vector<T>\
+    \ def) {\n        siz = def.size();\n        tree.resize(siz + 1, 0);\n      \
+    \  start = 1 << (_bit_length(siz) - 1);\n        for (int32_t i = 0; i < siz;\
+    \ i++) {\n            tree[i + 1] += def[i];\n            if (i + (i & -i) <=\
+    \ siz) {\n                tree[i + (i & -i)] += tree[i];\n            }\n    \
+    \    }\n    }\n    void add(int32_t pos, T val) {\n        pos++;\n        while\
+    \ (pos <= siz) {\n            tree[pos] += val;\n            pos += pos & -pos;\n\
+    \        }\n    }\n    T _sum(int32_t pos) {\n        T ret = 0;\n        while\
+    \ (pos > 0) {\n            ret += tree[pos];\n            pos -= pos & -pos;\n\
+    \        }\n        return ret;\n    }\n    T sum(int32_t lf, int32_t ri) { return\
+    \ _sum(ri) - _sum(lf); }\n    int32_t lower_bound(T w) {\n        if (w <= 0)\
+    \ return 0;\n        int32_t now = 0;\n        T val = 0;\n        for (int32_t\
+    \ i = start; i > 0; i >>= 1) {\n            if (now + i <= siz && val + tree[now\
+    \ + i] < w) {\n                now += i;\n                val += tree[now];\n\
+    \            }\n        }\n        return now + 1;\n    }\n    size_t size() {\
+    \ return siz; }\n};\n#line 5 \"Misc/Mo.hpp\"\ntemplate <class M>\nstruct Mo {\n\
+    \    using T = typename M::T;\n    int32_t backet;\n    std::vector<int32_t> left,\
+    \ right, order;\n    Mo(int32_t N, int32_t Q) {\n        order.resize(Q);\n  \
+    \      backet = std::max<int32_t>(\n            1, (double)(N) / std::max<double>(1,\
+    \ std::sqrt(Q * 2.0 / 3)));\n        std::iota(order.begin(), order.end(), 0);\n\
+    \    }\n    void add_query(int32_t lf, int32_t ri) {\n        left.emplace_back(lf);\n\
+    \        right.emplace_back(ri);\n    }\n    std::vector<T> run() {\n        std::vector<T>\
+    \ answer(order.size());\n        sort(order.begin(), order.end(), [&](int32_t\
+    \ a, int32_t b) {\n            int32_t ab = left[a] / backet, bb = left[b] / backet;\n\
+    \            if (ab != bb) return ab < bb;\n            if (ab & 1) return right[a]\
+    \ < right[b];\n            return right[a] > right[b];\n        });\n        int32_t\
+    \ nl = 0, nr = 0;\n        for (int32_t i : order) {\n            while (nl >\
+    \ left[i]) {\n                nl--;\n                M::add_left(nl);\n      \
+    \      }\n            while (right[i] > nr) {\n                M::add_right(nr);\n\
+    \                nr++;\n            }\n            while (nl < left[i]) {\n  \
+    \              M::delete_left(nl);\n                nl++;\n            }\n   \
+    \         while (right[i] < nr) {\n                nr--;\n                M::delete_right(nr);\n\
+    \            }\n            answer[i] = M::rem();\n        }\n        return answer;\n\
+    \    }\n};\n#line 3 \"Misc/Compress.hpp\"\ntemplate <class T>\nstruct Compress\
+    \ {\n    std::vector<T> data;\n    void add(T x) { data.emplace_back(x); }\n \
+    \   void add(std::vector<T> x) {\n        for (T i : x) add(i);\n    }\n    void\
+    \ build() {\n        sort(data.begin(), data.end());\n        data.erase(unique(data.begin(),\
     \ data.end()), data.end());\n    }\n    int32_t get(T x) {\n        return std::lower_bound(data.begin(),\
     \ data.end(), x) - data.begin();\n    }\n    inline int32_t operator()(T x) {\
     \ return get(x); }\n    T operator[](int32_t i) { return data[i]; }\n    size_t\
@@ -162,20 +167,21 @@ data:
     \        LL(l,r);\n        mo.add_query(l,r);\n    }\n    vector<ll> fin=mo.run();\n\
     \    each(i,fin)out(i);\n}\nint main(){\n    solve();\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
-    \n#include\"Template/Template.hpp\"\n#include\"DataStructure/FenwickTree.hpp\"\
-    \n#include\"Misc/Mo.hpp\"\n#include\"Misc/Compress.hpp\"\nvoid solve(){\n    LL(N,Q);\n\
-    \    static VEC(ll,A,N);\n    static Compress<ll> cp;\n    cp.add(A);\n    cp.build();\n\
-    \    rep(i,N){\n        A[i]=cp(A[i]);\n    }\n    static FenwickTree<ll> fw(len(cp));\n\
-    \    static ll ans=0;\n    struct inversions{\n        using T=ll;\n        static\
-    \ void add_left(int pos){\n            ans+=fw.sum(0,A[pos]);\n            fw.add(A[pos],1);\n\
-    \        }\n        static void delete_left(int pos){\n            ans-=fw.sum(0,A[pos]);\n\
-    \            fw.add(A[pos],-1);\n        }\n        static void add_right(int\
-    \ pos){\n            ans+=fw.sum(A[pos]+1,len(cp));\n            fw.add(A[pos],1);\n\
-    \        }\n        static void delete_right(int pos){\n            ans-=fw.sum(A[pos]+1,len(cp));\n\
-    \            fw.add(A[pos],-1);\n        }\n        static T rem(){\n        \
-    \    return ans;\n        }\n    };\n    Mo<inversions> mo(N,Q);\n    rep(i,Q){\n\
-    \        LL(l,r);\n        mo.add_query(l,r);\n    }\n    vector<ll> fin=mo.run();\n\
-    \    each(i,fin)out(i);\n}\nint main(){\n    solve();\n    return 0;\n}"
+    \n#include\"../../Template/Template.hpp\"\n#include\"../../DataStructure/FenwickTree.hpp\"\
+    \n#include\"../../Misc/Mo.hpp\"\n#include\"../../Misc/Compress.hpp\"\nvoid solve(){\n\
+    \    LL(N,Q);\n    static VEC(ll,A,N);\n    static Compress<ll> cp;\n    cp.add(A);\n\
+    \    cp.build();\n    rep(i,N){\n        A[i]=cp(A[i]);\n    }\n    static FenwickTree<ll>\
+    \ fw(len(cp));\n    static ll ans=0;\n    struct inversions{\n        using T=ll;\n\
+    \        static void add_left(int pos){\n            ans+=fw.sum(0,A[pos]);\n\
+    \            fw.add(A[pos],1);\n        }\n        static void delete_left(int\
+    \ pos){\n            ans-=fw.sum(0,A[pos]);\n            fw.add(A[pos],-1);\n\
+    \        }\n        static void add_right(int pos){\n            ans+=fw.sum(A[pos]+1,len(cp));\n\
+    \            fw.add(A[pos],1);\n        }\n        static void delete_right(int\
+    \ pos){\n            ans-=fw.sum(A[pos]+1,len(cp));\n            fw.add(A[pos],-1);\n\
+    \        }\n        static T rem(){\n            return ans;\n        }\n    };\n\
+    \    Mo<inversions> mo(N,Q);\n    rep(i,Q){\n        LL(l,r);\n        mo.add_query(l,r);\n\
+    \    }\n    vector<ll> fin=mo.run();\n    each(i,fin)out(i);\n}\nint main(){\n\
+    \    solve();\n    return 0;\n}"
   dependsOn:
   - Template/Template.hpp
   - DataStructure/FenwickTree.hpp
@@ -184,7 +190,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 10:51:28+09:00'
+  timestamp: '2024-05-09 15:56:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
