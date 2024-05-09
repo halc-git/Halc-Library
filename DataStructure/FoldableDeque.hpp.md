@@ -15,8 +15,8 @@ data:
   attributes:
     links:
     - https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1
-  bundledCode: "#line 2 \"DataStructure/FoldableDeque.hpp\"\n#include <cstdint>\n\
-    #include <stack>\n#include <vector>\n// https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\n\
+  bundledCode: "#line 2 \"DataStructure/FoldableDeque.hpp\"\n#include <cstddef>\n\
+    #include <cstdint>\n#include <stack>\n#include <vector>\n// https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\n\
     template <class M>\nstruct FoldableQueue {\n    using T = typename M::T;\n   \
     \ std::stack<T> top, bottom, topfold, bottomfold;\n    FoldableQueue() {\n   \
     \     topfold.push(M::e);\n        bottomfold.push(M::e);\n    }\n    void push(T\
@@ -75,27 +75,28 @@ data:
     \   }\n    T get_all() { return M::op(topfold.top(), bottomfold.top()); }\n  \
     \  size_t size() { return top.size() + bottom.size(); }\n    bool empty() { return\
     \ top.empty() && bottom.empty(); }\n};\n"
-  code: "#pragma once\n#include <cstdint>\n#include <stack>\n#include <vector>\n//\
-    \ https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\ntemplate <class M>\n\
-    struct FoldableQueue {\n    using T = typename M::T;\n    std::stack<T> top, bottom,\
-    \ topfold, bottomfold;\n    FoldableQueue() {\n        topfold.push(M::e);\n \
-    \       bottomfold.push(M::e);\n    }\n    void push(T v) {\n        bottom.push(v);\n\
-    \        bottomfold.push(M::op(bottomfold.top(), v));\n    }\n    void pop() {\n\
-    \        if (top.empty()) {\n            while (!bottom.empty()) {\n         \
-    \       top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),\
-    \ topfold.top()));\n                bottom.pop();\n                bottomfold.pop();\n\
-    \            }\n        }\n        top.pop();\n        topfold.pop();\n    }\n\
-    \    T front() {\n        if (top.empty()) {\n            while (!bottom.empty())\
-    \ {\n                top.push(bottom.top());\n                topfold.push(M::op(bottom.top(),\
-    \ topfold.top()));\n                bottom.pop();\n                bottomfold.pop();\n\
-    \            }\n        }\n        return top.top();\n    }\n    T get_all() {\
-    \ return M::op(topfold.top(), bottomfold.top()); }\n    size_t size() { return\
-    \ top.size() + bottom.size(); }\n    bool empty() { return top.empty() && bottom.empty();\
-    \ }\n};\ntemplate <class M>\nstruct FoldableDeque {\n    using T = typename M::T;\n\
-    \    std::stack<T> top, bottom, topfold, bottomfold;\n    FoldableDeque() {\n\
-    \        topfold.push(M::e);\n        bottomfold.push(M::e);\n    }\n    void\
-    \ push_front(T v) {\n        top.push(v);\n        topfold.push(M::op(v, topfold.top()));\n\
-    \    }\n    void push_back(T v) {\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),\
+  code: "#pragma once\n#include <cstddef>\n#include <cstdint>\n#include <stack>\n\
+    #include <vector>\n// https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\n\
+    template <class M>\nstruct FoldableQueue {\n    using T = typename M::T;\n   \
+    \ std::stack<T> top, bottom, topfold, bottomfold;\n    FoldableQueue() {\n   \
+    \     topfold.push(M::e);\n        bottomfold.push(M::e);\n    }\n    void push(T\
+    \ v) {\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),\
+    \ v));\n    }\n    void pop() {\n        if (top.empty()) {\n            while\
+    \ (!bottom.empty()) {\n                top.push(bottom.top());\n             \
+    \   topfold.push(M::op(bottom.top(), topfold.top()));\n                bottom.pop();\n\
+    \                bottomfold.pop();\n            }\n        }\n        top.pop();\n\
+    \        topfold.pop();\n    }\n    T front() {\n        if (top.empty()) {\n\
+    \            while (!bottom.empty()) {\n                top.push(bottom.top());\n\
+    \                topfold.push(M::op(bottom.top(), topfold.top()));\n         \
+    \       bottom.pop();\n                bottomfold.pop();\n            }\n    \
+    \    }\n        return top.top();\n    }\n    T get_all() { return M::op(topfold.top(),\
+    \ bottomfold.top()); }\n    size_t size() { return top.size() + bottom.size();\
+    \ }\n    bool empty() { return top.empty() && bottom.empty(); }\n};\ntemplate\
+    \ <class M>\nstruct FoldableDeque {\n    using T = typename M::T;\n    std::stack<T>\
+    \ top, bottom, topfold, bottomfold;\n    FoldableDeque() {\n        topfold.push(M::e);\n\
+    \        bottomfold.push(M::e);\n    }\n    void push_front(T v) {\n        top.push(v);\n\
+    \        topfold.push(M::op(v, topfold.top()));\n    }\n    void push_back(T v)\
+    \ {\n        bottom.push(v);\n        bottomfold.push(M::op(bottomfold.top(),\
     \ v));\n    }\n    void pop_front() {\n        if (top.empty()) {\n          \
     \  std::vector<T> change;\n            while (!bottom.empty()) {\n           \
     \     change.emplace_back(bottom.top());\n                bottom.pop();\n    \
@@ -138,7 +139,7 @@ data:
   isVerificationFile: false
   path: DataStructure/FoldableDeque.hpp
   requiredBy: []
-  timestamp: '2024-05-08 20:46:35+09:00'
+  timestamp: '2024-05-09 17:59:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp

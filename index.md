@@ -58,12 +58,21 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
+      path: Template/IO.hpp
+      title: Template/IO.hpp
+    - icon: ':question:'
+      path: Template/Macro.hpp
+      title: Template/Macro.hpp
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
+    - icon: ':question:'
+      path: Template/Utils.hpp
+      title: Template/Utils.hpp
   - name: Tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
   verificationCategories:
@@ -117,11 +126,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
       title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
-  - name: Verify/verify-yosupo-sample
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: Verify/verify-yosupo-sample/aplusb.test.cpp
-      title: Verify/verify-yosupo-sample/aplusb.test.cpp
   - name: Verify/verify-yosupo-string
     pages:
     - icon: ':heavy_check_mark:'
@@ -147,7 +151,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/2338.test.cpp
       title: Verify/verify-yuki/2338.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/901.test.cpp
       title: Verify/verify-yuki/901.test.cpp
 layout: toppage
