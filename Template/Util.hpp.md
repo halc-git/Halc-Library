@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedVerifiedWith:
@@ -33,10 +33,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -72,12 +72,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"Template/Utils.hpp\"\n#include <array>\n#include <climits>\n\
+  bundledCode: "#line 2 \"Template/Util.hpp\"\n#include <array>\n#include <climits>\n\
     #include <functional>\n#include <limits>\n#include <queue>\n#include <vector>\n\
     using ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
     using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
@@ -124,11 +124,11 @@ data:
     \ std::end(a));\n}"
   dependsOn: []
   isVerificationFile: false
-  path: Template/Utils.hpp
+  path: Template/Util.hpp
   requiredBy:
   - Template/Template.hpp
-  timestamp: '2024-05-09 17:59:47+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-09 20:10:47+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -152,10 +152,10 @@ data:
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   - Verify/verify-yosupo-string/zalgorithm.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-documentation_of: Template/Utils.hpp
+documentation_of: Template/Util.hpp
 layout: document
 redirect_from:
-- /library/Template/Utils.hpp
-- /library/Template/Utils.hpp.html
-title: Template/Utils.hpp
+- /library/Template/Util.hpp
+- /library/Template/Util.hpp.html
+title: Template/Util.hpp
 ---

@@ -10,18 +10,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: Misc/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
-    path: Template/IO.hpp
-    title: Template/IO.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
+    path: Template/InOut.hpp
+    title: Template/InOut.hpp
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
-    path: Template/Utils.hpp
-    title: Template/Utils.hpp
+  - icon: ':question:'
+    path: Template/Util.hpp
+    title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -34,34 +34,29 @@ data:
     - https://judge.yosupo.jp/problem/static_range_inversions_query
   bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
-    \n#line 2 \"DataStructure/FenwickTree.hpp\"\n#include <cstddef>\n#include <cstdint>\n\
-    #include <vector>\ntemplate <class T>\nstruct FenwickTree {\n    std::vector<T>\
-    \ tree;\n    int32_t start = 1;\n    size_t siz;\n    constexpr inline int32_t\
-    \ _bit_length(int32_t x) {\n        x |= x >> 1;\n        x |= x >> 2;\n     \
-    \   x |= x >> 4;\n        x |= x >> 8;\n        x |= x >> 16;\n        x = (x\
-    \ & 0x55555555) + (x >> 1 & 0x55555555);\n        x = (x & 0x33333333) + (x >>\
-    \ 2 & 0x33333333);\n        x = (x & 0x0f0f0f0f) + (x >> 4 & 0x0f0f0f0f);\n  \
-    \      x = (x & 0x00ff00ff) + (x >> 8 & 0x00ff00ff);\n        return (x & 0x0000ffff)\
-    \ + (x >> 16);\n    }\n    FenwickTree(int32_t sz) {\n        siz = sz;\n    \
-    \    tree.resize(sz + 1, 0);\n        start = 1 << (_bit_length(siz) - 1);\n \
-    \   }\n    FenwickTree(std::vector<T> def) {\n        siz = def.size();\n    \
-    \    tree.resize(siz + 1, 0);\n        start = 1 << (_bit_length(siz) - 1);\n\
-    \        for (int32_t i = 0; i < siz; i++) {\n            tree[i + 1] += def[i];\n\
-    \            if (i + (i & -i) <= siz) {\n                tree[i + (i & -i)] +=\
-    \ tree[i];\n            }\n        }\n    }\n    void add(int32_t pos, T val)\
-    \ {\n        pos++;\n        while (pos <= siz) {\n            tree[pos] += val;\n\
-    \            pos += pos & -pos;\n        }\n    }\n    T _sum(int32_t pos) {\n\
-    \        T ret = 0;\n        while (pos > 0) {\n            ret += tree[pos];\n\
-    \            pos -= pos & -pos;\n        }\n        return ret;\n    }\n    T\
-    \ sum(int32_t lf, int32_t ri) { return _sum(ri) - _sum(lf); }\n    int32_t lower_bound(T\
-    \ w) {\n        if (w <= 0) return 0;\n        int32_t now = 0;\n        T val\
-    \ = 0;\n        for (int32_t i = start; i > 0; i >>= 1) {\n            if (now\
-    \ + i <= siz && val + tree[now + i] < w) {\n                now += i;\n      \
-    \          val += tree[now];\n            }\n        }\n        return now + 1;\n\
-    \    }\n    size_t size() { return siz; }\n};\n#line 3 \"Misc/Compress.hpp\"\n\
-    template <class T>\nstruct Compress {\n    std::vector<T> data;\n    void add(T\
-    \ x) { data.emplace_back(x); }\n    void add(std::vector<T> x) {\n        for\
-    \ (T i : x) add(i);\n    }\n    void build() {\n        sort(data.begin(), data.end());\n\
+    \n#line 2 \"DataStructure/FenwickTree.hpp\"\n#include <bit>\n#include <cstddef>\n\
+    #include <cstdint>\n#include <vector>\ntemplate <class T>\nstruct FenwickTree\
+    \ {\n    std::vector<T> tree;\n    int32_t start = 1;\n    size_t siz;\n    FenwickTree(int32_t\
+    \ sz) {\n        siz = sz;\n        tree.resize(sz + 1, 0);\n        start = 1\
+    \ << ((32-std::countl_zero(siz)) - 1);\n    }\n    FenwickTree(std::vector<T>\
+    \ def) {\n        siz = def.size();\n        tree.resize(siz + 1, 0);\n      \
+    \  start = 1 << ((32-std::countl_zero(siz)) - 1);\n        for (int32_t i = 0;\
+    \ i < siz; i++) {\n            tree[i + 1] += def[i];\n            if (i + (i\
+    \ & -i) <= siz) {\n                tree[i + (i & -i)] += tree[i];\n          \
+    \  }\n        }\n    }\n    void add(int32_t pos, T val) {\n        pos++;\n \
+    \       while (pos <= siz) {\n            tree[pos] += val;\n            pos +=\
+    \ pos & -pos;\n        }\n    }\n    T _sum(int32_t pos) {\n        T ret = 0;\n\
+    \        while (pos > 0) {\n            ret += tree[pos];\n            pos -=\
+    \ pos & -pos;\n        }\n        return ret;\n    }\n    T sum(int32_t lf, int32_t\
+    \ ri) { return _sum(ri) - _sum(lf); }\n    int32_t lower_bound(T w) {\n      \
+    \  if (w <= 0) return 0;\n        int32_t now = 0;\n        T val = 0;\n     \
+    \   for (int32_t i = start; i > 0; i >>= 1) {\n            if (now + i <= siz\
+    \ && val + tree[now + i] < w) {\n                now += i;\n                val\
+    \ += tree[now];\n            }\n        }\n        return now + 1;\n    }\n  \
+    \  size_t size() { return siz; }\n};\n#line 3 \"Misc/Compress.hpp\"\ntemplate\
+    \ <class T>\nstruct Compress {\n    std::vector<T> data;\n    void add(T x) {\
+    \ data.emplace_back(x); }\n    void add(std::vector<T> x) {\n        for (T i\
+    \ : x) add(i);\n    }\n    void build() {\n        sort(data.begin(), data.end());\n\
     \        data.erase(unique(data.begin(), data.end()), data.end());\n    }\n  \
     \  int32_t get(T x) {\n        return std::lower_bound(data.begin(), data.end(),\
     \ x) - data.begin();\n    }\n    inline int32_t operator()(T x) { return get(x);\
@@ -86,8 +81,8 @@ data:
     \     while (right[i] < nr) {\n                nr--;\n                M::delete_right(nr);\n\
     \            }\n            answer[i] = M::rem();\n        }\n        return answer;\n\
     \    }\n};\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\n\n#line 8 \"Template/IO.hpp\"\ninline int scan() { return getchar();\
-    \ }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
+    \ namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline int scan() { return\
+    \ getchar(); }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
     \ &a) { scanf(\"%u\", &a); }\ninline void scan(long &a) { scanf(\"%ld\", &a);\
     \ }\ninline void scan(long long &a) { scanf(\"%lld\", &a); }\ninline void scan(unsigned\
     \ long long &a) { scanf(\"%llu\", &a); }\ninline void scan(char &a) { std::cin\
@@ -161,7 +156,7 @@ data:
     \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
     \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
     \ h, w)                                      \\\n    std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Utils.hpp\"\
+    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Util.hpp\"\
     \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
     using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
     \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
@@ -218,13 +213,13 @@ data:
   - Misc/Compress.hpp
   - Misc/Mo.hpp
   - Template/Template.hpp
-  - Template/IO.hpp
+  - Template/InOut.hpp
   - Template/Macro.hpp
-  - Template/Utils.hpp
+  - Template/Util.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 18:21:58+09:00'
+  timestamp: '2024-05-09 20:10:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp

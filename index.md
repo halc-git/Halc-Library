@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/DisjointSparseTable.hpp
       title: Disjoint Sparse Table
     - icon: ':heavy_check_mark:'
@@ -58,18 +58,18 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':heavy_check_mark:'
-      path: Template/IO.hpp
-      title: Template/IO.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
+      path: Template/InOut.hpp
+      title: Template/InOut.hpp
+    - icon: ':question:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':heavy_check_mark:'
-      path: Template/Utils.hpp
-      title: Template/Utils.hpp
+    - icon: ':question:'
+      path: Template/Util.hpp
+      title: Template/Util.hpp
   - name: Tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -107,10 +107,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
       title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     - icon: ':heavy_check_mark:'
@@ -159,10 +159,8 @@ layout: toppage
 [![hirayuu_At](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fhirayuu_At)](https://atcoder.jp/users/hirayuu_At)
 [![hirayuu_cf](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fcodeforces%2Fjson%2Fhirayuu_cf)](https://codeforces.com/profile/hirayuu_cf)
 
-ねむたい
-
-はるくさんのライブラリです。自由に使って構いませんが、責任は取れません。
+はるくさんのライブラリです。C++20以降で動くと思います。自由に使って構いませんが、責任は取れません。
 
 使い方は書いてあったりなかったりします。書いてなかったら察してください。
 
-バグってたらIssueとかを立てて教えてください。
+バグってたらすみません。Issueとかを立てて教えてください。

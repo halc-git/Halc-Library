@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedVerifiedWith:
@@ -33,10 +33,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -72,12 +72,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"Template/IO.hpp\"\n#include <array>\n#include <cstdio>\n\
+  bundledCode: "#line 2 \"Template/InOut.hpp\"\n#include <array>\n#include <cstdio>\n\
     #include <deque>\n#include <iostream>\n#include <string>\n#include <vector>\n\
     inline int scan() { return getchar(); }\ninline void scan(int &a) { scanf(\"%d\"\
     , &a); }\ninline void scan(unsigned &a) { scanf(\"%u\", &a); }\ninline void scan(long\
@@ -194,11 +194,11 @@ data:
     \ ? \"No\" : \"Yes\"); }"
   dependsOn: []
   isVerificationFile: false
-  path: Template/IO.hpp
+  path: Template/InOut.hpp
   requiredBy:
   - Template/Template.hpp
-  timestamp: '2024-05-09 17:59:47+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-09 20:10:47+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -222,10 +222,10 @@ data:
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   - Verify/verify-yosupo-string/zalgorithm.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-documentation_of: Template/IO.hpp
+documentation_of: Template/InOut.hpp
 layout: document
 redirect_from:
-- /library/Template/IO.hpp
-- /library/Template/IO.hpp.html
-title: Template/IO.hpp
+- /library/Template/InOut.hpp
+- /library/Template/InOut.hpp.html
+title: Template/InOut.hpp
 ---

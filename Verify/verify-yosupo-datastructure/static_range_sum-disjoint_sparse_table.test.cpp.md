@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: DataStructure/DisjointSparseTable.hpp
     title: Disjoint Sparse Table
-  - icon: ':heavy_check_mark:'
-    path: Template/IO.hpp
-    title: Template/IO.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
+    path: Template/InOut.hpp
+    title: Template/InOut.hpp
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
-    path: Template/Utils.hpp
-    title: Template/Utils.hpp
+  - icon: ':question:'
+    path: Template/Util.hpp
+    title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
@@ -28,16 +28,11 @@ data:
     - https://judge.yosupo.jp/problem/static_range_sum
   bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#line\
-    \ 2 \"DataStructure/DisjointSparseTable.hpp\"\n#include <cstddef>\n#include <cstdint>\n\
-    #include <vector>\ntemplate <class M>\nstruct DisjointSparseTable {\n    using\
-    \ T = typename M::T;\n    size_t siz;\n    std::vector<T> table;\n    constexpr\
-    \ inline int32_t _bit_length(int32_t x) {\n        x |= x >> 1;\n        x |=\
-    \ x >> 2;\n        x |= x >> 4;\n        x |= x >> 8;\n        x |= x >> 16;\n\
-    \        x = (x & 0x55555555) + (x >> 1 & 0x55555555);\n        x = (x & 0x33333333)\
-    \ + (x >> 2 & 0x33333333);\n        x = (x & 0x0f0f0f0f) + (x >> 4 & 0x0f0f0f0f);\n\
-    \        x = (x & 0x00ff00ff) + (x >> 8 & 0x00ff00ff);\n        return (x & 0x0000ffff)\
-    \ + (x >> 16);\n    }\n    DisjointSparseTable(std::vector<T> def) {\n       \
-    \ siz = def.size();\n        int32_t bitlen = _bit_length(siz - 1);\n        table.resize(siz\
+    \ 2 \"DataStructure/DisjointSparseTable.hpp\"\n#include <bit>\n#include <cstddef>\n\
+    #include <cstdint>\n#include <vector>\ntemplate <class M>\nstruct DisjointSparseTable\
+    \ {\n    using T = typename M::T;\n    size_t siz;\n    std::vector<T> table;\n\
+    \    DisjointSparseTable(std::vector<T> def) {\n        siz = def.size();\n  \
+    \      int32_t bitlen = (32-std::countl_zero(siz-1));\n        table.resize(siz\
     \ * std::max(1, bitlen));\n        int32_t pos = 0;\n        for (int32_t i =\
     \ 0; i < table.size(); i++) {\n            if (i < siz) {\n                table[i]\
     \ = def[i];\n            } else {\n                table[i] = table[i - siz];\n\
@@ -53,16 +48,16 @@ data:
     \            }\n            index += siz;\n        }\n    }\n    T get(int32_t\
     \ p) { return table[p]; }\n    T prod(int32_t lf, int32_t ri) {\n        if (lf\
     \ == ri) return M::e;\n        if (lf + 1 == ri) return table[lf];\n        int32_t\
-    \ pos = (_bit_length(lf ^ (ri - 1)) - 1) * siz;\n        return M::op(table[pos\
-    \ + lf], table[pos + ri - 1]);\n    }\n};\n#line 2 \"Template/Template.hpp\"\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/IO.hpp\"\n\
-    inline int scan() { return getchar(); }\ninline void scan(int &a) { scanf(\"%d\"\
-    , &a); }\ninline void scan(unsigned &a) { scanf(\"%u\", &a); }\ninline void scan(long\
-    \ &a) { scanf(\"%ld\", &a); }\ninline void scan(long long &a) { scanf(\"%lld\"\
-    , &a); }\ninline void scan(unsigned long long &a) { scanf(\"%llu\", &a); }\ninline\
-    \ void scan(char &a) { std::cin >> a; }\ninline void scan(float &a) { scanf(\"\
-    %f\", &a); }\ninline void scan(double &a) { scanf(\"%lf\", &a); }\ninline void\
-    \ scan(long double &a) { scanf(\"%Lf\", &a); }\ninline void scan(std::vector<bool>\
+    \ pos = ((32-std::countl_zero((uint32_t)lf^(ri-1))) - 1) * siz;\n        return\
+    \ M::op(table[pos + lf], table[pos + ri - 1]);\n    }\n};\n#line 2 \"Template/Template.hpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\
+    \ninline int scan() { return getchar(); }\ninline void scan(int &a) { scanf(\"\
+    %d\", &a); }\ninline void scan(unsigned &a) { scanf(\"%u\", &a); }\ninline void\
+    \ scan(long &a) { scanf(\"%ld\", &a); }\ninline void scan(long long &a) { scanf(\"\
+    %lld\", &a); }\ninline void scan(unsigned long long &a) { scanf(\"%llu\", &a);\
+    \ }\ninline void scan(char &a) { std::cin >> a; }\ninline void scan(float &a)\
+    \ { scanf(\"%f\", &a); }\ninline void scan(double &a) { scanf(\"%lf\", &a); }\n\
+    inline void scan(long double &a) { scanf(\"%Lf\", &a); }\ninline void scan(std::vector<bool>\
     \ &vec) {\n    for (unsigned i = 0; i < vec.size(); i++) {\n        int a;\n \
     \       scan(a);\n        vec[i] = a;\n    }\n}\ninline void scan(char a[]) {\
     \ scanf(\"%s\", a); }\ninline void scan(std::string &a) { std::cin >> a; }\ntemplate\
@@ -131,7 +126,7 @@ data:
     \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
     \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
     \ h, w)                                      \\\n    std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Utils.hpp\"\
+    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Util.hpp\"\
     \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
     using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
     \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
@@ -167,14 +162,14 @@ data:
   dependsOn:
   - DataStructure/DisjointSparseTable.hpp
   - Template/Template.hpp
-  - Template/IO.hpp
+  - Template/InOut.hpp
   - Template/Macro.hpp
-  - Template/Utils.hpp
+  - Template/Util.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 18:21:58+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-09 20:10:47+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
 layout: document

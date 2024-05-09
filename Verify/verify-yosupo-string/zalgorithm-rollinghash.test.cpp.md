@@ -7,18 +7,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
-  - icon: ':heavy_check_mark:'
-    path: Template/IO.hpp
-    title: Template/IO.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
+    path: Template/InOut.hpp
+    title: Template/InOut.hpp
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
-    path: Template/Utils.hpp
-    title: Template/Utils.hpp
+  - icon: ':question:'
+    path: Template/Util.hpp
+    title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -69,8 +69,8 @@ data:
     \ (query(a, l1, l1 + mid) == query(b, l2, l2 + mid))\n                ok = mid;\n\
     \            else\n                ng = mid;\n        }\n        return ok;\n\
     \    }\n};\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\n\n#line 8 \"Template/IO.hpp\"\ninline int scan() { return getchar();\
-    \ }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
+    \ namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline int scan() { return\
+    \ getchar(); }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
     \ &a) { scanf(\"%u\", &a); }\ninline void scan(long &a) { scanf(\"%ld\", &a);\
     \ }\ninline void scan(long long &a) { scanf(\"%lld\", &a); }\ninline void scan(unsigned\
     \ long long &a) { scanf(\"%llu\", &a); }\ninline void scan(char &a) { std::cin\
@@ -144,7 +144,7 @@ data:
     \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
     \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
     \ h, w)                                      \\\n    std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Utils.hpp\"\
+    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Util.hpp\"\
     \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
     using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
     \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
@@ -179,13 +179,13 @@ data:
   - String/RollingHash.hpp
   - Misc/Random.hpp
   - Template/Template.hpp
-  - Template/IO.hpp
+  - Template/InOut.hpp
   - Template/Macro.hpp
-  - Template/Utils.hpp
+  - Template/Util.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 18:21:58+09:00'
+  timestamp: '2024-05-09 20:10:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp

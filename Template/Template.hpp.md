@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: Template/IO.hpp
-    title: Template/IO.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
+    path: Template/InOut.hpp
+    title: Template/InOut.hpp
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
-    path: Template/Utils.hpp
-    title: Template/Utils.hpp
+  - icon: ':question:'
+    path: Template/Util.hpp
+    title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -39,10 +39,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -78,14 +78,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\n\n#line 8 \"Template/IO.hpp\"\ninline int scan() { return getchar();\
-    \ }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
+    \ namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline int scan() { return\
+    \ getchar(); }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
     \ &a) { scanf(\"%u\", &a); }\ninline void scan(long &a) { scanf(\"%ld\", &a);\
     \ }\ninline void scan(long long &a) { scanf(\"%lld\", &a); }\ninline void scan(unsigned\
     \ long long &a) { scanf(\"%llu\", &a); }\ninline void scan(char &a) { std::cin\
@@ -159,7 +159,7 @@ data:
     \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
     \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
     \ h, w)                                      \\\n    std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Utils.hpp\"\
+    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Util.hpp\"\
     \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
     using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
     \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
@@ -189,11 +189,11 @@ data:
     using namespace std;
 
 
-    #include "IO.hpp"
+    #include "InOut.hpp"
 
     #include "Macro.hpp"
 
-    #include "Utils.hpp"
+    #include "Util.hpp"
 
     namespace Halc {
 
@@ -203,14 +203,14 @@ data:
 
     int main() { Halc::solve(); }'
   dependsOn:
-  - Template/IO.hpp
+  - Template/InOut.hpp
   - Template/Macro.hpp
-  - Template/Utils.hpp
+  - Template/Util.hpp
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy: []
-  timestamp: '2024-05-09 18:21:58+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-09 20:10:47+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
