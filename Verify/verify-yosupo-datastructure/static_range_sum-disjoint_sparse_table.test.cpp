@@ -1,17 +1,17 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #include"../../Template/Template.hpp"
 #include"../../DataStructure/DisjointSparseTable.hpp"
-struct rmq{
+struct rsq{
     using T=ll;
     static T op(T x,T y){
-        return min(x,y);
+        return x+y;
     }
-    static inline T e=INF;
+    static inline T e=0;
 };
 void solve(){
     LL(N,Q);
     VEC(ll,A,N);
-    DisjointSparseTable<rmq> a(A);
+    DisjointSparseTable<rsq> a(A);
     vector<ll> ans;
     rep(i,Q){
         LL(l,r);
