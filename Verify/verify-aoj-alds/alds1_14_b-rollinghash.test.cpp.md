@@ -7,16 +7,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/IO.hpp
     title: Template/IO.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Utils.hpp
     title: Template/Utils.hpp
   _extendedRequiredBy: []
@@ -68,28 +68,8 @@ data:
     \ (ng - ok > 1) {\n            uint32_t mid = (ok + ng) >> 1;\n            if\
     \ (query(a, l1, l1 + mid) == query(b, l2, l2 + mid))\n                ok = mid;\n\
     \            else\n                ng = mid;\n        }\n        return ok;\n\
-    \    }\n};\n#line 2 \"Template/Template.hpp\"\n#include<bits/stdc++.h>\nusing\
-    \ namespace std;\n\n#line 8 \"Template/Utils.hpp\"\nusing ll = long long;\nusing\
-    \ ld = long double;\nusing ull = unsigned long long;\nusing uint = unsigned int;\n\
-    using pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\n\
-    using vll = std::vector<ll>;\nusing pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll,\
-    \ 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\n\
-    const ll LINF = 1LL << 60;\nconstexpr int INF = INT_MAX >> 1;\nconstexpr ll MINF\
-    \ = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
-    \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
-    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
-    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
-    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
-    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
-    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
-    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
-    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
-    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
-    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
-    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
-    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/IO.hpp\"\ninline int scan() { return getchar();\
+    \    }\n};\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing\
+    \ namespace std;\n\n#line 8 \"Template/IO.hpp\"\ninline int scan() { return getchar();\
     \ }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
     \ &a) { scanf(\"%u\", &a); }\ninline void scan(long &a) { scanf(\"%ld\", &a);\
     \ }\ninline void scan(long long &a) { scanf(\"%lld\", &a); }\ninline void scan(unsigned\
@@ -155,17 +135,38 @@ data:
     \ std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#define uniq(x) x.erase(unique(all(x)), std::end(x))\n\
     #define vec(type, name, ...) vector<type> name(__VA_ARGS__);\n#define vv(type,\
-    \ name, h, ...) \\\n    vector<vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
+    \ name, h, ...) \\\n    std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
     #define INT(...)     \\\n    int __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define\
     \ LL(...)     \\\n    ll __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define ULL(...)\
     \     \\\n    ull __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define STR(...)     \
     \   \\\n    string __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define CHR(...)    \
     \  \\\n    char __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define LD(...)     \\\n\
-    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size) \\\
-    \n    vector<type> name(size);  \\\n    in(name)\n#define VV(type, name, h, w)\
-    \                            \\\n    vector<vector<type>> name(h, std::vector<type>(w));\
-    \ \\\n    in(name)\n#line 8 \"Template/Template.hpp\"\nnamespace Halc{\n    void\
-    \ solve();\n}\nint main(){\n    Halc::solve();\n}\n#line 4 \"Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp\"\
+    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
+    \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
+    \ h, w)                                      \\\n    std::vector<std::vector<type>>\
+    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Utils.hpp\"\
+    \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
+    using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
+    \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
+    \ = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\n\
+    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconst ll\
+    \ LINF = 1LL << 60;\nconstexpr int INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL\
+    \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
+    \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
+    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
+    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
+    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
+    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
+    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
+    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
+    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
+    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
+    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
+    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
+    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
+    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\nnamespace Halc {\nvoid\
+    \ solve();\n}\nint main() { Halc::solve(); }\n#line 4 \"Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp\"\
     \nvoid Halc::solve() {\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n\
     \    auto tb = roll.build(T);\n    auto pb = roll.build(P);\n    ll hash = roll.query(pb,\
     \ 0, len(P));\n    rep(i, len(T) - len(P) + 1) {\n        if (roll.query(tb, i,\
@@ -180,13 +181,13 @@ data:
   - String/RollingHash.hpp
   - Misc/Random.hpp
   - Template/Template.hpp
-  - Template/Utils.hpp
   - Template/IO.hpp
   - Template/Macro.hpp
+  - Template/Utils.hpp
   isVerificationFile: true
   path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 17:59:47+09:00'
+  timestamp: '2024-05-09 18:21:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp

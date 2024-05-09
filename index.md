@@ -58,21 +58,21 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/IO.hpp
       title: Template/IO.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Utils.hpp
       title: Template/Utils.hpp
   - name: Tree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
   verificationCategories:
@@ -151,7 +151,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/2338.test.cpp
       title: Verify/verify-yuki/2338.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/901.test.cpp
       title: Verify/verify-yuki/901.test.cpp
 layout: toppage

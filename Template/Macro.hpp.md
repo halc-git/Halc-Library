@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedVerifiedWith:
@@ -69,12 +69,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Template/Macro.hpp\"\n#define _overload3(_1, _2, _3, name,\
@@ -88,16 +88,16 @@ data:
     \ std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#define uniq(x) x.erase(unique(all(x)), std::end(x))\n\
     #define vec(type, name, ...) vector<type> name(__VA_ARGS__);\n#define vv(type,\
-    \ name, h, ...) \\\n    vector<vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
+    \ name, h, ...) \\\n    std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
     #define INT(...)     \\\n    int __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define\
     \ LL(...)     \\\n    ll __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define ULL(...)\
     \     \\\n    ull __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define STR(...)     \
     \   \\\n    string __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define CHR(...)    \
     \  \\\n    char __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define LD(...)     \\\n\
-    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size) \\\
-    \n    vector<type> name(size);  \\\n    in(name)\n#define VV(type, name, h, w)\
-    \                            \\\n    vector<vector<type>> name(h, std::vector<type>(w));\
-    \ \\\n    in(name)\n"
+    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
+    \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
+    \ h, w)                                      \\\n    std::vector<std::vector<type>>\
+    \ name(h, std::vector<type>(w)); \\\n    in(name)\n"
   code: "#define _overload3(_1, _2, _3, name, ...) name\n#define _overload4(_1, _2,\
     \ _3, _4, name, ...) name\n#define _rep1(i, n) for (ll i = 0; i < (n); i++)\n\
     #define _rep2(i, a, b) for (ll i = (a); i < (b); i++)\n#define _rep3(i, a, b,\
@@ -109,23 +109,23 @@ data:
     \ rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((int)(x).size())\n#define\
     \ fi first\n#define se second\n#define uniq(x) x.erase(unique(all(x)), std::end(x))\n\
     #define vec(type, name, ...) vector<type> name(__VA_ARGS__);\n#define vv(type,\
-    \ name, h, ...) \\\n    vector<vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
+    \ name, h, ...) \\\n    std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
     #define INT(...)     \\\n    int __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define\
     \ LL(...)     \\\n    ll __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define ULL(...)\
     \     \\\n    ull __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define STR(...)     \
     \   \\\n    string __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define CHR(...)    \
     \  \\\n    char __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define LD(...)     \\\n\
-    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size) \\\
-    \n    vector<type> name(size);  \\\n    in(name)\n#define VV(type, name, h, w)\
-    \                            \\\n    vector<vector<type>> name(h, std::vector<type>(w));\
-    \ \\\n    in(name)"
+    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
+    \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
+    \ h, w)                                      \\\n    std::vector<std::vector<type>>\
+    \ name(h, std::vector<type>(w)); \\\n    in(name)"
   dependsOn: []
   isVerificationFile: false
   path: Template/Macro.hpp
   requiredBy:
   - Template/Template.hpp
-  timestamp: '2024-05-09 17:59:47+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-05-09 18:21:58+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp

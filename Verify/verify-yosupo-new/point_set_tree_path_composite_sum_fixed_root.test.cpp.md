@@ -4,19 +4,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/IO.hpp
     title: Template/IO.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Utils.hpp
     title: Template/Utils.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
   _extendedRequiredBy: []
@@ -104,69 +104,70 @@ data:
     \ <uint64_t N>\ninline void print(Modint<N> a) {\n    printf(\"%lu\", a.x);\n\
     }\ntemplate <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    printf(\"\
     %lu\", a.x);\n}\n#line 2 \"Tree/StaticTopTree.hpp\"\n#include <cassert>\n#include\
-    \ <vector>\ntemplate <class M>\nstruct StaticTopTree {\n    using point = typename\
-    \ M::point;\n    using path = typename M::path;\n    struct Node {\n        bool\
-    \ is_path;\n        point point_val;\n        path path_val;\n        int32_t\
-    \ pos;\n        int32_t left;\n        int32_t right;\n        int32_t parent;\n\
-    \        Node(bool pat, int32_t po = -1, int32_t lf = -1, int32_t ri = -1) {\n\
-    \            is_path = pat;\n            pos = po;\n            left = lf;\n \
-    \           right = ri;\n            parent = -1;\n        }\n    };\n    size_t\
-    \ sz;\n    std::vector<std::vector<int32_t>> tree;\n    std::vector<int32_t> node_pos;\n\
-    \    std::vector<Node> nodes;\n    int32_t rt;\n    StaticTopTree(size_t size)\
-    \ {\n        sz = size;\n        tree.resize(sz);\n        node_pos.resize(sz);\n\
-    \    }\n    void add_edge(int32_t s, int32_t v) {\n        tree[s].emplace_back(v);\n\
-    \        tree[v].emplace_back(s);\n    }\n    int32_t _path_cluster(int32_t pos,\
-    \ std::vector<int32_t> &tree_sz) {\n        if (tree[pos].empty()) {\n       \
-    \     node_pos[pos] = nodes.size();\n            nodes.emplace_back(Node(1, pos));\n\
-    \            _calc_val(nodes.size() - 1);\n            return nodes.size() - 1;\n\
-    \        }\n        std::vector<int32_t> address;\n        std::vector<int32_t>\
-    \ sizes;\n        while (!tree[pos].empty()) {\n            int32_t max_size =\
-    \ -1;\n            int32_t next_pos = -1;\n            for (int i = 0; i < tree[pos].size();\
-    \ i++) {\n                if (tree_sz[tree[pos][i]] > max_size) {\n          \
-    \          max_size = tree_sz[tree[pos][i]];\n                    next_pos = i;\n\
-    \                }\n            }\n            std::swap(tree[pos][next_pos],\
-    \ tree[pos].back());\n            next_pos = tree[pos].back();\n            tree[pos].pop_back();\n\
-    \            tree_sz[pos] -= tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n\
-    \            address.emplace_back(_point_cluster(pos, tree_sz));\n           \
-    \ pos = next_pos;\n        }\n        address.emplace_back(_point_cluster(pos,\
-    \ tree_sz));\n        sizes.emplace_back(tree_sz[pos]);\n        return _merge(address,\
-    \ sizes, 0, address.size(), 1);\n    }\n    int32_t _point_cluster(int32_t pos,\
-    \ std::vector<int32_t> &tree_sz) {\n        if (tree[pos].empty()) {\n       \
-    \     node_pos[pos] = nodes.size();\n            nodes.emplace_back(Node(1, pos));\n\
-    \            _calc_val(nodes.size() - 1);\n            return nodes.size() - 1;\n\
-    \        }\n        std::vector<int32_t> address;\n        std::vector<int32_t>\
-    \ sizes;\n        for (int32_t i : tree[pos]) {\n            sizes.emplace_back(tree_sz[i]);\n\
-    \            int32_t vert = _path_cluster(i, tree_sz);\n            nodes.emplace_back(Node(0,\
-    \ -1, vert));\n            nodes[vert].parent = nodes.size() - 1;\n          \
-    \  address.emplace_back(nodes.size() - 1);\n            _calc_val(nodes.size()\
-    \ - 1);\n        }\n        int32_t vert = _merge(address, sizes, 0, address.size(),\
-    \ 0);\n        node_pos[pos] = nodes.size();\n        nodes.emplace_back(Node(1,\
-    \ pos, vert));\n        nodes[vert].parent = nodes.size() - 1;\n        _calc_val(nodes.size()\
-    \ - 1);\n        return nodes.size() - 1;\n    }\n    int32_t _merge(std::vector<int32_t>\
-    \ &address, std::vector<int32_t> &sizes,\n                   int32_t lf, int32_t\
-    \ ri, bool pat) {\n        if (lf + 1 == ri) return address[lf];\n        int32_t\
-    \ add = 0;\n        for (int32_t i = lf; i < ri; i++) {\n            add += sizes[i];\n\
-    \        }\n        int32_t now = 0;\n        int32_t bef = add + 1;\n       \
-    \ for (int32_t i = lf; i < ri; i++) {\n            now += sizes[i];\n        \
-    \    if (now > add - now) {\n                if (now + now - add > bef) i--;\n\
-    \                int32_t left = _merge(address, sizes, lf, i + 1, pat);\n    \
-    \            int32_t right = _merge(address, sizes, i + 1, ri, pat);\n       \
-    \         nodes.emplace_back(Node(pat, -1, left, right));\n                nodes[left].parent\
-    \ = nodes.size() - 1;\n                nodes[right].parent = nodes.size() - 1;\n\
-    \                _calc_val(nodes.size() - 1);\n                return nodes.size()\
-    \ - 1;\n            }\n            bef = add - now - now;\n        }\n       \
-    \ assert(false);\n    }\n    void _calc_val(int32_t pos) {\n        if (nodes[pos].is_path)\
-    \ {\n            if ((nodes[pos].left == -1) && (nodes[pos].right == -1)) {\n\
-    \                nodes[pos].path_val = M::vertex(nodes[pos].pos);\n          \
-    \  } else if ((nodes[pos].left != -1) && (nodes[pos].right != -1)) {\n       \
-    \         nodes[pos].path_val =\n                    M::compress(nodes[nodes[pos].left].path_val,\n\
-    \                                nodes[nodes[pos].right].path_val);\n        \
-    \    } else {\n                nodes[pos].path_val = M::add_vertex(\n        \
-    \            nodes[nodes[pos].left].point_val, nodes[pos].pos);\n            }\n\
-    \        } else {\n            if ((nodes[pos].left != -1) && (nodes[pos].right\
-    \ != -1)) {\n                nodes[pos].point_val =\n                    M::rake(nodes[nodes[pos].left].point_val,\n\
-    \                            nodes[nodes[pos].right].point_val);\n           \
-    \ } else {\n                nodes[pos].point_val =\n                    M::add_edge(nodes[nodes[pos].left].path_val);\n\
+    \ <cstddef>\n#line 5 \"Tree/StaticTopTree.hpp\"\n#include <vector>\ntemplate <class\
+    \ M>\nstruct StaticTopTree {\n    using point = typename M::point;\n    using\
+    \ path = typename M::path;\n    struct Node {\n        bool is_path;\n       \
+    \ point point_val;\n        path path_val;\n        int32_t pos;\n        int32_t\
+    \ left;\n        int32_t right;\n        int32_t parent;\n        Node(bool pat,\
+    \ int32_t po = -1, int32_t lf = -1, int32_t ri = -1) {\n            is_path =\
+    \ pat;\n            pos = po;\n            left = lf;\n            right = ri;\n\
+    \            parent = -1;\n        }\n    };\n    size_t sz;\n    std::vector<std::vector<int32_t>>\
+    \ tree;\n    std::vector<int32_t> node_pos;\n    std::vector<Node> nodes;\n  \
+    \  int32_t rt;\n    StaticTopTree(size_t size) {\n        sz = size;\n       \
+    \ tree.resize(sz);\n        node_pos.resize(sz);\n    }\n    void add_edge(int32_t\
+    \ s, int32_t v) {\n        tree[s].emplace_back(v);\n        tree[v].emplace_back(s);\n\
+    \    }\n    int32_t _path_cluster(int32_t pos, std::vector<int32_t> &tree_sz)\
+    \ {\n        if (tree[pos].empty()) {\n            node_pos[pos] = nodes.size();\n\
+    \            nodes.emplace_back(Node(1, pos));\n            _calc_val(nodes.size()\
+    \ - 1);\n            return nodes.size() - 1;\n        }\n        std::vector<int32_t>\
+    \ address;\n        std::vector<int32_t> sizes;\n        while (!tree[pos].empty())\
+    \ {\n            int32_t max_size = -1;\n            int32_t next_pos = -1;\n\
+    \            for (int i = 0; i < tree[pos].size(); i++) {\n                if\
+    \ (tree_sz[tree[pos][i]] > max_size) {\n                    max_size = tree_sz[tree[pos][i]];\n\
+    \                    next_pos = i;\n                }\n            }\n       \
+    \     std::swap(tree[pos][next_pos], tree[pos].back());\n            next_pos\
+    \ = tree[pos].back();\n            tree[pos].pop_back();\n            tree_sz[pos]\
+    \ -= tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n     \
+    \       address.emplace_back(_point_cluster(pos, tree_sz));\n            pos =\
+    \ next_pos;\n        }\n        address.emplace_back(_point_cluster(pos, tree_sz));\n\
+    \        sizes.emplace_back(tree_sz[pos]);\n        return _merge(address, sizes,\
+    \ 0, address.size(), 1);\n    }\n    int32_t _point_cluster(int32_t pos, std::vector<int32_t>\
+    \ &tree_sz) {\n        if (tree[pos].empty()) {\n            node_pos[pos] = nodes.size();\n\
+    \            nodes.emplace_back(Node(1, pos));\n            _calc_val(nodes.size()\
+    \ - 1);\n            return nodes.size() - 1;\n        }\n        std::vector<int32_t>\
+    \ address;\n        std::vector<int32_t> sizes;\n        for (int32_t i : tree[pos])\
+    \ {\n            sizes.emplace_back(tree_sz[i]);\n            int32_t vert = _path_cluster(i,\
+    \ tree_sz);\n            nodes.emplace_back(Node(0, -1, vert));\n            nodes[vert].parent\
+    \ = nodes.size() - 1;\n            address.emplace_back(nodes.size() - 1);\n \
+    \           _calc_val(nodes.size() - 1);\n        }\n        int32_t vert = _merge(address,\
+    \ sizes, 0, address.size(), 0);\n        node_pos[pos] = nodes.size();\n     \
+    \   nodes.emplace_back(Node(1, pos, vert));\n        nodes[vert].parent = nodes.size()\
+    \ - 1;\n        _calc_val(nodes.size() - 1);\n        return nodes.size() - 1;\n\
+    \    }\n    int32_t _merge(std::vector<int32_t> &address, std::vector<int32_t>\
+    \ &sizes,\n                   int32_t lf, int32_t ri, bool pat) {\n        if\
+    \ (lf + 1 == ri) return address[lf];\n        int32_t add = 0;\n        for (int32_t\
+    \ i = lf; i < ri; i++) {\n            add += sizes[i];\n        }\n        int32_t\
+    \ now = 0;\n        int32_t bef = add + 1;\n        for (int32_t i = lf; i < ri;\
+    \ i++) {\n            now += sizes[i];\n            if (now > add - now) {\n \
+    \               if (now + now - add > bef) i--;\n                int32_t left\
+    \ = _merge(address, sizes, lf, i + 1, pat);\n                int32_t right = _merge(address,\
+    \ sizes, i + 1, ri, pat);\n                nodes.emplace_back(Node(pat, -1, left,\
+    \ right));\n                nodes[left].parent = nodes.size() - 1;\n         \
+    \       nodes[right].parent = nodes.size() - 1;\n                _calc_val(nodes.size()\
+    \ - 1);\n                return nodes.size() - 1;\n            }\n           \
+    \ bef = add - now - now;\n        }\n        assert(false);\n    }\n    void _calc_val(int32_t\
+    \ pos) {\n        if (nodes[pos].is_path) {\n            if ((nodes[pos].left\
+    \ == -1) && (nodes[pos].right == -1)) {\n                nodes[pos].path_val =\
+    \ M::vertex(nodes[pos].pos);\n            } else if ((nodes[pos].left != -1) &&\
+    \ (nodes[pos].right != -1)) {\n                nodes[pos].path_val =\n       \
+    \             M::compress(nodes[nodes[pos].left].path_val,\n                 \
+    \               nodes[nodes[pos].right].path_val);\n            } else {\n   \
+    \             nodes[pos].path_val = M::add_vertex(\n                    nodes[nodes[pos].left].point_val,\
+    \ nodes[pos].pos);\n            }\n        } else {\n            if ((nodes[pos].left\
+    \ != -1) && (nodes[pos].right != -1)) {\n                nodes[pos].point_val\
+    \ =\n                    M::rake(nodes[nodes[pos].left].point_val,\n         \
+    \                   nodes[nodes[pos].right].point_val);\n            } else {\n\
+    \                nodes[pos].point_val =\n                    M::add_edge(nodes[nodes[pos].left].path_val);\n\
     \            }\n        }\n    }\n    void build(int32_t root) {\n        std::vector<int32_t>\
     \ vert(sz);\n        std::vector<int32_t> tree_sz(sz, -1);\n        vert[0] =\
     \ root;\n        tree_sz[root] = 0;\n        int32_t cnt = 1;\n        for (int32_t\
@@ -185,31 +186,11 @@ data:
     \ change = node_pos[pos];\n        while (nodes[change].parent != -1) {\n    \
     \        _calc_val(change);\n            change = nodes[change].parent;\n    \
     \    }\n        _calc_val(change);\n    }\n    size_t size() { return sz; }\n\
-    };\n#line 2 \"Template/Template.hpp\"\n#include<bits/stdc++.h>\nusing namespace\
-    \ std;\n\n#line 8 \"Template/Utils.hpp\"\nusing ll = long long;\nusing ld = long\
-    \ double;\nusing ull = unsigned long long;\nusing uint = unsigned int;\nusing\
-    \ pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\n\
-    using vll = std::vector<ll>;\nusing pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll,\
-    \ 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\n\
-    const ll LINF = 1LL << 60;\nconstexpr int INF = INT_MAX >> 1;\nconstexpr ll MINF\
-    \ = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
-    \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
-    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
-    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
-    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
-    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
-    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
-    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
-    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
-    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
-    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
-    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
-    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/IO.hpp\"\ninline int scan() { return getchar();\
-    \ }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
-    \ &a) { scanf(\"%u\", &a); }\ninline void scan(long &a) { scanf(\"%ld\", &a);\
-    \ }\ninline void scan(long long &a) { scanf(\"%lld\", &a); }\ninline void scan(unsigned\
+    };\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n\n#line 8 \"Template/IO.hpp\"\ninline int scan() { return getchar(); }\n\
+    inline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned &a)\
+    \ { scanf(\"%u\", &a); }\ninline void scan(long &a) { scanf(\"%ld\", &a); }\n\
+    inline void scan(long long &a) { scanf(\"%lld\", &a); }\ninline void scan(unsigned\
     \ long long &a) { scanf(\"%llu\", &a); }\ninline void scan(char &a) { std::cin\
     \ >> a; }\ninline void scan(float &a) { scanf(\"%f\", &a); }\ninline void scan(double\
     \ &a) { scanf(\"%lf\", &a); }\ninline void scan(long double &a) { scanf(\"%Lf\"\
@@ -272,17 +253,38 @@ data:
     \ std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#define uniq(x) x.erase(unique(all(x)), std::end(x))\n\
     #define vec(type, name, ...) vector<type> name(__VA_ARGS__);\n#define vv(type,\
-    \ name, h, ...) \\\n    vector<vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
+    \ name, h, ...) \\\n    std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
     #define INT(...)     \\\n    int __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define\
     \ LL(...)     \\\n    ll __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define ULL(...)\
     \     \\\n    ull __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define STR(...)     \
     \   \\\n    string __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define CHR(...)    \
     \  \\\n    char __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define LD(...)     \\\n\
-    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size) \\\
-    \n    vector<type> name(size);  \\\n    in(name)\n#define VV(type, name, h, w)\
-    \                            \\\n    vector<vector<type>> name(h, std::vector<type>(w));\
-    \ \\\n    in(name)\n#line 8 \"Template/Template.hpp\"\nnamespace Halc{\n    void\
-    \ solve();\n}\nint main(){\n    Halc::solve();\n}\n#line 5 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
+    \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
+    \ h, w)                                      \\\n    std::vector<std::vector<type>>\
+    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Utils.hpp\"\
+    \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
+    using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
+    \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
+    \ = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\n\
+    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconst ll\
+    \ LINF = 1LL << 60;\nconstexpr int INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL\
+    \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
+    \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
+    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
+    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
+    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
+    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
+    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
+    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
+    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
+    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
+    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
+    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
+    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
+    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\nnamespace Halc {\nvoid\
+    \ solve();\n}\nint main() { Halc::solve(); }\n#line 5 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \nusing mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type\
     \ = pair<mint, mint>;\nvoid Halc::solve() {\n    LL(N, Q);\n    static VEC(mint,\
     \ a, N);\n    VEC(edge_type, edge, N - 1);\n    vv(ll, gr, N);\n    rep(i, N -\
@@ -343,13 +345,13 @@ data:
   - Modint/Modint.hpp
   - Tree/StaticTopTree.hpp
   - Template/Template.hpp
-  - Template/Utils.hpp
   - Template/IO.hpp
   - Template/Macro.hpp
+  - Template/Utils.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 17:59:47+09:00'
+  timestamp: '2024-05-09 18:21:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp

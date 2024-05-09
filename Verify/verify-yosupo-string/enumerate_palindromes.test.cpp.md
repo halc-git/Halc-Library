@@ -4,16 +4,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/Manacher.hpp
     title: String/Manacher.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/IO.hpp
     title: Template/IO.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Utils.hpp
     title: Template/Utils.hpp
   _extendedRequiredBy: []
@@ -40,51 +40,31 @@ data:
     \        i += k;\n        j -= k;\n    }\n    for (int32_t i = 0; i < sz; i++)\
     \ {\n        if (is_even) {\n            ret[i]--;\n        } else {\n       \
     \     ret[i] = (ret[i] << 1) - 1;\n        }\n    }\n    return ret;\n}\n#line\
-    \ 2 \"Template/Template.hpp\"\n#include<bits/stdc++.h>\nusing namespace std;\n\
-    \n#line 8 \"Template/Utils.hpp\"\nusing ll = long long;\nusing ld = long double;\n\
-    using ull = unsigned long long;\nusing uint = unsigned int;\nusing pll = std::pair<ll,\
-    \ ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\nusing vll\
-    \ = std::vector<ll>;\nusing pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll,\
-    \ 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\n\
-    const ll LINF = 1LL << 60;\nconstexpr int INF = INT_MAX >> 1;\nconstexpr ll MINF\
-    \ = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
-    \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
-    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
-    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
-    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
-    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
-    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
-    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
-    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
-    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
-    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
-    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
-    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/IO.hpp\"\ninline int scan() { return getchar();\
-    \ }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
-    \ &a) { scanf(\"%u\", &a); }\ninline void scan(long &a) { scanf(\"%ld\", &a);\
-    \ }\ninline void scan(long long &a) { scanf(\"%lld\", &a); }\ninline void scan(unsigned\
-    \ long long &a) { scanf(\"%llu\", &a); }\ninline void scan(char &a) { std::cin\
-    \ >> a; }\ninline void scan(float &a) { scanf(\"%f\", &a); }\ninline void scan(double\
-    \ &a) { scanf(\"%lf\", &a); }\ninline void scan(long double &a) { scanf(\"%Lf\"\
-    , &a); }\ninline void scan(std::vector<bool> &vec) {\n    for (unsigned i = 0;\
-    \ i < vec.size(); i++) {\n        int a;\n        scan(a);\n        vec[i] = a;\n\
-    \    }\n}\ninline void scan(char a[]) { scanf(\"%s\", a); }\ninline void scan(std::string\
-    \ &a) { std::cin >> a; }\ntemplate <class T>\ninline void scan(std::vector<T>\
-    \ &vec);\ntemplate <class T, size_t size>\ninline void scan(std::array<T, size>\
-    \ &vec);\ntemplate <class T, class L>\ninline void scan(std::pair<T, L> &p);\n\
-    template <class T, size_t size>\ninline void scan(T (&vec)[size]);\ntemplate <class\
-    \ T>\ninline void scan(std::vector<T> &vec) {\n    for (auto &i : vec) scan(i);\n\
-    }\ntemplate <class T>\ninline void scan(std::deque<T> &vec) {\n    for (auto &i\
-    \ : vec) scan(i);\n}\ntemplate <class T, size_t size>\ninline void scan(std::array<T,\
-    \ size> &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class T, class\
-    \ L>\ninline void scan(std::pair<T, L> &p) {\n    scan(p.first);\n    scan(p.second);\n\
-    }\ntemplate <class T, size_t size>\ninline void scan(T (&vec)[size]) {\n    for\
-    \ (auto &i : vec) scan(i);\n}\ntemplate <class T>\ninline void scan(T &a) {\n\
-    \    std::cin >> a;\n}\ninline void in() {}\ntemplate <class Head, class... Tail>\n\
-    inline void in(Head &head, Tail &...tail) {\n    scan(head);\n    in(tail...);\n\
-    }\ninline void print() { putchar(' '); }\ninline void print(const bool &a) { printf(\"\
+    \ 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
+    \n#line 8 \"Template/IO.hpp\"\ninline int scan() { return getchar(); }\ninline\
+    \ void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned &a) { scanf(\"\
+    %u\", &a); }\ninline void scan(long &a) { scanf(\"%ld\", &a); }\ninline void scan(long\
+    \ long &a) { scanf(\"%lld\", &a); }\ninline void scan(unsigned long long &a) {\
+    \ scanf(\"%llu\", &a); }\ninline void scan(char &a) { std::cin >> a; }\ninline\
+    \ void scan(float &a) { scanf(\"%f\", &a); }\ninline void scan(double &a) { scanf(\"\
+    %lf\", &a); }\ninline void scan(long double &a) { scanf(\"%Lf\", &a); }\ninline\
+    \ void scan(std::vector<bool> &vec) {\n    for (unsigned i = 0; i < vec.size();\
+    \ i++) {\n        int a;\n        scan(a);\n        vec[i] = a;\n    }\n}\ninline\
+    \ void scan(char a[]) { scanf(\"%s\", a); }\ninline void scan(std::string &a)\
+    \ { std::cin >> a; }\ntemplate <class T>\ninline void scan(std::vector<T> &vec);\n\
+    template <class T, size_t size>\ninline void scan(std::array<T, size> &vec);\n\
+    template <class T, class L>\ninline void scan(std::pair<T, L> &p);\ntemplate <class\
+    \ T, size_t size>\ninline void scan(T (&vec)[size]);\ntemplate <class T>\ninline\
+    \ void scan(std::vector<T> &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate\
+    \ <class T>\ninline void scan(std::deque<T> &vec) {\n    for (auto &i : vec) scan(i);\n\
+    }\ntemplate <class T, size_t size>\ninline void scan(std::array<T, size> &vec)\
+    \ {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class T, class L>\ninline\
+    \ void scan(std::pair<T, L> &p) {\n    scan(p.first);\n    scan(p.second);\n}\n\
+    template <class T, size_t size>\ninline void scan(T (&vec)[size]) {\n    for (auto\
+    \ &i : vec) scan(i);\n}\ntemplate <class T>\ninline void scan(T &a) {\n    std::cin\
+    \ >> a;\n}\ninline void in() {}\ntemplate <class Head, class... Tail>\ninline\
+    \ void in(Head &head, Tail &...tail) {\n    scan(head);\n    in(tail...);\n}\n\
+    inline void print() { putchar(' '); }\ninline void print(const bool &a) { printf(\"\
     %d\", a); }\ninline void print(const int &a) { printf(\"%d\", a); }\ninline void\
     \ print(const unsigned &a) { printf(\"%u\", a); }\ninline void print(const long\
     \ &a) { printf(\"%ld\", a); }\ninline void print(const long long &a) { printf(\"\
@@ -127,17 +107,38 @@ data:
     \ std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#define uniq(x) x.erase(unique(all(x)), std::end(x))\n\
     #define vec(type, name, ...) vector<type> name(__VA_ARGS__);\n#define vv(type,\
-    \ name, h, ...) \\\n    vector<vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
+    \ name, h, ...) \\\n    std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
     #define INT(...)     \\\n    int __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define\
     \ LL(...)     \\\n    ll __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define ULL(...)\
     \     \\\n    ull __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define STR(...)     \
     \   \\\n    string __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define CHR(...)    \
     \  \\\n    char __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define LD(...)     \\\n\
-    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size) \\\
-    \n    vector<type> name(size);  \\\n    in(name)\n#define VV(type, name, h, w)\
-    \                            \\\n    vector<vector<type>> name(h, std::vector<type>(w));\
-    \ \\\n    in(name)\n#line 8 \"Template/Template.hpp\"\nnamespace Halc{\n    void\
-    \ solve();\n}\nint main(){\n    Halc::solve();\n}\n#line 4 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\
+    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
+    \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
+    \ h, w)                                      \\\n    std::vector<std::vector<type>>\
+    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Utils.hpp\"\
+    \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
+    using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
+    \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
+    \ = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\n\
+    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconst ll\
+    \ LINF = 1LL << 60;\nconstexpr int INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL\
+    \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
+    \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
+    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
+    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
+    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
+    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
+    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
+    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
+    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
+    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
+    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
+    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
+    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
+    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\nnamespace Halc {\nvoid\
+    \ solve();\n}\nint main() { Halc::solve(); }\n#line 4 \"Verify/verify-yosupo-string/enumerate_palindromes.test.cpp\"\
     \nvoid Halc::solve() {\n    STR(S);\n    out(manacher(S));\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n#include \"../../String/Manacher.hpp\"\n#include \"../../Template/Template.hpp\"\
@@ -145,13 +146,13 @@ data:
   dependsOn:
   - String/Manacher.hpp
   - Template/Template.hpp
-  - Template/Utils.hpp
   - Template/IO.hpp
   - Template/Macro.hpp
+  - Template/Utils.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 17:59:47+09:00'
+  timestamp: '2024-05-09 18:21:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
