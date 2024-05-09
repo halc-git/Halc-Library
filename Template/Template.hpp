@@ -2,9 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "IO.hpp"
+#include "InOut.hpp"
 #include "Macro.hpp"
-#include "Utils.hpp"
+#include "Util.hpp"
 namespace Halc {
 void solve();
 }
