@@ -23,8 +23,13 @@ struct DisjointSparseTable {
         siz = def.size();
         int32_t bitlen = _bit_length(siz - 1);
         table.resize(siz * std::max(1, bitlen));
+        int32_t pos = 0;
         for (int32_t i = 0; i < table.size(); i++) {
-            table[i] = def[i % siz];
+            if (i < siz) {
+                table[i] = def[i];
+            } else {
+                table[i] = table[i - siz];
+            }
         }
         int32_t index = siz;
         for (int32_t i = 1; i < bitlen; i++) {
