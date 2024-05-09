@@ -2,7 +2,7 @@
 #include <ext/pb_ds/assoc_container.hpp>
 #include <random>
 
-#include "../Template/Heuristic.hpp"
+#include "../Misc/Random.hpp"
 // https://codeforces.com/blog/entry/62393?locale=en
 struct custom_hash {
     // http://xorshift.di.unimi.it/splitmix64.c

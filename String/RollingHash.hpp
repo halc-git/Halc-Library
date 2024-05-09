@@ -2,7 +2,7 @@
 #include <random>
 #include <vector>
 
-#include "../Template/Heuristic.hpp"
+#include "../Misc/Random.hpp"
 // https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
 template <typename S>
 struct RollingHash {

@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
-#include"Template/Template.hpp"
-#include"DataStructure/FenwickTree.hpp"
-#include"Misc/Mo.hpp"
-#include"Misc/Compress.hpp"
+#include"../../Template/Template.hpp"
+#include"../../DataStructure/FenwickTree.hpp"
+#include"../../Misc/Mo.hpp"
+#include"../../Misc/Compress.hpp"
 void solve(){
     LL(N,Q);
     static VEC(ll,A,N);
