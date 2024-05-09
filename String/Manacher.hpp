@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdint>
 #include <vector>
 // https://snuke.hatenablog.com/entry/2014/12/02/235837
 template <typename S>

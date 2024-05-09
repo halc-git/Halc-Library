@@ -1,11 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
-#include"../../Template/Template.hpp"
-#include"../../String/Z_algorithm.hpp"
-void solve(){
+#include "../../String/Z_algorithm.hpp"
+#include "../../Template/Template.hpp"
+void Halc::solve() {
     STR(S);
     out(z_algorithm(S));
-}
-int main(){
-    solve();
-    return 0;
 }

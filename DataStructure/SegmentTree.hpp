@@ -1,4 +1,5 @@
 #pragma once
+#include <cstddef>
 #include <cstdint>
 #include <queue>
 #include <stack>
@@ -14,7 +15,7 @@ struct SegmentTree {
     }
     SegmentTree(std::vector<T> def) {
         siz = def.size();
-        tree = vector<T>(siz << 1, M::e);
+        tree = std::vector<T>(siz << 1, M::e);
         for (int32_t i = 0; i < siz; i++) {
             tree[i + siz] = def[i];
         }

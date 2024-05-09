@@ -1,21 +1,16 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/associative_array"
-#include"../../Template/Template.hpp"
-#include"../../DataStructure/Hashmap.hpp"
-void solve(){
+#include "../../DataStructure/Hashmap.hpp"
+#include "../../Template/Template.hpp"
+void Halc::solve() {
     LL(Q);
-    Hashmap<ll,ll> a;
-    rep(i,Q){
-        LL(t,k);
-        if(t==0){
+    Hashmap<ll, ll> a;
+    rep(i, Q) {
+        LL(t, k);
+        if (t == 0) {
             LL(v);
-            a[k]=v;
-        }
-        else{
+            a[k] = v;
+        } else {
             out(a[k]);
         }
     }
-}
-int main(){
-    solve();
-    return 0;
 }
