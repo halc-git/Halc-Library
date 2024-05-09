@@ -6,19 +6,18 @@ template <class M>
 struct DisjointSparseTable {
     using T = typename M::T;
     size_t siz;
-    int8_t bitlen = 0;
     std::vector<T> table;
     DisjointSparseTable(std::vector<T> def) {
         siz = def.size();
+        int32_t bitlen = 0;
         while (1 << bitlen <= siz - 1) bitlen++;
-        ;
         swap(table, def);
-        table.resize(siz * std::max((int8_t)1, bitlen));
+        table.resize(siz * std::max(1, bitlen));
         for (int32_t i = siz; i < siz * bitlen; i++) {
             table[i] = table[i % siz];
         }
         int32_t index = siz;
-        for (int8_t i = 1; i < bitlen; i++) {
+        for (int32_t i = 1; i < bitlen; i++) {
             for (int32_t j = 0; j < siz; j++) {
                 if (((j >> i) << i) == j) continue;
                 if ((j >> i) & 1) {
@@ -40,7 +39,7 @@ struct DisjointSparseTable {
     T prod(int32_t lf, int32_t ri) {
         if (lf == ri) return M::e;
         if (lf + 1 == ri) return table[lf];
-        int8_t nbl = 0;
+        int32_t nbl = 0;
         while (1 << (nbl + 1) <= (lf ^ (ri - 1))) nbl++;
         int32_t pos = nbl * siz;
         return M::op(table[pos + lf], table[pos + ri - 1]);
