@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/DisjointSparseTable.hpp
     title: Disjoint Sparse Table
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
@@ -32,7 +32,7 @@ data:
     #include <cstdint>\n#include <vector>\ntemplate <class M>\nstruct DisjointSparseTable\
     \ {\n    using T = typename M::T;\n    size_t siz;\n    std::vector<T> table;\n\
     \    DisjointSparseTable(std::vector<T> def) {\n        siz = def.size();\n  \
-    \      int32_t bitlen = (32-std::countl_zero(siz-1));\n        table.resize(siz\
+    \      int32_t bitlen = 64 - std::countl_zero(siz - 1);\n        table.resize(siz\
     \ * std::max(1, bitlen));\n        int32_t pos = 0;\n        for (int32_t i =\
     \ 0; i < table.size(); i++) {\n            if (i < siz) {\n                table[i]\
     \ = def[i];\n            } else {\n                table[i] = table[i - siz];\n\
@@ -48,7 +48,7 @@ data:
     \            }\n            index += siz;\n        }\n    }\n    T get(int32_t\
     \ p) { return table[p]; }\n    T prod(int32_t lf, int32_t ri) {\n        if (lf\
     \ == ri) return M::e;\n        if (lf + 1 == ri) return table[lf];\n        int32_t\
-    \ pos = ((32-std::countl_zero((uint32_t)lf^(ri-1))) - 1) * siz;\n        return\
+    \ pos = (31 - std::countl_zero((uint32_t)lf ^ (ri - 1))) * siz;\n        return\
     \ M::op(table[pos + lf], table[pos + ri - 1]);\n    }\n};\n#line 2 \"Template/Template.hpp\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\
     \ninline int scan() { return getchar(); }\ninline void scan(int &a) { scanf(\"\
@@ -168,8 +168,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 20:10:47+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-09 20:53:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
 layout: document

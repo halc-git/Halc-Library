@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/DisjointSparseTable.hpp
       title: Disjoint Sparse Table
     - icon: ':heavy_check_mark:'
@@ -58,16 +58,16 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/InOut.hpp
       title: Template/InOut.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Util.hpp
       title: Template/Util.hpp
   - name: Tree
@@ -107,10 +107,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
       title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     - icon: ':heavy_check_mark:'

@@ -4,16 +4,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/FenwickTree.hpp
     title: DataStructure/FenwickTree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
@@ -32,30 +32,30 @@ data:
     \ <cstdint>\n#include <vector>\ntemplate <class T>\nstruct FenwickTree {\n   \
     \ std::vector<T> tree;\n    int32_t start = 1;\n    size_t siz;\n    FenwickTree(int32_t\
     \ sz) {\n        siz = sz;\n        tree.resize(sz + 1, 0);\n        start = 1\
-    \ << ((32-std::countl_zero(siz)) - 1);\n    }\n    FenwickTree(std::vector<T>\
+    \ << ((64 - std::countl_zero(siz)) - 1);\n    }\n    FenwickTree(std::vector<T>\
     \ def) {\n        siz = def.size();\n        tree.resize(siz + 1, 0);\n      \
-    \  start = 1 << ((32-std::countl_zero(siz)) - 1);\n        for (int32_t i = 0;\
-    \ i < siz; i++) {\n            tree[i + 1] += def[i];\n            if (i + (i\
-    \ & -i) <= siz) {\n                tree[i + (i & -i)] += tree[i];\n          \
-    \  }\n        }\n    }\n    void add(int32_t pos, T val) {\n        pos++;\n \
-    \       while (pos <= siz) {\n            tree[pos] += val;\n            pos +=\
-    \ pos & -pos;\n        }\n    }\n    T _sum(int32_t pos) {\n        T ret = 0;\n\
-    \        while (pos > 0) {\n            ret += tree[pos];\n            pos -=\
-    \ pos & -pos;\n        }\n        return ret;\n    }\n    T sum(int32_t lf, int32_t\
-    \ ri) { return _sum(ri) - _sum(lf); }\n    int32_t lower_bound(T w) {\n      \
-    \  if (w <= 0) return 0;\n        int32_t now = 0;\n        T val = 0;\n     \
-    \   for (int32_t i = start; i > 0; i >>= 1) {\n            if (now + i <= siz\
-    \ && val + tree[now + i] < w) {\n                now += i;\n                val\
-    \ += tree[now];\n            }\n        }\n        return now + 1;\n    }\n  \
-    \  size_t size() { return siz; }\n};\n#line 2 \"Template/Template.hpp\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline\
-    \ int scan() { return getchar(); }\ninline void scan(int &a) { scanf(\"%d\", &a);\
-    \ }\ninline void scan(unsigned &a) { scanf(\"%u\", &a); }\ninline void scan(long\
-    \ &a) { scanf(\"%ld\", &a); }\ninline void scan(long long &a) { scanf(\"%lld\"\
-    , &a); }\ninline void scan(unsigned long long &a) { scanf(\"%llu\", &a); }\ninline\
-    \ void scan(char &a) { std::cin >> a; }\ninline void scan(float &a) { scanf(\"\
-    %f\", &a); }\ninline void scan(double &a) { scanf(\"%lf\", &a); }\ninline void\
-    \ scan(long double &a) { scanf(\"%Lf\", &a); }\ninline void scan(std::vector<bool>\
+    \  start = 1 << ((64 - std::countl_zero(siz)) - 1);\n        for (int32_t i =\
+    \ 0; i < siz; i++) {\n            tree[i + 1] += def[i];\n            if (i +\
+    \ (i & -i) <= siz) {\n                tree[i + (i & -i)] += tree[i];\n       \
+    \     }\n        }\n    }\n    void add(int32_t pos, T val) {\n        pos++;\n\
+    \        while (pos <= siz) {\n            tree[pos] += val;\n            pos\
+    \ += pos & -pos;\n        }\n    }\n    T _sum(int32_t pos) {\n        T ret =\
+    \ 0;\n        while (pos > 0) {\n            ret += tree[pos];\n            pos\
+    \ -= pos & -pos;\n        }\n        return ret;\n    }\n    T sum(int32_t lf,\
+    \ int32_t ri) { return _sum(ri) - _sum(lf); }\n    int32_t lower_bound(T w) {\n\
+    \        if (w <= 0) return 0;\n        int32_t now = 0;\n        T val = 0;\n\
+    \        for (int32_t i = start; i > 0; i >>= 1) {\n            if (now + i <=\
+    \ siz && val + tree[now + i] < w) {\n                now += i;\n             \
+    \   val += tree[now];\n            }\n        }\n        return now + 1;\n   \
+    \ }\n    size_t size() { return siz; }\n};\n#line 2 \"Template/Template.hpp\"\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\
+    \ninline int scan() { return getchar(); }\ninline void scan(int &a) { scanf(\"\
+    %d\", &a); }\ninline void scan(unsigned &a) { scanf(\"%u\", &a); }\ninline void\
+    \ scan(long &a) { scanf(\"%ld\", &a); }\ninline void scan(long long &a) { scanf(\"\
+    %lld\", &a); }\ninline void scan(unsigned long long &a) { scanf(\"%llu\", &a);\
+    \ }\ninline void scan(char &a) { std::cin >> a; }\ninline void scan(float &a)\
+    \ { scanf(\"%f\", &a); }\ninline void scan(double &a) { scanf(\"%lf\", &a); }\n\
+    inline void scan(long double &a) { scanf(\"%Lf\", &a); }\ninline void scan(std::vector<bool>\
     \ &vec) {\n    for (unsigned i = 0; i < vec.size(); i++) {\n        int a;\n \
     \       scan(a);\n        vec[i] = a;\n    }\n}\ninline void scan(char a[]) {\
     \ scanf(\"%s\", a); }\ninline void scan(std::string &a) { std::cin >> a; }\ntemplate\
@@ -166,7 +166,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 20:10:47+09:00'
+  timestamp: '2024-05-09 20:53:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp

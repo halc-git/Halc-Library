@@ -21,11 +21,11 @@ data:
     \ <cstddef>\n#include <cstdint>\n#include <vector>\ntemplate <class T>\nstruct\
     \ FenwickTree {\n    std::vector<T> tree;\n    int32_t start = 1;\n    size_t\
     \ siz;\n    FenwickTree(int32_t sz) {\n        siz = sz;\n        tree.resize(sz\
-    \ + 1, 0);\n        start = 1 << ((32-std::countl_zero(siz)) - 1);\n    }\n  \
-    \  FenwickTree(std::vector<T> def) {\n        siz = def.size();\n        tree.resize(siz\
-    \ + 1, 0);\n        start = 1 << ((32-std::countl_zero(siz)) - 1);\n        for\
-    \ (int32_t i = 0; i < siz; i++) {\n            tree[i + 1] += def[i];\n      \
-    \      if (i + (i & -i) <= siz) {\n                tree[i + (i & -i)] += tree[i];\n\
+    \ + 1, 0);\n        start = 1 << ((64 - std::countl_zero(siz)) - 1);\n    }\n\
+    \    FenwickTree(std::vector<T> def) {\n        siz = def.size();\n        tree.resize(siz\
+    \ + 1, 0);\n        start = 1 << ((64 - std::countl_zero(siz)) - 1);\n       \
+    \ for (int32_t i = 0; i < siz; i++) {\n            tree[i + 1] += def[i];\n  \
+    \          if (i + (i & -i) <= siz) {\n                tree[i + (i & -i)] += tree[i];\n\
     \            }\n        }\n    }\n    void add(int32_t pos, T val) {\n       \
     \ pos++;\n        while (pos <= siz) {\n            tree[pos] += val;\n      \
     \      pos += pos & -pos;\n        }\n    }\n    T _sum(int32_t pos) {\n     \
@@ -40,9 +40,9 @@ data:
   code: "#pragma once\n#include <bit>\n#include <cstddef>\n#include <cstdint>\n#include\
     \ <vector>\ntemplate <class T>\nstruct FenwickTree {\n    std::vector<T> tree;\n\
     \    int32_t start = 1;\n    size_t siz;\n    FenwickTree(int32_t sz) {\n    \
-    \    siz = sz;\n        tree.resize(sz + 1, 0);\n        start = 1 << ((32-std::countl_zero(siz))\
+    \    siz = sz;\n        tree.resize(sz + 1, 0);\n        start = 1 << ((64 - std::countl_zero(siz))\
     \ - 1);\n    }\n    FenwickTree(std::vector<T> def) {\n        siz = def.size();\n\
-    \        tree.resize(siz + 1, 0);\n        start = 1 << ((32-std::countl_zero(siz))\
+    \        tree.resize(siz + 1, 0);\n        start = 1 << ((64 - std::countl_zero(siz))\
     \ - 1);\n        for (int32_t i = 0; i < siz; i++) {\n            tree[i + 1]\
     \ += def[i];\n            if (i + (i & -i) <= siz) {\n                tree[i +\
     \ (i & -i)] += tree[i];\n            }\n        }\n    }\n    void add(int32_t\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: false
   path: DataStructure/FenwickTree.hpp
   requiredBy: []
-  timestamp: '2024-05-09 18:32:42+09:00'
+  timestamp: '2024-05-09 20:53:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
