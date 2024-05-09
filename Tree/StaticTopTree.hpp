@@ -1,5 +1,7 @@
 #pragma once
 #include <cassert>
+#include <cstddef>
+#include <cstdint>
 #include <vector>
 template <class M>
 struct StaticTopTree {

@@ -16,7 +16,7 @@
 #define uniq(x) x.erase(unique(all(x)), std::end(x))
 #define vec(type, name, ...) vector<type> name(__VA_ARGS__);
 #define vv(type, name, h, ...) \
-    vector<vector<type>> name(h, std::vector<type>(__VA_ARGS__));
+    std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));
 #define INT(...)     \
     int __VA_ARGS__; \
     in(__VA_ARGS__)
@@ -35,9 +35,9 @@
 #define LD(...)     \
     ld __VA_ARGS__; \
     in(__VA_ARGS__)
-#define VEC(type, name, size) \
-    vector<type> name(size);  \
+#define VEC(type, name, size)     \
+    std::vector<type> name(size); \
     in(name)
-#define VV(type, name, h, w)                            \
-    vector<vector<type>> name(h, std::vector<type>(w)); \
+#define VV(type, name, h, w)                                      \
+    std::vector<std::vector<type>> name(h, std::vector<type>(w)); \
     in(name)
