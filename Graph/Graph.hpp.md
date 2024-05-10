@@ -25,7 +25,7 @@ data:
     \ Graph {\n    std::vector<std::vector<Edge<T>>> gr;\n    int32_t eds = 0;\n \
     \   Graph() = default;\n    Graph(int32_t n) { gr.resize(n); }\n    void add_edge(int32_t\
     \ from, int32_t to, T cost = 1, bool directed = false) {\n        gr[from].emplace_back(from,\
-    \ to, cost, eds);\n        if (!directed) {\n            eds++;\n            gr[to].emplace_back(to,\
+    \ to, cost, eds);\n        if (!directed) {\n            gr[to].emplace_back(to,\
     \ from, cost, eds);\n        }\n        eds++;\n    }\n    void add_directed_edge(int32_t\
     \ from, int32_t to, T cost = 1) {\n        gr[from].emplace_back(from, to, cost,\
     \ eds);\n        eds++;\n    }\n    inline std::vector<Edge<T>> &operator[](const\
@@ -38,7 +38,7 @@ data:
     \ std::vector<std::vector<Edge<T>>> gr;\n    int32_t eds = 0;\n    Graph() = default;\n\
     \    Graph(int32_t n) { gr.resize(n); }\n    void add_edge(int32_t from, int32_t\
     \ to, T cost = 1, bool directed = false) {\n        gr[from].emplace_back(from,\
-    \ to, cost, eds);\n        if (!directed) {\n            eds++;\n            gr[to].emplace_back(to,\
+    \ to, cost, eds);\n        if (!directed) {\n            gr[to].emplace_back(to,\
     \ from, cost, eds);\n        }\n        eds++;\n    }\n    void add_directed_edge(int32_t\
     \ from, int32_t to, T cost = 1) {\n        gr[from].emplace_back(from, to, cost,\
     \ eds);\n        eds++;\n    }\n    inline std::vector<Edge<T>> &operator[](const\
@@ -48,7 +48,7 @@ data:
   path: Graph/Graph.hpp
   requiredBy:
   - Tree/StaticTopTree.hpp
-  timestamp: '2024-05-10 21:48:41+09:00'
+  timestamp: '2024-05-10 22:25:00+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yuki/901.test.cpp

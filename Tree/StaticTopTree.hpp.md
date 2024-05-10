@@ -26,36 +26,35 @@ data:
     \ gr;\n    int32_t eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n);\
     \ }\n    void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false)\
     \ {\n        gr[from].emplace_back(from, to, cost, eds);\n        if (!directed)\
-    \ {\n            eds++;\n            gr[to].emplace_back(to, from, cost, eds);\n\
-    \        }\n        eds++;\n    }\n    void add_directed_edge(int32_t from, int32_t\
-    \ to, T cost = 1) {\n        gr[from].emplace_back(from, to, cost, eds);\n   \
-    \     eds++;\n    }\n    inline std::vector<Edge<T>> &operator[](const int32_t\
-    \ &p) { return gr[p]; }\n    int32_t size() { return gr.size(); }\n};\n#line 7\
-    \ \"Tree/StaticTopTree.hpp\"\ntemplate <class M>\nstruct StaticTopTree {\n   \
-    \ using point = typename M::point;\n    using path = typename M::path;\n    struct\
-    \ Node {\n        bool is_path;\n        point point_val;\n        path path_val;\n\
-    \        int32_t pos;\n        int32_t left;\n        int32_t right;\n       \
-    \ int32_t parent;\n        Node(bool pat, int32_t po = -1, int32_t lf = -1, int32_t\
-    \ ri = -1) {\n            is_path = pat;\n            pos = po;\n            left\
-    \ = lf;\n            right = ri;\n            parent = -1;\n        }\n    };\n\
-    \    int32_t sz;\n    std::vector<int32_t> node_pos;\n    std::vector<Node> nodes;\n\
-    \    int32_t rt;\n    template <class T>\n    StaticTopTree(Graph<T> gr, int32_t\
-    \ root) {\n        sz = gr.size();\n        node_pos.resize(sz);\n        _build(root,\
-    \ gr);\n    }\n    template <class T>\n    int32_t _path_cluster(int32_t pos,\
-    \ std::vector<int32_t> &tree_sz,\n                          Graph<T> &tree) {\n\
-    \        if (tree[pos].empty()) {\n            node_pos[pos] = nodes.size();\n\
-    \            nodes.emplace_back(Node(1, pos));\n            _calc_val(nodes.size()\
-    \ - 1);\n            return nodes.size() - 1;\n        }\n        std::vector<int32_t>\
-    \ address;\n        std::vector<int32_t> sizes;\n        while (!tree[pos].empty())\
-    \ {\n            int32_t max_size = -1;\n            int32_t next_pos = -1;\n\
-    \            for (int i = 0; i < tree[pos].size(); i++) {\n                if\
-    \ (tree_sz[tree[pos][i]] > max_size) {\n                    max_size = tree_sz[tree[pos][i]];\n\
-    \                    next_pos = i;\n                }\n            }\n       \
-    \     std::swap(tree[pos][next_pos], tree[pos].back());\n            next_pos\
-    \ = tree[pos].back();\n            tree[pos].pop_back();\n            tree_sz[pos]\
-    \ -= tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n     \
-    \       address.emplace_back(_point_cluster(pos, tree_sz, tree));\n          \
-    \  pos = next_pos;\n        }\n        address.emplace_back(_point_cluster(pos,\
+    \ {\n            gr[to].emplace_back(to, from, cost, eds);\n        }\n      \
+    \  eds++;\n    }\n    void add_directed_edge(int32_t from, int32_t to, T cost\
+    \ = 1) {\n        gr[from].emplace_back(from, to, cost, eds);\n        eds++;\n\
+    \    }\n    inline std::vector<Edge<T>> &operator[](const int32_t &p) { return\
+    \ gr[p]; }\n    int32_t size() { return gr.size(); }\n};\n#line 7 \"Tree/StaticTopTree.hpp\"\
+    \ntemplate <class M>\nstruct StaticTopTree {\n    using point = typename M::point;\n\
+    \    using path = typename M::path;\n    struct Node {\n        bool is_path;\n\
+    \        point point_val;\n        path path_val;\n        int32_t pos;\n    \
+    \    int32_t left;\n        int32_t right;\n        int32_t parent;\n        Node(bool\
+    \ pat, int32_t po = -1, int32_t lf = -1, int32_t ri = -1) {\n            is_path\
+    \ = pat;\n            pos = po;\n            left = lf;\n            right = ri;\n\
+    \            parent = -1;\n        }\n    };\n    int32_t sz;\n    std::vector<int32_t>\
+    \ node_pos;\n    std::vector<Node> nodes;\n    int32_t rt;\n    template <class\
+    \ T>\n    StaticTopTree(Graph<T> gr, int32_t root) {\n        sz = gr.size();\n\
+    \        node_pos.resize(sz);\n        _build(root, gr);\n    }\n    template\
+    \ <class T>\n    int32_t _path_cluster(int32_t pos, std::vector<int32_t> &tree_sz,\n\
+    \                          Graph<T> &tree) {\n        if (tree[pos].empty()) {\n\
+    \            node_pos[pos] = nodes.size();\n            nodes.emplace_back(Node(1,\
+    \ pos));\n            _calc_val(nodes.size() - 1);\n            return nodes.size()\
+    \ - 1;\n        }\n        std::vector<int32_t> address;\n        std::vector<int32_t>\
+    \ sizes;\n        while (!tree[pos].empty()) {\n            int32_t max_size =\
+    \ -1;\n            int32_t next_pos = -1;\n            for (int i = 0; i < tree[pos].size();\
+    \ i++) {\n                if (tree_sz[tree[pos][i]] > max_size) {\n          \
+    \          max_size = tree_sz[tree[pos][i]];\n                    next_pos = i;\n\
+    \                }\n            }\n            std::swap(tree[pos][next_pos],\
+    \ tree[pos].back());\n            next_pos = tree[pos].back();\n            tree[pos].pop_back();\n\
+    \            tree_sz[pos] -= tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n\
+    \            address.emplace_back(_point_cluster(pos, tree_sz, tree));\n     \
+    \       pos = next_pos;\n        }\n        address.emplace_back(_point_cluster(pos,\
     \ tree_sz, tree));\n        sizes.emplace_back(tree_sz[pos]);\n        return\
     \ _merge(address, sizes, 0, address.size(), 1);\n    }\n    template <class T>\n\
     \    int32_t _point_cluster(int32_t pos, std::vector<int32_t> &tree_sz,\n    \
@@ -203,7 +202,7 @@ data:
   isVerificationFile: false
   path: Tree/StaticTopTree.hpp
   requiredBy: []
-  timestamp: '2024-05-10 21:48:41+09:00'
+  timestamp: '2024-05-10 22:25:00+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yuki/901.test.cpp

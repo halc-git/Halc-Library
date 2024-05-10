@@ -42,7 +42,7 @@ data:
     \ {\n    std::vector<std::vector<Edge<T>>> gr;\n    int32_t eds = 0;\n    Graph()\
     \ = default;\n    Graph(int32_t n) { gr.resize(n); }\n    void add_edge(int32_t\
     \ from, int32_t to, T cost = 1, bool directed = false) {\n        gr[from].emplace_back(from,\
-    \ to, cost, eds);\n        if (!directed) {\n            eds++;\n            gr[to].emplace_back(to,\
+    \ to, cost, eds);\n        if (!directed) {\n            gr[to].emplace_back(to,\
     \ from, cost, eds);\n        }\n        eds++;\n    }\n    void add_directed_edge(int32_t\
     \ from, int32_t to, T cost = 1) {\n        gr[from].emplace_back(from, to, cost,\
     \ eds);\n        eds++;\n    }\n    inline std::vector<Edge<T>> &operator[](const\
@@ -303,15 +303,15 @@ data:
     \        gr.add_edge(u,v,{b,c});\n    }\n    vec(ll, dist, N, -1);\n    dist[0]\
     \ = 0;\n    stack<ll> vert;\n    vert.push(0);\n    static vec(func_type, func,\
     \ N, {1, 0});\n    vec(ll,change,N-1,-1);\n    while (!vert.empty()) {\n     \
-    \   ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos]) {\n  \
-    \          if (dist[i] == -1) {\n                func[i]=i.cost;\n           \
-    \     change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n           \
-    \     vert.push(i);\n            }\n        }\n    }\n    struct ops {\n     \
-    \   using point = array<mint, 2>;\n        using path = array<mint, 4>;\n    \
-    \    static path vertex(int v) {\n            return {1, a[v] * func[v].fi + func[v].se,\
-    \ func[v].fi, func[v].se};\n        }\n        static path compress(path p, path\
-    \ c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2]\
-    \ * c[2],\n                    p[2] * c[3] + p[3]};\n        }\n        static\
+    \   ll pos = vert.top();\n        out(pos);\n        vert.pop();\n        each(i,\
+    \ gr[pos]) {\n            if (change[i.idx]==-1) {\n                func[i]=i.cost;\n\
+    \                change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n\
+    \                vert.push(i);\n            }\n        }\n    }\n    struct ops\
+    \ {\n        using point = array<mint, 2>;\n        using path = array<mint, 4>;\n\
+    \        static path vertex(int v) {\n            return {1, a[v] * func[v].fi\
+    \ + func[v].se, func[v].fi, func[v].se};\n        }\n        static path compress(path\
+    \ p, path c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3],\
+    \ p[2] * c[2],\n                    p[2] * c[3] + p[3]};\n        }\n        static\
     \ path add_vertex(point t, int v) {\n            return {t[0] + 1,\n         \
     \           (a[v] + t[1]) * func[v].fi + (t[0] + 1) * func[v].se,\n          \
     \          func[v].fi, func[v].se};\n        }\n        static point rake(point\
@@ -331,15 +331,15 @@ data:
     \    gr.add_edge(u,v,{b,c});\n    }\n    vec(ll, dist, N, -1);\n    dist[0] =\
     \ 0;\n    stack<ll> vert;\n    vert.push(0);\n    static vec(func_type, func,\
     \ N, {1, 0});\n    vec(ll,change,N-1,-1);\n    while (!vert.empty()) {\n     \
-    \   ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos]) {\n  \
-    \          if (dist[i] == -1) {\n                func[i]=i.cost;\n           \
-    \     change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n           \
-    \     vert.push(i);\n            }\n        }\n    }\n    struct ops {\n     \
-    \   using point = array<mint, 2>;\n        using path = array<mint, 4>;\n    \
-    \    static path vertex(int v) {\n            return {1, a[v] * func[v].fi + func[v].se,\
-    \ func[v].fi, func[v].se};\n        }\n        static path compress(path p, path\
-    \ c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2]\
-    \ * c[2],\n                    p[2] * c[3] + p[3]};\n        }\n        static\
+    \   ll pos = vert.top();\n        out(pos);\n        vert.pop();\n        each(i,\
+    \ gr[pos]) {\n            if (change[i.idx]==-1) {\n                func[i]=i.cost;\n\
+    \                change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n\
+    \                vert.push(i);\n            }\n        }\n    }\n    struct ops\
+    \ {\n        using point = array<mint, 2>;\n        using path = array<mint, 4>;\n\
+    \        static path vertex(int v) {\n            return {1, a[v] * func[v].fi\
+    \ + func[v].se, func[v].fi, func[v].se};\n        }\n        static path compress(path\
+    \ p, path c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3],\
+    \ p[2] * c[2],\n                    p[2] * c[3] + p[3]};\n        }\n        static\
     \ path add_vertex(point t, int v) {\n            return {t[0] + 1,\n         \
     \           (a[v] + t[1]) * func[v].fi + (t[0] + 1) * func[v].se,\n          \
     \          func[v].fi, func[v].se};\n        }\n        static point rake(point\
@@ -361,7 +361,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-10 22:11:26+09:00'
+  timestamp: '2024-05-10 22:25:00+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
