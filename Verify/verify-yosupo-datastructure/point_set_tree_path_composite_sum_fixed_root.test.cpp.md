@@ -300,56 +300,54 @@ data:
     \nusing mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type\
     \ = pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a,\
     \ N);\n    Graph<func_type> gr(N);\n    rep(i, N - 1) {\n        LL(u,v,b,c);\n\
-    \        gr.add_edge(u,v,{b,c});\n    }\n    vec(ll, dist, N, -1);\n    dist[0]\
-    \ = 0;\n    stack<ll> vert;\n    vert.push(0);\n    static vec(func_type, func,\
-    \ N, {1, 0});\n    vec(ll,change,N-1,-1);\n    while (!vert.empty()) {\n     \
-    \   ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos]) {\n  \
-    \          if (change[i.idx]==-1) {\n                func[i]=i.cost;\n       \
-    \         change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n       \
-    \         vert.push(i);\n            }\n        }\n    }\n    struct ops {\n \
-    \       using point = array<mint, 2>;\n        using path = array<mint, 4>;\n\
-    \        static path vertex(int v) {\n            return {1, a[v] * func[v].fi\
-    \ + func[v].se, func[v].fi, func[v].se};\n        }\n        static path compress(path\
-    \ p, path c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3],\
-    \ p[2] * c[2],\n                    p[2] * c[3] + p[3]};\n        }\n        static\
-    \ path add_vertex(point t, int v) {\n            return {t[0] + 1,\n         \
-    \           (a[v] + t[1]) * func[v].fi + (t[0] + 1) * func[v].se,\n          \
-    \          func[v].fi, func[v].se};\n        }\n        static point rake(point\
-    \ x, point y) {\n            return {x[0] + y[0], x[1] + y[1]};\n        }\n \
-    \       static point add_edge(path t) { return {t[0], t[1]}; }\n    };\n    StaticTopTree<ops>\
-    \ tree(gr, 0);\n    rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n     \
-    \       LL(w, x);\n            a[w] = x;\n            tree.calc(w);\n        }\
-    \ else {\n            LL(e, y, z);\n            func[change[e]] = {y, z};\n  \
-    \          tree.calc(change[e]);\n        }\n        out(tree.root_value()[1]);\n\
-    \    }\n}\nint main() { solve(); }\n"
+    \        gr.add_edge(u,v,{b,c});\n    }\n    stack<ll> vert;\n    vert.push(0);\n\
+    \    static vec(func_type, func, N, {1, 0});\n    vec(ll,change,N-1,-1);\n   \
+    \ while (!vert.empty()) {\n        ll pos = vert.top();\n        vert.pop();\n\
+    \        each(i, gr[pos]) {\n            if (change[i.idx]==-1) {\n          \
+    \      func[i]=i.cost;\n                change[i.idx]=i;\n                vert.push(i);\n\
+    \            }\n        }\n    }\n    struct ops {\n        using point = array<mint,\
+    \ 2>;\n        using path = array<mint, 4>;\n        static path vertex(int v)\
+    \ {\n            return {1, a[v] * func[v].fi + func[v].se, func[v].fi, func[v].se};\n\
+    \        }\n        static path compress(path p, path c) {\n            return\
+    \ {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2] * c[2],\n             \
+    \       p[2] * c[3] + p[3]};\n        }\n        static path add_vertex(point\
+    \ t, int v) {\n            return {t[0] + 1,\n                    (a[v] + t[1])\
+    \ * func[v].fi + (t[0] + 1) * func[v].se,\n                    func[v].fi, func[v].se};\n\
+    \        }\n        static point rake(point x, point y) {\n            return\
+    \ {x[0] + y[0], x[1] + y[1]};\n        }\n        static point add_edge(path t)\
+    \ { return {t[0], t[1]}; }\n    };\n    StaticTopTree<ops> tree(gr, 0);\n    rep(_,\
+    \ Q) {\n        LL(t);\n        if (t == 0) {\n            LL(w, x);\n       \
+    \     a[w] = x;\n            tree.calc(w);\n        } else {\n            LL(e,\
+    \ y, z);\n            func[change[e]] = {y, z};\n            tree.calc(change[e]);\n\
+    \        }\n        out(tree.root_value()[1]);\n    }\n}\nint main() { solve();\
+    \ }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
     \n#include \"../../Graph/Graph.hpp\"\n#include \"../../Modint/Modint.hpp\"\n#include\
     \ \"../../Template/Template.hpp\"\n#include \"../../Tree/StaticTopTree.hpp\"\n\
     using mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type =\
     \ pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a, N);\n\
     \    Graph<func_type> gr(N);\n    rep(i, N - 1) {\n        LL(u,v,b,c);\n    \
-    \    gr.add_edge(u,v,{b,c});\n    }\n    vec(ll, dist, N, -1);\n    dist[0] =\
-    \ 0;\n    stack<ll> vert;\n    vert.push(0);\n    static vec(func_type, func,\
-    \ N, {1, 0});\n    vec(ll,change,N-1,-1);\n    while (!vert.empty()) {\n     \
-    \   ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos]) {\n  \
-    \          if (change[i.idx]==-1) {\n                func[i]=i.cost;\n       \
-    \         change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n       \
-    \         vert.push(i);\n            }\n        }\n    }\n    struct ops {\n \
-    \       using point = array<mint, 2>;\n        using path = array<mint, 4>;\n\
-    \        static path vertex(int v) {\n            return {1, a[v] * func[v].fi\
-    \ + func[v].se, func[v].fi, func[v].se};\n        }\n        static path compress(path\
-    \ p, path c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3],\
-    \ p[2] * c[2],\n                    p[2] * c[3] + p[3]};\n        }\n        static\
-    \ path add_vertex(point t, int v) {\n            return {t[0] + 1,\n         \
-    \           (a[v] + t[1]) * func[v].fi + (t[0] + 1) * func[v].se,\n          \
-    \          func[v].fi, func[v].se};\n        }\n        static point rake(point\
-    \ x, point y) {\n            return {x[0] + y[0], x[1] + y[1]};\n        }\n \
-    \       static point add_edge(path t) { return {t[0], t[1]}; }\n    };\n    StaticTopTree<ops>\
-    \ tree(gr, 0);\n    rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n     \
-    \       LL(w, x);\n            a[w] = x;\n            tree.calc(w);\n        }\
-    \ else {\n            LL(e, y, z);\n            func[change[e]] = {y, z};\n  \
-    \          tree.calc(change[e]);\n        }\n        out(tree.root_value()[1]);\n\
-    \    }\n}\nint main() { solve(); }"
+    \    gr.add_edge(u,v,{b,c});\n    }\n    stack<ll> vert;\n    vert.push(0);\n\
+    \    static vec(func_type, func, N, {1, 0});\n    vec(ll,change,N-1,-1);\n   \
+    \ while (!vert.empty()) {\n        ll pos = vert.top();\n        vert.pop();\n\
+    \        each(i, gr[pos]) {\n            if (change[i.idx]==-1) {\n          \
+    \      func[i]=i.cost;\n                change[i.idx]=i;\n                vert.push(i);\n\
+    \            }\n        }\n    }\n    struct ops {\n        using point = array<mint,\
+    \ 2>;\n        using path = array<mint, 4>;\n        static path vertex(int v)\
+    \ {\n            return {1, a[v] * func[v].fi + func[v].se, func[v].fi, func[v].se};\n\
+    \        }\n        static path compress(path p, path c) {\n            return\
+    \ {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2] * c[2],\n             \
+    \       p[2] * c[3] + p[3]};\n        }\n        static path add_vertex(point\
+    \ t, int v) {\n            return {t[0] + 1,\n                    (a[v] + t[1])\
+    \ * func[v].fi + (t[0] + 1) * func[v].se,\n                    func[v].fi, func[v].se};\n\
+    \        }\n        static point rake(point x, point y) {\n            return\
+    \ {x[0] + y[0], x[1] + y[1]};\n        }\n        static point add_edge(path t)\
+    \ { return {t[0], t[1]}; }\n    };\n    StaticTopTree<ops> tree(gr, 0);\n    rep(_,\
+    \ Q) {\n        LL(t);\n        if (t == 0) {\n            LL(w, x);\n       \
+    \     a[w] = x;\n            tree.calc(w);\n        } else {\n            LL(e,\
+    \ y, z);\n            func[change[e]] = {y, z};\n            tree.calc(change[e]);\n\
+    \        }\n        out(tree.root_value()[1]);\n    }\n}\nint main() { solve();\
+    \ }"
   dependsOn:
   - Graph/Graph.hpp
   - Modint/Modint.hpp
@@ -361,7 +359,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-10 22:29:18+09:00'
+  timestamp: '2024-05-10 22:40:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
