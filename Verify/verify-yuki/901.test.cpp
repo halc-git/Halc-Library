@@ -1,6 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/901"
-#include "../../Tree/StaticTopTree.hpp"
+#include "../../Graph/Graph.hpp"
 #include "../../Template/Template.hpp"
+#include "../../Tree/StaticTopTree.hpp"
 void solve() {
     LL(N);
     static vector<bool> mark(N, 0);
@@ -68,13 +69,10 @@ void solve() {
             return {1, t[1], t[2] + t[3], 0, t[5]};
         }
     };
-    StaticTopTree<steiner> tree(N);
-    vv(pll, gr, N);
+    Graph<> gr(N);
     rep(i, N - 1) {
         LL(u, v, w);
-        tree.add_edge(u, v);
-        gr[u].push_back(pll(v, w));
-        gr[v].push_back(pll(u, w));
+        gr.add_edge(u, v, w);
     }
     weight[0] = 0;
     stack<ll> vert;
@@ -82,14 +80,15 @@ void solve() {
     while (!vert.empty()) {
         ll pos = vert.top();
         vert.pop();
-        for (auto &[t, w] : gr[pos]) {
-            if (weight[t] == -1) {
-                weight[t] = w;
-                vert.push(t);
+        each(e, gr[pos]) {
+            if (weight[e] == -1) {
+                weight[e] = e.cost;
+                vert.push(e);
             }
         }
     }
-    tree.build(0);
+    out(weight);
+    StaticTopTree<steiner> tree(gr, 0);
     LL(Q);
     rep(i, Q) {
         LL(k);

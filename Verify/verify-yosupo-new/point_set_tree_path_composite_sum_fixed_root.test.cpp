@@ -1,7 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root"
+#include "../../Graph/Graph.hpp"
 #include "../../Modint/Modint.hpp"
-#include "../../Tree/StaticTopTree.hpp"
 #include "../../Template/Template.hpp"
+#include "../../Tree/StaticTopTree.hpp"
 using mint = Modint<MOD>;
 using edge_type = array<ll, 4>;
 using func_type = pair<mint, mint>;
@@ -9,11 +10,8 @@ void solve() {
     LL(N, Q);
     static VEC(mint, a, N);
     VEC(edge_type, edge, N - 1);
-    vv(ll, gr, N);
-    rep(i, N - 1) {
-        gr[edge[i][0]].emplace_back(edge[i][1]);
-        gr[edge[i][1]].emplace_back(edge[i][0]);
-    }
+    Graph<> gr(N);
+    rep(i, N - 1) { gr.add_edge(edge[i][0], edge[i][1]); }
     vec(ll, dist, N, -1);
     dist[0] = 0;
     stack<ll> vert;
@@ -49,15 +47,13 @@ void solve() {
         }
         static point add_edge(path t) { return {t[0], t[1]}; }
     };
-    StaticTopTree<ops> tree(N);
     rep(i, N - 1) {
         if (dist[edge[i][0]] < dist[edge[i][1]]) {
             swap(edge[i][0], edge[i][1]);
         }
         func[edge[i][0]] = {edge[i][2], edge[i][3]};
-        tree.add_edge(edge[i][0], edge[i][1]);
     }
-    tree.build(0);
+    StaticTopTree<ops> tree(gr, 0);
     rep(_, Q) {
         LL(t);
         if (t == 0) {

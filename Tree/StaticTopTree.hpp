@@ -2,6 +2,8 @@
 #include <cassert>
 #include <cstdint>
 #include <vector>
+
+#include "../Graph/Graph.hpp"
 template <class M>
 struct StaticTopTree {
     using point = typename M::point;
@@ -23,20 +25,18 @@ struct StaticTopTree {
         }
     };
     int32_t sz;
-    std::vector<std::vector<int32_t>> tree;
     std::vector<int32_t> node_pos;
     std::vector<Node> nodes;
     int32_t rt;
-    StaticTopTree(int32_t size) {
-        sz = size;
-        tree.resize(sz);
+    template <class T>
+    StaticTopTree(Graph<T> gr, int32_t root) {
+        sz = gr.size();
         node_pos.resize(sz);
+        _build(root, gr);
     }
-    void add_edge(int32_t s, int32_t v) {
-        tree[s].emplace_back(v);
-        tree[v].emplace_back(s);
-    }
-    int32_t _path_cluster(int32_t pos, std::vector<int32_t> &tree_sz) {
+    template <class T>
+    int32_t _path_cluster(int32_t pos, std::vector<int32_t> &tree_sz,
+                          Graph<T> &tree) {
         if (tree[pos].empty()) {
             node_pos[pos] = nodes.size();
             nodes.emplace_back(Node(1, pos));
@@ -59,14 +59,16 @@ struct StaticTopTree {
             tree[pos].pop_back();
             tree_sz[pos] -= tree_sz[next_pos];
             sizes.emplace_back(tree_sz[pos]);
-            address.emplace_back(_point_cluster(pos, tree_sz));
+            address.emplace_back(_point_cluster(pos, tree_sz, tree));
             pos = next_pos;
         }
-        address.emplace_back(_point_cluster(pos, tree_sz));
+        address.emplace_back(_point_cluster(pos, tree_sz, tree));
         sizes.emplace_back(tree_sz[pos]);
         return _merge(address, sizes, 0, address.size(), 1);
     }
-    int32_t _point_cluster(int32_t pos, std::vector<int32_t> &tree_sz) {
+    template <class T>
+    int32_t _point_cluster(int32_t pos, std::vector<int32_t> &tree_sz,
+                           Graph<T> &tree) {
         if (tree[pos].empty()) {
             node_pos[pos] = nodes.size();
             nodes.emplace_back(Node(1, pos));
@@ -77,7 +79,7 @@ struct StaticTopTree {
         std::vector<int32_t> sizes;
         for (int32_t i : tree[pos]) {
             sizes.emplace_back(tree_sz[i]);
-            int32_t vert = _path_cluster(i, tree_sz);
+            int32_t vert = _path_cluster(i, tree_sz, tree);
             nodes.emplace_back(Node(0, -1, vert));
             nodes[vert].parent = nodes.size() - 1;
             address.emplace_back(nodes.size() - 1);
@@ -138,7 +140,8 @@ struct StaticTopTree {
             }
         }
     }
-    void build(int32_t root) {
+    template <class T>
+    void _build(int32_t root, Graph<T> &tree) {
         std::vector<int32_t> vert(sz);
         std::vector<int32_t> tree_sz(sz, -1);
         vert[0] = root;
@@ -168,7 +171,7 @@ struct StaticTopTree {
             }
             tree_sz[vert[i]]++;
         }
-        rt = _path_cluster(root, tree_sz);
+        rt = _path_cluster(root, tree_sz, tree);
     }
     path root_value() { return nodes[rt].path_val; }
     void calc(int32_t pos) {
