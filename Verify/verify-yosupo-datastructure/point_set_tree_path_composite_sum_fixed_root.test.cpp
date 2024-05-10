@@ -14,8 +14,6 @@ void solve() {
         LL(u,v,b,c);
         gr.add_edge(u,v,{b,c});
     }
-    vec(ll, dist, N, -1);
-    dist[0] = 0;
     stack<ll> vert;
     vert.push(0);
     static vec(func_type, func, N, {1, 0});
@@ -27,7 +25,6 @@ void solve() {
             if (change[i.idx]==-1) {
                 func[i]=i.cost;
                 change[i.idx]=i;
-                dist[i] = dist[pos] + 1;
                 vert.push(i);
             }
         }
