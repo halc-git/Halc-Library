@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Graph/Graph.hpp
     title: Graph/Graph.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
   - icon: ':question:'
@@ -19,20 +19,20 @@ data:
   - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
     links:
     - https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
-  bundledCode: "#line 1 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
     \n#line 2 \"Graph/Graph.hpp\"\n#include <cstdint>\n#include <vector>\ntemplate\
     \ <class T = int32_t>\nstruct Edge {\n    int32_t from, to;\n    T cost;\n   \
@@ -296,7 +296,7 @@ data:
     \    void calc(int32_t pos) {\n        int32_t change = node_pos[pos];\n     \
     \   while (nodes[change].parent != -1) {\n            _calc_val(change);\n   \
     \         change = nodes[change].parent;\n        }\n        _calc_val(change);\n\
-    \    }\n    int32_t size() { return sz; }\n};\n#line 6 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+    \    }\n    int32_t size() { return sz; }\n};\n#line 6 \"Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \nusing mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type\
     \ = pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a,\
     \ N);\n    VEC(edge_type, edge, N - 1);\n    Graph<> gr(N);\n    rep(i, N - 1)\
@@ -361,15 +361,15 @@ data:
   - Template/Util.hpp
   - Tree/StaticTopTree.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
+  path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-10 21:48:41+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-10 21:54:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
+documentation_of: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
-- /verify/Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp.html
-title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp.html
+title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
 ---

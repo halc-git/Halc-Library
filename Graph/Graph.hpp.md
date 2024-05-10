@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
-    title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
+    title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - icon: ':x:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Graph/Graph.hpp\"\n#include <cstdint>\n#include <vector>\n\
@@ -49,10 +49,10 @@ data:
   requiredBy:
   - Tree/StaticTopTree.hpp
   timestamp: '2024-05-10 21:48:41+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yuki/901.test.cpp
-  - Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
+  - Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
 documentation_of: Graph/Graph.hpp
 layout: document
 redirect_from:

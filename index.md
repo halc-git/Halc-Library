@@ -23,7 +23,7 @@ data:
       title: Union Find
   - name: Graph
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: Graph/Graph.hpp
       title: Graph/Graph.hpp
   - name: Math
@@ -47,7 +47,7 @@ data:
       title: Misc/Timer.hpp
   - name: Modint
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -77,7 +77,7 @@ data:
       title: Template/Util.hpp
   - name: Tree
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
   verificationCategories:
@@ -100,6 +100,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
+      title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
       title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
@@ -126,11 +129,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
       title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-  - name: Verify/verify-yosupo-new
-    pages:
-    - icon: ':x:'
-      path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
-      title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - name: Verify/verify-yosupo-string
     pages:
     - icon: ':heavy_check_mark:'
