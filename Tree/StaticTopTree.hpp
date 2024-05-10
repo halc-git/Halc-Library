@@ -1,6 +1,5 @@
 #pragma once
 #include <cassert>
-#include <cstddef>
 #include <cstdint>
 #include <vector>
 template <class M>
@@ -23,12 +22,12 @@ struct StaticTopTree {
             parent = -1;
         }
     };
-    size_t sz;
+    int32_t sz;
     std::vector<std::vector<int32_t>> tree;
     std::vector<int32_t> node_pos;
     std::vector<Node> nodes;
     int32_t rt;
-    StaticTopTree(size_t size) {
+    StaticTopTree(int32_t size) {
         sz = size;
         tree.resize(sz);
         node_pos.resize(sz);
@@ -180,5 +179,5 @@ struct StaticTopTree {
         }
         _calc_val(change);
     }
-    size_t size() { return sz; }
+    int32_t size() { return sz; }
 };

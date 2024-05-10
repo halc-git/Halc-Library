@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/associative_array"
 #include "../../DataStructure/Hashmap.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     LL(Q);
     Hashmap<ll, ll> a;
     rep(i, Q) {
@@ -14,3 +14,4 @@ void Halc::solve() {
         }
     }
 }
+int main() { solve(); }

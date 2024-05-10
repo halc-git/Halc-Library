@@ -1,5 +1,4 @@
 #pragma once
-#include <cstddef>
 #include <cstdint>
 #include <vector>
 template <class M>
@@ -32,7 +31,7 @@ struct MonoidUnionFind {
         tree[b].first = a;
         return true;
     }
-    size_t size(int32_t pos) { return -tree[root(pos)].first; }
+    int32_t size(int32_t pos) { return -tree[root(pos)].first; }
     std::vector<std::vector<int32_t>> groups() {
         std::vector<std::vector<int32_t>> members(tree.size());
         for (int32_t i = 0; i < tree.size(); i++) {

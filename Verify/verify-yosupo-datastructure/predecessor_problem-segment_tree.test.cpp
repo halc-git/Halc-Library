@@ -6,7 +6,7 @@ struct raq {
     static T op(T x, T y) { return x + y; }
     static inline T e = 0;
 };
-void Halc::solve() {
+void solve() {
     LL(N, Q);
     STR(T);
     vec(ll, t, N, 0);
@@ -43,3 +43,4 @@ void Halc::solve() {
         }
     }
 }
+int main() { solve(); }

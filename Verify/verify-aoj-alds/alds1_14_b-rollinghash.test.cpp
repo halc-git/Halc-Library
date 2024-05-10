@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B"
 #include "../../String/RollingHash.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     STR(T);
     STR(P);
     RollingHash<string> roll;
@@ -12,3 +12,4 @@ void Halc::solve() {
         if (roll.query(tb, i, i + len(P)) == hash) out(i);
     }
 }
+int main() { solve(); }

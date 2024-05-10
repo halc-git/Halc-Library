@@ -1,22 +1,21 @@
 #pragma once
 #include <bit>
-#include <cstddef>
 #include <cstdint>
 #include <vector>
 template <class T>
 struct FenwickTree {
     std::vector<T> tree;
     int32_t start = 1;
-    size_t siz;
+    int32_t siz;
     FenwickTree(int32_t sz) {
         siz = sz;
         tree.resize(sz + 1, 0);
-        start = 1 << ((64 - std::countl_zero(siz)) - 1);
+        start = 1 << ((32 - std::countl_zero((uint32_t)siz)) - 1);
     }
     FenwickTree(std::vector<T> def) {
         siz = def.size();
         tree.resize(siz + 1, 0);
-        start = 1 << ((64 - std::countl_zero(siz)) - 1);
+        start = 1 << ((32 - std::countl_zero((uint32_t)siz)) - 1);
         for (int32_t i = 0; i < siz; i++) {
             tree[i + 1] += def[i];
             if (i + (i & -i) <= siz) {
@@ -52,5 +51,5 @@ struct FenwickTree {
         }
         return now + 1;
     }
-    size_t size() { return siz; }
+    int32_t size() { return siz; }
 };

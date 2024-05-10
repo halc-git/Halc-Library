@@ -8,7 +8,7 @@ struct composite {
     static T op(T x, T y) { return T(x.fi * y.fi, x.se * y.fi + y.se); }
     static inline T e = T(1, 0);
 };
-void Halc::solve() {
+void solve() {
     LL(N, Q);
     VEC(composite::T, ab, N);
     SegmentTree<composite> seg(ab);
@@ -24,3 +24,4 @@ void Halc::solve() {
         }
     }
 }
+int main() { solve(); }

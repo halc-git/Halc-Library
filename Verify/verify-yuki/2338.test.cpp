@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/2338"
 #include "../../Misc/Mo.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     LL(N, M, Q);
     static vec(ll, P, N);
     static vec(bool, S, N, 0);
@@ -100,3 +100,4 @@ void Halc::solve() {
         out(a, p);
     }
 }
+int main() { solve(); }

@@ -27,15 +27,6 @@ constexpr ld EPS = 1e-9;
 constexpr ld PI = 3.1415926535897932;
 const ll four[] = {0, 1, 0, -1, 0};
 const ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};
-static ll intpow(ll a, ll b) {
-    ll ret = 1;
-    while (b) {
-        if (b & 1) ret *= a;
-        a *= a;
-        b >>= 1;
-    }
-    return ret;
-}
 template <class T>
 bool chmin(T &a, const T &b) {
     if (a > b) {

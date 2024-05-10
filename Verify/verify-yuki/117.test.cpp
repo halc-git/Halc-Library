@@ -3,7 +3,7 @@
 #include "../../Modint/Modint.hpp"
 #include "../../Template/Template.hpp"
 using mint = Modint<MODD>;
-void Halc::solve() {
+void solve() {
     LL(T);
     ModCombination<mint> comb;
     comb.resize(2000000);
@@ -32,3 +32,4 @@ void Halc::solve() {
             out(comb.multi_comb(N, K));
     }
 }
+int main() { solve(); }

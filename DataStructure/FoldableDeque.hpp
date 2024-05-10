@@ -1,5 +1,4 @@
 #pragma once
-#include <cstddef>
 #include <cstdint>
 #include <stack>
 #include <vector>
@@ -40,7 +39,7 @@ struct FoldableQueue {
         return top.top();
     }
     T get_all() { return M::op(topfold.top(), bottomfold.top()); }
-    size_t size() { return top.size() + bottom.size(); }
+    int32_t size() { return top.size() + bottom.size(); }
     bool empty() { return top.empty() && bottom.empty(); }
 };
 template <class M>
@@ -67,7 +66,7 @@ struct FoldableDeque {
                 bottom.pop();
                 bottomfold.pop();
             }
-            size_t sz = change.size();
+            int32_t sz = change.size();
             for (int32_t i = (sz >> 1); i >= 0; i--) {
                 top.push(change[sz - i - 1]);
                 topfold.push(M::op(change[sz - i - 1], topfold.top()));
@@ -88,7 +87,7 @@ struct FoldableDeque {
                 top.pop();
                 topfold.pop();
             }
-            size_t sz = change.size();
+            int32_t sz = change.size();
             for (int32_t i = (sz >> 1); i >= 0; i--) {
                 bottom.push(change[sz - i - 1]);
                 bottomfold.push(M::op(bottomfold.top(), change[sz - i - 1]));
@@ -109,7 +108,7 @@ struct FoldableDeque {
                 bottom.pop();
                 bottomfold.pop();
             }
-            size_t sz = change.size();
+            int32_t sz = change.size();
             for (uint32_t i = (sz >> 1); i >= 0; i--) {
                 top.push(change[i]);
                 topfold.push(M::op(change[i], topfold.top()));
@@ -129,7 +128,7 @@ struct FoldableDeque {
                 top.pop();
                 topfold.pop();
             }
-            size_t sz = change.size();
+            int32_t sz = change.size();
             for (uint32_t i = (sz >> 1); i >= 0; i--) {
                 bottom.push(change[i]);
                 bottomfold.push(M::op(bottomfold.top(), change[i]));
@@ -142,6 +141,6 @@ struct FoldableDeque {
         return bottom.top();
     }
     T get_all() { return M::op(topfold.top(), bottomfold.top()); }
-    size_t size() { return top.size() + bottom.size(); }
+    int32_t size() { return top.size() + bottom.size(); }
     bool empty() { return top.empty() && bottom.empty(); }
 };

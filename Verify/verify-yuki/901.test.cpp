@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/901"
 #include "../../Tree/StaticTopTree.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     LL(N);
     static vector<bool> mark(N, 0);
     static vector<ll> weight(N, -1);
@@ -105,3 +105,4 @@ void Halc::solve() {
         }
     }
 }
+int main() { solve(); }

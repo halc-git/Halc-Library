@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/enumerate_palindromes"
 #include "../../String/RollingHash.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     STR(S);
     RollingHash<string> roll;
     auto st = roll.build(S);
@@ -36,3 +36,4 @@ void Halc::solve() {
     }
     out(ans);
 }
+int main() { solve(); }

@@ -6,7 +6,7 @@ struct rmq {
     static T op(T x, T y) { return min(x, y); }
     static inline T e = INF;
 };
-void Halc::solve() {
+void solve() {
     LL(N, Q);
     VEC(ll, A, N);
     DisjointSparseTable<rmq> a(A);
@@ -15,3 +15,4 @@ void Halc::solve() {
         out(a.prod(l, r));
     }
 }
+int main() { solve(); }

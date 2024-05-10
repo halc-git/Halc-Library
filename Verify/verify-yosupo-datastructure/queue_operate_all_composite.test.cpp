@@ -8,7 +8,7 @@ struct composite {
     static T op(T lf, T ri) { return T(lf.fi * ri.fi, lf.se * ri.fi + ri.se); }
     static inline T e = T(1, 0);
 };
-void Halc::solve() {
+void solve() {
     LL(Q);
     FoldableQueue<composite> que;
     rep(i, Q) {
@@ -27,3 +27,4 @@ void Halc::solve() {
         }
     }
 }
+int main() { solve(); }

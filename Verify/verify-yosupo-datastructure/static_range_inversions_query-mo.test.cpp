@@ -3,7 +3,7 @@
 #include "../../Misc/Compress.hpp"
 #include "../../Misc/Mo.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     LL(N, Q);
     static VEC(ll, A, N);
     static Compress<ll> cp;
@@ -40,3 +40,4 @@ void Halc::solve() {
     vector<ll> fin = mo.run();
     each(i, fin) out(i);
 }
+int main() { solve(); }

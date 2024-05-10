@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 #include "../../DataStructure/UnionFind.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     LL(N, Q);
     UnionFind uni(N);
     rep(i, Q) {
@@ -13,3 +13,4 @@ void Halc::solve() {
         }
     }
 }
+int main() { solve(); }

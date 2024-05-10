@@ -1,5 +1,4 @@
 #pragma once
-#include <cstddef>
 #include <cstdint>
 #include <queue>
 #include <stack>
@@ -164,5 +163,5 @@ struct SegmentTree {
         }
         return 0;
     }
-    size_t size() { return siz; }
+    int32_t size() { return siz; }
 };

@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include "../../DataStructure/FenwickTree.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     LL(N, Q);
     VEC(ll, A, N);
     FenwickTree<ll> a(A);
@@ -14,3 +14,4 @@ void Halc::solve() {
         }
     }
 }
+int main() { solve(); }

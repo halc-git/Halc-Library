@@ -1,16 +1,15 @@
 #pragma once
 #include <bit>
-#include <cstddef>
 #include <cstdint>
 #include <vector>
 template <class M>
 struct DisjointSparseTable {
     using T = typename M::T;
-    size_t siz;
+    int32_t siz;
     std::vector<T> table;
     DisjointSparseTable(std::vector<T> def) {
         siz = def.size();
-        int32_t bitlen = 64 - std::countl_zero(siz - 1);
+        int32_t bitlen = 32 - std::countl_zero((uint32_t)siz - 1);
         table.resize(siz * std::max(1, bitlen));
         int32_t pos = 0;
         for (int32_t i = 0; i < table.size(); i++) {
@@ -46,4 +45,5 @@ struct DisjointSparseTable {
         int32_t pos = (31 - std::countl_zero((uint32_t)lf ^ (ri - 1))) * siz;
         return M::op(table[pos + lf], table[pos + ri - 1]);
     }
+    int32_t size() { return siz; }
 };

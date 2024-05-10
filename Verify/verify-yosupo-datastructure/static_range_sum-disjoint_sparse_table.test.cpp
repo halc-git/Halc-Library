@@ -6,7 +6,7 @@ struct rsq {
     static T op(T x, T y) { return x + y; }
     static inline T e = 0;
 };
-void Halc::solve() {
+void solve() {
     LL(N, Q);
     VEC(ll, A, N);
     DisjointSparseTable<rsq> a(A);
@@ -15,3 +15,4 @@ void Halc::solve() {
         out(a.prod(l, r));
     }
 }
+int main() { solve(); }

@@ -2,7 +2,7 @@
 #include "../../Modint/Modint.hpp"
 #include "../../Template/Template.hpp"
 using mint = ArbitraryModint<-1>;
-void Halc::solve() {
+void solve() {
     LL(P, N);
     mint::set_mod(P);
     VEC(mint, A, N);
@@ -16,3 +16,4 @@ void Halc::solve() {
     }
     out(ans);
 }
+int main() { solve(); }

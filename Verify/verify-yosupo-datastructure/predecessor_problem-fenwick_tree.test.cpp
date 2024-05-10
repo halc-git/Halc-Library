@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/predecessor_problem"
 #include "../../DataStructure/FenwickTree.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     LL(N, Q);
     STR(T);
     vec(ll, t, N, 0);
@@ -40,3 +40,4 @@ void Halc::solve() {
         }
     }
 }
+int main() { solve(); }

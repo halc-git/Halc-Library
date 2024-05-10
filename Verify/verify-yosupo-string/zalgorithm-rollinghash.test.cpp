@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 #include "../../String/RollingHash.hpp"
 #include "../../Template/Template.hpp"
-void Halc::solve() {
+void solve() {
     STR(S);
     vec(ll, ans, len(S));
     RollingHash<string> roll;
@@ -9,3 +9,4 @@ void Halc::solve() {
     rep(i, len(S)) { ans[i] = roll.lcp(table, i, len(S), table, 0, len(S)); }
     out(ans);
 }
+int main() { solve(); }

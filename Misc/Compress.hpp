@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdint>
 #include <vector>
 template <class T>
 struct Compress {
@@ -16,5 +17,5 @@ struct Compress {
     }
     inline int32_t operator()(T x) { return get(x); }
     T operator[](int32_t i) { return data[i]; }
-    size_t size() { return data.size(); }
+    int32_t size() { return data.size(); }
 };

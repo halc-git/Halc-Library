@@ -5,7 +5,7 @@
 using mint = Modint<MOD>;
 using edge_type = array<ll, 4>;
 using func_type = pair<mint, mint>;
-void Halc::solve() {
+void solve() {
     LL(N, Q);
     static VEC(mint, a, N);
     VEC(edge_type, edge, N - 1);
@@ -72,3 +72,4 @@ void Halc::solve() {
         out(tree.root_value()[1]);
     }
 }
+int main() { solve(); }

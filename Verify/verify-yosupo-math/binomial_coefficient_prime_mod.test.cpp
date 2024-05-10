@@ -3,7 +3,7 @@
 #include "../../Modint/Modint.hpp"
 #include "../../Template/Template.hpp"
 using mint = ArbitraryModint<-1>;
-void Halc::solve() {
+void solve() {
     LL(T, m);
     mint::set_mod(m);
     ModCombination<mint> comb;
@@ -13,3 +13,4 @@ void Halc::solve() {
         out(comb.comb(n, k));
     }
 }
+int main() { solve(); }
