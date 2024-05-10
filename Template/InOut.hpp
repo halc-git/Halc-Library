@@ -129,11 +129,11 @@ template <class T>
 inline void print(const T &a) {
     std::cout << a;
 }
-inline void out() { putchar('\n'); }
+inline void out() { std::cout << '\n'; }
 template <class T>
 inline void out(const T &t) {
     print(t);
-    putchar('\n');
+    std::cout << '\n';
 }
 template <class Head, class... Tail>
 inline void out(const Head &head, const Tail &...tail) {
