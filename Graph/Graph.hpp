@@ -20,7 +20,6 @@ struct Graph {
     void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false) {
         gr[from].emplace_back(from, to, cost, eds);
         if (!directed) {
-            eds++;
             gr[to].emplace_back(to, from, cost, eds);
         }
         eds++;

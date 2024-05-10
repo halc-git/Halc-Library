@@ -22,9 +22,10 @@ void solve() {
     vec(ll,change,N-1,-1);
     while (!vert.empty()) {
         ll pos = vert.top();
+        out(pos);
         vert.pop();
         each(i, gr[pos]) {
-            if (dist[i] == -1) {
+            if (change[i.idx]==-1) {
                 func[i]=i.cost;
                 change[i.idx]=i;
                 dist[i] = dist[pos] + 1;
