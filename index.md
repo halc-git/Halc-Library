@@ -21,6 +21,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/UnionFind.hpp
       title: Union Find
+  - name: Graph
+    pages:
+    - icon: ':x:'
+      path: Graph/Graph.hpp
+      title: Graph/Graph.hpp
   - name: Math
     pages:
     - icon: ':heavy_check_mark:'
@@ -42,7 +47,7 @@ data:
       title: Misc/Timer.hpp
   - name: Modint
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -58,21 +63,21 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/InOut.hpp
       title: Template/InOut.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Util.hpp
       title: Template/Util.hpp
   - name: Tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
   verificationCategories:
@@ -123,7 +128,7 @@ data:
       title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-new
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
       title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - name: Verify/verify-yosupo-string
@@ -151,7 +156,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/2338.test.cpp
       title: Verify/verify-yuki/2338.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/901.test.cpp
       title: Verify/verify-yuki/901.test.cpp
 layout: toppage

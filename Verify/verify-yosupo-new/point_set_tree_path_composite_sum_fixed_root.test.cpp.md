@@ -1,29 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: Graph/Graph.hpp
+    title: Graph/Graph.hpp
+  - icon: ':question:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
@@ -31,17 +34,30 @@ data:
     - https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
   bundledCode: "#line 1 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
-    \n#line 2 \"Modint/Modint.hpp\"\n#include <cstdint>\n#include <iostream>\ntemplate\
-    \ <uint64_t Mod>\nstruct Modint {\n    uint64_t x;\n    constexpr Modint() noexcept\
-    \ { x = 0; }\n    constexpr Modint(int64_t val) noexcept {\n        x = (val <\
-    \ 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n    }\n    inline uint64_t _get_mod(uint64_t\
-    \ val) noexcept {\n        const static uint64_t m_inv = (-1ULL) / Mod + 1;\n\
-    \        uint64_t ret = ((unsigned __int128)(val)*m_inv) >> 64;\n        uint64_t\
-    \ pro = ret * Mod;\n        return (val - pro + (val < pro ? Mod : 0));\n    }\n\
-    \    friend std::ostream &operator<<(std::ostream &os, Modint &b) {\n        return\
-    \ os << b.x;\n    }\n    friend std::istream &operator>>(std::istream &is, Modint\
-    \ &b) {\n        return is >> b.x;\n    }\n    constexpr uint64_t val() noexcept\
-    \ { return x; }\n    constexpr Modint operator+() noexcept { return (*this); }\n\
+    \n#line 2 \"Graph/Graph.hpp\"\n#include <cstdint>\n#include <vector>\ntemplate\
+    \ <class T = int32_t>\nstruct Edge {\n    int32_t from, to;\n    T cost;\n   \
+    \ int32_t idx;\n    Edge() = default;\n    Edge(int32_t from, int32_t to, T cost\
+    \ = 1, int32_t idx = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n\
+    \    operator int() { return to; }\n};\ntemplate <class T = int32_t>\nstruct Graph\
+    \ {\n    std::vector<std::vector<Edge<T>>> gr;\n    int32_t eds = 0;\n    Graph()\
+    \ = default;\n    Graph(int32_t n) { gr.resize(n); }\n    void add_edge(int32_t\
+    \ from, int32_t to, T cost = 1, bool directed = false) {\n        gr[from].emplace_back(from,\
+    \ to, cost, eds);\n        if (!directed) {\n            eds++;\n            gr[to].emplace_back(to,\
+    \ from, cost, eds);\n        }\n        eds++;\n    }\n    void add_directed_edge(int32_t\
+    \ from, int32_t to, T cost = 1) {\n        gr[from].emplace_back(from, to, cost,\
+    \ eds);\n        eds++;\n    }\n    inline std::vector<Edge<T>> &operator[](const\
+    \ int32_t &p) { return gr[p]; }\n    int32_t size() { return gr.size(); }\n};\n\
+    #line 3 \"Modint/Modint.hpp\"\n#include <iostream>\ntemplate <uint64_t Mod>\n\
+    struct Modint {\n    uint64_t x;\n    constexpr Modint() noexcept { x = 0; }\n\
+    \    constexpr Modint(int64_t val) noexcept {\n        x = (val < 0 ? val % (int64_t)(Mod)\
+    \ + Mod : val % Mod);\n    }\n    inline uint64_t _get_mod(uint64_t val) noexcept\
+    \ {\n        const static uint64_t m_inv = (-1ULL) / Mod + 1;\n        uint64_t\
+    \ ret = ((unsigned __int128)(val)*m_inv) >> 64;\n        uint64_t pro = ret *\
+    \ Mod;\n        return (val - pro + (val < pro ? Mod : 0));\n    }\n    friend\
+    \ std::ostream &operator<<(std::ostream &os, Modint &b) {\n        return os <<\
+    \ b.x;\n    }\n    friend std::istream &operator>>(std::istream &is, Modint &b)\
+    \ {\n        return is >> b.x;\n    }\n    constexpr uint64_t val() noexcept {\
+    \ return x; }\n    constexpr Modint operator+() noexcept { return (*this); }\n\
     \    constexpr Modint operator-() noexcept { return Modint() - (*this); }\n  \
     \  constexpr Modint operator+(const Modint rhs) noexcept {\n        return Modint(*this)\
     \ += rhs;\n    }\n    constexpr Modint operator-(const Modint rhs) noexcept {\n\
@@ -103,89 +119,7 @@ data:
     inline void scan(ArbitraryModint<id> &a) {\n    std::cin >> a.x;\n}\ntemplate\
     \ <uint64_t N>\ninline void print(Modint<N> a) {\n    std::cout << a.x;\n}\ntemplate\
     \ <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    std::cout << a.x;\n\
-    }\n#line 2 \"Tree/StaticTopTree.hpp\"\n#include <cassert>\n#line 4 \"Tree/StaticTopTree.hpp\"\
-    \n#include <vector>\ntemplate <class M>\nstruct StaticTopTree {\n    using point\
-    \ = typename M::point;\n    using path = typename M::path;\n    struct Node {\n\
-    \        bool is_path;\n        point point_val;\n        path path_val;\n   \
-    \     int32_t pos;\n        int32_t left;\n        int32_t right;\n        int32_t\
-    \ parent;\n        Node(bool pat, int32_t po = -1, int32_t lf = -1, int32_t ri\
-    \ = -1) {\n            is_path = pat;\n            pos = po;\n            left\
-    \ = lf;\n            right = ri;\n            parent = -1;\n        }\n    };\n\
-    \    int32_t sz;\n    std::vector<std::vector<int32_t>> tree;\n    std::vector<int32_t>\
-    \ node_pos;\n    std::vector<Node> nodes;\n    int32_t rt;\n    StaticTopTree(int32_t\
-    \ size) {\n        sz = size;\n        tree.resize(sz);\n        node_pos.resize(sz);\n\
-    \    }\n    void add_edge(int32_t s, int32_t v) {\n        tree[s].emplace_back(v);\n\
-    \        tree[v].emplace_back(s);\n    }\n    int32_t _path_cluster(int32_t pos,\
-    \ std::vector<int32_t> &tree_sz) {\n        if (tree[pos].empty()) {\n       \
-    \     node_pos[pos] = nodes.size();\n            nodes.emplace_back(Node(1, pos));\n\
-    \            _calc_val(nodes.size() - 1);\n            return nodes.size() - 1;\n\
-    \        }\n        std::vector<int32_t> address;\n        std::vector<int32_t>\
-    \ sizes;\n        while (!tree[pos].empty()) {\n            int32_t max_size =\
-    \ -1;\n            int32_t next_pos = -1;\n            for (int i = 0; i < tree[pos].size();\
-    \ i++) {\n                if (tree_sz[tree[pos][i]] > max_size) {\n          \
-    \          max_size = tree_sz[tree[pos][i]];\n                    next_pos = i;\n\
-    \                }\n            }\n            std::swap(tree[pos][next_pos],\
-    \ tree[pos].back());\n            next_pos = tree[pos].back();\n            tree[pos].pop_back();\n\
-    \            tree_sz[pos] -= tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n\
-    \            address.emplace_back(_point_cluster(pos, tree_sz));\n           \
-    \ pos = next_pos;\n        }\n        address.emplace_back(_point_cluster(pos,\
-    \ tree_sz));\n        sizes.emplace_back(tree_sz[pos]);\n        return _merge(address,\
-    \ sizes, 0, address.size(), 1);\n    }\n    int32_t _point_cluster(int32_t pos,\
-    \ std::vector<int32_t> &tree_sz) {\n        if (tree[pos].empty()) {\n       \
-    \     node_pos[pos] = nodes.size();\n            nodes.emplace_back(Node(1, pos));\n\
-    \            _calc_val(nodes.size() - 1);\n            return nodes.size() - 1;\n\
-    \        }\n        std::vector<int32_t> address;\n        std::vector<int32_t>\
-    \ sizes;\n        for (int32_t i : tree[pos]) {\n            sizes.emplace_back(tree_sz[i]);\n\
-    \            int32_t vert = _path_cluster(i, tree_sz);\n            nodes.emplace_back(Node(0,\
-    \ -1, vert));\n            nodes[vert].parent = nodes.size() - 1;\n          \
-    \  address.emplace_back(nodes.size() - 1);\n            _calc_val(nodes.size()\
-    \ - 1);\n        }\n        int32_t vert = _merge(address, sizes, 0, address.size(),\
-    \ 0);\n        node_pos[pos] = nodes.size();\n        nodes.emplace_back(Node(1,\
-    \ pos, vert));\n        nodes[vert].parent = nodes.size() - 1;\n        _calc_val(nodes.size()\
-    \ - 1);\n        return nodes.size() - 1;\n    }\n    int32_t _merge(std::vector<int32_t>\
-    \ &address, std::vector<int32_t> &sizes,\n                   int32_t lf, int32_t\
-    \ ri, bool pat) {\n        if (lf + 1 == ri) return address[lf];\n        int32_t\
-    \ add = 0;\n        for (int32_t i = lf; i < ri; i++) {\n            add += sizes[i];\n\
-    \        }\n        int32_t now = 0;\n        int32_t bef = add + 1;\n       \
-    \ for (int32_t i = lf; i < ri; i++) {\n            now += sizes[i];\n        \
-    \    if (now > add - now) {\n                if (now + now - add > bef) i--;\n\
-    \                int32_t left = _merge(address, sizes, lf, i + 1, pat);\n    \
-    \            int32_t right = _merge(address, sizes, i + 1, ri, pat);\n       \
-    \         nodes.emplace_back(Node(pat, -1, left, right));\n                nodes[left].parent\
-    \ = nodes.size() - 1;\n                nodes[right].parent = nodes.size() - 1;\n\
-    \                _calc_val(nodes.size() - 1);\n                return nodes.size()\
-    \ - 1;\n            }\n            bef = add - now - now;\n        }\n       \
-    \ assert(false);\n    }\n    void _calc_val(int32_t pos) {\n        if (nodes[pos].is_path)\
-    \ {\n            if ((nodes[pos].left == -1) && (nodes[pos].right == -1)) {\n\
-    \                nodes[pos].path_val = M::vertex(nodes[pos].pos);\n          \
-    \  } else if ((nodes[pos].left != -1) && (nodes[pos].right != -1)) {\n       \
-    \         nodes[pos].path_val =\n                    M::compress(nodes[nodes[pos].left].path_val,\n\
-    \                                nodes[nodes[pos].right].path_val);\n        \
-    \    } else {\n                nodes[pos].path_val = M::add_vertex(\n        \
-    \            nodes[nodes[pos].left].point_val, nodes[pos].pos);\n            }\n\
-    \        } else {\n            if ((nodes[pos].left != -1) && (nodes[pos].right\
-    \ != -1)) {\n                nodes[pos].point_val =\n                    M::rake(nodes[nodes[pos].left].point_val,\n\
-    \                            nodes[nodes[pos].right].point_val);\n           \
-    \ } else {\n                nodes[pos].point_val =\n                    M::add_edge(nodes[nodes[pos].left].path_val);\n\
-    \            }\n        }\n    }\n    void build(int32_t root) {\n        std::vector<int32_t>\
-    \ vert(sz);\n        std::vector<int32_t> tree_sz(sz, -1);\n        vert[0] =\
-    \ root;\n        tree_sz[root] = 0;\n        int32_t cnt = 1;\n        for (int32_t\
-    \ i = 0; i < sz; i++) {\n            for (int32_t j : tree[vert[i]]) {\n     \
-    \           if (tree_sz[j]) {\n                    tree_sz[j] = 0;\n         \
-    \           vert[cnt] = j;\n                    cnt++;\n                }\n  \
-    \          }\n        }\n        for (int32_t i = sz - 1; i >= 0; i--) {\n   \
-    \         int32_t parent = 0;\n            for (int32_t j : tree[vert[i]]) {\n\
-    \                if (tree_sz[j] == 0) {\n                    parent = -parent\
-    \ - 1;\n                }\n                if (parent >= 0) parent++;\n      \
-    \          tree_sz[vert[i]] += tree_sz[j];\n            }\n            if (parent\
-    \ < 0) {\n                std::swap(tree[vert[i]][-parent - 1], tree[vert[i]].back());\n\
-    \                tree[vert[i]].pop_back();\n            }\n            tree_sz[vert[i]]++;\n\
-    \        }\n        rt = _path_cluster(root, tree_sz);\n    }\n    path root_value()\
-    \ { return nodes[rt].path_val; }\n    void calc(int32_t pos) {\n        int32_t\
-    \ change = node_pos[pos];\n        while (nodes[change].parent != -1) {\n    \
-    \        _calc_val(change);\n            change = nodes[change].parent;\n    \
-    \    }\n        _calc_val(change);\n    }\n    int32_t size() { return sz; }\n\
-    };\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
+    }\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n\n#line 8 \"Template/InOut.hpp\"\ninline void scan() {}\ninline void scan(int\
     \ &a) { std::cin >> a; }\ninline void scan(unsigned &a) { std::cin >> a; }\ninline\
     \ void scan(long &a) { std::cin >> a; }\ninline void scan(long long &a) { std::cin\
@@ -280,14 +214,124 @@ data:
     \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
     \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
     }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 5 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+    \ std::end(a));\n}\n#line 5 \"Tree/StaticTopTree.hpp\"\n\n#line 7 \"Tree/StaticTopTree.hpp\"\
+    \ntemplate <class M>\nstruct StaticTopTree {\n    using point = typename M::point;\n\
+    \    using path = typename M::path;\n    struct Node {\n        bool is_path;\n\
+    \        point point_val;\n        path path_val;\n        int32_t pos;\n    \
+    \    int32_t left;\n        int32_t right;\n        int32_t parent;\n        Node(bool\
+    \ pat, int32_t po = -1, int32_t lf = -1, int32_t ri = -1) {\n            is_path\
+    \ = pat;\n            pos = po;\n            left = lf;\n            right = ri;\n\
+    \            parent = -1;\n        }\n    };\n    int32_t sz;\n    std::vector<int32_t>\
+    \ node_pos;\n    std::vector<Node> nodes;\n    int32_t rt;\n    template <class\
+    \ T>\n    StaticTopTree(Graph<T> gr, int32_t root) {\n        sz = gr.size();\n\
+    \        node_pos.resize(sz);\n        _build(root, gr);\n    }\n    template\
+    \ <class T>\n    int32_t _path_cluster(int32_t pos, std::vector<int32_t> &tree_sz,\n\
+    \                          Graph<T> &tree) {\n        if (tree[pos].empty()) {\n\
+    \            node_pos[pos] = nodes.size();\n            nodes.emplace_back(Node(1,\
+    \ pos));\n            _calc_val(nodes.size() - 1);\n            return nodes.size()\
+    \ - 1;\n        }\n        std::vector<int32_t> address;\n        std::vector<int32_t>\
+    \ sizes;\n        while (!tree[pos].empty()) {\n            int32_t max_size =\
+    \ -1;\n            int32_t next_pos = -1;\n            for (int i = 0; i < tree[pos].size();\
+    \ i++) {\n                if (tree_sz[tree[pos][i]] > max_size) {\n          \
+    \          max_size = tree_sz[tree[pos][i]];\n                    next_pos = i;\n\
+    \                }\n            }\n            std::swap(tree[pos][next_pos],\
+    \ tree[pos].back());\n            next_pos = tree[pos].back();\n            tree[pos].pop_back();\n\
+    \            tree_sz[pos] -= tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n\
+    \            address.emplace_back(_point_cluster(pos, tree_sz, tree));\n     \
+    \       pos = next_pos;\n        }\n        address.emplace_back(_point_cluster(pos,\
+    \ tree_sz, tree));\n        sizes.emplace_back(tree_sz[pos]);\n        return\
+    \ _merge(address, sizes, 0, address.size(), 1);\n    }\n    template <class T>\n\
+    \    int32_t _point_cluster(int32_t pos, std::vector<int32_t> &tree_sz,\n    \
+    \                       Graph<T> &tree) {\n        if (tree[pos].empty()) {\n\
+    \            node_pos[pos] = nodes.size();\n            nodes.emplace_back(Node(1,\
+    \ pos));\n            _calc_val(nodes.size() - 1);\n            return nodes.size()\
+    \ - 1;\n        }\n        std::vector<int32_t> address;\n        std::vector<int32_t>\
+    \ sizes;\n        for (int32_t i : tree[pos]) {\n            sizes.emplace_back(tree_sz[i]);\n\
+    \            int32_t vert = _path_cluster(i, tree_sz, tree);\n            nodes.emplace_back(Node(0,\
+    \ -1, vert));\n            nodes[vert].parent = nodes.size() - 1;\n          \
+    \  address.emplace_back(nodes.size() - 1);\n            _calc_val(nodes.size()\
+    \ - 1);\n        }\n        int32_t vert = _merge(address, sizes, 0, address.size(),\
+    \ 0);\n        node_pos[pos] = nodes.size();\n        nodes.emplace_back(Node(1,\
+    \ pos, vert));\n        nodes[vert].parent = nodes.size() - 1;\n        _calc_val(nodes.size()\
+    \ - 1);\n        return nodes.size() - 1;\n    }\n    int32_t _merge(std::vector<int32_t>\
+    \ &address, std::vector<int32_t> &sizes,\n                   int32_t lf, int32_t\
+    \ ri, bool pat) {\n        if (lf + 1 == ri) return address[lf];\n        int32_t\
+    \ add = 0;\n        for (int32_t i = lf; i < ri; i++) {\n            add += sizes[i];\n\
+    \        }\n        int32_t now = 0;\n        int32_t bef = add + 1;\n       \
+    \ for (int32_t i = lf; i < ri; i++) {\n            now += sizes[i];\n        \
+    \    if (now > add - now) {\n                if (now + now - add > bef) i--;\n\
+    \                int32_t left = _merge(address, sizes, lf, i + 1, pat);\n    \
+    \            int32_t right = _merge(address, sizes, i + 1, ri, pat);\n       \
+    \         nodes.emplace_back(Node(pat, -1, left, right));\n                nodes[left].parent\
+    \ = nodes.size() - 1;\n                nodes[right].parent = nodes.size() - 1;\n\
+    \                _calc_val(nodes.size() - 1);\n                return nodes.size()\
+    \ - 1;\n            }\n            bef = add - now - now;\n        }\n       \
+    \ assert(false);\n    }\n    void _calc_val(int32_t pos) {\n        if (nodes[pos].is_path)\
+    \ {\n            if ((nodes[pos].left == -1) && (nodes[pos].right == -1)) {\n\
+    \                nodes[pos].path_val = M::vertex(nodes[pos].pos);\n          \
+    \  } else if ((nodes[pos].left != -1) && (nodes[pos].right != -1)) {\n       \
+    \         nodes[pos].path_val =\n                    M::compress(nodes[nodes[pos].left].path_val,\n\
+    \                                nodes[nodes[pos].right].path_val);\n        \
+    \    } else {\n                nodes[pos].path_val = M::add_vertex(\n        \
+    \            nodes[nodes[pos].left].point_val, nodes[pos].pos);\n            }\n\
+    \        } else {\n            if ((nodes[pos].left != -1) && (nodes[pos].right\
+    \ != -1)) {\n                nodes[pos].point_val =\n                    M::rake(nodes[nodes[pos].left].point_val,\n\
+    \                            nodes[nodes[pos].right].point_val);\n           \
+    \ } else {\n                nodes[pos].point_val =\n                    M::add_edge(nodes[nodes[pos].left].path_val);\n\
+    \            }\n        }\n    }\n    template <class T>\n    void _build(int32_t\
+    \ root, Graph<T> &tree) {\n        std::vector<int32_t> vert(sz);\n        std::vector<int32_t>\
+    \ tree_sz(sz, -1);\n        vert[0] = root;\n        tree_sz[root] = 0;\n    \
+    \    int32_t cnt = 1;\n        for (int32_t i = 0; i < sz; i++) {\n          \
+    \  for (int32_t j : tree[vert[i]]) {\n                if (tree_sz[j]) {\n    \
+    \                tree_sz[j] = 0;\n                    vert[cnt] = j;\n       \
+    \             cnt++;\n                }\n            }\n        }\n        for\
+    \ (int32_t i = sz - 1; i >= 0; i--) {\n            int32_t parent = 0;\n     \
+    \       for (int32_t j : tree[vert[i]]) {\n                if (tree_sz[j] == 0)\
+    \ {\n                    parent = -parent - 1;\n                }\n          \
+    \      if (parent >= 0) parent++;\n                tree_sz[vert[i]] += tree_sz[j];\n\
+    \            }\n            if (parent < 0) {\n                std::swap(tree[vert[i]][-parent\
+    \ - 1], tree[vert[i]].back());\n                tree[vert[i]].pop_back();\n  \
+    \          }\n            tree_sz[vert[i]]++;\n        }\n        rt = _path_cluster(root,\
+    \ tree_sz, tree);\n    }\n    path root_value() { return nodes[rt].path_val; }\n\
+    \    void calc(int32_t pos) {\n        int32_t change = node_pos[pos];\n     \
+    \   while (nodes[change].parent != -1) {\n            _calc_val(change);\n   \
+    \         change = nodes[change].parent;\n        }\n        _calc_val(change);\n\
+    \    }\n    int32_t size() { return sz; }\n};\n#line 6 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \nusing mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type\
     \ = pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a,\
-    \ N);\n    VEC(edge_type, edge, N - 1);\n    vv(ll, gr, N);\n    rep(i, N - 1)\
-    \ {\n        gr[edge[i][0]].emplace_back(edge[i][1]);\n        gr[edge[i][1]].emplace_back(edge[i][0]);\n\
-    \    }\n    vec(ll, dist, N, -1);\n    dist[0] = 0;\n    stack<ll> vert;\n   \
-    \ vert.push(0);\n    while (!vert.empty()) {\n        ll pos = vert.top();\n \
-    \       vert.pop();\n        each(i, gr[pos]) {\n            if (dist[i] == -1)\
+    \ N);\n    VEC(edge_type, edge, N - 1);\n    Graph<> gr(N);\n    rep(i, N - 1)\
+    \ { gr.add_edge(edge[i][0], edge[i][1]); }\n    vec(ll, dist, N, -1);\n    dist[0]\
+    \ = 0;\n    stack<ll> vert;\n    vert.push(0);\n    while (!vert.empty()) {\n\
+    \        ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos]) {\n\
+    \            if (dist[i] == -1) {\n                dist[i] = dist[pos] + 1;\n\
+    \                vert.push(i);\n            }\n        }\n    }\n    static vec(func_type,\
+    \ func, N, {1, 0});\n    struct ops {\n        using point = array<mint, 2>;\n\
+    \        using path = array<mint, 4>;\n        static path vertex(int v) {\n \
+    \           return {1, a[v] * func[v].fi + func[v].se, func[v].fi, func[v].se};\n\
+    \        }\n        static path compress(path p, path c) {\n            return\
+    \ {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2] * c[2],\n             \
+    \       p[2] * c[3] + p[3]};\n        }\n        static path add_vertex(point\
+    \ t, int v) {\n            return {t[0] + 1,\n                    (a[v] + t[1])\
+    \ * func[v].fi + (t[0] + 1) * func[v].se,\n                    func[v].fi, func[v].se};\n\
+    \        }\n        static point rake(point x, point y) {\n            return\
+    \ {x[0] + y[0], x[1] + y[1]};\n        }\n        static point add_edge(path t)\
+    \ { return {t[0], t[1]}; }\n    };\n    rep(i, N - 1) {\n        if (dist[edge[i][0]]\
+    \ < dist[edge[i][1]]) {\n            swap(edge[i][0], edge[i][1]);\n        }\n\
+    \        func[edge[i][0]] = {edge[i][2], edge[i][3]};\n    }\n    StaticTopTree<ops>\
+    \ tree(gr, 0);\n    rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n     \
+    \       LL(w, x);\n            a[w] = x;\n            tree.calc(w);\n        }\
+    \ else {\n            LL(e, y, z);\n            func[edge[e][0]] = {y, z};\n \
+    \           tree.calc(edge[e][0]);\n        }\n        out(tree.root_value()[1]);\n\
+    \    }\n}\nint main() { solve(); }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
+    \n#include \"../../Graph/Graph.hpp\"\n#include \"../../Modint/Modint.hpp\"\n#include\
+    \ \"../../Template/Template.hpp\"\n#include \"../../Tree/StaticTopTree.hpp\"\n\
+    using mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type =\
+    \ pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a, N);\n\
+    \    VEC(edge_type, edge, N - 1);\n    Graph<> gr(N);\n    rep(i, N - 1) { gr.add_edge(edge[i][0],\
+    \ edge[i][1]); }\n    vec(ll, dist, N, -1);\n    dist[0] = 0;\n    stack<ll> vert;\n\
+    \    vert.push(0);\n    while (!vert.empty()) {\n        ll pos = vert.top();\n\
+    \        vert.pop();\n        each(i, gr[pos]) {\n            if (dist[i] == -1)\
     \ {\n                dist[i] = dist[pos] + 1;\n                vert.push(i);\n\
     \            }\n        }\n    }\n    static vec(func_type, func, N, {1, 0});\n\
     \    struct ops {\n        using point = array<mint, 2>;\n        using path =\
@@ -300,57 +344,27 @@ data:
     \ + 1) * func[v].se,\n                    func[v].fi, func[v].se};\n        }\n\
     \        static point rake(point x, point y) {\n            return {x[0] + y[0],\
     \ x[1] + y[1]};\n        }\n        static point add_edge(path t) { return {t[0],\
-    \ t[1]}; }\n    };\n    StaticTopTree<ops> tree(N);\n    rep(i, N - 1) {\n   \
-    \     if (dist[edge[i][0]] < dist[edge[i][1]]) {\n            swap(edge[i][0],\
-    \ edge[i][1]);\n        }\n        func[edge[i][0]] = {edge[i][2], edge[i][3]};\n\
-    \        tree.add_edge(edge[i][0], edge[i][1]);\n    }\n    tree.build(0);\n \
-    \   rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n            LL(w, x);\n\
-    \            a[w] = x;\n            tree.calc(w);\n        } else {\n        \
-    \    LL(e, y, z);\n            func[edge[e][0]] = {y, z};\n            tree.calc(edge[e][0]);\n\
-    \        }\n        out(tree.root_value()[1]);\n    }\n}\nint main() { solve();\
-    \ }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
-    \n#include \"../../Modint/Modint.hpp\"\n#include \"../../Tree/StaticTopTree.hpp\"\
-    \n#include \"../../Template/Template.hpp\"\nusing mint = Modint<MOD>;\nusing edge_type\
-    \ = array<ll, 4>;\nusing func_type = pair<mint, mint>;\nvoid solve() {\n    LL(N,\
-    \ Q);\n    static VEC(mint, a, N);\n    VEC(edge_type, edge, N - 1);\n    vv(ll,\
-    \ gr, N);\n    rep(i, N - 1) {\n        gr[edge[i][0]].emplace_back(edge[i][1]);\n\
-    \        gr[edge[i][1]].emplace_back(edge[i][0]);\n    }\n    vec(ll, dist, N,\
-    \ -1);\n    dist[0] = 0;\n    stack<ll> vert;\n    vert.push(0);\n    while (!vert.empty())\
-    \ {\n        ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos])\
-    \ {\n            if (dist[i] == -1) {\n                dist[i] = dist[pos] + 1;\n\
-    \                vert.push(i);\n            }\n        }\n    }\n    static vec(func_type,\
-    \ func, N, {1, 0});\n    struct ops {\n        using point = array<mint, 2>;\n\
-    \        using path = array<mint, 4>;\n        static path vertex(int v) {\n \
-    \           return {1, a[v] * func[v].fi + func[v].se, func[v].fi, func[v].se};\n\
-    \        }\n        static path compress(path p, path c) {\n            return\
-    \ {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2] * c[2],\n             \
-    \       p[2] * c[3] + p[3]};\n        }\n        static path add_vertex(point\
-    \ t, int v) {\n            return {t[0] + 1,\n                    (a[v] + t[1])\
-    \ * func[v].fi + (t[0] + 1) * func[v].se,\n                    func[v].fi, func[v].se};\n\
-    \        }\n        static point rake(point x, point y) {\n            return\
-    \ {x[0] + y[0], x[1] + y[1]};\n        }\n        static point add_edge(path t)\
-    \ { return {t[0], t[1]}; }\n    };\n    StaticTopTree<ops> tree(N);\n    rep(i,\
-    \ N - 1) {\n        if (dist[edge[i][0]] < dist[edge[i][1]]) {\n            swap(edge[i][0],\
-    \ edge[i][1]);\n        }\n        func[edge[i][0]] = {edge[i][2], edge[i][3]};\n\
-    \        tree.add_edge(edge[i][0], edge[i][1]);\n    }\n    tree.build(0);\n \
-    \   rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n            LL(w, x);\n\
+    \ t[1]}; }\n    };\n    rep(i, N - 1) {\n        if (dist[edge[i][0]] < dist[edge[i][1]])\
+    \ {\n            swap(edge[i][0], edge[i][1]);\n        }\n        func[edge[i][0]]\
+    \ = {edge[i][2], edge[i][3]};\n    }\n    StaticTopTree<ops> tree(gr, 0);\n  \
+    \  rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n            LL(w, x);\n\
     \            a[w] = x;\n            tree.calc(w);\n        } else {\n        \
     \    LL(e, y, z);\n            func[edge[e][0]] = {y, z};\n            tree.calc(edge[e][0]);\n\
     \        }\n        out(tree.root_value()[1]);\n    }\n}\nint main() { solve();\
     \ }"
   dependsOn:
+  - Graph/Graph.hpp
   - Modint/Modint.hpp
-  - Tree/StaticTopTree.hpp
   - Template/Template.hpp
   - Template/InOut.hpp
   - Template/Macro.hpp
   - Template/Util.hpp
+  - Tree/StaticTopTree.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-10 17:02:28+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-10 21:48:41+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
 layout: document
