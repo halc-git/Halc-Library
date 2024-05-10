@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/Graph.hpp
     title: Graph/Graph.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
@@ -303,11 +303,11 @@ data:
     \        gr.add_edge(u,v,{b,c});\n    }\n    vec(ll, dist, N, -1);\n    dist[0]\
     \ = 0;\n    stack<ll> vert;\n    vert.push(0);\n    static vec(func_type, func,\
     \ N, {1, 0});\n    vec(ll,change,N-1,-1);\n    while (!vert.empty()) {\n     \
-    \   ll pos = vert.top();\n        out(pos);\n        vert.pop();\n        each(i,\
-    \ gr[pos]) {\n            if (change[i.idx]==-1) {\n                func[i]=i.cost;\n\
-    \                change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n\
-    \                vert.push(i);\n            }\n        }\n    }\n    struct ops\
-    \ {\n        using point = array<mint, 2>;\n        using path = array<mint, 4>;\n\
+    \   ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos]) {\n  \
+    \          if (change[i.idx]==-1) {\n                func[i]=i.cost;\n       \
+    \         change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n       \
+    \         vert.push(i);\n            }\n        }\n    }\n    struct ops {\n \
+    \       using point = array<mint, 2>;\n        using path = array<mint, 4>;\n\
     \        static path vertex(int v) {\n            return {1, a[v] * func[v].fi\
     \ + func[v].se, func[v].fi, func[v].se};\n        }\n        static path compress(path\
     \ p, path c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3],\
@@ -331,11 +331,11 @@ data:
     \    gr.add_edge(u,v,{b,c});\n    }\n    vec(ll, dist, N, -1);\n    dist[0] =\
     \ 0;\n    stack<ll> vert;\n    vert.push(0);\n    static vec(func_type, func,\
     \ N, {1, 0});\n    vec(ll,change,N-1,-1);\n    while (!vert.empty()) {\n     \
-    \   ll pos = vert.top();\n        out(pos);\n        vert.pop();\n        each(i,\
-    \ gr[pos]) {\n            if (change[i.idx]==-1) {\n                func[i]=i.cost;\n\
-    \                change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n\
-    \                vert.push(i);\n            }\n        }\n    }\n    struct ops\
-    \ {\n        using point = array<mint, 2>;\n        using path = array<mint, 4>;\n\
+    \   ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos]) {\n  \
+    \          if (change[i.idx]==-1) {\n                func[i]=i.cost;\n       \
+    \         change[i.idx]=i;\n                dist[i] = dist[pos] + 1;\n       \
+    \         vert.push(i);\n            }\n        }\n    }\n    struct ops {\n \
+    \       using point = array<mint, 2>;\n        using path = array<mint, 4>;\n\
     \        static path vertex(int v) {\n            return {1, a[v] * func[v].fi\
     \ + func[v].se, func[v].fi, func[v].se};\n        }\n        static path compress(path\
     \ p, path c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3],\
@@ -361,8 +361,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-10 22:25:00+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-10 22:29:18+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
 layout: document
