@@ -1,6 +1,6 @@
 ---
 title: Mo's Algorithm
-documentation_of: ../Misc/Mo.hpp
+documentation_of: ../../Misc/Mo.hpp
 ---
 
 ## 関数の設定

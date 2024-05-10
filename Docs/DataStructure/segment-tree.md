@@ -1,6 +1,6 @@
 ---
 title: Segment Tree
-documentation_of: ../DataStructure/SegmentTree.hpp
+documentation_of: ../../DataStructure/SegmentTree.hpp
 ---
 
 ## 関数の設定

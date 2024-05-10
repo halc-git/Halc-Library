@@ -1,6 +1,6 @@
 ---
 title: Static Top Tree
-documentation_of: ../Tree/StaticTopTree.hpp
+documentation_of: ../../Tree/StaticTopTree.hpp
 ---
 
 ## 関数の設定

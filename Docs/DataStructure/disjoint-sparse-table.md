@@ -1,6 +1,6 @@
 ---
 title: Disjoint Sparse Table
-documentation_of: ../DataStructure/DisjointSparseTable.hpp
+documentation_of: ../../DataStructure/DisjointSparseTable.hpp
 ---
 
 ## 関数の設定

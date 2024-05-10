@@ -1,6 +1,6 @@
 ---
 title: Union Find
-documentation_of: ../DataStructure/UnionFind.hpp
+documentation_of: ../../DataStructure/UnionFind.hpp
 ---
 
 ## 関数の設定
