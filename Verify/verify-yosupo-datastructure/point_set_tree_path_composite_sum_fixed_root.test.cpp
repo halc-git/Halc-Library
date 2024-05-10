@@ -9,24 +9,29 @@ using func_type = pair<mint, mint>;
 void solve() {
     LL(N, Q);
     static VEC(mint, a, N);
-    VEC(edge_type, edge, N - 1);
-    Graph<> gr(N);
-    rep(i, N - 1) { gr.add_edge(edge[i][0], edge[i][1]); }
+    Graph<func_type> gr(N);
+    rep(i, N - 1) {
+        LL(u,v,b,c);
+        gr.add_edge(u,v,{b,c});
+    }
     vec(ll, dist, N, -1);
     dist[0] = 0;
     stack<ll> vert;
     vert.push(0);
+    static vec(func_type, func, N, {1, 0});
+    vec(ll,change,N-1,-1);
     while (!vert.empty()) {
         ll pos = vert.top();
         vert.pop();
         each(i, gr[pos]) {
             if (dist[i] == -1) {
+                func[i]=i.cost;
+                change[i.idx]=i;
                 dist[i] = dist[pos] + 1;
                 vert.push(i);
             }
         }
     }
-    static vec(func_type, func, N, {1, 0});
     struct ops {
         using point = array<mint, 2>;
         using path = array<mint, 4>;
@@ -47,12 +52,6 @@ void solve() {
         }
         static point add_edge(path t) { return {t[0], t[1]}; }
     };
-    rep(i, N - 1) {
-        if (dist[edge[i][0]] < dist[edge[i][1]]) {
-            swap(edge[i][0], edge[i][1]);
-        }
-        func[edge[i][0]] = {edge[i][2], edge[i][3]};
-    }
     StaticTopTree<ops> tree(gr, 0);
     rep(_, Q) {
         LL(t);
@@ -62,8 +61,8 @@ void solve() {
             tree.calc(w);
         } else {
             LL(e, y, z);
-            func[edge[e][0]] = {y, z};
-            tree.calc(edge[e][0]);
+            func[change[e]] = {y, z};
+            tree.calc(change[e]);
         }
         out(tree.root_value()[1]);
     }

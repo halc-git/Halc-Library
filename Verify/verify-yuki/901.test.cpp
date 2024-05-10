@@ -87,7 +87,6 @@ void solve() {
             }
         }
     }
-    out(weight);
     StaticTopTree<steiner> tree(gr, 0);
     LL(Q);
     rep(i, Q) {
