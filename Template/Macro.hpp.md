@@ -21,7 +21,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - icon: ':heavy_check_mark:'
@@ -69,7 +69,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
   _isVerificationFailed: true

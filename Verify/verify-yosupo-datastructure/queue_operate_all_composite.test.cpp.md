@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/FoldableDeque.hpp
     title: Foldable Deque
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
   - icon: ':question:'
