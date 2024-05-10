@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Tree/StaticTopTree.hpp\"\n#include <cassert>\n#include <cstdint>\n\
@@ -185,7 +185,7 @@ data:
   path: Tree/StaticTopTree.hpp
   requiredBy: []
   timestamp: '2024-05-10 16:22:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yuki/901.test.cpp
   - Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp

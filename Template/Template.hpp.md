@@ -1,86 +1,86 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
     title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
     title: Verify/verify-yosupo-datastructure/unionfind.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-string/zalgorithm.test.cpp
     title: Verify/verify-yosupo-string/zalgorithm.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/1092.test.cpp
     title: Verify/verify-yuki/1092.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing\
@@ -200,7 +200,7 @@ data:
   path: Template/Template.hpp
   requiredBy: []
   timestamp: '2024-05-10 17:02:28+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp

@@ -3,18 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"DataStructure/FenwickTree.hpp\"\n#include <bit>\n#include\
@@ -61,7 +61,7 @@ data:
   path: DataStructure/FenwickTree.hpp
   requiredBy: []
   timestamp: '2024-05-10 16:22:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
