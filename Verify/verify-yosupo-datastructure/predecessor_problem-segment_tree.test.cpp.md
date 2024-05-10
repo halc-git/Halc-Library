@@ -137,9 +137,9 @@ data:
     inline void print(const T (&vec)[size]) {\n    print(vec[0]);\n    for (auto i\
     \ = vec; ++i != end(vec);) {\n        std::cout << ' ';\n        print(*i);\n\
     \    }\n}\ntemplate <class T>\ninline void print(const T &a) {\n    std::cout\
-    \ << a;\n}\ninline void out() { putchar('\\n'); }\ntemplate <class T>\ninline\
-    \ void out(const T &t) {\n    print(t);\n    putchar('\\n');\n}\ntemplate <class\
-    \ Head, class... Tail>\ninline void out(const Head &head, const Tail &...tail)\
+    \ << a;\n}\ninline void out() { std::cout << '\\n'; }\ntemplate <class T>\ninline\
+    \ void out(const T &t) {\n    print(t);\n    std::cout << '\\n';\n}\ntemplate\
+    \ <class Head, class... Tail>\ninline void out(const Head &head, const Tail &...tail)\
     \ {\n    print(head);\n    std::cout << ' ';\n    out(tail...);\n}\ninline void\
     \ Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void No(bool i = true)\
     \ { out(i ? \"No\" : \"Yes\"); }\nstruct IOsetup {\n    IOsetup() {\n        std::ios::sync_with_stdio(false);\n\
@@ -221,7 +221,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-05-10 16:54:59+09:00'
+  timestamp: '2024-05-10 17:02:28+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
