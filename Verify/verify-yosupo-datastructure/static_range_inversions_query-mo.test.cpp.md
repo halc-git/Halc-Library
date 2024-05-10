@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: DataStructure/FenwickTree.hpp
     title: DataStructure/FenwickTree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Misc/Compress.hpp
     title: Misc/Compress.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Misc/Mo.hpp
     title: Mo's Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -34,16 +34,16 @@ data:
     - https://judge.yosupo.jp/problem/static_range_inversions_query
   bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
-    \n#line 2 \"DataStructure/FenwickTree.hpp\"\n#include <bit>\n#include <cstddef>\n\
-    #include <cstdint>\n#include <vector>\ntemplate <class T>\nstruct FenwickTree\
-    \ {\n    std::vector<T> tree;\n    int32_t start = 1;\n    size_t siz;\n    FenwickTree(int32_t\
-    \ sz) {\n        siz = sz;\n        tree.resize(sz + 1, 0);\n        start = 1\
-    \ << ((64 - std::countl_zero(siz)) - 1);\n    }\n    FenwickTree(std::vector<T>\
+    \n#line 2 \"DataStructure/FenwickTree.hpp\"\n#include <bit>\n#include <cstdint>\n\
+    #include <vector>\ntemplate <class T>\nstruct FenwickTree {\n    std::vector<T>\
+    \ tree;\n    int32_t start = 1;\n    int32_t siz;\n    FenwickTree(int32_t sz)\
+    \ {\n        siz = sz;\n        tree.resize(sz + 1, 0);\n        start = 1 <<\
+    \ ((32 - std::countl_zero((uint32_t)siz)) - 1);\n    }\n    FenwickTree(std::vector<T>\
     \ def) {\n        siz = def.size();\n        tree.resize(siz + 1, 0);\n      \
-    \  start = 1 << ((64 - std::countl_zero(siz)) - 1);\n        for (int32_t i =\
-    \ 0; i < siz; i++) {\n            tree[i + 1] += def[i];\n            if (i +\
-    \ (i & -i) <= siz) {\n                tree[i + (i & -i)] += tree[i];\n       \
-    \     }\n        }\n    }\n    void add(int32_t pos, T val) {\n        pos++;\n\
+    \  start = 1 << ((32 - std::countl_zero((uint32_t)siz)) - 1);\n        for (int32_t\
+    \ i = 0; i < siz; i++) {\n            tree[i + 1] += def[i];\n            if (i\
+    \ + (i & -i) <= siz) {\n                tree[i + (i & -i)] += tree[i];\n     \
+    \       }\n        }\n    }\n    void add(int32_t pos, T val) {\n        pos++;\n\
     \        while (pos <= siz) {\n            tree[pos] += val;\n            pos\
     \ += pos & -pos;\n        }\n    }\n    T _sum(int32_t pos) {\n        T ret =\
     \ 0;\n        while (pos > 0) {\n            ret += tree[pos];\n            pos\
@@ -53,14 +53,14 @@ data:
     \        for (int32_t i = start; i > 0; i >>= 1) {\n            if (now + i <=\
     \ siz && val + tree[now + i] < w) {\n                now += i;\n             \
     \   val += tree[now];\n            }\n        }\n        return now + 1;\n   \
-    \ }\n    size_t size() { return siz; }\n};\n#line 3 \"Misc/Compress.hpp\"\ntemplate\
+    \ }\n    int32_t size() { return siz; }\n};\n#line 4 \"Misc/Compress.hpp\"\ntemplate\
     \ <class T>\nstruct Compress {\n    std::vector<T> data;\n    void add(T x) {\
     \ data.emplace_back(x); }\n    void add(std::vector<T> x) {\n        for (T i\
     \ : x) add(i);\n    }\n    void build() {\n        sort(data.begin(), data.end());\n\
     \        data.erase(unique(data.begin(), data.end()), data.end());\n    }\n  \
     \  int32_t get(T x) {\n        return std::lower_bound(data.begin(), data.end(),\
     \ x) - data.begin();\n    }\n    inline int32_t operator()(T x) { return get(x);\
-    \ }\n    T operator[](int32_t i) { return data[i]; }\n    size_t size() { return\
+    \ }\n    T operator[](int32_t i) { return data[i]; }\n    int32_t size() { return\
     \ data.size(); }\n};\n#line 2 \"Misc/Mo.hpp\"\n#include <cmath>\n#include <numeric>\n\
     #line 5 \"Misc/Mo.hpp\"\ntemplate <class M>\nstruct Mo {\n    using T = typename\
     \ M::T;\n    int32_t backet;\n    std::vector<int32_t> left, right, order;\n \
@@ -166,9 +166,7 @@ data:
     \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
     \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
     constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
-    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
-    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
     \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
     \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
     \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
@@ -177,9 +175,8 @@ data:
     \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
     \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
     }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\nnamespace Halc {\nvoid\
-    \ solve();\n}\nint main() { Halc::solve(); }\n#line 6 \"Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp\"\
-    \nvoid Halc::solve() {\n    LL(N, Q);\n    static VEC(ll, A, N);\n    static Compress<ll>\
+    \ std::end(a));\n}\n#line 6 \"Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp\"\
+    \nvoid solve() {\n    LL(N, Q);\n    static VEC(ll, A, N);\n    static Compress<ll>\
     \ cp;\n    cp.add(A);\n    cp.build();\n    rep(i, N) { A[i] = cp(A[i]); }\n \
     \   static FenwickTree<ll> fw(len(cp));\n    static ll ans = 0;\n    struct inversions\
     \ {\n        using T = ll;\n        static void add_left(int pos) {\n        \
@@ -191,11 +188,11 @@ data:
     \ -= fw.sum(A[pos] + 1, len(cp));\n            fw.add(A[pos], -1);\n        }\n\
     \        static T rem() { return ans; }\n    };\n    Mo<inversions> mo(N, Q);\n\
     \    rep(i, Q) {\n        LL(l, r);\n        mo.add_query(l, r);\n    }\n    vector<ll>\
-    \ fin = mo.run();\n    each(i, fin) out(i);\n}\n"
+    \ fin = mo.run();\n    each(i, fin) out(i);\n}\nint main() { solve(); }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\
     \n#include \"../../DataStructure/FenwickTree.hpp\"\n#include \"../../Misc/Compress.hpp\"\
     \n#include \"../../Misc/Mo.hpp\"\n#include \"../../Template/Template.hpp\"\nvoid\
-    \ Halc::solve() {\n    LL(N, Q);\n    static VEC(ll, A, N);\n    static Compress<ll>\
+    \ solve() {\n    LL(N, Q);\n    static VEC(ll, A, N);\n    static Compress<ll>\
     \ cp;\n    cp.add(A);\n    cp.build();\n    rep(i, N) { A[i] = cp(A[i]); }\n \
     \   static FenwickTree<ll> fw(len(cp));\n    static ll ans = 0;\n    struct inversions\
     \ {\n        using T = ll;\n        static void add_left(int pos) {\n        \
@@ -207,7 +204,7 @@ data:
     \ -= fw.sum(A[pos] + 1, len(cp));\n            fw.add(A[pos], -1);\n        }\n\
     \        static T rem() { return ans; }\n    };\n    Mo<inversions> mo(N, Q);\n\
     \    rep(i, Q) {\n        LL(l, r);\n        mo.add_query(l, r);\n    }\n    vector<ll>\
-    \ fin = mo.run();\n    each(i, fin) out(i);\n}"
+    \ fin = mo.run();\n    each(i, fin) out(i);\n}\nint main() { solve(); }"
   dependsOn:
   - DataStructure/FenwickTree.hpp
   - Misc/Compress.hpp
@@ -219,8 +216,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 20:53:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-10 16:22:37+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
 layout: document

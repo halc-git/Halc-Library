@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: DataStructure/FoldableDeque.hpp
     title: Foldable Deque
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/deque_operate_all_composite
@@ -31,8 +31,8 @@ data:
     - https://judge.yosupo.jp/problem/deque_operate_all_composite
   bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/deque_operate_all_composite\"\
-    \n#line 2 \"DataStructure/FoldableDeque.hpp\"\n#include <cstddef>\n#include <cstdint>\n\
-    #include <stack>\n#include <vector>\n// https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\n\
+    \n#line 2 \"DataStructure/FoldableDeque.hpp\"\n#include <cstdint>\n#include <stack>\n\
+    #include <vector>\n// https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1\n\
     template <class M>\nstruct FoldableQueue {\n    using T = typename M::T;\n   \
     \ std::stack<T> top, bottom, topfold, bottomfold;\n    FoldableQueue() {\n   \
     \     topfold.push(M::e);\n        bottomfold.push(M::e);\n    }\n    void push(T\
@@ -46,7 +46,7 @@ data:
     \                topfold.push(M::op(bottom.top(), topfold.top()));\n         \
     \       bottom.pop();\n                bottomfold.pop();\n            }\n    \
     \    }\n        return top.top();\n    }\n    T get_all() { return M::op(topfold.top(),\
-    \ bottomfold.top()); }\n    size_t size() { return top.size() + bottom.size();\
+    \ bottomfold.top()); }\n    int32_t size() { return top.size() + bottom.size();\
     \ }\n    bool empty() { return top.empty() && bottom.empty(); }\n};\ntemplate\
     \ <class M>\nstruct FoldableDeque {\n    using T = typename M::T;\n    std::stack<T>\
     \ top, bottom, topfold, bottomfold;\n    FoldableDeque() {\n        topfold.push(M::e);\n\
@@ -56,7 +56,7 @@ data:
     \ v));\n    }\n    void pop_front() {\n        if (top.empty()) {\n          \
     \  std::vector<T> change;\n            while (!bottom.empty()) {\n           \
     \     change.emplace_back(bottom.top());\n                bottom.pop();\n    \
-    \            bottomfold.pop();\n            }\n            size_t sz = change.size();\n\
+    \            bottomfold.pop();\n            }\n            int32_t sz = change.size();\n\
     \            for (int32_t i = (sz >> 1); i >= 0; i--) {\n                top.push(change[sz\
     \ - i - 1]);\n                topfold.push(M::op(change[sz - i - 1], topfold.top()));\n\
     \            }\n            for (int32_t i = (sz >> 1) + 1; i < sz; i++) {\n \
@@ -65,7 +65,7 @@ data:
     \  topfold.pop();\n    }\n    void pop_back() {\n        if (bottom.empty()) {\n\
     \            std::vector<T> change;\n            while (!top.empty()) {\n    \
     \            change.emplace_back(top.top());\n                top.pop();\n   \
-    \             topfold.pop();\n            }\n            size_t sz = change.size();\n\
+    \             topfold.pop();\n            }\n            int32_t sz = change.size();\n\
     \            for (int32_t i = (sz >> 1); i >= 0; i--) {\n                bottom.push(change[sz\
     \ - i - 1]);\n                bottomfold.push(M::op(bottomfold.top(), change[sz\
     \ - i - 1]));\n            }\n            for (int32_t i = (sz >> 1) + 1; i <\
@@ -74,7 +74,7 @@ data:
     \        bottomfold.pop();\n    }\n    T front() {\n        if (top.empty()) {\n\
     \            std::vector<T> change;\n            while (!bottom.empty()) {\n \
     \               change.emplace_back(bottom.top());\n                bottom.pop();\n\
-    \                bottomfold.pop();\n            }\n            size_t sz = change.size();\n\
+    \                bottomfold.pop();\n            }\n            int32_t sz = change.size();\n\
     \            for (uint32_t i = (sz >> 1); i >= 0; i--) {\n                top.push(change[i]);\n\
     \                topfold.push(M::op(change[i], topfold.top()));\n            }\n\
     \            for (uint32_t i = (sz >> 1) + 1; i < sz; i++) {\n               \
@@ -83,54 +83,55 @@ data:
     \   T back() {\n        if (bottom.empty()) {\n            std::vector<T> change;\n\
     \            while (!top.empty()) {\n                change.emplace_back(top.top());\n\
     \                top.pop();\n                topfold.pop();\n            }\n \
-    \           size_t sz = change.size();\n            for (uint32_t i = (sz >> 1);\
-    \ i >= 0; i--) {\n                bottom.push(change[i]);\n                bottomfold.push(M::op(bottomfold.top(),\
-    \ change[i]));\n            }\n            for (uint32_t i = (sz >> 1) + 1; i\
-    \ < sz; i++) {\n                top.push(change[i]);\n                topfold.push(M::op(change[i],\
-    \ topfold.top()));\n            }\n        }\n        return bottom.top();\n \
-    \   }\n    T get_all() { return M::op(topfold.top(), bottomfold.top()); }\n  \
-    \  size_t size() { return top.size() + bottom.size(); }\n    bool empty() { return\
-    \ top.empty() && bottom.empty(); }\n};\n#line 3 \"Modint/Modint.hpp\"\n#include\
-    \ <iostream>\ntemplate <uint64_t Mod>\nstruct Modint {\n    uint64_t x;\n    constexpr\
-    \ Modint() noexcept { x = 0; }\n    constexpr Modint(int64_t val) noexcept {\n\
-    \        x = (val < 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n    }\n    inline\
-    \ uint64_t _get_mod(uint64_t val) noexcept {\n        const static uint64_t m_inv\
-    \ = (-1ULL) / Mod + 1;\n        uint64_t ret = ((unsigned __int128)(val)*m_inv)\
-    \ >> 64;\n        uint64_t pro = ret * Mod;\n        return (val - pro + (val\
-    \ < pro ? Mod : 0));\n    }\n    friend std::ostream &operator<<(std::ostream\
-    \ &os, Modint &b) {\n        return os << b.x;\n    }\n    friend std::istream\
-    \ &operator>>(std::istream &is, Modint &b) {\n        return is >> b.x;\n    }\n\
-    \    constexpr uint64_t val() noexcept { return x; }\n    constexpr Modint operator+()\
-    \ noexcept { return (*this); }\n    constexpr Modint operator-() noexcept { return\
-    \ Modint() - (*this); }\n    constexpr Modint operator+(const Modint rhs) noexcept\
-    \ {\n        return Modint(*this) += rhs;\n    }\n    constexpr Modint operator-(const\
-    \ Modint rhs) noexcept {\n        return Modint(*this) -= rhs;\n    }\n    constexpr\
-    \ Modint operator*(const Modint rhs) noexcept {\n        return Modint(*this)\
-    \ *= rhs;\n    }\n    constexpr Modint operator/(const Modint rhs) noexcept {\n\
-    \        return Modint(*this) /= rhs;\n    }\n    constexpr Modint &operator+=(const\
-    \ Modint rhs) noexcept {\n        x += rhs.x;\n        if (x >= Mod) x -= Mod;\n\
-    \        return *this;\n    }\n    constexpr Modint &operator-=(const Modint rhs)\
-    \ noexcept {\n        if (x < rhs.x) x += Mod;\n        x -= rhs.x;\n        return\
-    \ *this;\n    }\n    constexpr Modint &operator*=(const Modint rhs) noexcept {\n\
-    \        x = _get_mod(x * rhs.x);\n        return *this;\n    }\n    constexpr\
-    \ bool operator==(Modint rhs) noexcept { return x == rhs.x; }\n    constexpr bool\
-    \ operator!=(Modint rhs) noexcept { return x != rhs.x; }\n    constexpr Modint\
-    \ &operator/=(Modint rhs) noexcept {\n        return (*this) *= rhs.inv();\n \
-    \   }\n    constexpr Modint inv() noexcept { return (*this).pow(Mod - 2); }\n\
-    \    constexpr Modint pow(uint64_t x) noexcept {\n        Modint ret = 1;\n  \
-    \      Modint bin = (*this);\n        while (x) {\n            if (x & 1) ret\
-    \ *= bin;\n            bin *= bin;\n            x >>= 1;\n        }\n        return\
-    \ ret;\n    }\n    static uint64_t get_mod() noexcept { return Mod; }\n};\n\n\
-    template <int64_t id>\nstruct ArbitraryModint {\n    uint64_t x;\n    static uint64_t\
-    \ &mod() noexcept {\n        static uint64_t Mod = 0;\n        return Mod;\n \
-    \   }\n    constexpr ArbitraryModint() noexcept { x = 0; }\n    constexpr ArbitraryModint(int64_t\
-    \ val) noexcept {\n        x = (val < 0 ? val % (int64_t)(get_mod()) + get_mod()\n\
-    \                     : val % get_mod());\n    }\n    inline uint64_t _get_mod(uint64_t\
-    \ val) noexcept {\n        const static uint64_t m_inv = (-1ULL) / get_mod() +\
-    \ 1;\n        uint64_t ret = ((unsigned __int128)(val)*m_inv) >> 64;\n       \
-    \ uint64_t pro = ret * get_mod();\n        return (val - pro + (val < pro ? get_mod()\
-    \ : 0));\n    }\n    friend std::ostream &operator<<(std::ostream &os, ArbitraryModint\
-    \ &b) {\n        return os << b.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \           int32_t sz = change.size();\n            for (uint32_t i = (sz >>\
+    \ 1); i >= 0; i--) {\n                bottom.push(change[i]);\n              \
+    \  bottomfold.push(M::op(bottomfold.top(), change[i]));\n            }\n     \
+    \       for (uint32_t i = (sz >> 1) + 1; i < sz; i++) {\n                top.push(change[i]);\n\
+    \                topfold.push(M::op(change[i], topfold.top()));\n            }\n\
+    \        }\n        return bottom.top();\n    }\n    T get_all() { return M::op(topfold.top(),\
+    \ bottomfold.top()); }\n    int32_t size() { return top.size() + bottom.size();\
+    \ }\n    bool empty() { return top.empty() && bottom.empty(); }\n};\n#line 3 \"\
+    Modint/Modint.hpp\"\n#include <iostream>\ntemplate <uint64_t Mod>\nstruct Modint\
+    \ {\n    uint64_t x;\n    constexpr Modint() noexcept { x = 0; }\n    constexpr\
+    \ Modint(int64_t val) noexcept {\n        x = (val < 0 ? val % (int64_t)(Mod)\
+    \ + Mod : val % Mod);\n    }\n    inline uint64_t _get_mod(uint64_t val) noexcept\
+    \ {\n        const static uint64_t m_inv = (-1ULL) / Mod + 1;\n        uint64_t\
+    \ ret = ((unsigned __int128)(val)*m_inv) >> 64;\n        uint64_t pro = ret *\
+    \ Mod;\n        return (val - pro + (val < pro ? Mod : 0));\n    }\n    friend\
+    \ std::ostream &operator<<(std::ostream &os, Modint &b) {\n        return os <<\
+    \ b.x;\n    }\n    friend std::istream &operator>>(std::istream &is, Modint &b)\
+    \ {\n        return is >> b.x;\n    }\n    constexpr uint64_t val() noexcept {\
+    \ return x; }\n    constexpr Modint operator+() noexcept { return (*this); }\n\
+    \    constexpr Modint operator-() noexcept { return Modint() - (*this); }\n  \
+    \  constexpr Modint operator+(const Modint rhs) noexcept {\n        return Modint(*this)\
+    \ += rhs;\n    }\n    constexpr Modint operator-(const Modint rhs) noexcept {\n\
+    \        return Modint(*this) -= rhs;\n    }\n    constexpr Modint operator*(const\
+    \ Modint rhs) noexcept {\n        return Modint(*this) *= rhs;\n    }\n    constexpr\
+    \ Modint operator/(const Modint rhs) noexcept {\n        return Modint(*this)\
+    \ /= rhs;\n    }\n    constexpr Modint &operator+=(const Modint rhs) noexcept\
+    \ {\n        x += rhs.x;\n        if (x >= Mod) x -= Mod;\n        return *this;\n\
+    \    }\n    constexpr Modint &operator-=(const Modint rhs) noexcept {\n      \
+    \  if (x < rhs.x) x += Mod;\n        x -= rhs.x;\n        return *this;\n    }\n\
+    \    constexpr Modint &operator*=(const Modint rhs) noexcept {\n        x = _get_mod(x\
+    \ * rhs.x);\n        return *this;\n    }\n    constexpr bool operator==(Modint\
+    \ rhs) noexcept { return x == rhs.x; }\n    constexpr bool operator!=(Modint rhs)\
+    \ noexcept { return x != rhs.x; }\n    constexpr Modint &operator/=(Modint rhs)\
+    \ noexcept {\n        return (*this) *= rhs.inv();\n    }\n    constexpr Modint\
+    \ inv() noexcept { return (*this).pow(Mod - 2); }\n    constexpr Modint pow(uint64_t\
+    \ x) noexcept {\n        Modint ret = 1;\n        Modint bin = (*this);\n    \
+    \    while (x) {\n            if (x & 1) ret *= bin;\n            bin *= bin;\n\
+    \            x >>= 1;\n        }\n        return ret;\n    }\n    static uint64_t\
+    \ get_mod() noexcept { return Mod; }\n};\n\ntemplate <int64_t id>\nstruct ArbitraryModint\
+    \ {\n    uint64_t x;\n    static uint64_t &mod() noexcept {\n        static uint64_t\
+    \ Mod = 0;\n        return Mod;\n    }\n    constexpr ArbitraryModint() noexcept\
+    \ { x = 0; }\n    constexpr ArbitraryModint(int64_t val) noexcept {\n        x\
+    \ = (val < 0 ? val % (int64_t)(get_mod()) + get_mod()\n                     :\
+    \ val % get_mod());\n    }\n    inline uint64_t _get_mod(uint64_t val) noexcept\
+    \ {\n        const static uint64_t m_inv = (-1ULL) / get_mod() + 1;\n        uint64_t\
+    \ ret = ((unsigned __int128)(val)*m_inv) >> 64;\n        uint64_t pro = ret *\
+    \ get_mod();\n        return (val - pro + (val < pro ? get_mod() : 0));\n    }\n\
+    \    friend std::ostream &operator<<(std::ostream &os, ArbitraryModint &b) {\n\
+    \        return os << b.x;\n    }\n    friend std::istream &operator>>(std::istream\
     \ &is, ArbitraryModint &b) {\n        return is >> b.x;\n    }\n    constexpr\
     \ uint64_t val() noexcept { return x; }\n    constexpr ArbitraryModint operator+()\
     \ noexcept { return (*this); }\n    constexpr ArbitraryModint operator-() noexcept\
@@ -248,9 +249,7 @@ data:
     \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
     \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
     constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
-    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
-    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
     \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
     \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
     \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
@@ -259,31 +258,30 @@ data:
     \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
     \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
     }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\nnamespace Halc {\nvoid\
-    \ solve();\n}\nint main() { Halc::solve(); }\n#line 5 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
+    \ std::end(a));\n}\n#line 5 \"Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp\"\
     \nusing mint = Modint<MOD>;\nstruct composite {\n    using T = pair<mint, mint>;\n\
     \    static T op(T lf, T ri) { return T(lf.fi * ri.fi, lf.se * ri.fi + ri.se);\
-    \ }\n    static inline T e = T(1, 0);\n};\nvoid Halc::solve() {\n    LL(Q);\n\
-    \    FoldableDeque<composite> deq;\n    rep(i, Q) {\n        LL(t);\n        if\
-    \ (t == 0) {\n            LL(a, b);\n            deq.push_front(pll(a, b));\n\
-    \        }\n        if (t == 1) {\n            LL(a, b);\n            deq.push_back(pll(a,\
-    \ b));\n        }\n        if (t == 2) {\n            deq.pop_front();\n     \
-    \   }\n        if (t == 3) {\n            deq.pop_back();\n        }\n       \
-    \ if (t == 4) {\n            LL(x);\n            pair<mint, mint> ope = deq.get_all();\n\
-    \            out(ope.fi * x + ope.se);\n        }\n    }\n}\n"
+    \ }\n    static inline T e = T(1, 0);\n};\nvoid solve() {\n    LL(Q);\n    FoldableDeque<composite>\
+    \ deq;\n    rep(i, Q) {\n        LL(t);\n        if (t == 0) {\n            LL(a,\
+    \ b);\n            deq.push_front(pll(a, b));\n        }\n        if (t == 1)\
+    \ {\n            LL(a, b);\n            deq.push_back(pll(a, b));\n        }\n\
+    \        if (t == 2) {\n            deq.pop_front();\n        }\n        if (t\
+    \ == 3) {\n            deq.pop_back();\n        }\n        if (t == 4) {\n   \
+    \         LL(x);\n            pair<mint, mint> ope = deq.get_all();\n        \
+    \    out(ope.fi * x + ope.se);\n        }\n    }\n}\nint main() { solve(); }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/deque_operate_all_composite\"\
     \n#include\"../../DataStructure/FoldableDeque.hpp\"\n#include\"../../Modint/Modint.hpp\"\
     \n#include\"../../Template/Template.hpp\"\nusing mint = Modint<MOD>;\nstruct composite\
     \ {\n    using T = pair<mint, mint>;\n    static T op(T lf, T ri) { return T(lf.fi\
     \ * ri.fi, lf.se * ri.fi + ri.se); }\n    static inline T e = T(1, 0);\n};\nvoid\
-    \ Halc::solve() {\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i, Q)\
-    \ {\n        LL(t);\n        if (t == 0) {\n            LL(a, b);\n          \
-    \  deq.push_front(pll(a, b));\n        }\n        if (t == 1) {\n            LL(a,\
-    \ b);\n            deq.push_back(pll(a, b));\n        }\n        if (t == 2) {\n\
-    \            deq.pop_front();\n        }\n        if (t == 3) {\n            deq.pop_back();\n\
-    \        }\n        if (t == 4) {\n            LL(x);\n            pair<mint,\
-    \ mint> ope = deq.get_all();\n            out(ope.fi * x + ope.se);\n        }\n\
-    \    }\n}"
+    \ solve() {\n    LL(Q);\n    FoldableDeque<composite> deq;\n    rep(i, Q) {\n\
+    \        LL(t);\n        if (t == 0) {\n            LL(a, b);\n            deq.push_front(pll(a,\
+    \ b));\n        }\n        if (t == 1) {\n            LL(a, b);\n            deq.push_back(pll(a,\
+    \ b));\n        }\n        if (t == 2) {\n            deq.pop_front();\n     \
+    \   }\n        if (t == 3) {\n            deq.pop_back();\n        }\n       \
+    \ if (t == 4) {\n            LL(x);\n            pair<mint, mint> ope = deq.get_all();\n\
+    \            out(ope.fi * x + ope.se);\n        }\n    }\n}\nint main() { solve();\
+    \ }"
   dependsOn:
   - DataStructure/FoldableDeque.hpp
   - Modint/Modint.hpp
@@ -294,8 +292,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 20:10:47+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-10 16:22:37+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
 layout: document

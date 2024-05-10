@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
@@ -103,18 +103,18 @@ data:
     inline void scan(ArbitraryModint<id> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate\
     \ <uint64_t N>\ninline void print(Modint<N> a) {\n    printf(\"%lu\", a.x);\n\
     }\ntemplate <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    printf(\"\
-    %lu\", a.x);\n}\n#line 2 \"Tree/StaticTopTree.hpp\"\n#include <cassert>\n#include\
-    \ <cstddef>\n#line 5 \"Tree/StaticTopTree.hpp\"\n#include <vector>\ntemplate <class\
-    \ M>\nstruct StaticTopTree {\n    using point = typename M::point;\n    using\
-    \ path = typename M::path;\n    struct Node {\n        bool is_path;\n       \
-    \ point point_val;\n        path path_val;\n        int32_t pos;\n        int32_t\
-    \ left;\n        int32_t right;\n        int32_t parent;\n        Node(bool pat,\
-    \ int32_t po = -1, int32_t lf = -1, int32_t ri = -1) {\n            is_path =\
-    \ pat;\n            pos = po;\n            left = lf;\n            right = ri;\n\
-    \            parent = -1;\n        }\n    };\n    size_t sz;\n    std::vector<std::vector<int32_t>>\
+    %lu\", a.x);\n}\n#line 2 \"Tree/StaticTopTree.hpp\"\n#include <cassert>\n#line\
+    \ 4 \"Tree/StaticTopTree.hpp\"\n#include <vector>\ntemplate <class M>\nstruct\
+    \ StaticTopTree {\n    using point = typename M::point;\n    using path = typename\
+    \ M::path;\n    struct Node {\n        bool is_path;\n        point point_val;\n\
+    \        path path_val;\n        int32_t pos;\n        int32_t left;\n       \
+    \ int32_t right;\n        int32_t parent;\n        Node(bool pat, int32_t po =\
+    \ -1, int32_t lf = -1, int32_t ri = -1) {\n            is_path = pat;\n      \
+    \      pos = po;\n            left = lf;\n            right = ri;\n          \
+    \  parent = -1;\n        }\n    };\n    int32_t sz;\n    std::vector<std::vector<int32_t>>\
     \ tree;\n    std::vector<int32_t> node_pos;\n    std::vector<Node> nodes;\n  \
-    \  int32_t rt;\n    StaticTopTree(size_t size) {\n        sz = size;\n       \
-    \ tree.resize(sz);\n        node_pos.resize(sz);\n    }\n    void add_edge(int32_t\
+    \  int32_t rt;\n    StaticTopTree(int32_t size) {\n        sz = size;\n      \
+    \  tree.resize(sz);\n        node_pos.resize(sz);\n    }\n    void add_edge(int32_t\
     \ s, int32_t v) {\n        tree[s].emplace_back(v);\n        tree[v].emplace_back(s);\n\
     \    }\n    int32_t _path_cluster(int32_t pos, std::vector<int32_t> &tree_sz)\
     \ {\n        if (tree[pos].empty()) {\n            node_pos[pos] = nodes.size();\n\
@@ -185,7 +185,7 @@ data:
     \ { return nodes[rt].path_val; }\n    void calc(int32_t pos) {\n        int32_t\
     \ change = node_pos[pos];\n        while (nodes[change].parent != -1) {\n    \
     \        _calc_val(change);\n            change = nodes[change].parent;\n    \
-    \    }\n        _calc_val(change);\n    }\n    size_t size() { return sz; }\n\
+    \    }\n        _calc_val(change);\n    }\n    int32_t size() { return sz; }\n\
     };\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n\n#line 8 \"Template/InOut.hpp\"\ninline int scan() { return getchar();\
     \ }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
@@ -272,9 +272,7 @@ data:
     \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
     \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
     constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
-    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
-    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
     \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
     \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
     \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
@@ -283,12 +281,11 @@ data:
     \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
     \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
     }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\nnamespace Halc {\nvoid\
-    \ solve();\n}\nint main() { Halc::solve(); }\n#line 5 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+    \ std::end(a));\n}\n#line 5 \"Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \nusing mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type\
-    \ = pair<mint, mint>;\nvoid Halc::solve() {\n    LL(N, Q);\n    static VEC(mint,\
-    \ a, N);\n    VEC(edge_type, edge, N - 1);\n    vv(ll, gr, N);\n    rep(i, N -\
-    \ 1) {\n        gr[edge[i][0]].emplace_back(edge[i][1]);\n        gr[edge[i][1]].emplace_back(edge[i][0]);\n\
+    \ = pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a,\
+    \ N);\n    VEC(edge_type, edge, N - 1);\n    vv(ll, gr, N);\n    rep(i, N - 1)\
+    \ {\n        gr[edge[i][0]].emplace_back(edge[i][1]);\n        gr[edge[i][1]].emplace_back(edge[i][0]);\n\
     \    }\n    vec(ll, dist, N, -1);\n    dist[0] = 0;\n    stack<ll> vert;\n   \
     \ vert.push(0);\n    while (!vert.empty()) {\n        ll pos = vert.top();\n \
     \       vert.pop();\n        each(i, gr[pos]) {\n            if (dist[i] == -1)\
@@ -311,13 +308,14 @@ data:
     \   rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n            LL(w, x);\n\
     \            a[w] = x;\n            tree.calc(w);\n        } else {\n        \
     \    LL(e, y, z);\n            func[edge[e][0]] = {y, z};\n            tree.calc(edge[e][0]);\n\
-    \        }\n        out(tree.root_value()[1]);\n    }\n}\n"
+    \        }\n        out(tree.root_value()[1]);\n    }\n}\nint main() { solve();\
+    \ }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
     \n#include \"../../Modint/Modint.hpp\"\n#include \"../../Tree/StaticTopTree.hpp\"\
     \n#include \"../../Template/Template.hpp\"\nusing mint = Modint<MOD>;\nusing edge_type\
-    \ = array<ll, 4>;\nusing func_type = pair<mint, mint>;\nvoid Halc::solve() {\n\
-    \    LL(N, Q);\n    static VEC(mint, a, N);\n    VEC(edge_type, edge, N - 1);\n\
-    \    vv(ll, gr, N);\n    rep(i, N - 1) {\n        gr[edge[i][0]].emplace_back(edge[i][1]);\n\
+    \ = array<ll, 4>;\nusing func_type = pair<mint, mint>;\nvoid solve() {\n    LL(N,\
+    \ Q);\n    static VEC(mint, a, N);\n    VEC(edge_type, edge, N - 1);\n    vv(ll,\
+    \ gr, N);\n    rep(i, N - 1) {\n        gr[edge[i][0]].emplace_back(edge[i][1]);\n\
     \        gr[edge[i][1]].emplace_back(edge[i][0]);\n    }\n    vec(ll, dist, N,\
     \ -1);\n    dist[0] = 0;\n    stack<ll> vert;\n    vert.push(0);\n    while (!vert.empty())\
     \ {\n        ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos])\
@@ -340,7 +338,8 @@ data:
     \   rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n            LL(w, x);\n\
     \            a[w] = x;\n            tree.calc(w);\n        } else {\n        \
     \    LL(e, y, z);\n            func[edge[e][0]] = {y, z};\n            tree.calc(edge[e][0]);\n\
-    \        }\n        out(tree.root_value()[1]);\n    }\n}"
+    \        }\n        out(tree.root_value()[1]);\n    }\n}\nint main() { solve();\
+    \ }"
   dependsOn:
   - Modint/Modint.hpp
   - Tree/StaticTopTree.hpp
@@ -351,8 +350,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 20:10:47+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-10 16:22:37+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-new/point_set_tree_path_composite_sum_fixed_root.test.cpp
 layout: document

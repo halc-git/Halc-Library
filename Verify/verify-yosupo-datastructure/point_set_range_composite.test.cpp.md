@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: DataStructure/SegmentTree.hpp
     title: Segment Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
@@ -31,10 +31,10 @@ data:
     - https://judge.yosupo.jp/problem/point_set_range_composite
   bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
-    \n#line 2 \"DataStructure/SegmentTree.hpp\"\n#include <cstddef>\n#include <cstdint>\n\
-    #include <queue>\n#include <stack>\n#include <vector>\ntemplate <class M>\nstruct\
-    \ SegmentTree {\n    using T = typename M::T;\n    int32_t siz;\n    std::vector<T>\
-    \ tree;\n    SegmentTree(int32_t sz) {\n        siz = sz;\n        tree = std::vector<T>(siz\
+    \n#line 2 \"DataStructure/SegmentTree.hpp\"\n#include <cstdint>\n#include <queue>\n\
+    #include <stack>\n#include <vector>\ntemplate <class M>\nstruct SegmentTree {\n\
+    \    using T = typename M::T;\n    int32_t siz;\n    std::vector<T> tree;\n  \
+    \  SegmentTree(int32_t sz) {\n        siz = sz;\n        tree = std::vector<T>(siz\
     \ << 1, M::e);\n    }\n    SegmentTree(std::vector<T> def) {\n        siz = def.size();\n\
     \        tree = std::vector<T>(siz << 1, M::e);\n        for (int32_t i = 0; i\
     \ < siz; i++) {\n            tree[i + siz] = def[i];\n        }\n        for (int32_t\
@@ -90,7 +90,7 @@ data:
     \                        val = M::op(tree[i], val);\n                        i--;\n\
     \                    }\n                }\n                return i - siz + 1;\n\
     \            }\n            val = M::op(tree[i], val);\n        }\n        return\
-    \ 0;\n    }\n    size_t size() { return siz; }\n};\n#line 3 \"Modint/Modint.hpp\"\
+    \ 0;\n    }\n    int32_t size() { return siz; }\n};\n#line 3 \"Modint/Modint.hpp\"\
     \n#include <iostream>\ntemplate <uint64_t Mod>\nstruct Modint {\n    uint64_t\
     \ x;\n    constexpr Modint() noexcept { x = 0; }\n    constexpr Modint(int64_t\
     \ val) noexcept {\n        x = (val < 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n\
@@ -248,9 +248,7 @@ data:
     \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
     \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
     constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
-    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
-    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
     \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
     \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
     \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
@@ -259,26 +257,26 @@ data:
     \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
     \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
     }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\nnamespace Halc {\nvoid\
-    \ solve();\n}\nint main() { Halc::solve(); }\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
+    \ std::end(a));\n}\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
     \nusing mint = Modint<MOD>;\nstruct composite {\n    using T = pair<mint, mint>;\n\
     \    static T op(T x, T y) { return T(x.fi * y.fi, x.se * y.fi + y.se); }\n  \
-    \  static inline T e = T(1, 0);\n};\nvoid Halc::solve() {\n    LL(N, Q);\n   \
-    \ VEC(composite::T, ab, N);\n    SegmentTree<composite> seg(ab);\n    rep(i, Q)\
-    \ {\n        LL(t);\n        if (t == 0) {\n            LL(p, c, d);\n       \
-    \     seg.set(p, {c, d});\n        } else {\n            LL(l, r, x);\n      \
-    \      pair<mint, mint> func = seg.prod(l, r);\n            out(func.fi * x +\
-    \ func.se);\n        }\n    }\n}\n"
+    \  static inline T e = T(1, 0);\n};\nvoid solve() {\n    LL(N, Q);\n    VEC(composite::T,\
+    \ ab, N);\n    SegmentTree<composite> seg(ab);\n    rep(i, Q) {\n        LL(t);\n\
+    \        if (t == 0) {\n            LL(p, c, d);\n            seg.set(p, {c, d});\n\
+    \        } else {\n            LL(l, r, x);\n            pair<mint, mint> func\
+    \ = seg.prod(l, r);\n            out(func.fi * x + func.se);\n        }\n    }\n\
+    }\nint main() { solve(); }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
     \n#include \"../../DataStructure/SegmentTree.hpp\"\n#include \"../../Modint/Modint.hpp\"\
     \n#include \"../../Template/Template.hpp\"\nusing mint = Modint<MOD>;\nstruct\
     \ composite {\n    using T = pair<mint, mint>;\n    static T op(T x, T y) { return\
     \ T(x.fi * y.fi, x.se * y.fi + y.se); }\n    static inline T e = T(1, 0);\n};\n\
-    void Halc::solve() {\n    LL(N, Q);\n    VEC(composite::T, ab, N);\n    SegmentTree<composite>\
+    void solve() {\n    LL(N, Q);\n    VEC(composite::T, ab, N);\n    SegmentTree<composite>\
     \ seg(ab);\n    rep(i, Q) {\n        LL(t);\n        if (t == 0) {\n         \
     \   LL(p, c, d);\n            seg.set(p, {c, d});\n        } else {\n        \
     \    LL(l, r, x);\n            pair<mint, mint> func = seg.prod(l, r);\n     \
-    \       out(func.fi * x + func.se);\n        }\n    }\n}"
+    \       out(func.fi * x + func.se);\n        }\n    }\n}\nint main() { solve();\
+    \ }"
   dependsOn:
   - DataStructure/SegmentTree.hpp
   - Modint/Modint.hpp
@@ -289,8 +287,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 20:10:47+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-10 16:22:37+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
 layout: document

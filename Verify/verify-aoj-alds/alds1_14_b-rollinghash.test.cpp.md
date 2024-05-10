@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Misc/Random.hpp
     title: Misc/Random.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
@@ -154,9 +154,7 @@ data:
     \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
     \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
     constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
-    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
-    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
     \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
     \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
     \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
@@ -165,18 +163,17 @@ data:
     \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
     \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
     }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\nnamespace Halc {\nvoid\
-    \ solve();\n}\nint main() { Halc::solve(); }\n#line 4 \"Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp\"\
-    \nvoid Halc::solve() {\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n\
-    \    auto tb = roll.build(T);\n    auto pb = roll.build(P);\n    ll hash = roll.query(pb,\
+    \ std::end(a));\n}\n#line 4 \"Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp\"\
+    \nvoid solve() {\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n  \
+    \  auto tb = roll.build(T);\n    auto pb = roll.build(P);\n    ll hash = roll.query(pb,\
     \ 0, len(P));\n    rep(i, len(T) - len(P) + 1) {\n        if (roll.query(tb, i,\
-    \ i + len(P)) == hash) out(i);\n    }\n}\n"
+    \ i + len(P)) == hash) out(i);\n    }\n}\nint main() { solve(); }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
     \n#include \"../../String/RollingHash.hpp\"\n#include \"../../Template/Template.hpp\"\
-    \nvoid Halc::solve() {\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n\
-    \    auto tb = roll.build(T);\n    auto pb = roll.build(P);\n    ll hash = roll.query(pb,\
+    \nvoid solve() {\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n  \
+    \  auto tb = roll.build(T);\n    auto pb = roll.build(P);\n    ll hash = roll.query(pb,\
     \ 0, len(P));\n    rep(i, len(T) - len(P) + 1) {\n        if (roll.query(tb, i,\
-    \ i + len(P)) == hash) out(i);\n    }\n}"
+    \ i + len(P)) == hash) out(i);\n    }\n}\nint main() { solve(); }"
   dependsOn:
   - String/RollingHash.hpp
   - Misc/Random.hpp
@@ -187,8 +184,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 20:10:47+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-10 16:22:37+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
 layout: document

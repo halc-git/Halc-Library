@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: DataStructure/SegmentTree.hpp
     title: Segment Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/predecessor_problem
@@ -28,10 +28,10 @@ data:
     - https://judge.yosupo.jp/problem/predecessor_problem
   bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/predecessor_problem\"\n#line\
-    \ 2 \"DataStructure/SegmentTree.hpp\"\n#include <cstddef>\n#include <cstdint>\n\
-    #include <queue>\n#include <stack>\n#include <vector>\ntemplate <class M>\nstruct\
-    \ SegmentTree {\n    using T = typename M::T;\n    int32_t siz;\n    std::vector<T>\
-    \ tree;\n    SegmentTree(int32_t sz) {\n        siz = sz;\n        tree = std::vector<T>(siz\
+    \ 2 \"DataStructure/SegmentTree.hpp\"\n#include <cstdint>\n#include <queue>\n\
+    #include <stack>\n#include <vector>\ntemplate <class M>\nstruct SegmentTree {\n\
+    \    using T = typename M::T;\n    int32_t siz;\n    std::vector<T> tree;\n  \
+    \  SegmentTree(int32_t sz) {\n        siz = sz;\n        tree = std::vector<T>(siz\
     \ << 1, M::e);\n    }\n    SegmentTree(std::vector<T> def) {\n        siz = def.size();\n\
     \        tree = std::vector<T>(siz << 1, M::e);\n        for (int32_t i = 0; i\
     \ < siz; i++) {\n            tree[i + siz] = def[i];\n        }\n        for (int32_t\
@@ -87,7 +87,7 @@ data:
     \                        val = M::op(tree[i], val);\n                        i--;\n\
     \                    }\n                }\n                return i - siz + 1;\n\
     \            }\n            val = M::op(tree[i], val);\n        }\n        return\
-    \ 0;\n    }\n    size_t size() { return siz; }\n};\n#line 2 \"Template/Template.hpp\"\
+    \ 0;\n    }\n    int32_t size() { return siz; }\n};\n#line 2 \"Template/Template.hpp\"\
     \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\
     \ninline int scan() { return getchar(); }\ninline void scan(int &a) { scanf(\"\
     %d\", &a); }\ninline void scan(unsigned &a) { scanf(\"%u\", &a); }\ninline void\
@@ -174,9 +174,7 @@ data:
     \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
     \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
     constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\nstatic ll intpow(ll a, ll b) {\n\
-    \    ll ret = 1;\n    while (b) {\n        if (b & 1) ret *= a;\n        a *=\
-    \ a;\n        b >>= 1;\n    }\n    return ret;\n}\ntemplate <class T>\nbool chmin(T\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
     \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
     \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
     \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
@@ -185,10 +183,9 @@ data:
     \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
     \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
     }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\nnamespace Halc {\nvoid\
-    \ solve();\n}\nint main() { Halc::solve(); }\n#line 4 \"Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp\"\
+    \ std::end(a));\n}\n#line 4 \"Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp\"\
     \nstruct raq {\n    using T = ll;\n    static T op(T x, T y) { return x + y; }\n\
-    \    static inline T e = 0;\n};\nvoid Halc::solve() {\n    LL(N, Q);\n    STR(T);\n\
+    \    static inline T e = 0;\n};\nvoid solve() {\n    LL(N, Q);\n    STR(T);\n\
     \    vec(ll, t, N, 0);\n    rep(i, N) {\n        if (T[i] == '1') t[i] = 1;\n\
     \    }\n    SegmentTree<raq> seg(t);\n    rep(i, Q) {\n        LL(c, k);\n   \
     \     if (c == 0) {\n            if (!seg.get(k)) {\n                seg.set(k,\
@@ -199,11 +196,11 @@ data:
     \ (ans < N) {\n                out(ans);\n            } else {\n             \
     \   out(-1);\n            }\n        }\n        if (c == 4) {\n            ll\
     \ ans = seg.min_left(k + 1, [](ll x) { return x == 0; });\n            out(ans\
-    \ - 1);\n        }\n    }\n}\n"
+    \ - 1);\n        }\n    }\n}\nint main() { solve(); }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/predecessor_problem\"\n\
     #include \"../../DataStructure/SegmentTree.hpp\"\n#include \"../../Template/Template.hpp\"\
     \nstruct raq {\n    using T = ll;\n    static T op(T x, T y) { return x + y; }\n\
-    \    static inline T e = 0;\n};\nvoid Halc::solve() {\n    LL(N, Q);\n    STR(T);\n\
+    \    static inline T e = 0;\n};\nvoid solve() {\n    LL(N, Q);\n    STR(T);\n\
     \    vec(ll, t, N, 0);\n    rep(i, N) {\n        if (T[i] == '1') t[i] = 1;\n\
     \    }\n    SegmentTree<raq> seg(t);\n    rep(i, Q) {\n        LL(c, k);\n   \
     \     if (c == 0) {\n            if (!seg.get(k)) {\n                seg.set(k,\
@@ -214,7 +211,7 @@ data:
     \ (ans < N) {\n                out(ans);\n            } else {\n             \
     \   out(-1);\n            }\n        }\n        if (c == 4) {\n            ll\
     \ ans = seg.min_left(k + 1, [](ll x) { return x == 0; });\n            out(ans\
-    \ - 1);\n        }\n    }\n}"
+    \ - 1);\n        }\n    }\n}\nint main() { solve(); }"
   dependsOn:
   - DataStructure/SegmentTree.hpp
   - Template/Template.hpp
@@ -224,8 +221,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-05-09 20:10:47+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-05-10 16:22:37+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
 layout: document
