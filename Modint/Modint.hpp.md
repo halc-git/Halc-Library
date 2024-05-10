@@ -97,11 +97,11 @@ data:
     \      bin *= bin;\n            x >>= 1;\n        }\n        return ret;\n   \
     \ }\n    static void set_mod(const uint64_t x) noexcept { mod() = x; }\n    static\
     \ uint64_t get_mod() noexcept { return mod(); }\n};\ntemplate <uint64_t N>\ninline\
-    \ void scan(Modint<N> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate <int64_t id>\n\
-    inline void scan(ArbitraryModint<id> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate\
-    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    printf(\"%lu\", a.x);\n\
-    }\ntemplate <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    printf(\"\
-    %lu\", a.x);\n}\n"
+    \ void scan(Modint<N> &a) {\n    std::cin >> a.x;\n}\ntemplate <int64_t id>\n\
+    inline void scan(ArbitraryModint<id> &a) {\n    std::cin >> a.x;\n}\ntemplate\
+    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    std::cout << a.x;\n}\ntemplate\
+    \ <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    std::cout << a.x;\n\
+    }\n"
   code: "#pragma once\n#include <cstdint>\n#include <iostream>\ntemplate <uint64_t\
     \ Mod>\nstruct Modint {\n    uint64_t x;\n    constexpr Modint() noexcept { x\
     \ = 0; }\n    constexpr Modint(int64_t val) noexcept {\n        x = (val < 0 ?\
@@ -170,16 +170,16 @@ data:
     \      bin *= bin;\n            x >>= 1;\n        }\n        return ret;\n   \
     \ }\n    static void set_mod(const uint64_t x) noexcept { mod() = x; }\n    static\
     \ uint64_t get_mod() noexcept { return mod(); }\n};\ntemplate <uint64_t N>\ninline\
-    \ void scan(Modint<N> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate <int64_t id>\n\
-    inline void scan(ArbitraryModint<id> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate\
-    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    printf(\"%lu\", a.x);\n\
-    }\ntemplate <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    printf(\"\
-    %lu\", a.x);\n}\n"
+    \ void scan(Modint<N> &a) {\n    std::cin >> a.x;\n}\ntemplate <int64_t id>\n\
+    inline void scan(ArbitraryModint<id> &a) {\n    std::cin >> a.x;\n}\ntemplate\
+    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    std::cout << a.x;\n}\ntemplate\
+    \ <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    std::cout << a.x;\n\
+    }\n"
   dependsOn: []
   isVerificationFile: false
   path: Modint/Modint.hpp
   requiredBy: []
-  timestamp: '2024-05-08 20:46:35+09:00'
+  timestamp: '2024-05-10 16:35:12+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp

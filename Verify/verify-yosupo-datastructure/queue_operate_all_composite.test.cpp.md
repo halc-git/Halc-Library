@@ -159,13 +159,13 @@ data:
     \      bin *= bin;\n            x >>= 1;\n        }\n        return ret;\n   \
     \ }\n    static void set_mod(const uint64_t x) noexcept { mod() = x; }\n    static\
     \ uint64_t get_mod() noexcept { return mod(); }\n};\ntemplate <uint64_t N>\ninline\
-    \ void scan(Modint<N> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate <int64_t id>\n\
-    inline void scan(ArbitraryModint<id> &a) {\n    scanf(\"%lu\", &a.x);\n}\ntemplate\
-    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    printf(\"%lu\", a.x);\n\
-    }\ntemplate <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    printf(\"\
-    %lu\", a.x);\n}\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline int scan() { return\
-    \ getchar(); }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
+    \ void scan(Modint<N> &a) {\n    std::cin >> a.x;\n}\ntemplate <int64_t id>\n\
+    inline void scan(ArbitraryModint<id> &a) {\n    std::cin >> a.x;\n}\ntemplate\
+    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    std::cout << a.x;\n}\ntemplate\
+    \ <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    std::cout << a.x;\n\
+    }\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n\n#line 8 \"Template/InOut.hpp\"\ninline int scan() { return getchar();\
+    \ }\ninline void scan(int &a) { scanf(\"%d\", &a); }\ninline void scan(unsigned\
     \ &a) { scanf(\"%u\", &a); }\ninline void scan(long &a) { scanf(\"%ld\", &a);\
     \ }\ninline void scan(long long &a) { scanf(\"%lld\", &a); }\ninline void scan(unsigned\
     \ long long &a) { scanf(\"%llu\", &a); }\ninline void scan(char &a) { std::cin\
@@ -288,7 +288,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-10 16:22:37+09:00'
+  timestamp: '2024-05-10 16:35:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
