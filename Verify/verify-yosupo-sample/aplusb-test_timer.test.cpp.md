@@ -30,23 +30,23 @@ data:
     links:
     - https://judge.yosupo.jp/problem/aplusb
   bundledCode: "#line 1 \"Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"Misc/Timer.hpp\"\
-    \n#include <chrono>\nstatic auto StartTime = std::chrono::system_clock::now();\n\
-    inline int32_t get_time() {\n    return std::chrono::duration_cast<std::chrono::microseconds>(\n\
-    \               std::chrono::system_clock::now() - StartTime)\n        .count();\n\
-    }\n#line 3 \"Misc/Random.hpp\"\n#include <cstdint>\ninline uint32_t pcg32_fast()\
-    \ {\n    static uint64_t state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"Misc/Random.hpp\"\
+    \n#include <chrono>\n#include <cstdint>\ninline uint32_t pcg32_fast() {\n    static\
+    \ uint64_t state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
     \ << 1) + 1;\n    uint64_t x = state;\n    uint8_t count = x >> 61;\n    state\
     \ *= 0xf13283ad;\n    x ^= x >> 22;\n    return (uint32_t)(x >> (22 + count));\n\
     }\ninline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)pcg32_fast()\
-    \ * (r - l + 1)) >> 32);\n}\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline void scan() {}\n\
-    inline void scan(int &a) { std::cin >> a; }\ninline void scan(unsigned &a) { std::cin\
-    \ >> a; }\ninline void scan(long &a) { std::cin >> a; }\ninline void scan(long\
-    \ long &a) { std::cin >> a; }\ninline void scan(unsigned long long &a) { std::cin\
-    \ >> a; }\ninline void scan(char &a) { std::cin >> a; }\ninline void scan(float\
-    \ &a) { std::cin >> a; }\ninline void scan(double &a) { std::cin >> a; }\ninline\
-    \ void scan(long double &a) { std::cin >> a; }\ninline void scan(std::vector<bool>\
+    \ * (r - l + 1)) >> 32);\n}\n#line 3 \"Misc/Timer.hpp\"\nstatic auto StartTime\
+    \ = std::chrono::system_clock::now();\ninline int32_t get_time() {\n    return\
+    \ std::chrono::duration_cast<std::chrono::microseconds>(\n               std::chrono::system_clock::now()\
+    \ - StartTime)\n        .count();\n}\n#line 2 \"Template/Template.hpp\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline\
+    \ void scan() {}\ninline void scan(int &a) { std::cin >> a; }\ninline void scan(unsigned\
+    \ &a) { std::cin >> a; }\ninline void scan(long &a) { std::cin >> a; }\ninline\
+    \ void scan(long long &a) { std::cin >> a; }\ninline void scan(unsigned long long\
+    \ &a) { std::cin >> a; }\ninline void scan(char &a) { std::cin >> a; }\ninline\
+    \ void scan(float &a) { std::cin >> a; }\ninline void scan(double &a) { std::cin\
+    \ >> a; }\ninline void scan(long double &a) { std::cin >> a; }\ninline void scan(std::vector<bool>\
     \ &vec) {\n    for (int32_t i = 0; i < vec.size(); i++) {\n        int a;\n  \
     \      scan(a);\n        vec[i] = a;\n    }\n}\ninline void scan(std::string &a)\
     \ { std::cin >> a; }\ntemplate <class T>\ninline void scan(std::vector<T> &vec);\n\
@@ -139,14 +139,14 @@ data:
     \nint main() {\n    int stoptime = randint(0, 1000000);\n    usleep(stoptime);\n\
     \    assert(abs(get_time() - stoptime) <= 500);\n    LL(A, B);\n    out(A + B);\n\
     }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../../Misc/Timer.hpp\"\
-    \n#include \"../../Misc/Random.hpp\"\n#include \"../../Template/Template.hpp\"\
-    \nint main() {\n    int stoptime = randint(0, 1000000);\n    usleep(stoptime);\n\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../../Misc/Random.hpp\"\
+    \n#include \"../../Misc/Timer.hpp\"\n#include \"../../Template/Template.hpp\"\n\
+    int main() {\n    int stoptime = randint(0, 1000000);\n    usleep(stoptime);\n\
     \    assert(abs(get_time() - stoptime) <= 500);\n    LL(A, B);\n    out(A + B);\n\
     }\n"
   dependsOn:
-  - Misc/Timer.hpp
   - Misc/Random.hpp
+  - Misc/Timer.hpp
   - Template/Template.hpp
   - Template/InOut.hpp
   - Template/Macro.hpp
@@ -154,7 +154,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   requiredBy: []
-  timestamp: '2024-05-11 14:05:26+09:00'
+  timestamp: '2024-05-11 16:32:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
