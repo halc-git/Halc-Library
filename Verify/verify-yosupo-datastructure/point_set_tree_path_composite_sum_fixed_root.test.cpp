@@ -1,4 +1,6 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root"
+#define PROBLEM                        \
+    "https://judge.yosupo.jp/problem/" \
+    "point_set_tree_path_composite_sum_fixed_root"
 #include "../../Graph/Graph.hpp"
 #include "../../Modint/Modint.hpp"
 #include "../../Template/Template.hpp"
@@ -11,20 +13,20 @@ void solve() {
     static VEC(mint, a, N);
     Graph<func_type> gr(N);
     rep(i, N - 1) {
-        LL(u,v,b,c);
-        gr.add_edge(u,v,{b,c});
+        LL(u, v, b, c);
+        gr.add_edge(v, u, {b, c});
     }
     stack<ll> vert;
     vert.push(0);
     static vec(func_type, func, N, {1, 0});
-    vec(ll,change,N-1,-1);
+    vec(ll, change, N - 1, -1);
     while (!vert.empty()) {
         ll pos = vert.top();
         vert.pop();
         each(i, gr[pos]) {
-            if (change[i.idx]==-1) {
-                func[i]=i.cost;
-                change[i.idx]=i;
+            if (change[i.idx] == -1) {
+                func[i] = i.cost;
+                change[i.idx] = i;
                 vert.push(i);
             }
         }
