@@ -131,20 +131,20 @@ data:
     using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
     \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
     \ = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\n\
-    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconst ll\
-    \ LINF = 1LL << 60;\nconstexpr int INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL\
-    \ << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr\
-    \ int MODD = 1000000007;\nconstexpr int MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
-    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
-    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
-    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
-    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
-    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
-    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
-    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
-    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
-    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
+    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
+    \ ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX >> 1;\n\
+    constexpr ll MINF = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\n\
+    constexpr int32_t MODD = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr\
+    \ ld EPS = 1e-9;\nconstexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0,\
+    \ 1, 0, -1, 0};\nconst ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate\
+    \ <class T>\nbool chmin(T &a, const T &b) {\n    if (a > b) {\n        a = b;\n\
+    \        return true;\n    } else\n        return false;\n}\ntemplate <class T>\n\
+    bool chmax(T &a, const T &b) {\n    if (a < b) {\n        a = b;\n        return\
+    \ true;\n    } else\n        return false;\n}\ntemplate <class T>\nll sum(const\
+    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate\
+    \ <class T>\nld dsum(const T &a) {\n    return accumulate(std::begin(a), std::end(a),\
+    \ 0.0L);\n}\ntemplate <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a),\
+    \ std::end(a));\n}\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
     \ std::end(a));\n}\n#line 4 \"Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp\"\
     \nstruct rsq {\n    using T = ll;\n    static T op(T x, T y) { return x + y; }\n\
     \    static inline T e = 0;\n};\nvoid solve() {\n    LL(N, Q);\n    VEC(ll, A,\
@@ -165,7 +165,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
   requiredBy: []
-  timestamp: '2024-05-10 17:02:28+09:00'
+  timestamp: '2024-05-11 14:05:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
