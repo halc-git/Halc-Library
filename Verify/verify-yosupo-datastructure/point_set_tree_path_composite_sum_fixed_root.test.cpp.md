@@ -1,76 +1,76 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/Graph.hpp
     title: Graph/Graph.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/" "point_set_tree_path_composite_sum_fixed_root
+    PROBLEM: https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
     links:
-    - https://judge.yosupo.jp/problem/
+    - https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
   bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
-    \n#define PROBLEM                        \\\n    \"https://judge.yosupo.jp/problem/\"\
-    \ \\\n    \"point_set_tree_path_composite_sum_fixed_root\"\n#line 2 \"Graph/Graph.hpp\"\
-    \n#include <cstdint>\n#include <vector>\ntemplate <class T = int32_t>\nstruct\
-    \ Edge {\n    int32_t from, to;\n    T cost;\n    int32_t idx;\n    Edge() = default;\n\
-    \    Edge(int32_t from, int32_t to, T cost = 1, int32_t idx = -1)\n        : from(from),\
-    \ to(to), cost(cost), idx(idx) {}\n    operator int() { return to; }\n    void\
-    \ reverse() { std::swap(from, to); }\n};\ntemplate <class T = int32_t>\nstruct\
-    \ Graph {\n    std::vector<std::vector<Edge<T>>> gr;\n    int32_t eds = 0;\n \
-    \   Graph() = default;\n    Graph(int32_t n) { gr.resize(n); }\n    void add_edge(int32_t\
-    \ from, int32_t to, T cost = 1, bool directed = false) {\n        gr[from].emplace_back(from,\
-    \ to, cost, eds);\n        if (!directed) {\n            gr[to].emplace_back(to,\
-    \ from, cost, eds);\n        }\n        eds++;\n    }\n    void add_directed_edge(int32_t\
-    \ from, int32_t to, T cost = 1) {\n        gr[from].emplace_back(from, to, cost,\
-    \ eds);\n        eds++;\n    }\n    inline std::vector<Edge<T>> &operator[](const\
-    \ int32_t &p) { return gr[p]; }\n    int32_t size() { return gr.size(); }\n};\n\
-    template <class T>\nGraph<T> reverse_edges(Graph<T> &gr) {\n    Graph<T> ret(gr.size());\n\
-    \    for (int32_t i = 0; i < gr.size(); i++) {\n        for (Edge<T> j : gr[i])\
-    \ {\n            ret[j].emplace_back(j);\n            ret[j].back().reverse();\n\
-    \        }\n    }\n    return ret;\n}\n#line 3 \"Modint/Modint.hpp\"\n#include\
-    \ <iostream>\ntemplate <uint64_t Mod>\nstruct Modint {\n    uint64_t x;\n    constexpr\
-    \ Modint() noexcept { x = 0; }\n    constexpr Modint(int64_t val) noexcept {\n\
-    \        x = (val < 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n    }\n    inline\
-    \ uint64_t _get_mod(uint64_t val) noexcept {\n        const static uint64_t m_inv\
-    \ = (-1ULL) / Mod + 1;\n        uint64_t ret = ((unsigned __int128)(val)*m_inv)\
-    \ >> 64;\n        uint64_t pro = ret * Mod;\n        return (val - pro + (val\
-    \ < pro ? Mod : 0));\n    }\n    friend std::ostream &operator<<(std::ostream\
-    \ &os, Modint &b) {\n        return os << b.x;\n    }\n    friend std::istream\
-    \ &operator>>(std::istream &is, Modint &b) {\n        return is >> b.x;\n    }\n\
-    \    constexpr uint64_t val() noexcept { return x; }\n    constexpr Modint operator+()\
-    \ noexcept { return (*this); }\n    constexpr Modint operator-() noexcept { return\
-    \ Modint() - (*this); }\n    constexpr Modint operator+(const Modint rhs) noexcept\
-    \ {\n        return Modint(*this) += rhs;\n    }\n    constexpr Modint operator-(const\
-    \ Modint rhs) noexcept {\n        return Modint(*this) -= rhs;\n    }\n    constexpr\
-    \ Modint operator*(const Modint rhs) noexcept {\n        return Modint(*this)\
-    \ *= rhs;\n    }\n    constexpr Modint operator/(const Modint rhs) noexcept {\n\
-    \        return Modint(*this) /= rhs;\n    }\n    constexpr Modint &operator+=(const\
-    \ Modint rhs) noexcept {\n        x += rhs.x;\n        if (x >= Mod) x -= Mod;\n\
-    \        return *this;\n    }\n    constexpr Modint &operator-=(const Modint rhs)\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
+    \n#line 2 \"Graph/Graph.hpp\"\n#include <cstdint>\n#include <vector>\ntemplate\
+    \ <class T = int32_t>\nstruct Edge {\n    int32_t from, to;\n    T cost;\n   \
+    \ int32_t idx;\n    Edge() = default;\n    Edge(int32_t from, int32_t to, T cost\
+    \ = 1, int32_t idx = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n\
+    \    operator int() { return to; }\n    void reverse() { std::swap(from, to);\
+    \ }\n};\ntemplate <class T = int32_t>\nstruct Graph {\n    std::vector<std::vector<Edge<T>>>\
+    \ gr;\n    int32_t eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n);\
+    \ }\n    void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false)\
+    \ {\n        gr[from].emplace_back(from, to, cost, eds);\n        if (!directed)\
+    \ {\n            gr[to].emplace_back(to, from, cost, eds);\n        }\n      \
+    \  eds++;\n    }\n    void add_directed_edge(int32_t from, int32_t to, T cost\
+    \ = 1) {\n        gr[from].emplace_back(from, to, cost, eds);\n        eds++;\n\
+    \    }\n    inline std::vector<Edge<T>> &operator[](const int32_t &p) { return\
+    \ gr[p]; }\n    int32_t size() { return gr.size(); }\n};\ntemplate <class T>\n\
+    Graph<T> reverse_edges(Graph<T> &gr) {\n    Graph<T> ret(gr.size());\n    for\
+    \ (int32_t i = 0; i < gr.size(); i++) {\n        for (Edge<T> j : gr[i]) {\n \
+    \           ret[j].emplace_back(j);\n            ret[j].back().reverse();\n  \
+    \      }\n    }\n    return ret;\n}\n#line 3 \"Modint/Modint.hpp\"\n#include <iostream>\n\
+    template <uint64_t Mod>\nstruct Modint {\n    uint64_t x;\n    constexpr Modint()\
+    \ noexcept { x = 0; }\n    constexpr Modint(int64_t val) noexcept {\n        x\
+    \ = (val < 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n    }\n    inline uint64_t\
+    \ _get_mod(uint64_t val) noexcept {\n        const static uint64_t m_inv = (-1ULL)\
+    \ / Mod + 1;\n        uint64_t ret = ((unsigned __int128)(val)*m_inv) >> 64;\n\
+    \        uint64_t pro = ret * Mod;\n        return (val - pro + (val < pro ? Mod\
+    \ : 0));\n    }\n    friend std::ostream &operator<<(std::ostream &os, Modint\
+    \ &b) {\n        return os << b.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is, Modint &b) {\n        return is >> b.x;\n    }\n    constexpr uint64_t\
+    \ val() noexcept { return x; }\n    constexpr Modint operator+() noexcept { return\
+    \ (*this); }\n    constexpr Modint operator-() noexcept { return Modint() - (*this);\
+    \ }\n    constexpr Modint operator+(const Modint rhs) noexcept {\n        return\
+    \ Modint(*this) += rhs;\n    }\n    constexpr Modint operator-(const Modint rhs)\
+    \ noexcept {\n        return Modint(*this) -= rhs;\n    }\n    constexpr Modint\
+    \ operator*(const Modint rhs) noexcept {\n        return Modint(*this) *= rhs;\n\
+    \    }\n    constexpr Modint operator/(const Modint rhs) noexcept {\n        return\
+    \ Modint(*this) /= rhs;\n    }\n    constexpr Modint &operator+=(const Modint\
+    \ rhs) noexcept {\n        x += rhs.x;\n        if (x >= Mod) x -= Mod;\n    \
+    \    return *this;\n    }\n    constexpr Modint &operator-=(const Modint rhs)\
     \ noexcept {\n        if (x < rhs.x) x += Mod;\n        x -= rhs.x;\n        return\
     \ *this;\n    }\n    constexpr Modint &operator*=(const Modint rhs) noexcept {\n\
     \        x = _get_mod(x * rhs.x);\n        return *this;\n    }\n    constexpr\
@@ -300,7 +300,7 @@ data:
     \    void calc(int32_t pos) {\n        int32_t change = node_pos[pos];\n     \
     \   while (nodes[change].parent != -1) {\n            _calc_val(change);\n   \
     \         change = nodes[change].parent;\n        }\n        _calc_val(change);\n\
-    \    }\n    int32_t size() { return sz; }\n};\n#line 8 \"Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+    \    }\n    int32_t size() { return sz; }\n};\n#line 6 \"Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \nusing mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type\
     \ = pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a,\
     \ N);\n    Graph<func_type> gr(N);\n    rep(i, N - 1) {\n        LL(u, v, b, c);\n\
@@ -325,34 +325,33 @@ data:
     \ else {\n            LL(e, y, z);\n            func[change[e]] = {y, z};\n  \
     \          tree.calc(change[e]);\n        }\n        out(tree.root_value()[1]);\n\
     \    }\n}\nint main() { solve(); }\n"
-  code: "#define PROBLEM                        \\\n    \"https://judge.yosupo.jp/problem/\"\
-    \ \\\n    \"point_set_tree_path_composite_sum_fixed_root\"\n#include \"../../Graph/Graph.hpp\"\
-    \n#include \"../../Modint/Modint.hpp\"\n#include \"../../Template/Template.hpp\"\
-    \n#include \"../../Tree/StaticTopTree.hpp\"\nusing mint = Modint<MOD>;\nusing\
-    \ edge_type = array<ll, 4>;\nusing func_type = pair<mint, mint>;\nvoid solve()\
-    \ {\n    LL(N, Q);\n    static VEC(mint, a, N);\n    Graph<func_type> gr(N);\n\
-    \    rep(i, N - 1) {\n        LL(u, v, b, c);\n        gr.add_edge(v, u, {b, c});\n\
-    \    }\n    stack<ll> vert;\n    vert.push(0);\n    static vec(func_type, func,\
-    \ N, {1, 0});\n    vec(ll, change, N - 1, -1);\n    while (!vert.empty()) {\n\
-    \        ll pos = vert.top();\n        vert.pop();\n        each(i, gr[pos]) {\n\
-    \            if (change[i.idx] == -1) {\n                func[i] = i.cost;\n \
-    \               change[i.idx] = i;\n                vert.push(i);\n          \
-    \  }\n        }\n    }\n    struct ops {\n        using point = array<mint, 2>;\n\
-    \        using path = array<mint, 4>;\n        static path vertex(int v) {\n \
-    \           return {1, a[v] * func[v].fi + func[v].se, func[v].fi, func[v].se};\n\
-    \        }\n        static path compress(path p, path c) {\n            return\
-    \ {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2] * c[2],\n             \
-    \       p[2] * c[3] + p[3]};\n        }\n        static path add_vertex(point\
-    \ t, int v) {\n            return {t[0] + 1,\n                    (a[v] + t[1])\
-    \ * func[v].fi + (t[0] + 1) * func[v].se,\n                    func[v].fi, func[v].se};\n\
-    \        }\n        static point rake(point x, point y) {\n            return\
-    \ {x[0] + y[0], x[1] + y[1]};\n        }\n        static point add_edge(path t)\
-    \ { return {t[0], t[1]}; }\n    };\n    StaticTopTree<ops> tree(gr, 0);\n    rep(_,\
-    \ Q) {\n        LL(t);\n        if (t == 0) {\n            LL(w, x);\n       \
-    \     a[w] = x;\n            tree.calc(w);\n        } else {\n            LL(e,\
-    \ y, z);\n            func[change[e]] = {y, z};\n            tree.calc(change[e]);\n\
-    \        }\n        out(tree.root_value()[1]);\n    }\n}\nint main() { solve();\
-    \ }"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
+    \n#include \"../../Graph/Graph.hpp\"\n#include \"../../Modint/Modint.hpp\"\n#include\
+    \ \"../../Template/Template.hpp\"\n#include \"../../Tree/StaticTopTree.hpp\"\n\
+    using mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type =\
+    \ pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a, N);\n\
+    \    Graph<func_type> gr(N);\n    rep(i, N - 1) {\n        LL(u, v, b, c);\n \
+    \       gr.add_edge(v, u, {b, c});\n    }\n    stack<ll> vert;\n    vert.push(0);\n\
+    \    static vec(func_type, func, N, {1, 0});\n    vec(ll, change, N - 1, -1);\n\
+    \    while (!vert.empty()) {\n        ll pos = vert.top();\n        vert.pop();\n\
+    \        each(i, gr[pos]) {\n            if (change[i.idx] == -1) {\n        \
+    \        func[i] = i.cost;\n                change[i.idx] = i;\n             \
+    \   vert.push(i);\n            }\n        }\n    }\n    struct ops {\n       \
+    \ using point = array<mint, 2>;\n        using path = array<mint, 4>;\n      \
+    \  static path vertex(int v) {\n            return {1, a[v] * func[v].fi + func[v].se,\
+    \ func[v].fi, func[v].se};\n        }\n        static path compress(path p, path\
+    \ c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2]\
+    \ * c[2],\n                    p[2] * c[3] + p[3]};\n        }\n        static\
+    \ path add_vertex(point t, int v) {\n            return {t[0] + 1,\n         \
+    \           (a[v] + t[1]) * func[v].fi + (t[0] + 1) * func[v].se,\n          \
+    \          func[v].fi, func[v].se};\n        }\n        static point rake(point\
+    \ x, point y) {\n            return {x[0] + y[0], x[1] + y[1]};\n        }\n \
+    \       static point add_edge(path t) { return {t[0], t[1]}; }\n    };\n    StaticTopTree<ops>\
+    \ tree(gr, 0);\n    rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n     \
+    \       LL(w, x);\n            a[w] = x;\n            tree.calc(w);\n        }\
+    \ else {\n            LL(e, y, z);\n            func[change[e]] = {y, z};\n  \
+    \          tree.calc(change[e]);\n        }\n        out(tree.root_value()[1]);\n\
+    \    }\n}\nint main() { solve(); }"
   dependsOn:
   - Graph/Graph.hpp
   - Modint/Modint.hpp
@@ -364,8 +363,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-11 20:29:33+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-05-11 20:32:11+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
 layout: document

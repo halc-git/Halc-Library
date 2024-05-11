@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedVerifiedWith:
@@ -21,7 +21,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - icon: ':heavy_check_mark:'
@@ -75,9 +75,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Template/Macro.hpp\"\n#define _overload3(_1, _2, _3, name,\
@@ -128,7 +128,7 @@ data:
   requiredBy:
   - Template/Template.hpp
   timestamp: '2024-05-09 18:21:58+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
