@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
-#include "../../Misc/Timer.hpp"
 #include "../../Misc/Random.hpp"
+#include "../../Misc/Timer.hpp"
 #include "../../Template/Template.hpp"
 int main() {
     int stoptime = randint(0, 1000000);
