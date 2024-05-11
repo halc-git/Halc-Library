@@ -17,12 +17,12 @@ using pdd = std::pair<ld, ld>;
 using tuplis = std::array<ll, 3>;
 template <class T>
 using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;
-const ll LINF = 1LL << 60;
-constexpr int INF = INT_MAX >> 1;
+constexpr ll LINF = (1LL << 62) - (1LL << 31);
+constexpr int32_t INF = INT_MAX >> 1;
 constexpr ll MINF = 1LL << 40;
 constexpr ld DINF = std::numeric_limits<ld>::infinity();
-constexpr int MODD = 1000000007;
-constexpr int MOD = 998244353;
+constexpr int32_t MODD = 1000000007;
+constexpr int32_t MOD = 998244353;
 constexpr ld EPS = 1e-9;
 constexpr ld PI = 3.1415926535897932;
 const ll four[] = {0, 1, 0, -1, 0};
