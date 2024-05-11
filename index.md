@@ -80,6 +80,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
+  - name: Verify/verify-yosupo-sample
+    pages:
+    - icon: ':warning:'
+      path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+      title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:

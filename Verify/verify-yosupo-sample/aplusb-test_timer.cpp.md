@@ -2,93 +2,44 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: Misc/Random.hpp
+    title: Misc/Random.hpp
+  - icon: ':warning:'
+    path: Misc/Timer.hpp
+    title: Misc/Timer.hpp
+  - icon: ':heavy_check_mark:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
   - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
   - icon: ':heavy_check_mark:'
+    path: Template/Template.hpp
+    title: Template/Template.hpp
+  - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
-    title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-    title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-    title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-    title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-    title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-    title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
-    title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-    title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-    title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-    title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-    title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-    title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
-    title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
-    title: Verify/verify-yosupo-datastructure/unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-    title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
-    title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-    title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-    title: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-string/zalgorithm.test.cpp
-    title: Verify/verify-yosupo-string/zalgorithm.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yuki/1092.test.cpp
-    title: Verify/verify-yuki/1092.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yuki/117.test.cpp
-    title: Verify/verify-yuki/117.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yuki/2338.test.cpp
-    title: Verify/verify-yuki/2338.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yuki/901.test.cpp
-    title: Verify/verify-yuki/901.test.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _pathExtension: cpp
+  _verificationStatusIcon: ':warning:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline void scan() {}\ninline\
-    \ void scan(int &a) { std::cin >> a; }\ninline void scan(unsigned &a) { std::cin\
+    links:
+    - https://judge.yosupo.jp/problem/aplusb
+  bundledCode: "#line 1 \"Verify/verify-yosupo-sample/aplusb-test_timer.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"Misc/Timer.hpp\"\
+    \n#include <chrono>\nstatic auto StartTime = std::chrono::system_clock::now();\n\
+    inline int32_t get_time() {\n    return std::chrono::duration_cast<std::chrono::microseconds>(\n\
+    \               std::chrono::system_clock::now() - StartTime)\n        .count();\n\
+    }\n#line 3 \"Misc/Random.hpp\"\n#include <cstdint>\ninline uint32_t pcg32_fast()\
+    \ {\n    static uint64_t state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
+    \ << 1) + 1;\n    uint64_t x = state;\n    uint8_t count = x >> 61;\n    state\
+    \ *= 0xf13283ad;\n    x ^= x >> 22;\n    return (uint32_t)(x >> (22 + count));\n\
+    }\ninline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)pcg32_fast()\
+    \ * (r - l + 1)) >> 32);\n}\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\n\
+    using namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline void scan() {}\n\
+    inline void scan(int &a) { std::cin >> a; }\ninline void scan(unsigned &a) { std::cin\
     \ >> a; }\ninline void scan(long &a) { std::cin >> a; }\ninline void scan(long\
     \ long &a) { std::cin >> a; }\ninline void scan(unsigned long long &a) { std::cin\
     \ >> a; }\ninline void scan(char &a) { std::cin >> a; }\ninline void scan(float\
@@ -182,56 +133,32 @@ data:
     \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
     \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
     }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 8 \"Template/Template.hpp\"\n"
-  code: '#pragma once
-
-    #include <bits/stdc++.h>
-
-    using namespace std;
-
-
-    #include "InOut.hpp"
-
-    #include "Macro.hpp"
-
-    #include "Util.hpp"'
+    \ std::end(a));\n}\n#line 5 \"Verify/verify-yosupo-sample/aplusb-test_timer.cpp\"\
+    \nint main() {\n    int stoptime = randint(0, 1000000);\n    usleep(stoptime);\n\
+    \    assert(abs(get_time() - stoptime) <= 500);\n    LL(A, B);\n    out(A + B);\n\
+    }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../../Misc/Timer.hpp\"\
+    \n#include \"../../Misc/Random.hpp\"\n#include \"../../Template/Template.hpp\"\
+    \nint main() {\n    int stoptime = randint(0, 1000000);\n    usleep(stoptime);\n\
+    \    assert(abs(get_time() - stoptime) <= 500);\n    LL(A, B);\n    out(A + B);\n\
+    }\n"
   dependsOn:
+  - Misc/Timer.hpp
+  - Misc/Random.hpp
+  - Template/Template.hpp
   - Template/InOut.hpp
   - Template/Macro.hpp
   - Template/Util.hpp
   isVerificationFile: false
-  path: Template/Template.hpp
-  requiredBy:
-  - Verify/verify-yosupo-sample/aplusb-test_timer.cpp
-  timestamp: '2024-05-10 17:02:28+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-  - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-  - Verify/verify-yuki/1092.test.cpp
-  - Verify/verify-yuki/117.test.cpp
-  - Verify/verify-yuki/2338.test.cpp
-  - Verify/verify-yuki/901.test.cpp
-  - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-  - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-  - Verify/verify-yosupo-datastructure/unionfind.test.cpp
-  - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - Verify/verify-yosupo-datastructure/associative_array.test.cpp
-  - Verify/verify-yosupo-datastructure/staticrmq.test.cpp
-  - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
-  - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-  - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
-  - Verify/verify-yosupo-string/zalgorithm.test.cpp
-  - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-documentation_of: Template/Template.hpp
+  path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+  requiredBy: []
+  timestamp: '2024-05-11 13:42:19+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
 layout: document
 redirect_from:
-- /library/Template/Template.hpp
-- /library/Template/Template.hpp.html
-title: Template/Template.hpp
+- /library/Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+- /library/Verify/verify-yosupo-sample/aplusb-test_timer.cpp.html
+title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
 ---

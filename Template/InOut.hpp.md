@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
+  - icon: ':warning:'
+    path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+    title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -198,6 +201,7 @@ data:
   path: Template/InOut.hpp
   requiredBy:
   - Template/Template.hpp
+  - Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   timestamp: '2024-05-10 17:02:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

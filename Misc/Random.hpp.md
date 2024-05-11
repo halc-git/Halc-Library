@@ -8,6 +8,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
+  - icon: ':warning:'
+    path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+    title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -42,6 +45,7 @@ data:
   isVerificationFile: false
   path: Misc/Random.hpp
   requiredBy:
+  - Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   - DataStructure/Hashmap.hpp
   - String/RollingHash.hpp
   timestamp: '2024-05-09 15:56:33+09:00'

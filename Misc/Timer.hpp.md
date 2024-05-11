@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+    title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -19,7 +22,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Misc/Timer.hpp
-  requiredBy: []
+  requiredBy:
+  - Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   timestamp: '2024-05-11 13:30:23+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
