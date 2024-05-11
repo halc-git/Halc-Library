@@ -10,10 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
-    title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -57,6 +54,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
+    title: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
@@ -201,11 +201,11 @@ data:
   - Template/Util.hpp
   isVerificationFile: false
   path: Template/Template.hpp
-  requiredBy:
-  - Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+  requiredBy: []
   timestamp: '2024-05-10 17:02:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - Verify/verify-yuki/1092.test.cpp

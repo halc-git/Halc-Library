@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Misc/Random.hpp
     title: Misc/Random.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: Misc/Timer.hpp
     title: Misc/Timer.hpp
   - icon: ':heavy_check_mark:'
@@ -23,12 +23,14 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/aplusb
     links:
     - https://judge.yosupo.jp/problem/aplusb
-  bundledCode: "#line 1 \"Verify/verify-yosupo-sample/aplusb-test_timer.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"Misc/Timer.hpp\"\
+  bundledCode: "#line 1 \"Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"Misc/Timer.hpp\"\
     \n#include <chrono>\nstatic auto StartTime = std::chrono::system_clock::now();\n\
     inline int32_t get_time() {\n    return std::chrono::duration_cast<std::chrono::microseconds>(\n\
     \               std::chrono::system_clock::now() - StartTime)\n        .count();\n\
@@ -133,7 +135,7 @@ data:
     \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
     \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
     }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 5 \"Verify/verify-yosupo-sample/aplusb-test_timer.cpp\"\
+    \ std::end(a));\n}\n#line 5 \"Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp\"\
     \nint main() {\n    int stoptime = randint(0, 1000000);\n    usleep(stoptime);\n\
     \    assert(abs(get_time() - stoptime) <= 500);\n    LL(A, B);\n    out(A + B);\n\
     }\n"
@@ -149,16 +151,16 @@ data:
   - Template/InOut.hpp
   - Template/Macro.hpp
   - Template/Util.hpp
-  isVerificationFile: false
-  path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+  isVerificationFile: true
+  path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   requiredBy: []
-  timestamp: '2024-05-11 13:42:19+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2024-05-11 13:44:21+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+documentation_of: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
 layout: document
 redirect_from:
-- /library/Verify/verify-yosupo-sample/aplusb-test_timer.cpp
-- /library/Verify/verify-yosupo-sample/aplusb-test_timer.cpp.html
-title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
+- /verify/Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
+- /verify/Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp.html
+title: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
 ---

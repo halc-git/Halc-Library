@@ -42,7 +42,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Misc/Random.hpp
       title: Misc/Random.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Misc/Timer.hpp
       title: Misc/Timer.hpp
   - name: Modint
@@ -80,11 +80,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
-  - name: Verify/verify-yosupo-sample
-    pages:
-    - icon: ':warning:'
-      path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
-      title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   verificationCategories:
   - name: Verify/verify-aoj-alds
     pages:
@@ -134,6 +129,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
       title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+  - name: Verify/verify-yosupo-sample
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
+      title: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   - name: Verify/verify-yosupo-string
     pages:
     - icon: ':heavy_check_mark:'

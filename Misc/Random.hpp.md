@@ -8,9 +8,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
-    title: Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -18,6 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
+    title: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
@@ -45,12 +45,12 @@ data:
   isVerificationFile: false
   path: Misc/Random.hpp
   requiredBy:
-  - Verify/verify-yosupo-sample/aplusb-test_timer.cpp
   - DataStructure/Hashmap.hpp
   - String/RollingHash.hpp
   timestamp: '2024-05-09 15:56:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - Verify/verify-yosupo-datastructure/associative_array.test.cpp
   - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
