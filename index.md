@@ -23,7 +23,7 @@ data:
       title: Union Find
   - name: Graph
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Graph/Graph.hpp
       title: Graph/Graph.hpp
   - name: Math
@@ -47,7 +47,7 @@ data:
       title: Misc/Timer.hpp
   - name: Modint
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -63,21 +63,21 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/InOut.hpp
       title: Template/InOut.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Util.hpp
       title: Template/Util.hpp
   - name: Tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
   verificationCategories:
@@ -100,7 +100,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
       title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
     - icon: ':heavy_check_mark:'
