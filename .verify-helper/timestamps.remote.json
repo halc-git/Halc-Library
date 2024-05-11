@@ -13,6 +13,7 @@
 "Verify/verify-yosupo-datastructure/staticrmq.test.cpp": "2024-05-10 17:02:28 +0900",
 "Verify/verify-yosupo-datastructure/unionfind.test.cpp": "2024-05-10 17:02:28 +0900",
 "Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp": "2024-05-10 17:02:28 +0900",
+"Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp": "2024-05-11 13:44:21 +0900",
 "Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp": "2024-05-10 17:02:28 +0900",
 "Verify/verify-yosupo-string/enumerate_palindromes.test.cpp": "2024-05-10 17:02:28 +0900",
 "Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp": "2024-05-10 17:02:28 +0900",
