@@ -12,6 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
+    title: Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+    title: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -66,6 +72,8 @@ data:
   - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
   - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+  - Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
 documentation_of: DataStructure/FenwickTree.hpp
 layout: document
 redirect_from:

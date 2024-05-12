@@ -38,7 +38,7 @@ data:
     \ <class T = int32_t>\nstruct Edge {\n    int32_t from, to;\n    T cost;\n   \
     \ int32_t idx;\n    Edge() = default;\n    Edge(int32_t from, int32_t to, T cost\
     \ = 1, int32_t idx = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n\
-    \    operator int() { return to; }\n    void reverse() { std::swap(from, to);\
+    \    operator int32_t() { return to; }\n    void reverse() { std::swap(from, to);\
     \ }\n};\ntemplate <class T = int32_t>\nstruct Graph {\n    std::vector<std::vector<Edge<T>>>\
     \ gr;\n    int32_t eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n);\
     \ }\n    void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false)\
@@ -363,7 +363,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-11 20:32:11+09:00'
+  timestamp: '2024-05-12 19:57:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp

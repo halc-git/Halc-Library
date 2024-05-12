@@ -3,12 +3,27 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: Tree/HLDecomposition.hpp
+    title: Tree/HLDecomposition.hpp
+  - icon: ':heavy_check_mark:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
+    title: Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+    title: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+    title: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
+    title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
@@ -21,7 +36,7 @@ data:
     template <class T = int32_t>\nstruct Edge {\n    int32_t from, to;\n    T cost;\n\
     \    int32_t idx;\n    Edge() = default;\n    Edge(int32_t from, int32_t to, T\
     \ cost = 1, int32_t idx = -1)\n        : from(from), to(to), cost(cost), idx(idx)\
-    \ {}\n    operator int() { return to; }\n    void reverse() { std::swap(from,\
+    \ {}\n    operator int32_t() { return to; }\n    void reverse() { std::swap(from,\
     \ to); }\n};\ntemplate <class T = int32_t>\nstruct Graph {\n    std::vector<std::vector<Edge<T>>>\
     \ gr;\n    int32_t eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n);\
     \ }\n    void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false)\
@@ -39,9 +54,9 @@ data:
     \ int32_t>\nstruct Edge {\n    int32_t from, to;\n    T cost;\n    int32_t idx;\n\
     \    Edge() = default;\n    Edge(int32_t from, int32_t to, T cost = 1, int32_t\
     \ idx = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    operator\
-    \ int() { return to; }\n    void reverse() { std::swap(from, to); }\n};\ntemplate\
-    \ <class T = int32_t>\nstruct Graph {\n    std::vector<std::vector<Edge<T>>> gr;\n\
-    \    int32_t eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n);\
+    \ int32_t() { return to; }\n    void reverse() { std::swap(from, to); }\n};\n\
+    template <class T = int32_t>\nstruct Graph {\n    std::vector<std::vector<Edge<T>>>\
+    \ gr;\n    int32_t eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n);\
     \ }\n    void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false)\
     \ {\n        gr[from].emplace_back(from, to, cost, eds);\n        if (!directed)\
     \ {\n            gr[to].emplace_back(to, from, cost, eds);\n        }\n      \
@@ -58,10 +73,15 @@ data:
   path: Graph/Graph.hpp
   requiredBy:
   - Tree/StaticTopTree.hpp
-  timestamp: '2024-05-11 20:29:33+09:00'
+  - Tree/HLDecomposition.hpp
+  timestamp: '2024-05-12 19:57:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
   - Verify/verify-yuki/901.test.cpp
+  - Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
   - Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
 documentation_of: Graph/Graph.hpp
 layout: document

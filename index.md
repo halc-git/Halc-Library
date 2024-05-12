@@ -78,6 +78,9 @@ data:
   - name: Tree
     pages:
     - icon: ':heavy_check_mark:'
+      path: Tree/HLDecomposition.hpp
+      title: Tree/HLDecomposition.hpp
+    - icon: ':heavy_check_mark:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
   verificationCategories:
@@ -124,6 +127,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
       title: Verify/verify-yosupo-datastructure/unionfind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
+      title: Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+      title: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+      title: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
   - name: Verify/verify-yosupo-math
     pages:
     - icon: ':heavy_check_mark:'
@@ -148,6 +160,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-string/zalgorithm.test.cpp
       title: Verify/verify-yosupo-string/zalgorithm.test.cpp
+  - name: Verify/verify-yosupo-tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
+      title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
   - name: Verify/verify-yuki
     pages:
     - icon: ':heavy_check_mark:'

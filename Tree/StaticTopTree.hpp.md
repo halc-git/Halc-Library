@@ -21,11 +21,11 @@ data:
     #include <vector>\n\n#line 4 \"Graph/Graph.hpp\"\ntemplate <class T = int32_t>\n\
     struct Edge {\n    int32_t from, to;\n    T cost;\n    int32_t idx;\n    Edge()\
     \ = default;\n    Edge(int32_t from, int32_t to, T cost = 1, int32_t idx = -1)\n\
-    \        : from(from), to(to), cost(cost), idx(idx) {}\n    operator int() { return\
-    \ to; }\n    void reverse() { std::swap(from, to); }\n};\ntemplate <class T =\
-    \ int32_t>\nstruct Graph {\n    std::vector<std::vector<Edge<T>>> gr;\n    int32_t\
-    \ eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n); }\n \
-    \   void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false)\
+    \        : from(from), to(to), cost(cost), idx(idx) {}\n    operator int32_t()\
+    \ { return to; }\n    void reverse() { std::swap(from, to); }\n};\ntemplate <class\
+    \ T = int32_t>\nstruct Graph {\n    std::vector<std::vector<Edge<T>>> gr;\n  \
+    \  int32_t eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n);\
+    \ }\n    void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false)\
     \ {\n        gr[from].emplace_back(from, to, cost, eds);\n        if (!directed)\
     \ {\n            gr[to].emplace_back(to, from, cost, eds);\n        }\n      \
     \  eds++;\n    }\n    void add_directed_edge(int32_t from, int32_t to, T cost\
@@ -207,7 +207,7 @@ data:
   isVerificationFile: false
   path: Tree/StaticTopTree.hpp
   requiredBy: []
-  timestamp: '2024-05-11 20:29:33+09:00'
+  timestamp: '2024-05-12 19:57:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yuki/901.test.cpp
