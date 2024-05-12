@@ -107,23 +107,20 @@ data:
     \ std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((int)(x).size())\n\
     #define fi first\n#define se second\n#define uniq(x) x.erase(unique(all(x)), std::end(x))\n\
     #define vec(type, name, ...) vector<type> name(__VA_ARGS__);\n#define vv(type,\
-    \ name, h, ...) \\\n    std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
-    #define INT(...)     \\\n    int __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define\
-    \ LL(...)     \\\n    ll __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define ULL(...)\
-    \     \\\n    ull __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define STR(...)     \
-    \   \\\n    string __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define CHR(...)    \
-    \  \\\n    char __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define LD(...)     \\\n\
-    \    ld __VA_ARGS__; \\\n    in(__VA_ARGS__)\n#define VEC(type, name, size)  \
-    \   \\\n    std::vector<type> name(size); \\\n    in(name)\n#define VV(type, name,\
-    \ h, w)                                      \\\n    std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); \\\n    in(name)\n#line 8 \"Template/Util.hpp\"\
-    \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
-    using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
-    \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
-    \ = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\n\
-    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
-    \ ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX >> 1;\n\
-    constexpr ll MINF = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\n\
+    \ name, h, ...) std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
+    #define INT(...) int __VA_ARGS__; in(__VA_ARGS__)\n#define LL(...) long long __VA_ARGS__;\
+    \ in(__VA_ARGS__)\n#define ULL(...) unsigned long long __VA_ARGS__; in(__VA_ARGS__)\n\
+    #define STR(...) std::string __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char\
+    \ __VA_ARGS__; in(__VA_ARGS__)\n#define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n\
+    #define VEC(type, name, size) std::vector<type> name(size); in(name)\n#define\
+    \ VV(type, name, h, w) std::vector<std::vector<type>> name(h, std::vector<type>(w));\
+    \ in(name)\n#line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing ld = long\
+    \ double;\nusing ull = unsigned long long;\nusing uint = unsigned int;\nusing\
+    \ pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\n\
+    using vll = std::vector<ll>;\nusing pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll,\
+    \ 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\n\
+    constexpr ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX\
+    \ >> 1;\nconstexpr ll MINF = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\n\
     constexpr int32_t MODD = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr\
     \ ld EPS = 1e-9;\nconstexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0,\
     \ 1, 0, -1, 0};\nconst ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate\
@@ -154,7 +151,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   requiredBy: []
-  timestamp: '2024-05-11 16:32:38+09:00'
+  timestamp: '2024-05-12 20:06:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
