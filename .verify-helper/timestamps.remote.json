@@ -4,6 +4,7 @@
 "Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp": "2024-05-11 14:05:26 +0900",
 "Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp": "2024-05-11 14:05:26 +0900",
 "Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp": "2024-05-11 14:05:26 +0900",
+"Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp": "2024-05-11 20:32:11 +0900",
 "Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp": "2024-05-11 14:05:26 +0900",
 "Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp": "2024-05-11 14:05:26 +0900",
 "Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp": "2024-05-11 14:05:26 +0900",
