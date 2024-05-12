@@ -15,29 +15,12 @@
 #define se second
 #define uniq(x) x.erase(unique(all(x)), std::end(x))
 #define vec(type, name, ...) vector<type> name(__VA_ARGS__);
-#define vv(type, name, h, ...) \
-    std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));
-#define INT(...)     \
-    int __VA_ARGS__; \
-    in(__VA_ARGS__)
-#define LL(...)     \
-    ll __VA_ARGS__; \
-    in(__VA_ARGS__)
-#define ULL(...)     \
-    ull __VA_ARGS__; \
-    in(__VA_ARGS__)
-#define STR(...)        \
-    string __VA_ARGS__; \
-    in(__VA_ARGS__)
-#define CHR(...)      \
-    char __VA_ARGS__; \
-    in(__VA_ARGS__)
-#define LD(...)     \
-    ld __VA_ARGS__; \
-    in(__VA_ARGS__)
-#define VEC(type, name, size)     \
-    std::vector<type> name(size); \
-    in(name)
-#define VV(type, name, h, w)                                      \
-    std::vector<std::vector<type>> name(h, std::vector<type>(w)); \
-    in(name)
+#define vv(type, name, h, ...) std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));
+#define INT(...) int __VA_ARGS__; in(__VA_ARGS__)
+#define LL(...) long long __VA_ARGS__; in(__VA_ARGS__)
+#define ULL(...) unsigned long long __VA_ARGS__; in(__VA_ARGS__)
+#define STR(...) std::string __VA_ARGS__; in(__VA_ARGS__)
+#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)
+#define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)
+#define VEC(type, name, size) std::vector<type> name(size); in(name)
+#define VV(type, name, h, w) std::vector<std::vector<type>> name(h, std::vector<type>(w)); in(name)
