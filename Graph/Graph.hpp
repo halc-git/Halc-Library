@@ -9,7 +9,7 @@ struct Edge {
     Edge() = default;
     Edge(int32_t from, int32_t to, T cost = 1, int32_t idx = -1)
         : from(from), to(to), cost(cost), idx(idx) {}
-    operator int() { return to; }
+    operator int32_t() { return to; }
     void reverse() { std::swap(from, to); }
 };
 template <class T = int32_t>
