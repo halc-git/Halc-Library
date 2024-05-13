@@ -8,6 +8,7 @@
 "Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp": "2024-05-12 20:06:10 +0900",
 "Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp": "2024-05-12 20:06:10 +0900",
 "Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp": "2024-05-12 20:06:10 +0900",
+"Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp": "2024-05-13 22:31:21 +0900",
 "Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp": "2024-05-12 20:06:10 +0900",
 "Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp": "2024-05-12 20:06:10 +0900",
 "Verify/verify-yosupo-datastructure/staticrmq.test.cpp": "2024-05-12 20:06:10 +0900",
