@@ -218,30 +218,12 @@ data:
     }\ninline void Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void\
     \ No(bool i = true) { out(i ? \"No\" : \"Yes\"); }\nstruct IOsetup {\n    IOsetup()\
     \ {\n        std::ios::sync_with_stdio(false);\n        std::cin.tie(nullptr);\n\
-    \        std::cout << std::setprecision(10);\n    }\n} iosetup;\n#line 1 \"Template/Macro.hpp\"\
-    \n#define _overload3(_1, _2, _3, name, ...) name\n#define _overload4(_1, _2, _3,\
-    \ _4, name, ...) name\n#define _rep1(i, n) for (ll i = 0; i < (n); i++)\n#define\
-    \ _rep2(i, a, b) for (ll i = (a); i < (b); i++)\n#define _rep3(i, a, b, c) for\
-    \ (ll i = (a); i < (b); i += (c))\n#define rep(...) _overload4(__VA_ARGS__, _rep3,\
-    \ _rep2, _rep1)(__VA_ARGS__)\n#define _rrep1(i, n) for (ll i = (n); i-- > 0;)\n\
-    #define _rrep2(i, a, b) for (ll i = (b); i-- > (a);)\n#define rrep(...) _overload3(__VA_ARGS__,\
-    \ _rrep2, _rrep1)(__VA_ARGS__)\n#define each(i, ...) for (auto&& i : __VA_ARGS__)\n\
-    #define all(i) std::begin(i), std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n\
-    #define len(x) ((int)(x).size())\n#define fi first\n#define se second\n#define\
-    \ uniq(x) x.erase(unique(all(x)), std::end(x))\n#define vec(type, name, ...) vector<type>\
-    \ name(__VA_ARGS__);\n#define vv(type, name, h, ...) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(__VA_ARGS__));\n#define INT(...) int __VA_ARGS__;\
-    \ in(__VA_ARGS__)\n#define LL(...) long long __VA_ARGS__; in(__VA_ARGS__)\n#define\
-    \ ULL(...) unsigned long long __VA_ARGS__; in(__VA_ARGS__)\n#define STR(...) std::string\
-    \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
-    #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
-    \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 8 \"Template/Util.hpp\"\nusing\
-    \ ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
+    \        std::cout << std::setprecision(10);\n    }\n} iosetup;\n#line 8 \"Template/Util.hpp\"\
+    \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
     using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
-    \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
-    \ = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\n\
-    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
+    \ int>;\nusing vl = std::vector<ll>;\nusing vvl = std::vector<std::vector<ll>>;\n\
+    using pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class\
+    \ T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
     \ ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX >> 1;\n\
     constexpr ll MINF = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\n\
     constexpr int32_t MODD = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr\
@@ -255,7 +237,25 @@ data:
     \ <class T>\nld dsum(const T &a) {\n    return accumulate(std::begin(a), std::end(a),\
     \ 0.0L);\n}\ntemplate <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a),\
     \ std::end(a));\n}\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
+    \ std::end(a));\n}\n#line 1 \"Template/Macro.hpp\"\n#define _overload3(_1, _2,\
+    \ _3, name, ...) name\n#define _overload4(_1, _2, _3, _4, name, ...) name\n#define\
+    \ _rep1(i, n) for (ll i = 0; i < (n); i++)\n#define _rep2(i, a, b) for (ll i =\
+    \ (a); i < (b); i++)\n#define _rep3(i, a, b, c) for (ll i = (a); i < (b); i +=\
+    \ (c))\n#define rep(...) _overload4(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)\n\
+    #define _rrep1(i, n) for (ll i = (n); i-- > 0;)\n#define _rrep2(i, a, b) for (ll\
+    \ i = (b); i-- > (a);)\n#define rrep(...) _overload3(__VA_ARGS__, _rrep2, _rrep1)(__VA_ARGS__)\n\
+    #define each(i, ...) for (auto&& i : __VA_ARGS__)\n#define all(i) std::begin(i),\
+    \ std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((int)(x).size())\n\
+    #define fi first\n#define se second\n#define uniq(x) x.erase(unique(all(x)), std::end(x))\n\
+    #define vec(type, name, ...) vector<type> name(__VA_ARGS__);\n#define vv(type,\
+    \ name, h, ...) std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
+    #define INT(...) int __VA_ARGS__; in(__VA_ARGS__)\n#define LL(...) long long __VA_ARGS__;\
+    \ in(__VA_ARGS__)\n#define ULL(...) unsigned long long __VA_ARGS__; in(__VA_ARGS__)\n\
+    #define STR(...) std::string __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char\
+    \ __VA_ARGS__; in(__VA_ARGS__)\n#define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n\
+    #define VEC(type, name, size) std::vector<type> name(size); in(name)\n#define\
+    \ VV(type, name, h, w) std::vector<std::vector<type>> name(h, std::vector<type>(w));\
+    \ in(name)\n#line 5 \"Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp\"\
     \nusing mint = Modint<MOD>;\nstruct composite {\n    using T = pair<mint, mint>;\n\
     \    static T op(T x, T y) { return T(x.fi * y.fi, x.se * y.fi + y.se); }\n  \
     \  static inline T e = T(1, 0);\n};\nvoid solve() {\n    LL(N, Q);\n    VEC(composite::T,\
@@ -280,12 +280,12 @@ data:
   - Modint/Modint.hpp
   - Template/Template.hpp
   - Template/InOut.hpp
-  - Template/Macro.hpp
   - Template/Util.hpp
+  - Template/Macro.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-05-12 20:06:10+09:00'
+  timestamp: '2024-05-14 08:14:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp

@@ -99,9 +99,9 @@ data:
     #include <functional>\n#include <limits>\n#include <queue>\n#include <vector>\n\
     using ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
     using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
-    \ int>;\nusing vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd\
-    \ = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\n\
-    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
+    \ int>;\nusing vl = std::vector<ll>;\nusing vvl = std::vector<std::vector<ll>>;\n\
+    using pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class\
+    \ T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
     \ ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX >> 1;\n\
     constexpr ll MINF = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\n\
     constexpr int32_t MODD = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr\
@@ -120,29 +120,29 @@ data:
     #include <limits>\n#include <queue>\n#include <vector>\nusing ll = long long;\n\
     using ld = long double;\nusing ull = unsigned long long;\nusing uint = unsigned\
     \ int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing\
-    \ vl = std::vector<ll>;\nusing vll = std::vector<ll>;\nusing pdd = std::pair<ld,\
-    \ ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T,\
-    \ std::vector<T>, std::greater<T>>;\nconstexpr ll LINF = (1LL << 62) - (1LL <<\
-    \ 31);\nconstexpr int32_t INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL << 40;\n\
-    constexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr int32_t MODD\
-    \ = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
-    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
-    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
-    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
-    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
-    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
-    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
-    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
-    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
-    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
-    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
+    \ vl = std::vector<ll>;\nusing vvl = std::vector<std::vector<ll>>;\nusing pdd\
+    \ = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\n\
+    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
+    \ ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX >> 1;\n\
+    constexpr ll MINF = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\n\
+    constexpr int32_t MODD = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr\
+    \ ld EPS = 1e-9;\nconstexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0,\
+    \ 1, 0, -1, 0};\nconst ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate\
+    \ <class T>\nbool chmin(T &a, const T &b) {\n    if (a > b) {\n        a = b;\n\
+    \        return true;\n    } else\n        return false;\n}\ntemplate <class T>\n\
+    bool chmax(T &a, const T &b) {\n    if (a < b) {\n        a = b;\n        return\
+    \ true;\n    } else\n        return false;\n}\ntemplate <class T>\nll sum(const\
+    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate\
+    \ <class T>\nld dsum(const T &a) {\n    return accumulate(std::begin(a), std::end(a),\
+    \ 0.0L);\n}\ntemplate <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a),\
+    \ std::end(a));\n}\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
     \ std::end(a));\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: Template/Util.hpp
   requiredBy:
   - Template/Template.hpp
-  timestamp: '2024-05-11 14:05:26+09:00'
+  timestamp: '2024-05-14 08:12:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp

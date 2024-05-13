@@ -104,7 +104,26 @@ data:
     \ Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void No(bool i = true)\
     \ { out(i ? \"No\" : \"Yes\"); }\nstruct IOsetup {\n    IOsetup() {\n        std::ios::sync_with_stdio(false);\n\
     \        std::cin.tie(nullptr);\n        std::cout << std::setprecision(10);\n\
-    \    }\n} iosetup;\n#line 1 \"Template/Macro.hpp\"\n#define _overload3(_1, _2,\
+    \    }\n} iosetup;\n#line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing\
+    \ ld = long double;\nusing ull = unsigned long long;\nusing uint = unsigned int;\n\
+    using pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\n\
+    using vvl = std::vector<std::vector<ll>>;\nusing pdd = std::pair<ld, ld>;\nusing\
+    \ tuplis = std::array<ll, 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T,\
+    \ std::vector<T>, std::greater<T>>;\nconstexpr ll LINF = (1LL << 62) - (1LL <<\
+    \ 31);\nconstexpr int32_t INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL << 40;\n\
+    constexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr int32_t MODD\
+    \ = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
+    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
+    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
+    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
+    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
+    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
+    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
+    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
+    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
+    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
+    \ std::end(a));\n}\n#line 1 \"Template/Macro.hpp\"\n#define _overload3(_1, _2,\
     \ _3, name, ...) name\n#define _overload4(_1, _2, _3, _4, name, ...) name\n#define\
     \ _rep1(i, n) for (ll i = 0; i < (n); i++)\n#define _rep2(i, a, b) for (ll i =\
     \ (a); i < (b); i++)\n#define _rep3(i, a, b, c) for (ll i = (a); i < (b); i +=\
@@ -122,25 +141,7 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n\
     #define VEC(type, name, size) std::vector<type> name(size); in(name)\n#define\
     \ VV(type, name, h, w) std::vector<std::vector<type>> name(h, std::vector<type>(w));\
-    \ in(name)\n#line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing ld = long\
-    \ double;\nusing ull = unsigned long long;\nusing uint = unsigned int;\nusing\
-    \ pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\n\
-    using vll = std::vector<ll>;\nusing pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll,\
-    \ 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\n\
-    constexpr ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX\
-    \ >> 1;\nconstexpr ll MINF = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\n\
-    constexpr int32_t MODD = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr\
-    \ ld EPS = 1e-9;\nconstexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0,\
-    \ 1, 0, -1, 0};\nconst ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate\
-    \ <class T>\nbool chmin(T &a, const T &b) {\n    if (a > b) {\n        a = b;\n\
-    \        return true;\n    } else\n        return false;\n}\ntemplate <class T>\n\
-    bool chmax(T &a, const T &b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    } else\n        return false;\n}\ntemplate <class T>\nll sum(const\
-    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate\
-    \ <class T>\nld dsum(const T &a) {\n    return accumulate(std::begin(a), std::end(a),\
-    \ 0.0L);\n}\ntemplate <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a),\
-    \ std::end(a));\n}\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
-    \ std::end(a));\n}\n#line 4 \"Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\
+    \ in(name)\n#line 4 \"Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp\"\
     \nvoid solve() {\n    LL(N, Q);\n    VEC(ll, A, N);\n    FenwickTree<ll> a(A);\n\
     \    rep(i, Q) {\n        LL(t, x, y);\n        if (t == 0) {\n            a.add(x,\
     \ y);\n        } else {\n            out(a.sum(x, y));\n        }\n    }\n}\n\
@@ -155,12 +156,12 @@ data:
   - DataStructure/FenwickTree.hpp
   - Template/Template.hpp
   - Template/InOut.hpp
-  - Template/Macro.hpp
   - Template/Util.hpp
+  - Template/Macro.hpp
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-05-12 20:06:10+09:00'
+  timestamp: '2024-05-14 08:14:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
