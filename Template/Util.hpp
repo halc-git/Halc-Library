@@ -12,7 +12,7 @@ using uint = unsigned int;
 using pll = std::pair<ll, ll>;
 using pii = std::pair<int, int>;
 using vl = std::vector<ll>;
-using vll = std::vector<ll>;
+using vvl = std::vector<std::vector<ll>>;
 using pdd = std::pair<ld, ld>;
 using tuplis = std::array<ll, 3>;
 template <class T>
