@@ -16,6 +16,9 @@ data:
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
     - icon: ':heavy_check_mark:'
+      path: DataStructure/LazySegmentTree.hpp
+      title: DataStructure/LazySegmentTree.hpp
+    - icon: ':heavy_check_mark:'
       path: DataStructure/SegmentTree.hpp
       title: Segment Tree
     - icon: ':heavy_check_mark:'
@@ -115,6 +118,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+      title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp

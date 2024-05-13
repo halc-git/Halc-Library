@@ -16,6 +16,9 @@ data:
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+    title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -188,6 +191,7 @@ data:
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-yuki/1092.test.cpp
   - Verify/verify-yuki/117.test.cpp
+  - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   - Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp

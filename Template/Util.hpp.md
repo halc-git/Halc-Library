@@ -34,6 +34,9 @@ data:
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+    title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   - icon: ':heavy_check_mark:'
@@ -150,6 +153,7 @@ data:
   - Verify/verify-yuki/117.test.cpp
   - Verify/verify-yuki/2338.test.cpp
   - Verify/verify-yuki/901.test.cpp
+  - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
