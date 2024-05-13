@@ -3,5 +3,5 @@
 using namespace std;
 
 #include "InOut.hpp"
-#include "Macro.hpp"
 #include "Util.hpp"
+#include "Macro.hpp"
