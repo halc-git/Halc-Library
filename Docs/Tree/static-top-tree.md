@@ -6,23 +6,13 @@ documentation_of: ../../Tree/StaticTopTree.hpp
 ## 関数の設定
 ```cpp
 struct M{
-    using point;
     using path;
-
-    static path vertex(int v){
-    }
-
-    static path compress(path p,path c){
-    }
-
-    static path add_vertex(point t,int v){
-    }
-
-    static point rake(point x,point y){
-    }
-
-    static point add_edge(path t){
-    }
+    using point;
+    static path vertex(int v) {}
+    static path compress(path p, path c) {}
+    static path add_vertex(point t, int v) {}
+    static point rake(point x, point y) {}
+    static point add_edge(path t) {}
 };
 ```
 * `point`: Point Clusterに載せるデータの型です。
