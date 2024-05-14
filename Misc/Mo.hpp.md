@@ -72,16 +72,11 @@ title: Mo's Algorithm
 ```cpp
 struct M{
     using T;
-    static void add_left(int pos){
-    }
-    static void delete_left(int pos){
-    }
-    static void add_right(int pos){
-    }
-    static void delete_right(int pos){
-    }
-    static T rem(){
-    }
+    static void add_left(int pos) {}
+    static void delete_left(int pos) {}
+    static void add_right(int pos) {}
+    static void delete_right(int pos) {}
+    static T rem() {}
 };
 ```
 * `T`: 答えの型です。

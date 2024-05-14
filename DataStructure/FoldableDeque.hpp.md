@@ -150,12 +150,9 @@ title: Foldable Deque
 
 ## 関数の設定
 ```cpp
-struct M{
+struct M {
     using T;
-
-    static T op(T x,T y){
-    }
-
+    static T op(T x, T y) {}
     static inline T e;
 };
 ```
