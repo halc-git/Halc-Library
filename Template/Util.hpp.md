@@ -10,6 +10,9 @@ data:
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
     title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-aoj/2667.test.cpp
+    title: Verify/verify-aoj/2667.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
@@ -91,6 +94,12 @@ data:
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yuki/399.test.cpp
+    title: Verify/verify-yuki/399.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yuki/650.test.cpp
+    title: Verify/verify-yuki/650.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
   _isVerificationFailed: false
@@ -151,10 +160,13 @@ data:
   - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+  - Verify/verify-aoj/2667.test.cpp
   - Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
+  - Verify/verify-yuki/399.test.cpp
   - Verify/verify-yuki/1092.test.cpp
   - Verify/verify-yuki/117.test.cpp
   - Verify/verify-yuki/2338.test.cpp
+  - Verify/verify-yuki/650.test.cpp
   - Verify/verify-yuki/901.test.cpp
   - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp

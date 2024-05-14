@@ -87,6 +87,11 @@ data:
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
   verificationCategories:
+  - name: Verify/verify-aoj
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-aoj/2667.test.cpp
+      title: Verify/verify-aoj/2667.test.cpp
   - name: Verify/verify-aoj-alds
     pages:
     - icon: ':heavy_check_mark:'
@@ -185,6 +190,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/2338.test.cpp
       title: Verify/verify-yuki/2338.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yuki/399.test.cpp
+      title: Verify/verify-yuki/399.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yuki/650.test.cpp
+      title: Verify/verify-yuki/650.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/901.test.cpp
       title: Verify/verify-yuki/901.test.cpp
