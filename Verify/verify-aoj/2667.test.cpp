@@ -21,7 +21,6 @@ void solve() {
     HLDecomposition hld(gr);
     LazySegmentTree<ops> seg(N);
     rep(i, N) { seg.set(i, {1, 0}); }
-    ll now = 0;
     rep(_, Q) {
         LL(t);
         if (t == 1) {
