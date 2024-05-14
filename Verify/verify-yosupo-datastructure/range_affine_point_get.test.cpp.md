@@ -26,11 +26,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/range_affine_range_sum
+    PROBLEM: https://judge.yosupo.jp/problem/range_affine_point_get
     links:
-    - https://judge.yosupo.jp/problem/range_affine_range_sum
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\n\
+    - https://judge.yosupo.jp/problem/range_affine_point_get
+  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_point_get\"\n\
     #line 2 \"DataStructure/LazySegmentTree.hpp\"\n#include <bit>\n#include <cstdint>\n\
     #include <queue>\n#include <stack>\n#include <vector>\ntemplate <class M>\nstruct\
     \ LazySegmentTree {\n    using T = typename M::T;\n    using F = typename M::F;\n\
@@ -284,7 +284,7 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n\
     #define VEC(type, name, size) std::vector<type> name(size); in(name)\n#define\
     \ VV(type, name, h, w) std::vector<std::vector<type>> name(h, std::vector<type>(w));\
-    \ in(name)\n#line 5 \"Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp\"\
+    \ in(name)\n#line 5 \"Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp\"\
     \nusing mint = Modint<MOD>;\nstruct affine {\n    using T = pair<ll, mint>;\n\
     \    static T op(T x, T y) { return {x.fi + y.fi, x.se + y.se}; }\n    static\
     \ inline T e = {0, 0};\n    using F = pair<mint, mint>;\n    static T mapp(F f,\
@@ -293,9 +293,9 @@ data:
     \ 0};\n};\nvoid solve() {\n    LL(N, Q);\n    VEC(ll, A, N);\n    LazySegmentTree<affine>\
     \ a(N);\n    rep(i, N) { a.set(i, {1, A[i]}); }\n    rep(i, Q) {\n        LL(t);\n\
     \        if (t == 0) {\n            LL(l, r, b, c);\n            a.apply(l, r,\
-    \ {b, c});\n        } else {\n            LL(l, r);\n            out(a.prod(l,\
-    \ r).se);\n        }\n    }\n}\nint main() { solve(); }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
+    \ {b, c});\n        } else {\n            LL(p);\n            out(a.get(p).se);\n\
+    \        }\n    }\n}\nint main() { solve(); }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_point_get\"\
     \n#include \"../../DataStructure/LazySegmentTree.hpp\"\n#include \"../../Modint/Modint.hpp\"\
     \n#include \"../../Template/Template.hpp\"\nusing mint = Modint<MOD>;\nstruct\
     \ affine {\n    using T = pair<ll, mint>;\n    static T op(T x, T y) { return\
@@ -306,8 +306,8 @@ data:
     \ Q);\n    VEC(ll, A, N);\n    LazySegmentTree<affine> a(N);\n    rep(i, N) {\
     \ a.set(i, {1, A[i]}); }\n    rep(i, Q) {\n        LL(t);\n        if (t == 0)\
     \ {\n            LL(l, r, b, c);\n            a.apply(l, r, {b, c});\n       \
-    \ } else {\n            LL(l, r);\n            out(a.prod(l, r).se);\n       \
-    \ }\n    }\n}\nint main() { solve(); }"
+    \ } else {\n            LL(p);\n            out(a.get(p).se);\n        }\n   \
+    \ }\n}\nint main() { solve(); }"
   dependsOn:
   - DataStructure/LazySegmentTree.hpp
   - Modint/Modint.hpp
@@ -316,15 +316,15 @@ data:
   - Template/Util.hpp
   - Template/Macro.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+  path: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
   requiredBy: []
   timestamp: '2024-05-14 18:42:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+documentation_of: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp.html
-title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
+- /verify/Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp.html
+title: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
 ---

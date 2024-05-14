@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
+    title: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
   _isVerificationFailed: false
@@ -33,16 +36,17 @@ data:
     \ i >= 1; i--) {\n            _del_segment(p >> i);\n        }\n    }\n    void\
     \ set(int32_t p, T v) {\n        p += siz;\n        _delay(p);\n        tree[p]\
     \ = v;\n        del[p] = M::id;\n        _calc(p);\n    }\n    T get(int32_t p)\
-    \ { return _get(p + siz); }\n    void apply(int32_t lf, int32_t ri, F f) {\n \
-    \       lf += siz;\n        ri += siz;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n\
-    \        int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
-    \        _delay(dr - 1);\n        while (lf < ri) {\n            if (lf & 1) {\n\
-    \                tree[lf]=M::mapp(f,tree[lf]);\n                del[lf] = M::comp(f,\
-    \ del[lf]);\n                lf++;\n            }\n            if (ri & 1) {\n\
-    \                ri--;\n                tree[ri]=M::mapp(f,tree[ri]);\n      \
-    \          del[ri] = M::comp(f, del[ri]);\n            }\n            lf >>= 1;\n\
-    \            ri >>= 1;\n        }\n        _calc(dl);\n        _calc(dr - 1);\n\
-    \    }\n    T prod(int32_t lf, int32_t ri) {\n        lf += siz;\n        ri +=\
+    \ {\n        _delay(p + siz);\n        return _get(p + siz);\n    }\n    void\
+    \ apply(int32_t lf, int32_t ri, F f) {\n        lf += siz;\n        ri += siz;\n\
+    \        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n        int32_t\
+    \ dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n        _delay(dr\
+    \ - 1);\n        while (lf < ri) {\n            if (lf & 1) {\n              \
+    \  tree[lf] = M::mapp(f, tree[lf]);\n                del[lf] = M::comp(f, del[lf]);\n\
+    \                lf++;\n            }\n            if (ri & 1) {\n           \
+    \     ri--;\n                tree[ri] = M::mapp(f, tree[ri]);\n              \
+    \  del[ri] = M::comp(f, del[ri]);\n            }\n            lf >>= 1;\n    \
+    \        ri >>= 1;\n        }\n        _calc(dl);\n        _calc(dr - 1);\n  \
+    \  }\n    T prod(int32_t lf, int32_t ri) {\n        lf += siz;\n        ri +=\
     \ siz;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n       \
     \ int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
     \        _delay(dr - 1);\n        T rel = M::e;\n        T rer = M::e;\n     \
@@ -120,16 +124,17 @@ data:
     \ i >= 1; i--) {\n            _del_segment(p >> i);\n        }\n    }\n    void\
     \ set(int32_t p, T v) {\n        p += siz;\n        _delay(p);\n        tree[p]\
     \ = v;\n        del[p] = M::id;\n        _calc(p);\n    }\n    T get(int32_t p)\
-    \ { return _get(p + siz); }\n    void apply(int32_t lf, int32_t ri, F f) {\n \
-    \       lf += siz;\n        ri += siz;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n\
-    \        int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
-    \        _delay(dr - 1);\n        while (lf < ri) {\n            if (lf & 1) {\n\
-    \                tree[lf]=M::mapp(f,tree[lf]);\n                del[lf] = M::comp(f,\
-    \ del[lf]);\n                lf++;\n            }\n            if (ri & 1) {\n\
-    \                ri--;\n                tree[ri]=M::mapp(f,tree[ri]);\n      \
-    \          del[ri] = M::comp(f, del[ri]);\n            }\n            lf >>= 1;\n\
-    \            ri >>= 1;\n        }\n        _calc(dl);\n        _calc(dr - 1);\n\
-    \    }\n    T prod(int32_t lf, int32_t ri) {\n        lf += siz;\n        ri +=\
+    \ {\n        _delay(p + siz);\n        return _get(p + siz);\n    }\n    void\
+    \ apply(int32_t lf, int32_t ri, F f) {\n        lf += siz;\n        ri += siz;\n\
+    \        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n        int32_t\
+    \ dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n        _delay(dr\
+    \ - 1);\n        while (lf < ri) {\n            if (lf & 1) {\n              \
+    \  tree[lf] = M::mapp(f, tree[lf]);\n                del[lf] = M::comp(f, del[lf]);\n\
+    \                lf++;\n            }\n            if (ri & 1) {\n           \
+    \     ri--;\n                tree[ri] = M::mapp(f, tree[ri]);\n              \
+    \  del[ri] = M::comp(f, del[ri]);\n            }\n            lf >>= 1;\n    \
+    \        ri >>= 1;\n        }\n        _calc(dl);\n        _calc(dr - 1);\n  \
+    \  }\n    T prod(int32_t lf, int32_t ri) {\n        lf += siz;\n        ri +=\
     \ siz;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n       \
     \ int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
     \        _delay(dr - 1);\n        T rel = M::e;\n        T rer = M::e;\n     \
@@ -189,10 +194,11 @@ data:
   isVerificationFile: false
   path: DataStructure/LazySegmentTree.hpp
   requiredBy: []
-  timestamp: '2024-05-14 18:36:44+09:00'
+  timestamp: '2024-05-14 18:42:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
 documentation_of: DataStructure/LazySegmentTree.hpp
 layout: document
 redirect_from:
