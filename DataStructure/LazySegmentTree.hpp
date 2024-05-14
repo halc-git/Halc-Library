@@ -55,7 +55,10 @@ struct LazySegmentTree {
         del[p] = M::id;
         _calc(p);
     }
-    T get(int32_t p) { return _get(p + siz); }
+    T get(int32_t p) {
+        _delay(p + siz);
+        return _get(p + siz);
+    }
     void apply(int32_t lf, int32_t ri, F f) {
         lf += siz;
         ri += siz;
@@ -65,13 +68,13 @@ struct LazySegmentTree {
         _delay(dr - 1);
         while (lf < ri) {
             if (lf & 1) {
-                tree[lf]=M::mapp(f,tree[lf]);
+                tree[lf] = M::mapp(f, tree[lf]);
                 del[lf] = M::comp(f, del[lf]);
                 lf++;
             }
             if (ri & 1) {
                 ri--;
-                tree[ri]=M::mapp(f,tree[ri]);
+                tree[ri] = M::mapp(f, tree[ri]);
                 del[ri] = M::comp(f, del[ri]);
             }
             lf >>= 1;
