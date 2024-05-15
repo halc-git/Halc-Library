@@ -10,7 +10,7 @@
 #define each(i, ...) for (auto&& i : __VA_ARGS__)
 #define all(i) std::begin(i), std::end(i)
 #define rall(i) std::rbegin(i), std::rend(i)
-#define len(x) ((int)(x).size())
+#define len(x) ((ll)(x).size())
 #define fi first
 #define se second
 #define uniq(x) x.erase(unique(all(x)), std::end(x))
