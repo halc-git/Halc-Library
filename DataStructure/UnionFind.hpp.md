@@ -31,9 +31,9 @@ data:
     \            members[root(i)].emplace_back(i);\n        }\n        std::vector<std::vector<int32_t>>\
     \ ret;\n        for (int32_t i = 0; i < tree.size(); i++) {\n            if (!members[i].empty())\
     \ ret.emplace_back(members[i]);\n        }\n        return ret;\n    }\n};\nnamespace\
-    \ union_find_void {\nstruct void_monoid {\n    using T = bool;\n    constexpr\
-    \ static inline T op(T a, T b) { return 0; }\n    constexpr static inline T e\
-    \ = 0;\n};\n}  // namespace union_find_void\nusing UnionFind = MonoidUnionFind<union_find_void::void_monoid>;\n"
+    \ _union_find {\nstruct void_monoid {\n    using T = bool;\n    constexpr static\
+    \ inline T op(T a, T b) { return 0; }\n    constexpr static inline T e = 0;\n\
+    };\n}  // namespace _union_find\nusing UnionFind = MonoidUnionFind<_union_find::void_monoid>;\n"
   code: "#pragma once\n#include <cstdint>\n#include <vector>\ntemplate <class M>\n\
     struct MonoidUnionFind {\n    using T = typename M::T;\n    std::vector<std::pair<int32_t,\
     \ T>> tree;\n    MonoidUnionFind(int32_t sz) { tree.resize(sz, {-1, M::e}); }\n\
@@ -53,15 +53,15 @@ data:
     \        for (int32_t i = 0; i < tree.size(); i++) {\n            members[root(i)].emplace_back(i);\n\
     \        }\n        std::vector<std::vector<int32_t>> ret;\n        for (int32_t\
     \ i = 0; i < tree.size(); i++) {\n            if (!members[i].empty()) ret.emplace_back(members[i]);\n\
-    \        }\n        return ret;\n    }\n};\nnamespace union_find_void {\nstruct\
-    \ void_monoid {\n    using T = bool;\n    constexpr static inline T op(T a, T\
-    \ b) { return 0; }\n    constexpr static inline T e = 0;\n};\n}  // namespace\
-    \ union_find_void\nusing UnionFind = MonoidUnionFind<union_find_void::void_monoid>;"
+    \        }\n        return ret;\n    }\n};\nnamespace _union_find {\nstruct void_monoid\
+    \ {\n    using T = bool;\n    constexpr static inline T op(T a, T b) { return\
+    \ 0; }\n    constexpr static inline T e = 0;\n};\n}  // namespace _union_find\n\
+    using UnionFind = MonoidUnionFind<_union_find::void_monoid>;"
   dependsOn: []
   isVerificationFile: false
   path: DataStructure/UnionFind.hpp
   requiredBy: []
-  timestamp: '2024-05-10 16:22:37+09:00'
+  timestamp: '2024-05-15 13:12:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-datastructure/unionfind.test.cpp
