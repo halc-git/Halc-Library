@@ -149,20 +149,20 @@ data:
     \ _rep1(i, n) for (ll i = 0; i < (n); i++)\n#define _rep2(i, a, b) for (ll i =\
     \ (a); i < (b); i++)\n#define _rep3(i, a, b, c) for (ll i = (a); i < (b); i +=\
     \ (c))\n#define rep(...) _overload4(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)\n\
-    #define _rrep1(i, n) for (ll i = (n); i-- > 0;)\n#define _rrep2(i, a, b) for (ll\
-    \ i = (b); i-- > (a);)\n#define rrep(...) _overload3(__VA_ARGS__, _rrep2, _rrep1)(__VA_ARGS__)\n\
-    #define each(i, ...) for (auto&& i : __VA_ARGS__)\n#define all(i) std::begin(i),\
-    \ std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((ll)(x).size())\n\
-    #define fi first\n#define se second\n#define uniq(x) x.erase(unique(all(x)), std::end(x))\n\
-    #define vec(type, name, ...) vector<type> name(__VA_ARGS__);\n#define vv(type,\
-    \ name, h, ...) std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
-    #define INT(...) int __VA_ARGS__; in(__VA_ARGS__)\n#define LL(...) long long __VA_ARGS__;\
-    \ in(__VA_ARGS__)\n#define ULL(...) unsigned long long __VA_ARGS__; in(__VA_ARGS__)\n\
-    #define STR(...) std::string __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char\
-    \ __VA_ARGS__; in(__VA_ARGS__)\n#define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n\
-    #define VEC(type, name, size) std::vector<type> name(size); in(name)\n#define\
-    \ VV(type, name, h, w) std::vector<std::vector<type>> name(h, std::vector<type>(w));\
-    \ in(name)\n#line 4 \"Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp\"\
+    #define _rrep1(i, n) for (int i = (n) - 1; i >= 0; i--)\n#define _rrep2(i, a,\
+    \ b) for (int i = (b) - 1; i >= (a); i--)\n#define rrep(...) _overload3(__VA_ARGS__,\
+    \ _rrep2, _rrep1)(__VA_ARGS__)\n#define each(i, ...) for (auto&& i : __VA_ARGS__)\n\
+    #define all(i) std::begin(i), std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n\
+    #define len(x) ((ll)(x).size())\n#define fi first\n#define se second\n#define\
+    \ uniq(x) x.erase(unique(all(x)), std::end(x))\n#define vec(type, name, ...) vector<type>\
+    \ name(__VA_ARGS__);\n#define vv(type, name, h, ...) std::vector<std::vector<type>>\
+    \ name(h, std::vector<type>(__VA_ARGS__));\n#define INT(...) int __VA_ARGS__;\
+    \ in(__VA_ARGS__)\n#define LL(...) long long __VA_ARGS__; in(__VA_ARGS__)\n#define\
+    \ ULL(...) unsigned long long __VA_ARGS__; in(__VA_ARGS__)\n#define STR(...) std::string\
+    \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
+    #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
+    \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
+    \ name(h, std::vector<type>(w)); in(name)\n#line 4 \"Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp\"\
     \nvoid solve() {\n    STR(S);\n    RollingHash<string> roll;\n    auto st = roll.build(S);\n\
     \    reverse(all(S));\n    auto rev = roll.build(S);\n    vec(ll, ans, len(S)\
     \ * 2 - 1);\n    rep(i, len(S)) {\n        ll ok = 1, ng = min(i + 1, len(S) -\
@@ -203,7 +203,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-05-15 13:56:28+09:00'
+  timestamp: '2024-05-15 14:24:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp

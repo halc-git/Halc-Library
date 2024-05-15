@@ -87,10 +87,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/1092.test.cpp
     title: Verify/verify-yuki/1092.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
   - icon: ':x:'
@@ -124,9 +124,9 @@ data:
 
     #define rep(...) _overload4(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)
 
-    #define _rrep1(i, n) for (ll i = (n); i-- > 0;)
+    #define _rrep1(i, n) for (int i = (n) - 1; i >= 0; i--)
 
-    #define _rrep2(i, a, b) for (ll i = (b); i-- > (a);)
+    #define _rrep2(i, a, b) for (int i = (b) - 1; i >= (a); i--)
 
     #define rrep(...) _overload3(__VA_ARGS__, _rrep2, _rrep1)(__VA_ARGS__)
 
@@ -178,9 +178,9 @@ data:
 
     #define rep(...) _overload4(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)
 
-    #define _rrep1(i, n) for (ll i = (n); i-- > 0;)
+    #define _rrep1(i, n) for (int i = (n) - 1; i >= 0; i--)
 
-    #define _rrep2(i, a, b) for (ll i = (b); i-- > (a);)
+    #define _rrep2(i, a, b) for (int i = (b) - 1; i >= (a); i--)
 
     #define rrep(...) _overload3(__VA_ARGS__, _rrep2, _rrep1)(__VA_ARGS__)
 
@@ -223,7 +223,7 @@ data:
   path: Template/Macro.hpp
   requiredBy:
   - Template/Template.hpp
-  timestamp: '2024-05-15 13:56:28+09:00'
+  timestamp: '2024-05-15 14:24:42+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
