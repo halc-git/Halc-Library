@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"DataStructure/SegmentTree.hpp\"\n#include <cstdint>\n#include\
@@ -145,7 +145,7 @@ data:
   path: DataStructure/SegmentTree.hpp
   requiredBy: []
   timestamp: '2024-05-10 16:22:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yuki/650.test.cpp
   - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp

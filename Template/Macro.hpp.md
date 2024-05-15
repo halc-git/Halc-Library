@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedVerifiedWith:
@@ -87,27 +87,27 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/1092.test.cpp
     title: Verify/verify-yuki/1092.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/235.test.cpp
     title: Verify/verify-yuki/235.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/399.test.cpp
     title: Verify/verify-yuki/399.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 1 "Template/Macro.hpp"
@@ -136,7 +136,7 @@ data:
 
     #define rall(i) std::rbegin(i), std::rend(i)
 
-    #define len(x) ((int)(x).size())
+    #define len(x) ((ll)(x).size())
 
     #define fi first
 
@@ -190,7 +190,7 @@ data:
 
     #define rall(i) std::rbegin(i), std::rend(i)
 
-    #define len(x) ((int)(x).size())
+    #define len(x) ((ll)(x).size())
 
     #define fi first
 
@@ -223,8 +223,8 @@ data:
   path: Template/Macro.hpp
   requiredBy:
   - Template/Template.hpp
-  timestamp: '2024-05-12 20:06:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-15 13:56:28+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp

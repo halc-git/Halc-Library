@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: DataStructure/FenwickTree.hpp
     title: DataStructure/FenwickTree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
@@ -131,7 +131,7 @@ data:
     #define _rrep1(i, n) for (ll i = (n); i-- > 0;)\n#define _rrep2(i, a, b) for (ll\
     \ i = (b); i-- > (a);)\n#define rrep(...) _overload3(__VA_ARGS__, _rrep2, _rrep1)(__VA_ARGS__)\n\
     #define each(i, ...) for (auto&& i : __VA_ARGS__)\n#define all(i) std::begin(i),\
-    \ std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((int)(x).size())\n\
+    \ std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n#define len(x) ((ll)(x).size())\n\
     #define fi first\n#define se second\n#define uniq(x) x.erase(unique(all(x)), std::end(x))\n\
     #define vec(type, name, ...) vector<type> name(__VA_ARGS__);\n#define vv(type,\
     \ name, h, ...) std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));\n\
@@ -161,7 +161,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-05-14 08:14:42+09:00'
+  timestamp: '2024-05-15 13:56:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
