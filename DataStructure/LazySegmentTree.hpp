@@ -106,10 +106,6 @@ struct LazySegmentTree {
         }
         return M::op(rel, rer);
     }
-    template <bool (*f)(T)>
-    int32_t max_right(int lf) {
-        return max_right(lf, [](T x) { return f(x); });
-    }
     template <class F>
     int32_t max_right(int32_t lf, F f) {
         lf += siz;
@@ -166,10 +162,6 @@ struct LazySegmentTree {
             val = M::op(val, _get(i));
         }
         return siz;
-    }
-    template <bool (*f)(T)>
-    int32_t min_left(int ri) {
-        return min_left(ri, [](T x) { return f(x); });
     }
     template <class F>
     int32_t min_left(int32_t ri, F f) {
