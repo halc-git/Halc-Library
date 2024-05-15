@@ -28,6 +28,9 @@ data:
     path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
     title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yuki/235.test.cpp
+    title: Verify/verify-yuki/235.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/399.test.cpp
     title: Verify/verify-yuki/399.test.cpp
   - icon: ':heavy_check_mark:'
@@ -91,6 +94,7 @@ data:
   - Verify/verify-yuki/399.test.cpp
   - Verify/verify-yuki/650.test.cpp
   - Verify/verify-yuki/901.test.cpp
+  - Verify/verify-yuki/235.test.cpp
   - Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
   - Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
   - Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp

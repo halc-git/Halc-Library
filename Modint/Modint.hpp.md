@@ -34,6 +34,9 @@ data:
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/verify-yuki/235.test.cpp
+    title: Verify/verify-yuki/235.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
   _isVerificationFailed: false
@@ -198,6 +201,7 @@ data:
   - Verify/verify-yuki/1092.test.cpp
   - Verify/verify-yuki/117.test.cpp
   - Verify/verify-yuki/650.test.cpp
+  - Verify/verify-yuki/235.test.cpp
   - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   - Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp

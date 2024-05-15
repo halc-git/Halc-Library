@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yuki/235.test.cpp
+    title: Verify/verify-yuki/235.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -201,6 +204,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-aoj/2667.test.cpp
+  - Verify/verify-yuki/235.test.cpp
   - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
 documentation_of: DataStructure/LazySegmentTree.hpp
