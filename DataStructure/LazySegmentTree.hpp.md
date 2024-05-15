@@ -63,34 +63,31 @@ data:
     \ _get(lf));\n                lf++;\n            }\n            if (ri & 1) {\n\
     \                ri--;\n                rer = M::op(_get(ri), rer);\n        \
     \    }\n            lf >>= 1;\n            ri >>= 1;\n        }\n        return\
-    \ M::op(rel, rer);\n    }\n    template <bool (*f)(T)>\n    int32_t max_right(int\
-    \ lf) {\n        return max_right(lf, [](T x) { return f(x); });\n    }\n    template\
-    \ <class F>\n    int32_t max_right(int32_t lf, F f) {\n        lf += siz;\n  \
-    \      int32_t ri = siz << 1;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n\
-    \        int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
-    \        _delay(dr - 1);\n        std::queue<int32_t> lfp;\n        std::stack<int32_t>\
-    \ rip;\n        while (lf < ri) {\n            if (lf & 1) {\n               \
-    \ lfp.push(lf);\n                lf++;\n            }\n            if (ri & 1)\
-    \ {\n                ri--;\n                rip.push(ri);\n            }\n   \
-    \         lf >>= 1;\n            ri >>= 1;\n        }\n        T val = M::e;\n\
-    \        while (!lfp.empty()) {\n            int32_t i = lfp.front();\n      \
-    \      lfp.pop();\n            if (!f(M::op(val, _get(i)))) {\n              \
-    \  while (i < siz) {\n                    _del_segment(i);\n                 \
-    \   i <<= 1;\n                    if (f(M::op(val, _get(i)))) {\n            \
-    \            val = M::op(val, _get(i));\n                        i++;\n      \
-    \              }\n                }\n                return i - siz;\n       \
-    \     }\n            val = M::op(val, _get(i));\n        }\n        while (!rip.empty())\
-    \ {\n            int32_t i = rip.top();\n            rip.pop();\n            if\
-    \ (!f(M::op(val, _get(i)))) {\n                while (i < siz) {\n           \
-    \         _del_segment(i);\n                    i <<= 1;\n                   \
-    \ if (f(M::op(val, _get(i)))) {\n                        val = M::op(val, _get(i));\n\
-    \                        i++;\n                    }\n                }\n    \
-    \            return i - siz;\n            }\n            val = M::op(val, _get(i));\n\
-    \        }\n        return siz;\n    }\n    template <bool (*f)(T)>\n    int32_t\
-    \ min_left(int ri) {\n        return min_left(ri, [](T x) { return f(x); });\n\
-    \    }\n    template <class F>\n    int32_t min_left(int32_t ri, F f) {\n    \
-    \    ri += siz;\n        int32_t lf = siz;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n\
-    \        int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
+    \ M::op(rel, rer);\n    }\n    template <class F>\n    int32_t max_right(int32_t\
+    \ lf, F f) {\n        lf += siz;\n        int32_t ri = siz << 1;\n        int32_t\
+    \ dl = lf >> (std::countr_zero((uint32_t)lf));\n        int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n\
+    \        _delay(dl);\n        _delay(dr - 1);\n        std::queue<int32_t> lfp;\n\
+    \        std::stack<int32_t> rip;\n        while (lf < ri) {\n            if (lf\
+    \ & 1) {\n                lfp.push(lf);\n                lf++;\n            }\n\
+    \            if (ri & 1) {\n                ri--;\n                rip.push(ri);\n\
+    \            }\n            lf >>= 1;\n            ri >>= 1;\n        }\n    \
+    \    T val = M::e;\n        while (!lfp.empty()) {\n            int32_t i = lfp.front();\n\
+    \            lfp.pop();\n            if (!f(M::op(val, _get(i)))) {\n        \
+    \        while (i < siz) {\n                    _del_segment(i);\n           \
+    \         i <<= 1;\n                    if (f(M::op(val, _get(i)))) {\n      \
+    \                  val = M::op(val, _get(i));\n                        i++;\n\
+    \                    }\n                }\n                return i - siz;\n \
+    \           }\n            val = M::op(val, _get(i));\n        }\n        while\
+    \ (!rip.empty()) {\n            int32_t i = rip.top();\n            rip.pop();\n\
+    \            if (!f(M::op(val, _get(i)))) {\n                while (i < siz) {\n\
+    \                    _del_segment(i);\n                    i <<= 1;\n        \
+    \            if (f(M::op(val, _get(i)))) {\n                        val = M::op(val,\
+    \ _get(i));\n                        i++;\n                    }\n           \
+    \     }\n                return i - siz;\n            }\n            val = M::op(val,\
+    \ _get(i));\n        }\n        return siz;\n    }\n    template <class F>\n \
+    \   int32_t min_left(int32_t ri, F f) {\n        ri += siz;\n        int32_t lf\
+    \ = siz;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n     \
+    \   int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
     \        _delay(dr - 1);\n        std::queue<int32_t> rip;\n        std::stack<int32_t>\
     \ lfp;\n        while (lf < ri) {\n            if (lf & 1) {\n               \
     \ lfp.push(lf);\n                lf++;\n            }\n            if (ri & 1)\
@@ -151,34 +148,31 @@ data:
     \ _get(lf));\n                lf++;\n            }\n            if (ri & 1) {\n\
     \                ri--;\n                rer = M::op(_get(ri), rer);\n        \
     \    }\n            lf >>= 1;\n            ri >>= 1;\n        }\n        return\
-    \ M::op(rel, rer);\n    }\n    template <bool (*f)(T)>\n    int32_t max_right(int\
-    \ lf) {\n        return max_right(lf, [](T x) { return f(x); });\n    }\n    template\
-    \ <class F>\n    int32_t max_right(int32_t lf, F f) {\n        lf += siz;\n  \
-    \      int32_t ri = siz << 1;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n\
-    \        int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
-    \        _delay(dr - 1);\n        std::queue<int32_t> lfp;\n        std::stack<int32_t>\
-    \ rip;\n        while (lf < ri) {\n            if (lf & 1) {\n               \
-    \ lfp.push(lf);\n                lf++;\n            }\n            if (ri & 1)\
-    \ {\n                ri--;\n                rip.push(ri);\n            }\n   \
-    \         lf >>= 1;\n            ri >>= 1;\n        }\n        T val = M::e;\n\
-    \        while (!lfp.empty()) {\n            int32_t i = lfp.front();\n      \
-    \      lfp.pop();\n            if (!f(M::op(val, _get(i)))) {\n              \
-    \  while (i < siz) {\n                    _del_segment(i);\n                 \
-    \   i <<= 1;\n                    if (f(M::op(val, _get(i)))) {\n            \
-    \            val = M::op(val, _get(i));\n                        i++;\n      \
-    \              }\n                }\n                return i - siz;\n       \
-    \     }\n            val = M::op(val, _get(i));\n        }\n        while (!rip.empty())\
-    \ {\n            int32_t i = rip.top();\n            rip.pop();\n            if\
-    \ (!f(M::op(val, _get(i)))) {\n                while (i < siz) {\n           \
-    \         _del_segment(i);\n                    i <<= 1;\n                   \
-    \ if (f(M::op(val, _get(i)))) {\n                        val = M::op(val, _get(i));\n\
-    \                        i++;\n                    }\n                }\n    \
-    \            return i - siz;\n            }\n            val = M::op(val, _get(i));\n\
-    \        }\n        return siz;\n    }\n    template <bool (*f)(T)>\n    int32_t\
-    \ min_left(int ri) {\n        return min_left(ri, [](T x) { return f(x); });\n\
-    \    }\n    template <class F>\n    int32_t min_left(int32_t ri, F f) {\n    \
-    \    ri += siz;\n        int32_t lf = siz;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n\
-    \        int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
+    \ M::op(rel, rer);\n    }\n    template <class F>\n    int32_t max_right(int32_t\
+    \ lf, F f) {\n        lf += siz;\n        int32_t ri = siz << 1;\n        int32_t\
+    \ dl = lf >> (std::countr_zero((uint32_t)lf));\n        int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n\
+    \        _delay(dl);\n        _delay(dr - 1);\n        std::queue<int32_t> lfp;\n\
+    \        std::stack<int32_t> rip;\n        while (lf < ri) {\n            if (lf\
+    \ & 1) {\n                lfp.push(lf);\n                lf++;\n            }\n\
+    \            if (ri & 1) {\n                ri--;\n                rip.push(ri);\n\
+    \            }\n            lf >>= 1;\n            ri >>= 1;\n        }\n    \
+    \    T val = M::e;\n        while (!lfp.empty()) {\n            int32_t i = lfp.front();\n\
+    \            lfp.pop();\n            if (!f(M::op(val, _get(i)))) {\n        \
+    \        while (i < siz) {\n                    _del_segment(i);\n           \
+    \         i <<= 1;\n                    if (f(M::op(val, _get(i)))) {\n      \
+    \                  val = M::op(val, _get(i));\n                        i++;\n\
+    \                    }\n                }\n                return i - siz;\n \
+    \           }\n            val = M::op(val, _get(i));\n        }\n        while\
+    \ (!rip.empty()) {\n            int32_t i = rip.top();\n            rip.pop();\n\
+    \            if (!f(M::op(val, _get(i)))) {\n                while (i < siz) {\n\
+    \                    _del_segment(i);\n                    i <<= 1;\n        \
+    \            if (f(M::op(val, _get(i)))) {\n                        val = M::op(val,\
+    \ _get(i));\n                        i++;\n                    }\n           \
+    \     }\n                return i - siz;\n            }\n            val = M::op(val,\
+    \ _get(i));\n        }\n        return siz;\n    }\n    template <class F>\n \
+    \   int32_t min_left(int32_t ri, F f) {\n        ri += siz;\n        int32_t lf\
+    \ = siz;\n        int32_t dl = lf >> (std::countr_zero((uint32_t)lf));\n     \
+    \   int32_t dr = ri >> (std::countr_zero((uint32_t)ri));\n        _delay(dl);\n\
     \        _delay(dr - 1);\n        std::queue<int32_t> rip;\n        std::stack<int32_t>\
     \ lfp;\n        while (lf < ri) {\n            if (lf & 1) {\n               \
     \ lfp.push(lf);\n                lf++;\n            }\n            if (ri & 1)\
@@ -203,7 +197,7 @@ data:
   isVerificationFile: false
   path: DataStructure/LazySegmentTree.hpp
   requiredBy: []
-  timestamp: '2024-05-14 18:42:32+09:00'
+  timestamp: '2024-05-15 20:31:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-aoj/2667.test.cpp
