@@ -44,11 +44,11 @@ struct MonoidUnionFind {
         return ret;
     }
 };
-namespace union_find_void {
+namespace _union_find {
 struct void_monoid {
     using T = bool;
     constexpr static inline T op(T a, T b) { return 0; }
     constexpr static inline T e = 0;
 };
-}  // namespace union_find_void
-using UnionFind = MonoidUnionFind<union_find_void::void_monoid>;
+}  // namespace _union_find
+using UnionFind = MonoidUnionFind<_union_find::void_monoid>;
