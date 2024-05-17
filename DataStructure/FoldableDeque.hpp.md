@@ -141,8 +141,8 @@ data:
   timestamp: '2024-05-10 16:22:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
 documentation_of: DataStructure/FoldableDeque.hpp
 layout: document
 title: Foldable Deque

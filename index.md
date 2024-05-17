@@ -18,6 +18,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/LazySegmentTree.hpp
       title: Lazy Segment Tree
+    - icon: ':warning:'
+      path: DataStructure/RadixHeap.hpp
+      title: DataStructure/RadixHeap.hpp
     - icon: ':heavy_check_mark:'
       path: DataStructure/SegmentTree.hpp
       title: Segment Tree
@@ -86,6 +89,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
+  - name: Verify/verify-aoj-grl
+    pages:
+    - icon: ':warning:'
+      path: Verify/verify-aoj-grl/grl_1_a.cpp
+      title: Verify/verify-aoj-grl/grl_1_a.cpp
   verificationCategories:
   - name: Verify/verify-aoj
     pages:

@@ -45,8 +45,8 @@ data:
   timestamp: '2024-05-08 20:46:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-yuki/117.test.cpp
+  - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
 documentation_of: Math/ModCombination.hpp
 layout: document
 redirect_from:

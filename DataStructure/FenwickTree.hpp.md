@@ -74,10 +74,10 @@ data:
   verifiedWith:
   - Verify/verify-yuki/399.test.cpp
   - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-  - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-  - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   - Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
   - Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
+  - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
 documentation_of: DataStructure/FenwickTree.hpp
 layout: document
 redirect_from:

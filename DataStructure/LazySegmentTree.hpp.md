@@ -200,11 +200,11 @@ data:
   timestamp: '2024-05-15 20:31:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-aoj/2667.test.cpp
-  - Verify/verify-yuki/900.test.cpp
   - Verify/verify-yuki/235.test.cpp
-  - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+  - Verify/verify-yuki/900.test.cpp
   - Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
+  - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+  - Verify/verify-aoj/2667.test.cpp
 documentation_of: DataStructure/LazySegmentTree.hpp
 layout: document
 title: Lazy Segment Tree
