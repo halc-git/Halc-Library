@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-aoj-grl/grl_1_a.cpp
-    title: Verify/verify-aoj-grl/grl_1_a.cpp
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-aoj-grl/grl_1_a.test.cpp
+    title: Verify/verify-aoj-grl/grl_1_a.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"DataStructure/RadixHeap.hpp\"\n#include <algorithm>\n#include\
@@ -43,11 +43,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: DataStructure/RadixHeap.hpp
-  requiredBy:
-  - Verify/verify-aoj-grl/grl_1_a.cpp
+  requiredBy: []
   timestamp: '2024-05-17 17:51:18+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - Verify/verify-aoj-grl/grl_1_a.test.cpp
 documentation_of: DataStructure/RadixHeap.hpp
 layout: document
 redirect_from:

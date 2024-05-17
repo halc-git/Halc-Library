@@ -5,13 +5,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':warning:'
-    path: Verify/verify-aoj-grl/grl_1_a.cpp
-    title: Verify/verify-aoj-grl/grl_1_a.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
     title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-aoj-grl/grl_1_a.test.cpp
+    title: Verify/verify-aoj-grl/grl_1_a.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj/2667.test.cpp
     title: Verify/verify-aoj/2667.test.cpp
@@ -229,10 +229,10 @@ data:
   path: Template/Macro.hpp
   requiredBy:
   - Template/Template.hpp
-  - Verify/verify-aoj-grl/grl_1_a.cpp
   timestamp: '2024-05-15 14:24:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/verify-aoj-grl/grl_1_a.test.cpp
   - Verify/verify-yuki/399.test.cpp
   - Verify/verify-yuki/2338.test.cpp
   - Verify/verify-yuki/117.test.cpp

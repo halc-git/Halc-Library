@@ -8,10 +8,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
-  - icon: ':warning:'
-    path: Verify/verify-aoj-grl/grl_1_a.cpp
-    title: Verify/verify-aoj-grl/grl_1_a.cpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-aoj-grl/grl_1_a.test.cpp
+    title: Verify/verify-aoj-grl/grl_1_a.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-aoj/2667.test.cpp
     title: Verify/verify-aoj/2667.test.cpp
@@ -90,12 +90,12 @@ data:
   isVerificationFile: false
   path: Graph/Graph.hpp
   requiredBy:
-  - Verify/verify-aoj-grl/grl_1_a.cpp
   - Tree/StaticTopTree.hpp
   - Tree/HLDecomposition.hpp
   timestamp: '2024-05-12 19:57:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/verify-aoj-grl/grl_1_a.test.cpp
   - Verify/verify-yuki/399.test.cpp
   - Verify/verify-yuki/901.test.cpp
   - Verify/verify-yuki/235.test.cpp

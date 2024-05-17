@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/RadixHeap.hpp
     title: DataStructure/RadixHeap.hpp
   - icon: ':heavy_check_mark:'
@@ -23,20 +23,22 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
     links:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
-  bundledCode: "#line 1 \"Verify/verify-aoj-grl/grl_1_a.cpp\"\n#define PROBLEM \"\
-    https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\n#line 1 \"\
-    DataStructure/RadixHeap.hpp\"\n#include <algorithm>\n#include <array>\n#include\
-    \ <bit>\n#include <cstdint>\n#include <vector>\ntemplate <class Key, class Val>\n\
-    struct RadixHeap {\n    static constexpr int32_t backet = sizeof(Key) * 8 + 1;\n\
-    \    std::array<std::vector<std::pair<Key, Val>>, backet> heap;\n    Key last\
-    \ = 0;\n    int32_t siz = 0;\n    inline int32_t bsr(uint64_t x) { return 64 -\
-    \ std::countl_zero(x); }\n    void push(Key key, Val val) {\n        siz++;\n\
-    \        heap[bsr(key ^ last)].emplace_back(std::pair<Key, Val>(key, val));\n\
-    \    }\n    std::pair<Key, Val> pop() {\n        siz--;\n        if (heap[0].empty())\
+  bundledCode: "#line 1 \"Verify/verify-aoj-grl/grl_1_a.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\n#line\
+    \ 1 \"DataStructure/RadixHeap.hpp\"\n#include <algorithm>\n#include <array>\n\
+    #include <bit>\n#include <cstdint>\n#include <vector>\ntemplate <class Key, class\
+    \ Val>\nstruct RadixHeap {\n    static constexpr int32_t backet = sizeof(Key)\
+    \ * 8 + 1;\n    std::array<std::vector<std::pair<Key, Val>>, backet> heap;\n \
+    \   Key last = 0;\n    int32_t siz = 0;\n    inline int32_t bsr(uint64_t x) {\
+    \ return 64 - std::countl_zero(x); }\n    void push(Key key, Val val) {\n    \
+    \    siz++;\n        heap[bsr(key ^ last)].emplace_back(std::pair<Key, Val>(key,\
+    \ val));\n    }\n    std::pair<Key, Val> pop() {\n        siz--;\n        if (heap[0].empty())\
     \ {\n            int32_t i = 1;\n            while (heap[i].empty()) i++;\n  \
     \          last = (*std::min_element(heap[i].begin(), heap[i].end())).first;\n\
     \            for (std::pair<Key, Val> x : heap[i]) {\n                heap[bsr(x.first\
@@ -154,7 +156,7 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-aoj-grl/grl_1_a.cpp\"\
+    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-aoj-grl/grl_1_a.test.cpp\"\
     \n\nvoid solve() {\n    LL(N, M, r);\n    Graph gr(N);\n    rep(i, M) {\n    \
     \    LL(s, t, d);\n        gr.add_directed_edge(s, t, d);\n    }\n    vector<int64_t>\
     \ dist(N, LINF);\n    dist[r] = 0;\n    RadixHeap<int64_t, int32_t> hq;\n    hq.push(0,\
@@ -183,16 +185,16 @@ data:
   - Template/InOut.hpp
   - Template/Util.hpp
   - Template/Macro.hpp
-  isVerificationFile: false
-  path: Verify/verify-aoj-grl/grl_1_a.cpp
+  isVerificationFile: true
+  path: Verify/verify-aoj-grl/grl_1_a.test.cpp
   requiredBy: []
-  timestamp: '2024-05-17 17:51:18+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2024-05-17 17:55:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-aoj-grl/grl_1_a.cpp
+documentation_of: Verify/verify-aoj-grl/grl_1_a.test.cpp
 layout: document
 redirect_from:
-- /library/Verify/verify-aoj-grl/grl_1_a.cpp
-- /library/Verify/verify-aoj-grl/grl_1_a.cpp.html
-title: Verify/verify-aoj-grl/grl_1_a.cpp
+- /verify/Verify/verify-aoj-grl/grl_1_a.test.cpp
+- /verify/Verify/verify-aoj-grl/grl_1_a.test.cpp.html
+title: Verify/verify-aoj-grl/grl_1_a.test.cpp
 ---
