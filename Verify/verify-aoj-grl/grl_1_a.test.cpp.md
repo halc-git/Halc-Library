@@ -31,7 +31,7 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
   bundledCode: "#line 1 \"Verify/verify-aoj-grl/grl_1_a.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\n#line\
-    \ 1 \"DataStructure/RadixHeap.hpp\"\n#include <algorithm>\n#include <array>\n\
+    \ 2 \"DataStructure/RadixHeap.hpp\"\n#include <algorithm>\n#include <array>\n\
     #include <bit>\n#include <cstdint>\n#include <vector>\ntemplate <class Key, class\
     \ Val>\nstruct RadixHeap {\n    static constexpr int32_t backet = sizeof(Key)\
     \ * 8 + 1;\n    std::array<std::vector<std::pair<Key, Val>>, backet> heap;\n \
@@ -164,7 +164,7 @@ data:
     \ = hq.pop();\n        if (dist[pos] != dis) continue;\n        for (Edge i :\
     \ gr[pos]) {\n            if (dis + i.cost < dist[i]) {\n                dist[i]\
     \ = dis + i.cost;\n                hq.push(dist[i], i);\n            }\n     \
-    \   }\n    }\n    each(i, dist) {\n        if (i >= LINF)\n            out(\"\
+    \   }\n    }\n    each(i, dist) {\n        if (i == LINF)\n            out(\"\
     INF\");\n        else\n            out(i);\n    }\n}\nint main() { solve(); }\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
     \n#include \"../../DataStructure/RadixHeap.hpp\"\n#include \"../../Graph/Graph.hpp\"\
@@ -175,7 +175,7 @@ data:
     \ pos;\n        tie(dis, pos) = hq.pop();\n        if (dist[pos] != dis) continue;\n\
     \        for (Edge i : gr[pos]) {\n            if (dis + i.cost < dist[i]) {\n\
     \                dist[i] = dis + i.cost;\n                hq.push(dist[i], i);\n\
-    \            }\n        }\n    }\n    each(i, dist) {\n        if (i >= LINF)\n\
+    \            }\n        }\n    }\n    each(i, dist) {\n        if (i == LINF)\n\
     \            out(\"INF\");\n        else\n            out(i);\n    }\n}\nint main()\
     \ { solve(); }"
   dependsOn:
@@ -188,7 +188,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-aoj-grl/grl_1_a.test.cpp
   requiredBy: []
-  timestamp: '2024-05-17 17:55:36+09:00'
+  timestamp: '2024-05-17 18:00:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-aoj-grl/grl_1_a.test.cpp
