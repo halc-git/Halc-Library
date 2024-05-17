@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667"
-#include "DataStructure/LazySegmentTree.hpp"
-#include "Tree/HLDecomposition.hpp"
-#include "Template/Template.hpp"
+#include "../../DataStructure/LazySegmentTree.hpp"
+#include "../../Tree/HLDecomposition.hpp"
+#include "../../Template/Template.hpp"
 struct ops {
     using T = pll;
     using F = ll;

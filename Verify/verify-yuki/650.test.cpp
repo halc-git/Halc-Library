@@ -1,9 +1,9 @@
 #define PROBLEM "https://yukicoder.me/problems/no/650"
-#include "DataStructure/SegmentTree.hpp"
-#include "Graph/Graph.hpp"
-#include "Modint/Modint.hpp"
-#include "Tree/HLDecomposition.hpp"
-#include "Template/Template.hpp"
+#include "../../DataStructure/SegmentTree.hpp"
+#include "../../Graph/Graph.hpp"
+#include "../../Modint/Modint.hpp"
+#include "../../Tree/HLDecomposition.hpp"
+#include "../../Template/Template.hpp"
 using mint = Modint<MODD>;
 struct mat {
     using T = array<mint, 4>;

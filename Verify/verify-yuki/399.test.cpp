@@ -1,8 +1,8 @@
 #define PROBLEM "https://yukicoder.me/problems/no/399"
-#include "DataStructure/FenwickTree.hpp"
-#include "Graph/Graph.hpp"
-#include "Tree/HLDecomposition.hpp"
-#include "Template/Template.hpp"
+#include "../../DataStructure/FenwickTree.hpp"
+#include "../../Graph/Graph.hpp"
+#include "../../Tree/HLDecomposition.hpp"
+#include "../../Template/Template.hpp"
 void solve() {
     LL(N);
     Graph gr(N);

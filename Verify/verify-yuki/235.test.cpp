@@ -1,9 +1,9 @@
 #define PROBLEM "https://yukicoder.me/problems/no/235"
-#include "DataStructure/LazySegmentTree.hpp"
-#include "Graph/Graph.hpp"
-#include "Modint/Modint.hpp"
-#include "Tree/HLDecomposition.hpp"
-#include "Template/Template.hpp"
+#include "../../DataStructure/LazySegmentTree.hpp"
+#include "../../Graph/Graph.hpp"
+#include "../../Modint/Modint.hpp"
+#include "../../Tree/HLDecomposition.hpp"
+#include "../../Template/Template.hpp"
 using mint = Modint<MODD>;
 struct ops {
     using T = pair<mint, mint>;
