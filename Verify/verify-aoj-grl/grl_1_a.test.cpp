@@ -26,7 +26,7 @@ void solve() {
         }
     }
     each(i, dist) {
-        if (i >= LINF)
+        if (i == LINF)
             out("INF");
         else
             out(i);
