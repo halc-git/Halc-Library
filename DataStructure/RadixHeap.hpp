@@ -26,7 +26,7 @@ struct RadixHeap {
             }
             heap[i].clear();
         }
-        std::pair<Key, Val> ret = heap[0].back();
+        std::pair<Key, Val> ret = move(heap[0].back());
         heap[0].pop_back();
         return ret;
     }
