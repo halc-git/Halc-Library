@@ -23,7 +23,7 @@ data:
     \          last = (*std::min_element(heap[i].begin(), heap[i].end())).first;\n\
     \            for (std::pair<Key, Val> x : heap[i]) {\n                heap[bsr(x.first\
     \ ^ last)].emplace_back(x);\n            }\n            heap[i].clear();\n   \
-    \     }\n        std::pair<Key, Val> ret = heap[0].back();\n        heap[0].pop_back();\n\
+    \     }\n        std::pair<Key, Val> ret = move(heap[0].back());\n        heap[0].pop_back();\n\
     \        return ret;\n    }\n    bool empty() { return !siz; }\n    int32_t size()\
     \ { return siz; }\n};\n"
   code: "#pragma once\n#include <algorithm>\n#include <array>\n#include <bit>\n#include\
@@ -37,14 +37,14 @@ data:
     \ (heap[i].empty()) i++;\n            last = (*std::min_element(heap[i].begin(),\
     \ heap[i].end())).first;\n            for (std::pair<Key, Val> x : heap[i]) {\n\
     \                heap[bsr(x.first ^ last)].emplace_back(x);\n            }\n \
-    \           heap[i].clear();\n        }\n        std::pair<Key, Val> ret = heap[0].back();\n\
+    \           heap[i].clear();\n        }\n        std::pair<Key, Val> ret = move(heap[0].back());\n\
     \        heap[0].pop_back();\n        return ret;\n    }\n    bool empty() { return\
     \ !siz; }\n    int32_t size() { return siz; }\n};"
   dependsOn: []
   isVerificationFile: false
   path: DataStructure/RadixHeap.hpp
   requiredBy: []
-  timestamp: '2024-05-17 17:59:12+09:00'
+  timestamp: '2024-05-18 13:50:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-aoj-grl/grl_1_a.test.cpp

@@ -43,7 +43,7 @@ data:
     \          last = (*std::min_element(heap[i].begin(), heap[i].end())).first;\n\
     \            for (std::pair<Key, Val> x : heap[i]) {\n                heap[bsr(x.first\
     \ ^ last)].emplace_back(x);\n            }\n            heap[i].clear();\n   \
-    \     }\n        std::pair<Key, Val> ret = heap[0].back();\n        heap[0].pop_back();\n\
+    \     }\n        std::pair<Key, Val> ret = move(heap[0].back());\n        heap[0].pop_back();\n\
     \        return ret;\n    }\n    bool empty() { return !siz; }\n    int32_t size()\
     \ { return siz; }\n};\n#line 4 \"Graph/Graph.hpp\"\ntemplate <class T = int32_t>\n\
     struct Edge {\n    int32_t from, to;\n    T cost;\n    int32_t idx;\n    Edge()\
@@ -188,7 +188,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-aoj-grl/grl_1_a.test.cpp
   requiredBy: []
-  timestamp: '2024-05-17 18:00:43+09:00'
+  timestamp: '2024-05-18 13:50:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-aoj-grl/grl_1_a.test.cpp
