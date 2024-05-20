@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedVerifiedWith:
@@ -87,33 +87,33 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
     title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/1092.test.cpp
     title: Verify/verify-yuki/1092.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/235.test.cpp
     title: Verify/verify-yuki/235.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/399.test.cpp
     title: Verify/verify-yuki/399.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/900.test.cpp
     title: Verify/verify-yuki/900.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Template/InOut.hpp\"\n#include <array>\n#include <deque>\n\
@@ -172,7 +172,7 @@ data:
     \ {\n    print(head);\n    std::cout << ' ';\n    out(tail...);\n}\ninline void\
     \ Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void No(bool i = true)\
     \ { out(i ? \"No\" : \"Yes\"); }\nstruct IOsetup {\n    IOsetup() {\n        std::ios::sync_with_stdio(false);\n\
-    \        std::cin.tie(nullptr);\n        std::cout << std::setprecision(10);\n\
+    \        std::cin.tie(nullptr);\n        std::cout << std::fixed << std::setprecision(16);\n\
     \    }\n} iosetup;\n"
   code: "#pragma once\n#include <array>\n#include <deque>\n#include <iomanip>\n#include\
     \ <iostream>\n#include <string>\n#include <vector>\ninline void scan() {}\ninline\
@@ -230,15 +230,15 @@ data:
     \ {\n    print(head);\n    std::cout << ' ';\n    out(tail...);\n}\ninline void\
     \ Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void No(bool i = true)\
     \ { out(i ? \"No\" : \"Yes\"); }\nstruct IOsetup {\n    IOsetup() {\n        std::ios::sync_with_stdio(false);\n\
-    \        std::cin.tie(nullptr);\n        std::cout << std::setprecision(10);\n\
-    \    }\n} iosetup;"
+    \        std::cin.tie(nullptr);\n        std::cout << std::fixed << std::setprecision(16);\n\
+    \    }\n} iosetup;\n"
   dependsOn: []
   isVerificationFile: false
   path: Template/InOut.hpp
   requiredBy:
   - Template/Template.hpp
-  timestamp: '2024-05-10 17:02:28+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-05-20 11:54:05+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-aoj-grl/grl_1_a.test.cpp
   - Verify/verify-yuki/399.test.cpp

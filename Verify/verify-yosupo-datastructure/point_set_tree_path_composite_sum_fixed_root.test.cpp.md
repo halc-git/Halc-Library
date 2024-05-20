@@ -1,25 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/Graph.hpp
     title: Graph/Graph.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Tree/StaticTopTree.hpp
     title: Static Top Tree
   _extendedRequiredBy: []
@@ -179,25 +179,26 @@ data:
     }\ninline void Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void\
     \ No(bool i = true) { out(i ? \"No\" : \"Yes\"); }\nstruct IOsetup {\n    IOsetup()\
     \ {\n        std::ios::sync_with_stdio(false);\n        std::cin.tie(nullptr);\n\
-    \        std::cout << std::setprecision(10);\n    }\n} iosetup;\n#line 8 \"Template/Util.hpp\"\
-    \nusing ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
-    using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
-    \ int>;\nusing vl = std::vector<ll>;\nusing vvl = std::vector<std::vector<ll>>;\n\
-    using pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class\
-    \ T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
-    \ ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX >> 1;\n\
-    constexpr ll MINF = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\n\
-    constexpr int32_t MODD = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr\
-    \ ld EPS = 1e-9;\nconstexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0,\
-    \ 1, 0, -1, 0};\nconst ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate\
-    \ <class T>\nbool chmin(T &a, const T &b) {\n    if (a > b) {\n        a = b;\n\
-    \        return true;\n    } else\n        return false;\n}\ntemplate <class T>\n\
-    bool chmax(T &a, const T &b) {\n    if (a < b) {\n        a = b;\n        return\
-    \ true;\n    } else\n        return false;\n}\ntemplate <class T>\nll sum(const\
-    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate\
-    \ <class T>\nld dsum(const T &a) {\n    return accumulate(std::begin(a), std::end(a),\
-    \ 0.0L);\n}\ntemplate <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a),\
-    \ std::end(a));\n}\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
+    \        std::cout << std::fixed << std::setprecision(16);\n    }\n} iosetup;\n\
+    #line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing ld = long double;\n\
+    using ull = unsigned long long;\nusing uint = unsigned int;\nusing pll = std::pair<ll,\
+    \ ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\nusing vvl\
+    \ = std::vector<std::vector<ll>>;\nusing pdd = std::pair<ld, ld>;\nusing tuplis\
+    \ = std::array<ll, 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T,\
+    \ std::vector<T>, std::greater<T>>;\nconstexpr ll LINF = (1LL << 62) - (1LL <<\
+    \ 31);\nconstexpr int32_t INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL << 40;\n\
+    constexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr int32_t MODD\
+    \ = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr ld EPS = 1e-9;\n\
+    constexpr ld PI = 3.1415926535897932;\nconst ll four[] = {0, 1, 0, -1, 0};\nconst\
+    \ ll eight[] = {0, 1, 1, 0, -1, -1, 1, -1, 0};\ntemplate <class T>\nbool chmin(T\
+    \ &a, const T &b) {\n    if (a > b) {\n        a = b;\n        return true;\n\
+    \    } else\n        return false;\n}\ntemplate <class T>\nbool chmax(T &a, const\
+    \ T &b) {\n    if (a < b) {\n        a = b;\n        return true;\n    } else\n\
+    \        return false;\n}\ntemplate <class T>\nll sum(const T &a) {\n    return\
+    \ accumulate(std::begin(a), std::end(a), 0LL);\n}\ntemplate <class T>\nld dsum(const\
+    \ T &a) {\n    return accumulate(std::begin(a), std::end(a), 0.0L);\n}\ntemplate\
+    \ <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a), std::end(a));\n\
+    }\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
     \ std::end(a));\n}\n#line 1 \"Template/Macro.hpp\"\n#define _overload3(_1, _2,\
     \ _3, name, ...) name\n#define _overload4(_1, _2, _3, _4, name, ...) name\n#define\
     \ _rep1(i, n) for (ll i = 0; i < (n); i++)\n#define _rep2(i, a, b) for (ll i =\
@@ -362,7 +363,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-05-15 14:24:42+09:00'
+  timestamp: '2024-05-20 11:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp

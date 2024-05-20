@@ -4,16 +4,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/Z_algorithm.hpp
     title: String/Z_algorithm.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
@@ -91,7 +91,7 @@ data:
     \ {\n    print(head);\n    std::cout << ' ';\n    out(tail...);\n}\ninline void\
     \ Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void No(bool i = true)\
     \ { out(i ? \"No\" : \"Yes\"); }\nstruct IOsetup {\n    IOsetup() {\n        std::ios::sync_with_stdio(false);\n\
-    \        std::cin.tie(nullptr);\n        std::cout << std::setprecision(10);\n\
+    \        std::cin.tie(nullptr);\n        std::cout << std::fixed << std::setprecision(16);\n\
     \    }\n} iosetup;\n#line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing\
     \ ld = long double;\nusing ull = unsigned long long;\nusing uint = unsigned int;\n\
     using pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\n\
@@ -145,7 +145,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-05-15 14:24:42+09:00'
+  timestamp: '2024-05-20 11:54:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/zalgorithm.test.cpp
