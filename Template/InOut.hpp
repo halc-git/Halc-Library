@@ -143,6 +143,13 @@ inline void out(const Head &head, const Tail &...tail) {
 }
 inline void Yes(bool i = true) { out(i ? "Yes" : "No"); }
 inline void No(bool i = true) { out(i ? "No" : "Yes"); }
+inline void Takahashi(bool i = true) { out(i ? "Takahashi" : "Aoki"); }
+inline void Aoki(bool i = true) { out(i ? "Aoki" : "Takahashi"); }
+inline void First(bool i = true) { out(i ? "First" : "Second"); }
+inline void Second(bool i = true) { out(i ? "Second" : "First"); }
+inline void Possible(bool i = true) { out(i ? "Possible" : "Impossible"); }
+inline void Impossible(bool i = true) { out(i ? "Impossible" : "Possible"); }
+inline void fls() { std::flush(std::cout); }
 struct IOsetup {
     IOsetup() {
         std::ios::sync_with_stdio(false);
