@@ -34,7 +34,7 @@ data:
       title: Graph/Graph.hpp
   - name: Math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Math/ModCombination.hpp
       title: Math/ModCombination.hpp
   - name: Misc
@@ -42,7 +42,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Misc/Compress.hpp
       title: Misc/Compress.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Misc/Mo.hpp
       title: Mo's Algorithm
     - icon: ':heavy_check_mark:'
@@ -189,13 +189,13 @@ data:
       title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
   - name: Verify/verify-yuki
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/1092.test.cpp
       title: Verify/verify-yuki/1092.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/117.test.cpp
       title: Verify/verify-yuki/117.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yuki/2338.test.cpp
       title: Verify/verify-yuki/2338.test.cpp
     - icon: ':x:'

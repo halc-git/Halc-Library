@@ -93,13 +93,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
     title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/1092.test.cpp
     title: Verify/verify-yuki/1092.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
   - icon: ':x:'
@@ -177,13 +177,20 @@ data:
     \ <class Head, class... Tail>\ninline void out(const Head &head, const Tail &...tail)\
     \ {\n    print(head);\n    std::cout << ' ';\n    out(tail...);\n}\ninline void\
     \ Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void No(bool i = true)\
-    \ { out(i ? \"No\" : \"Yes\"); }\nstruct IOsetup {\n    IOsetup() {\n        std::ios::sync_with_stdio(false);\n\
-    \        std::cin.tie(nullptr);\n        std::cout << std::fixed << std::setprecision(16);\n\
-    \    }\n} iosetup;\n#line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing\
-    \ ld = long double;\nusing ull = unsigned long long;\nusing uint = unsigned int;\n\
-    using pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\n\
-    using vvl = std::vector<std::vector<ll>>;\nusing pdd = std::pair<ld, ld>;\nusing\
-    \ tuplis = std::array<ll, 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T,\
+    \ { out(i ? \"No\" : \"Yes\"); }\ninline void Takahashi(bool i = true) { out(i\
+    \ ? \"Takahashi\" : \"Aoki\"); }\ninline void Aoki(bool i = true) { out(i ? \"\
+    Aoki\" : \"Takahashi\"); }\ninline void First(bool i = true) { out(i ? \"First\"\
+    \ : \"Second\"); }\ninline void Second(bool i = true) { out(i ? \"Second\" : \"\
+    First\"); }\ninline void Possible(bool i = true) { out(i ? \"Possible\" : \"Impossible\"\
+    ); }\ninline void Impossible(bool i = true) { out(i ? \"Impossible\" : \"Possible\"\
+    ); }\ninline void fls() { std::flush(std::cout); }\nstruct IOsetup {\n    IOsetup()\
+    \ {\n        std::ios::sync_with_stdio(false);\n        std::cin.tie(nullptr);\n\
+    \        std::cout << std::fixed << std::setprecision(16);\n    }\n} iosetup;\n\
+    #line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing ld = long double;\n\
+    using ull = unsigned long long;\nusing uint = unsigned int;\nusing pll = std::pair<ll,\
+    \ ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\nusing vvl\
+    \ = std::vector<std::vector<ll>>;\nusing pdd = std::pair<ld, ld>;\nusing tuplis\
+    \ = std::array<ll, 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T,\
     \ std::vector<T>, std::greater<T>>;\nconstexpr ll LINF = (1LL << 62) - (1LL <<\
     \ 31);\nconstexpr int32_t INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL << 40;\n\
     constexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr int32_t MODD\
@@ -238,7 +245,7 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy: []
-  timestamp: '2024-05-20 11:54:05+09:00'
+  timestamp: '2024-05-21 17:44:41+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-aoj-grl/grl_1_a.test.cpp
