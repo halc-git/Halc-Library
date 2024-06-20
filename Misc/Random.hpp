@@ -36,7 +36,4 @@ inline int64_t randlong(int64_t l, int64_t r) {
 
 inline float rand01() { return (float)rand_32bit() / UINT_MAX; }
 
-template <const auto P>
-inline bool randprob() {
-    return rand_32bit() < UINT_MAX * P;
-}
+inline bool randprob(const float P) { return rand_32bit() < UINT_MAX * P; }
