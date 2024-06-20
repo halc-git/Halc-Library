@@ -45,12 +45,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: Misc/Mo.hpp
       title: Mo's Algorithm
-    - icon: ':warning:'
-      path: Misc/Random.hpp
-      title: Misc/Random.hpp
-    - icon: ':warning:'
-      path: Misc/Timer.hpp
-      title: Misc/Timer.hpp
   - name: Modint
     pages:
     - icon: ':heavy_check_mark:'
