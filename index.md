@@ -45,10 +45,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Misc/Mo.hpp
       title: Mo's Algorithm
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Misc/Random.hpp
       title: Misc/Random.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Misc/Timer.hpp
       title: Misc/Timer.hpp
   - name: Modint
@@ -69,16 +69,16 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/InOut.hpp
       title: Template/InOut.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Util.hpp
       title: Template/Util.hpp
   - name: Tree
@@ -165,7 +165,7 @@ data:
       title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-sample
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
       title: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   - name: Verify/verify-yosupo-string

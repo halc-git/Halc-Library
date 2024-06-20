@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Misc/Random.hpp
     title: Misc/Random.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Misc/Timer.hpp
     title: Misc/Timer.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -152,12 +152,12 @@ data:
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
     \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp\"\
     \nint main() {\n    int stoptime = randint(0, 1000000);\n    usleep(stoptime);\n\
-    \    assert(abs(get_time() - stoptime) <= 500);\n    LL(A, B);\n    out(A + B);\n\
+    \    assert(abs(get_time() - stoptime) <= 1000);\n    LL(A, B);\n    out(A + B);\n\
     }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../../Misc/Random.hpp\"\
     \n#include \"../../Misc/Timer.hpp\"\n#include \"../../Template/Template.hpp\"\n\
     int main() {\n    int stoptime = randint(0, 1000000);\n    usleep(stoptime);\n\
-    \    assert(abs(get_time() - stoptime) <= 500);\n    LL(A, B);\n    out(A + B);\n\
+    \    assert(abs(get_time() - stoptime) <= 1000);\n    LL(A, B);\n    out(A + B);\n\
     }\n"
   dependsOn:
   - Misc/Random.hpp
@@ -169,8 +169,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   requiredBy: []
-  timestamp: '2024-06-20 20:47:40+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-20 20:50:32+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
 layout: document
