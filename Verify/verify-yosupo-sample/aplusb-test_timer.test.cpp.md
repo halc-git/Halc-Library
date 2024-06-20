@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Misc/Random.hpp
     title: Misc/Random.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Misc/Timer.hpp
     title: Misc/Timer.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -45,9 +45,9 @@ data:
     inline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)rand_32bit()\
     \ * (r - l + 1)) >> 32);\n}\n\ninline int64_t randlong(int64_t l, int64_t r) {\n\
     \    return l + (((unsigned __int128)rand_64bit() * (r - l + 1)) >> 32);\n}\n\n\
-    inline float rand01() { return (float)rand_32bit() / UINT_MAX; }\n\ninline bool\
-    \ randprob(float prob) { return rand_32bit() < UINT_MAX * prob; }\n#line 2 \"\
-    Misc/Timer.hpp\"\n#include <chrono>\nstatic auto StartTime = std::chrono::system_clock::now();\n\
+    inline float rand01() { return (float)rand_32bit() / UINT_MAX; }\n\ntemplate <const\
+    \ auto P>\ninline bool randprob() {\n    return rand_32bit() < UINT_MAX * P;\n\
+    }\n#line 2 \"Misc/Timer.hpp\"\n#include <chrono>\nstatic auto StartTime = std::chrono::system_clock::now();\n\
     inline int32_t get_time() {\n    return std::chrono::duration_cast<std::chrono::microseconds>(\n\
     \               std::chrono::system_clock::now() - StartTime)\n        .count();\n\
     }\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -169,8 +169,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
   requiredBy: []
-  timestamp: '2024-06-20 20:13:50+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-06-20 20:47:40+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
 layout: document
