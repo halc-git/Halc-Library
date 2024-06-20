@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
-    title: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Misc/Random.hpp\"\n#include <climits>\n#include <cstdint>\n\
@@ -49,9 +46,8 @@ data:
   path: Misc/Random.hpp
   requiredBy: []
   timestamp: '2024-06-20 22:19:27+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: Misc/Random.hpp
 layout: document
 redirect_from:
