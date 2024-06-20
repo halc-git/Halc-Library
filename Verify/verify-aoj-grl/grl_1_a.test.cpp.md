@@ -4,19 +4,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/RadixHeap.hpp
     title: DataStructure/RadixHeap.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Graph/Graph.hpp
     title: Graph/Graph.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
@@ -150,8 +150,8 @@ data:
     \ _rep1(i, n) for (ll i = 0; i < (n); i++)\n#define _rep2(i, a, b) for (ll i =\
     \ (a); i < (b); i++)\n#define _rep3(i, a, b, c) for (ll i = (a); i < (b); i +=\
     \ (c))\n#define rep(...) _overload4(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)\n\
-    #define _rrep1(i, n) for (int i = (n) - 1; i >= 0; i--)\n#define _rrep2(i, a,\
-    \ b) for (int i = (b) - 1; i >= (a); i--)\n#define rrep(...) _overload3(__VA_ARGS__,\
+    #define _rrep1(i, n) for (ll i = (n) - 1; i >= 0; i--)\n#define _rrep2(i, a, b)\
+    \ for (ll i = (b) - 1; i >= (a); i--)\n#define rrep(...) _overload3(__VA_ARGS__,\
     \ _rrep2, _rrep1)(__VA_ARGS__)\n#define each(i, ...) for (auto&& i : __VA_ARGS__)\n\
     #define all(i) std::begin(i), std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n\
     #define len(x) ((ll)(x).size())\n#define fi first\n#define se second\n#define\
@@ -195,7 +195,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-aoj-grl/grl_1_a.test.cpp
   requiredBy: []
-  timestamp: '2024-05-21 17:44:41+09:00'
+  timestamp: '2024-06-20 20:13:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-aoj-grl/grl_1_a.test.cpp

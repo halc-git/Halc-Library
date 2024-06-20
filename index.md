@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/DisjointSparseTable.hpp
       title: Disjoint Sparse Table
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: DataStructure/FenwickTree.hpp
       title: DataStructure/FenwickTree.hpp
     - icon: ':heavy_check_mark:'
@@ -15,13 +15,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: DataStructure/LazySegmentTree.hpp
       title: Lazy Segment Tree
     - icon: ':heavy_check_mark:'
       path: DataStructure/RadixHeap.hpp
       title: DataStructure/RadixHeap.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: DataStructure/SegmentTree.hpp
       title: Segment Tree
     - icon: ':heavy_check_mark:'
@@ -29,12 +29,12 @@ data:
       title: Union Find
   - name: Graph
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Graph/Graph.hpp
       title: Graph/Graph.hpp
   - name: Math
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/ModCombination.hpp
       title: Math/ModCombination.hpp
   - name: Misc
@@ -42,7 +42,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Misc/Compress.hpp
       title: Misc/Compress.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Misc/Mo.hpp
       title: Mo's Algorithm
     - icon: ':heavy_check_mark:'
@@ -53,7 +53,7 @@ data:
       title: Misc/Timer.hpp
   - name: Modint
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -69,24 +69,24 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/InOut.hpp
       title: Template/InOut.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Util.hpp
       title: Template/Util.hpp
   - name: Tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Tree/HLDecomposition.hpp
       title: Tree/HLDecomposition.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
   verificationCategories:
@@ -189,28 +189,28 @@ data:
       title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
   - name: Verify/verify-yuki
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/1092.test.cpp
       title: Verify/verify-yuki/1092.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/117.test.cpp
       title: Verify/verify-yuki/117.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/2338.test.cpp
       title: Verify/verify-yuki/2338.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/235.test.cpp
       title: Verify/verify-yuki/235.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/399.test.cpp
       title: Verify/verify-yuki/399.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/650.test.cpp
       title: Verify/verify-yuki/650.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/900.test.cpp
       title: Verify/verify-yuki/900.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/901.test.cpp
       title: Verify/verify-yuki/901.test.cpp
 layout: toppage

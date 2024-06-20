@@ -1,60 +1,57 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: DataStructure/Hashmap.hpp
-    title: DataStructure/Hashmap.hpp
-  - icon: ':heavy_check_mark:'
-    path: String/RollingHash.hpp
-    title: String/RollingHash.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-    title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-    title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
     title: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
-    title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-    title: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"Misc/Random.hpp\"\n#include <chrono>\n#include <cstdint>\n\
-    inline uint32_t pcg32_fast() {\n    static uint64_t state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
-    \ << 1) + 1;\n    uint64_t x = state;\n    uint8_t count = x >> 61;\n    state\
-    \ *= 0xf13283ad;\n    x ^= x >> 22;\n    return (uint32_t)(x >> (22 + count));\n\
-    }\ninline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)pcg32_fast()\
-    \ * (r - l + 1)) >> 32);\n}\n"
-  code: "#pragma once\n#include <chrono>\n#include <cstdint>\ninline uint32_t pcg32_fast()\
-    \ {\n    static uint64_t state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
-    \ << 1) + 1;\n    uint64_t x = state;\n    uint8_t count = x >> 61;\n    state\
-    \ *= 0xf13283ad;\n    x ^= x >> 22;\n    return (uint32_t)(x >> (22 + count));\n\
-    }\ninline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)pcg32_fast()\
-    \ * (r - l + 1)) >> 32);\n}"
+  bundledCode: "#line 2 \"Misc/Random.hpp\"\n#include <climits>\n#include <cstdint>\n\
+    uint32_t rand_32bit() {\n    static uint32_t x2 = 12345;\n    static uint32_t\
+    \ x3 = 0xcafef00d;\n    static uint64_t c_x1 = uint64_t(0xd15ea5e5) << 32 | 23456;\n\
+    \    uint64_t x = (uint64_t)(x3) * 3487286589;\n    uint32_t result = (x3 ^ x2)\
+    \ + ((uint32_t)(c_x1) ^ (uint32_t)(x >> 32));\n    x3 = x2;\n    x2 = (uint32_t)(c_x1);\n\
+    \    c_x1 = x + (c_x1 >> 32);\n    return result;\n}\n\nuint64_t rand_64bit()\
+    \ {\n    static uint64_t x2 = 12345;\n    static uint64_t x3 = 0xcafef00dd15ea5e5;\n\
+    \    static unsigned __int128 c_x1 =\n        (unsigned __int128)(0xd15ea5e5)\
+    \ << 64 | 23456;\n    unsigned __int128 x = (uint64_t)(x3) * 0xfeb344657c0af413;\n\
+    \    uint64_t result = (x3 ^ x2) + ((uint32_t)(c_x1) ^ (uint32_t)(x >> 64));\n\
+    \    x3 = x2;\n    x2 = (uint64_t)(c_x1);\n    c_x1 = x + (c_x1 >> 64);\n    return\
+    \ result;\n}\n\ninline int32_t randint(int32_t l, int32_t r) {\n    return l +\
+    \ (((int64_t)rand_32bit() * (r - l + 1)) >> 32);\n}\n\ninline int64_t randlong(int64_t\
+    \ l, int64_t r) {\n    return l + (((unsigned __int128)rand_64bit() * (r - l +\
+    \ 1)) >> 32);\n}\n\ninline float rand01() { return (float)rand_32bit() / UINT_MAX;\
+    \ }\n\ninline bool randprob(float prob) { return rand_32bit() < UINT_MAX * prob;\
+    \ }\n"
+  code: "#pragma once\n#include <climits>\n#include <cstdint>\nuint32_t rand_32bit()\
+    \ {\n    static uint32_t x2 = 12345;\n    static uint32_t x3 = 0xcafef00d;\n \
+    \   static uint64_t c_x1 = uint64_t(0xd15ea5e5) << 32 | 23456;\n    uint64_t x\
+    \ = (uint64_t)(x3) * 3487286589;\n    uint32_t result = (x3 ^ x2) + ((uint32_t)(c_x1)\
+    \ ^ (uint32_t)(x >> 32));\n    x3 = x2;\n    x2 = (uint32_t)(c_x1);\n    c_x1\
+    \ = x + (c_x1 >> 32);\n    return result;\n}\n\nuint64_t rand_64bit() {\n    static\
+    \ uint64_t x2 = 12345;\n    static uint64_t x3 = 0xcafef00dd15ea5e5;\n    static\
+    \ unsigned __int128 c_x1 =\n        (unsigned __int128)(0xd15ea5e5) << 64 | 23456;\n\
+    \    unsigned __int128 x = (uint64_t)(x3) * 0xfeb344657c0af413;\n    uint64_t\
+    \ result = (x3 ^ x2) + ((uint32_t)(c_x1) ^ (uint32_t)(x >> 64));\n    x3 = x2;\n\
+    \    x2 = (uint64_t)(c_x1);\n    c_x1 = x + (c_x1 >> 64);\n    return result;\n\
+    }\n\ninline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)rand_32bit()\
+    \ * (r - l + 1)) >> 32);\n}\n\ninline int64_t randlong(int64_t l, int64_t r) {\n\
+    \    return l + (((unsigned __int128)rand_64bit() * (r - l + 1)) >> 32);\n}\n\n\
+    inline float rand01() { return (float)rand_32bit() / UINT_MAX; }\n\ninline bool\
+    \ randprob(float prob) { return rand_32bit() < UINT_MAX * prob; }"
   dependsOn: []
   isVerificationFile: false
   path: Misc/Random.hpp
-  requiredBy:
-  - String/RollingHash.hpp
-  - DataStructure/Hashmap.hpp
-  timestamp: '2024-05-09 15:56:33+09:00'
+  requiredBy: []
+  timestamp: '2024-06-20 20:13:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
-  - Verify/verify-yosupo-datastructure/associative_array.test.cpp
-  - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-  - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-  - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
 documentation_of: Misc/Random.hpp
 layout: document
 redirect_from:

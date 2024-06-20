@@ -2,21 +2,18 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: Misc/Random.hpp
-    title: Misc/Random.hpp
-  - icon: ':heavy_check_mark:'
     path: String/RollingHash.hpp
     title: String/RollingHash.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
@@ -31,31 +28,26 @@ data:
     - https://judge.yosupo.jp/problem/enumerate_palindromes
   bundledCode: "#line 1 \"Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\n\
-    #line 2 \"String/RollingHash.hpp\"\n#include <random>\n#include <vector>\n\n#line\
-    \ 2 \"Misc/Random.hpp\"\n#include <chrono>\n#include <cstdint>\ninline uint32_t\
-    \ pcg32_fast() {\n    static uint64_t state =\n        (std::chrono::steady_clock::now().time_since_epoch().count()\
-    \ << 1) + 1;\n    uint64_t x = state;\n    uint8_t count = x >> 61;\n    state\
-    \ *= 0xf13283ad;\n    x ^= x >> 22;\n    return (uint32_t)(x >> (22 + count));\n\
-    }\ninline int32_t randint(int32_t l, int32_t r) {\n    return l + (((int64_t)pcg32_fast()\
-    \ * (r - l + 1)) >> 32);\n}\n#line 6 \"String/RollingHash.hpp\"\n// https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\n\
-    template <typename S>\nstruct RollingHash {\n    using u64 = uint64_t;\n    static\
-    \ const u64 MOD = (1ULL << 61) - 1;\n    static const u64 MASK31 = (1ULL << 31)\
-    \ - 1;\n    static const u64 MASK30 = (1ULL << 30) - 1;\n    std::vector<u64>\
-    \ powers;\n    u64 base, fixed;\n    static inline u64 add(u64 a, u64 b) {\n \
-    \       if ((a += b) >= MOD) a -= MOD;\n        return a;\n    }\n    static inline\
-    \ u64 calc_mod(u64 x) {\n        u64 xu = x >> 61, xd = x & MOD;\n        u64\
-    \ ret = xu + xd;\n        if (ret >= MOD) ret -= MOD;\n        return ret;\n \
-    \   }\n    static inline u64 mul(u64 a, u64 b) {\n        u64 au = a >> 31, ad\
-    \ = a & MASK31, bu = b >> 31, bd = b & MASK31;\n        u64 mid = ad * bu + au\
-    \ * bd;\n        u64 midu = mid >> 30, midd = mid & MASK30;\n        return calc_mod(((au\
-    \ * bu) << 1) + midu + (midd << 31) + ad * bd);\n    }\n    static inline u64\
-    \ generate_base() {\n        std::mt19937_64 mt(pcg32_fast());\n        std::uniform_int_distribution<u64>\
-    \ rand(1ULL << 60, MOD - 1);\n        return rand(mt);\n    }\n    explicit RollingHash(u64\
-    \ base_number = generate_base(),\n                         u64 fixed_number =\
-    \ 1ULL << 31) {\n        base = base_number;\n        fixed = fixed_number;\n\
-    \        powers = {1};\n    }\n    std::vector<u64> build(const S &s) {\n    \
-    \    uint32_t sz = s.size();\n        std::vector<u64> hashed(sz + 1, 0);\n  \
-    \      while (powers.size() <= sz) {\n            powers.emplace_back(mul(powers.back(),\
+    #line 2 \"String/RollingHash.hpp\"\n#include <chrono>\n#include <random>\n#include\
+    \ <vector>\n\n// https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\ntemplate\
+    \ <typename S>\nstruct RollingHash {\n    using u64 = uint64_t;\n    static const\
+    \ u64 MOD = (1ULL << 61) - 1;\n    static const u64 MASK31 = (1ULL << 31) - 1;\n\
+    \    static const u64 MASK30 = (1ULL << 30) - 1;\n    std::vector<u64> powers;\n\
+    \    u64 base, fixed;\n    static inline u64 add(u64 a, u64 b) {\n        if ((a\
+    \ += b) >= MOD) a -= MOD;\n        return a;\n    }\n    static inline u64 calc_mod(u64\
+    \ x) {\n        u64 xu = x >> 61, xd = x & MOD;\n        u64 ret = xu + xd;\n\
+    \        if (ret >= MOD) ret -= MOD;\n        return ret;\n    }\n    static inline\
+    \ u64 mul(u64 a, u64 b) {\n        u64 au = a >> 31, ad = a & MASK31, bu = b >>\
+    \ 31, bd = b & MASK31;\n        u64 mid = ad * bu + au * bd;\n        u64 midu\
+    \ = mid >> 30, midd = mid & MASK30;\n        return calc_mod(((au * bu) << 1)\
+    \ + midu + (midd << 31) + ad * bd);\n    }\n    static inline u64 generate_base()\
+    \ {\n        std::mt19937_64 mt(\n            std::chrono::steady_clock::now().time_since_epoch().count());\n\
+    \        std::uniform_int_distribution<u64> rand(1ULL << 60, MOD - 1);\n     \
+    \   return rand(mt);\n    }\n    explicit RollingHash(u64 base_number = generate_base(),\n\
+    \                         u64 fixed_number = 1ULL << 31) {\n        base = base_number;\n\
+    \        fixed = fixed_number;\n        powers = {1};\n    }\n    std::vector<u64>\
+    \ build(const S &s) {\n        uint32_t sz = s.size();\n        std::vector<u64>\
+    \ hashed(sz + 1, 0);\n        while (powers.size() <= sz) {\n            powers.emplace_back(mul(powers.back(),\
     \ base));\n        }\n        for (uint32_t i = 0; i < sz; i++) {\n          \
     \  hashed[i + 1] = add(mul(hashed[i], base), s[i] + fixed);\n        }\n     \
     \   return hashed;\n    }\n    u64 query(const std::vector<u64> &s, uint32_t lf,\
@@ -156,8 +148,8 @@ data:
     \ _rep1(i, n) for (ll i = 0; i < (n); i++)\n#define _rep2(i, a, b) for (ll i =\
     \ (a); i < (b); i++)\n#define _rep3(i, a, b, c) for (ll i = (a); i < (b); i +=\
     \ (c))\n#define rep(...) _overload4(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)\n\
-    #define _rrep1(i, n) for (int i = (n) - 1; i >= 0; i--)\n#define _rrep2(i, a,\
-    \ b) for (int i = (b) - 1; i >= (a); i--)\n#define rrep(...) _overload3(__VA_ARGS__,\
+    #define _rrep1(i, n) for (ll i = (n) - 1; i >= 0; i--)\n#define _rrep2(i, a, b)\
+    \ for (ll i = (b) - 1; i >= (a); i--)\n#define rrep(...) _overload3(__VA_ARGS__,\
     \ _rrep2, _rrep1)(__VA_ARGS__)\n#define each(i, ...) for (auto&& i : __VA_ARGS__)\n\
     #define all(i) std::begin(i), std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n\
     #define len(x) ((ll)(x).size())\n#define fi first\n#define se second\n#define\
@@ -202,7 +194,6 @@ data:
     \ = ok << 1;\n    }\n    out(ans);\n}\nint main() { solve(); }"
   dependsOn:
   - String/RollingHash.hpp
-  - Misc/Random.hpp
   - Template/Template.hpp
   - Template/InOut.hpp
   - Template/Util.hpp
@@ -210,7 +201,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
   requiredBy: []
-  timestamp: '2024-05-21 17:44:41+09:00'
+  timestamp: '2024-06-20 20:13:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp

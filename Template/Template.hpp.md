@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
@@ -93,33 +93,33 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
     title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/1092.test.cpp
     title: Verify/verify-yuki/1092.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/235.test.cpp
     title: Verify/verify-yuki/235.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/399.test.cpp
     title: Verify/verify-yuki/399.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/900.test.cpp
     title: Verify/verify-yuki/900.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing\
@@ -210,8 +210,8 @@ data:
     \ _rep1(i, n) for (ll i = 0; i < (n); i++)\n#define _rep2(i, a, b) for (ll i =\
     \ (a); i < (b); i++)\n#define _rep3(i, a, b, c) for (ll i = (a); i < (b); i +=\
     \ (c))\n#define rep(...) _overload4(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)\n\
-    #define _rrep1(i, n) for (int i = (n) - 1; i >= 0; i--)\n#define _rrep2(i, a,\
-    \ b) for (int i = (b) - 1; i >= (a); i--)\n#define rrep(...) _overload3(__VA_ARGS__,\
+    #define _rrep1(i, n) for (ll i = (n) - 1; i >= 0; i--)\n#define _rrep2(i, a, b)\
+    \ for (ll i = (b) - 1; i >= (a); i--)\n#define rrep(...) _overload3(__VA_ARGS__,\
     \ _rrep2, _rrep1)(__VA_ARGS__)\n#define each(i, ...) for (auto&& i : __VA_ARGS__)\n\
     #define all(i) std::begin(i), std::end(i)\n#define rall(i) std::rbegin(i), std::rend(i)\n\
     #define len(x) ((ll)(x).size())\n#define fi first\n#define se second\n#define\
@@ -245,44 +245,44 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy: []
-  timestamp: '2024-05-21 17:44:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-06-20 20:13:50+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - Verify/verify-aoj-grl/grl_1_a.test.cpp
-  - Verify/verify-yuki/399.test.cpp
-  - Verify/verify-yuki/2338.test.cpp
-  - Verify/verify-yuki/117.test.cpp
-  - Verify/verify-yuki/901.test.cpp
-  - Verify/verify-yuki/235.test.cpp
-  - Verify/verify-yuki/650.test.cpp
-  - Verify/verify-yuki/1092.test.cpp
-  - Verify/verify-yuki/900.test.cpp
-  - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
-  - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-  - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - Verify/verify-yosupo-datastructure/unionfind.test.cpp
-  - Verify/verify-yosupo-datastructure/staticrmq.test.cpp
-  - Verify/verify-yosupo-datastructure/associative_array.test.cpp
-  - Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
-  - Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
-  - Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
-  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-  - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
-  - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
-  - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-  - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-  - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-  - Verify/verify-aoj/2667.test.cpp
-  - Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
-  - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
   - Verify/verify-yosupo-string/zalgorithm.test.cpp
+  - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
+  - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+  - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
+  - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
+  - Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
+  - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
+  - Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
+  - Verify/verify-yosupo-datastructure/unionfind.test.cpp
+  - Verify/verify-yosupo-datastructure/associative_array.test.cpp
+  - Verify/verify-yosupo-datastructure/staticrmq.test.cpp
+  - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+  - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
+  - Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+  - Verify/verify-yuki/235.test.cpp
+  - Verify/verify-yuki/650.test.cpp
+  - Verify/verify-yuki/901.test.cpp
+  - Verify/verify-yuki/117.test.cpp
+  - Verify/verify-yuki/2338.test.cpp
+  - Verify/verify-yuki/900.test.cpp
+  - Verify/verify-yuki/1092.test.cpp
+  - Verify/verify-yuki/399.test.cpp
+  - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
+  - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+  - Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
+  - Verify/verify-aoj-grl/grl_1_a.test.cpp
+  - Verify/verify-aoj/2667.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:
