@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
     title: Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Misc/Timer.hpp\"\n#include <chrono>\nstatic auto StartTime\
@@ -24,7 +24,7 @@ data:
   path: Misc/Timer.hpp
   requiredBy: []
   timestamp: '2024-05-11 13:30:23+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-sample/aplusb-test_timer.test.cpp
 documentation_of: Misc/Timer.hpp
