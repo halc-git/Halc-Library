@@ -32,7 +32,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
     links:
     - https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+  bundledCode: "#line 1 \"Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
     \n#line 2 \"Graph/Graph.hpp\"\n#include <cstdint>\n#include <vector>\ntemplate\
     \ <class T = int32_t>\nstruct Edge {\n    int32_t from, to;\n    T cost;\n   \
@@ -107,16 +107,16 @@ data:
     \ ArbitraryModint operator-() noexcept {\n        return ArbitraryModint() - (*this);\n\
     \    }\n    friend ArbitraryModint operator+(const ArbitraryModint lhs,\n    \
     \                                 const ArbitraryModint rhs) noexcept {\n    \
-    \    return Modint(lhs) += rhs;\n    }\n    friend ArbitraryModint operator-(const\
+    \    return ArbitraryModint(lhs) += rhs;\n    }\n    friend ArbitraryModint operator-(const\
     \ ArbitraryModint lhs,\n                                     const ArbitraryModint\
-    \ rhs) noexcept {\n        return Modint(lhs) -= rhs;\n    }\n    friend ArbitraryModint\
-    \ operator*(const ArbitraryModint lhs,\n                                     const\
-    \ ArbitraryModint rhs) noexcept {\n        return Modint(lhs) *= rhs;\n    }\n\
-    \    friend ArbitraryModint operator/(const ArbitraryModint lhs,\n           \
-    \                          const ArbitraryModint rhs) {\n        return Modint(lhs)\
-    \ /= rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const ArbitraryModint\
-    \ rhs) noexcept {\n        x += rhs.x;\n        if (x >= mod()) x -= mod();\n\
-    \        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
+    \ rhs) noexcept {\n        return ArbitraryModint(lhs) -= rhs;\n    }\n    friend\
+    \ ArbitraryModint operator*(const ArbitraryModint lhs,\n                     \
+    \                const ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(lhs)\
+    \ *= rhs;\n    }\n    friend ArbitraryModint operator/(const ArbitraryModint lhs,\n\
+    \                                     const ArbitraryModint rhs) {\n        return\
+    \ ArbitraryModint(lhs) /= rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const\
+    \ ArbitraryModint rhs) noexcept {\n        x += rhs.x;\n        if (x >= mod())\
+    \ x -= mod();\n        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
     \ ArbitraryModint rhs) noexcept {\n        if (x < rhs.x) x += mod();\n      \
     \  x -= rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
     \ ArbitraryModint rhs) noexcept {\n        x = _get_mod(x * rhs.x);\n        return\
@@ -325,7 +325,7 @@ data:
     \    void calc(int32_t pos) {\n        int32_t change = node_pos[pos];\n     \
     \   while (nodes[change].parent != -1) {\n            _calc_val(change);\n   \
     \         change = nodes[change].parent;\n        }\n        _calc_val(change);\n\
-    \    }\n    int32_t size() { return sz; }\n};\n#line 6 \"Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
+    \    }\n    int32_t size() { return sz; }\n};\n#line 6 \"Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
     \nusing mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type\
     \ = pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a,\
     \ N);\n    Graph<func_type> gr(N);\n    rep(i, N - 1) {\n        LL(u, v, b, c);\n\
@@ -386,15 +386,15 @@ data:
   - Template/Macro.hpp
   - Tree/StaticTopTree.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
+  path: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
   requiredBy: []
-  timestamp: '2024-10-21 14:07:40+09:00'
+  timestamp: '2024-10-21 14:20:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
+documentation_of: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp.html
-title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
+- /verify/Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
+- /verify/Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp.html
+title: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
 ---

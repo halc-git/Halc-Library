@@ -114,9 +114,6 @@ data:
       path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
-      path: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
-      title: Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
-    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
       title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
     - icon: ':heavy_check_mark:'
@@ -143,20 +140,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
       title: Verify/verify-yosupo-datastructure/unionfind.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
-      title: Verify/verify-yosupo-datastructure/vertex_add_path_sum.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
-      title: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
-      title: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
-  - name: Verify/verify-yosupo-math
+  - name: Verify/verify-yosupo-enumerative-combinatorics
     pages:
     - icon: ':x:'
-      path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-      title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+      path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
+      title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-string
     pages:
     - icon: ':heavy_check_mark:'
@@ -176,6 +164,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
       title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
+      title: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
+      title: Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
+      title: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
+      title: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   - name: Verify/verify-yuki
     pages:
     - icon: ':heavy_check_mark:'

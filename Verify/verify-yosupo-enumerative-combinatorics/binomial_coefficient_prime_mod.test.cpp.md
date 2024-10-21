@@ -29,7 +29,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
     links:
     - https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
-  bundledCode: "#line 1 \"Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp\"\
+  bundledCode: "#line 1 \"Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
     \n#line 2 \"Math/ModCombination.hpp\"\n#include <cstdint>\n#include <vector>\n\
     template <typename T>\nstruct ModCombination {\n    std::vector<T> fact = {1},\
@@ -98,16 +98,16 @@ data:
     \ ArbitraryModint operator-() noexcept {\n        return ArbitraryModint() - (*this);\n\
     \    }\n    friend ArbitraryModint operator+(const ArbitraryModint lhs,\n    \
     \                                 const ArbitraryModint rhs) noexcept {\n    \
-    \    return Modint(lhs) += rhs;\n    }\n    friend ArbitraryModint operator-(const\
+    \    return ArbitraryModint(lhs) += rhs;\n    }\n    friend ArbitraryModint operator-(const\
     \ ArbitraryModint lhs,\n                                     const ArbitraryModint\
-    \ rhs) noexcept {\n        return Modint(lhs) -= rhs;\n    }\n    friend ArbitraryModint\
-    \ operator*(const ArbitraryModint lhs,\n                                     const\
-    \ ArbitraryModint rhs) noexcept {\n        return Modint(lhs) *= rhs;\n    }\n\
-    \    friend ArbitraryModint operator/(const ArbitraryModint lhs,\n           \
-    \                          const ArbitraryModint rhs) {\n        return Modint(lhs)\
-    \ /= rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const ArbitraryModint\
-    \ rhs) noexcept {\n        x += rhs.x;\n        if (x >= mod()) x -= mod();\n\
-    \        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
+    \ rhs) noexcept {\n        return ArbitraryModint(lhs) -= rhs;\n    }\n    friend\
+    \ ArbitraryModint operator*(const ArbitraryModint lhs,\n                     \
+    \                const ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(lhs)\
+    \ *= rhs;\n    }\n    friend ArbitraryModint operator/(const ArbitraryModint lhs,\n\
+    \                                     const ArbitraryModint rhs) {\n        return\
+    \ ArbitraryModint(lhs) /= rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const\
+    \ ArbitraryModint rhs) noexcept {\n        x += rhs.x;\n        if (x >= mod())\
+    \ x -= mod();\n        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
     \ ArbitraryModint rhs) noexcept {\n        if (x < rhs.x) x += mod();\n      \
     \  x -= rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
     \ ArbitraryModint rhs) noexcept {\n        x = _get_mod(x * rhs.x);\n        return\
@@ -233,14 +233,14 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp\"\
-    \nusing mint = ArbitraryModint<-1>;\nvoid solve() {\n    LL(T, m);\n    mint::set_mod(m);\n\
+    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp\"\
+    \nusing mint = ArbitraryModint<0>;\nvoid solve() {\n    LL(T, m);\n    mint::set_mod(m);\n\
     \    ModCombination<mint> comb;\n    comb.resize(min(m, 10000000LL));\n    rep(i,\
     \ T) {\n        LL(n, k);\n        out(comb.comb(n, k));\n    }\n}\nint main()\
     \ { solve(); }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
     \n#include \"../../Math/ModCombination.hpp\"\n#include \"../../Modint/Modint.hpp\"\
-    \n#include \"../../Template/Template.hpp\"\nusing mint = ArbitraryModint<-1>;\n\
+    \n#include \"../../Template/Template.hpp\"\nusing mint = ArbitraryModint<0>;\n\
     void solve() {\n    LL(T, m);\n    mint::set_mod(m);\n    ModCombination<mint>\
     \ comb;\n    comb.resize(min(m, 10000000LL));\n    rep(i, T) {\n        LL(n,\
     \ k);\n        out(comb.comb(n, k));\n    }\n}\nint main() { solve(); }"
@@ -252,15 +252,15 @@ data:
   - Template/Util.hpp
   - Template/Macro.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+  path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-10-21 14:07:40+09:00'
+  timestamp: '2024-10-21 14:20:24+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+documentation_of: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-- /verify/Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp.html
-title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+- /verify/Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
+- /verify/Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp.html
+title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
 ---

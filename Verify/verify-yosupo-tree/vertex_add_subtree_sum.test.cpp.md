@@ -32,7 +32,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/vertex_add_subtree_sum
     links:
     - https://judge.yosupo.jp/problem/vertex_add_subtree_sum
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp\"\
+  bundledCode: "#line 1 \"Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\n\
     #line 2 \"DataStructure/FenwickTree.hpp\"\n#include <bit>\n#include <cstdint>\n\
     #include <vector>\ntemplate <class T>\nstruct FenwickTree {\n    std::vector<T>\
@@ -213,7 +213,7 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 6 \"Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp\"\
+    \ name(h, std::vector<type>(w)); in(name)\n#line 6 \"Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp\"\
     \nvoid solve() {\n    LL(N, Q);\n    VEC(ll, a, N);\n    Graph gr(N);\n    VEC(ll,\
     \ p, N - 1);\n    rep(i, N - 1) { gr.add_edge(i + 1, p[i]); }\n    FenwickTree<ll>\
     \ fw(N);\n    HLDecomposition hld(gr);\n    rep(i, N) { fw.add(hld[i], a[i]);\
@@ -240,15 +240,15 @@ data:
   - Template/Util.hpp
   - Template/Macro.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+  path: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-20 20:13:50+09:00'
+  timestamp: '2024-10-21 14:20:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+documentation_of: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp.html
-title: Verify/verify-yosupo-datastructure/vertex_add_subtree_sum.test.cpp
+- /verify/Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
+- /verify/Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp.html
+title: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
 ---

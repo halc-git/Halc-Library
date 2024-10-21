@@ -35,7 +35,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/vertex_set_path_composite
     links:
     - https://judge.yosupo.jp/problem/vertex_set_path_composite
-  bundledCode: "#line 1 \"Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp\"\
+  bundledCode: "#line 1 \"Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_set_path_composite\"\
     \n#line 2 \"DataStructure/SegmentTree.hpp\"\n#include <cstdint>\n#include <queue>\n\
     #include <stack>\n#include <vector>\ntemplate <class M>\nstruct SegmentTree {\n\
@@ -165,16 +165,16 @@ data:
     \ ArbitraryModint operator-() noexcept {\n        return ArbitraryModint() - (*this);\n\
     \    }\n    friend ArbitraryModint operator+(const ArbitraryModint lhs,\n    \
     \                                 const ArbitraryModint rhs) noexcept {\n    \
-    \    return Modint(lhs) += rhs;\n    }\n    friend ArbitraryModint operator-(const\
+    \    return ArbitraryModint(lhs) += rhs;\n    }\n    friend ArbitraryModint operator-(const\
     \ ArbitraryModint lhs,\n                                     const ArbitraryModint\
-    \ rhs) noexcept {\n        return Modint(lhs) -= rhs;\n    }\n    friend ArbitraryModint\
-    \ operator*(const ArbitraryModint lhs,\n                                     const\
-    \ ArbitraryModint rhs) noexcept {\n        return Modint(lhs) *= rhs;\n    }\n\
-    \    friend ArbitraryModint operator/(const ArbitraryModint lhs,\n           \
-    \                          const ArbitraryModint rhs) {\n        return Modint(lhs)\
-    \ /= rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const ArbitraryModint\
-    \ rhs) noexcept {\n        x += rhs.x;\n        if (x >= mod()) x -= mod();\n\
-    \        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
+    \ rhs) noexcept {\n        return ArbitraryModint(lhs) -= rhs;\n    }\n    friend\
+    \ ArbitraryModint operator*(const ArbitraryModint lhs,\n                     \
+    \                const ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(lhs)\
+    \ *= rhs;\n    }\n    friend ArbitraryModint operator/(const ArbitraryModint lhs,\n\
+    \                                     const ArbitraryModint rhs) {\n        return\
+    \ ArbitraryModint(lhs) /= rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const\
+    \ ArbitraryModint rhs) noexcept {\n        x += rhs.x;\n        if (x >= mod())\
+    \ x -= mod();\n        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
     \ ArbitraryModint rhs) noexcept {\n        if (x < rhs.x) x += mod();\n      \
     \  x -= rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
     \ ArbitraryModint rhs) noexcept {\n        x = _get_mod(x * rhs.x);\n        return\
@@ -342,7 +342,7 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 7 \"Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp\"\
+    \ name(h, std::vector<type>(w)); in(name)\n#line 7 \"Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp\"\
     \nusing mint = Modint<MOD>;\nstruct composite {\n    using T = pair<mint, mint>;\n\
     \    static T op(T lf, T ri) { return T(lf.fi * ri.fi, lf.se * ri.fi + ri.se);\
     \ }\n    static inline T e = T(1, 0);\n};\nstruct rev_composite : composite {\n\
@@ -390,15 +390,15 @@ data:
   - Template/Util.hpp
   - Template/Macro.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+  path: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-10-21 14:07:40+09:00'
+  timestamp: '2024-10-21 14:20:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+documentation_of: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
-- /verify/Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp.html
-title: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+- /verify/Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
+- /verify/Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp.html
+title: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
 ---

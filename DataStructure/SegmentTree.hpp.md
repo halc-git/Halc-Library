@@ -10,8 +10,8 @@ data:
     path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
-    title: Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+    path: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
+    title: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
@@ -141,8 +141,8 @@ data:
   timestamp: '2024-05-15 20:31:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   - Verify/verify-yuki/650.test.cpp
-  - Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
   - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
   - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
 documentation_of: DataStructure/SegmentTree.hpp

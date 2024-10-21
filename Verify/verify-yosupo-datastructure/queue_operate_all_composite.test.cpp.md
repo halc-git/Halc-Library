@@ -146,109 +146,110 @@ data:
     \    constexpr ArbitraryModint operator-() noexcept {\n        return ArbitraryModint()\
     \ - (*this);\n    }\n    friend ArbitraryModint operator+(const ArbitraryModint\
     \ lhs,\n                                     const ArbitraryModint rhs) noexcept\
-    \ {\n        return Modint(lhs) += rhs;\n    }\n    friend ArbitraryModint operator-(const\
+    \ {\n        return ArbitraryModint(lhs) += rhs;\n    }\n    friend ArbitraryModint\
+    \ operator-(const ArbitraryModint lhs,\n                                     const\
+    \ ArbitraryModint rhs) noexcept {\n        return ArbitraryModint(lhs) -= rhs;\n\
+    \    }\n    friend ArbitraryModint operator*(const ArbitraryModint lhs,\n    \
+    \                                 const ArbitraryModint rhs) noexcept {\n    \
+    \    return ArbitraryModint(lhs) *= rhs;\n    }\n    friend ArbitraryModint operator/(const\
     \ ArbitraryModint lhs,\n                                     const ArbitraryModint\
-    \ rhs) noexcept {\n        return Modint(lhs) -= rhs;\n    }\n    friend ArbitraryModint\
-    \ operator*(const ArbitraryModint lhs,\n                                     const\
-    \ ArbitraryModint rhs) noexcept {\n        return Modint(lhs) *= rhs;\n    }\n\
-    \    friend ArbitraryModint operator/(const ArbitraryModint lhs,\n           \
-    \                          const ArbitraryModint rhs) {\n        return Modint(lhs)\
-    \ /= rhs;\n    }\n    constexpr ArbitraryModint &operator+=(const ArbitraryModint\
-    \ rhs) noexcept {\n        x += rhs.x;\n        if (x >= mod()) x -= mod();\n\
-    \        return *this;\n    }\n    constexpr ArbitraryModint &operator-=(const\
-    \ ArbitraryModint rhs) noexcept {\n        if (x < rhs.x) x += mod();\n      \
-    \  x -= rhs.x;\n        return *this;\n    }\n    constexpr ArbitraryModint &operator*=(const\
-    \ ArbitraryModint rhs) noexcept {\n        x = _get_mod(x * rhs.x);\n        return\
-    \ *this;\n    }\n    friend bool operator==(const ArbitraryModint lhs,\n     \
-    \                      const ArbitraryModint rhs) noexcept {\n        return lhs.x\
-    \ == rhs.x;\n    }\n    friend bool operator!=(const ArbitraryModint lhs,\n  \
-    \                         const ArbitraryModint rhs) noexcept {\n        return\
-    \ rhs.x != rhs.x;\n    }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint\
-    \ rhs) {\n        return (*this) *= rhs.inv();\n    }\n    constexpr ArbitraryModint\
-    \ inv() {\n        int64_t a = (*this).x, b = get_mod();\n        assert(a !=\
-    \ 0);\n        int64_t s = b, t = a;\n        int64_t m0 = 0, m1 = 1;\n      \
-    \  while (t) {\n            int64_t u = s / t;\n            s -= t * u;\n    \
-    \        m0 -= m1 * u;\n            int64_t tmp = s;\n            s = t;\n   \
-    \         t = tmp;\n            tmp = m0;\n            m0 = m1;\n            m1\
-    \ = tmp;\n        }\n        assert(s == 1);\n        if (m0 < 0) m0 += b;\n \
-    \       return ArbitraryModint(m0);\n    }\n    constexpr ArbitraryModint pow(uint64_t\
-    \ x) noexcept {\n        ArbitraryModint ret = 1;\n        ArbitraryModint bin\
-    \ = (*this);\n        while (x) {\n            if (x & 1) ret *= bin;\n      \
-    \      bin *= bin;\n            x >>= 1;\n        }\n        return ret;\n   \
-    \ }\n    static void set_mod(const uint64_t x) noexcept { mod() = x; }\n    static\
-    \ uint64_t get_mod() noexcept { return mod(); }\n};\ntemplate <uint64_t N>\ninline\
-    \ void scan(Modint<N> &a) {\n    std::cin >> a.x;\n}\ntemplate <int64_t id>\n\
-    inline void scan(ArbitraryModint<id> &a) {\n    std::cin >> a.x;\n}\ntemplate\
-    \ <uint64_t N>\ninline void print(Modint<N> a) {\n    std::cout << a.x;\n}\ntemplate\
-    \ <int64_t id>\ninline void print(ArbitraryModint<id> a) {\n    std::cout << a.x;\n\
-    }\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\n\n#line 8 \"Template/InOut.hpp\"\ninline void scan() {}\ninline void scan(int\
-    \ &a) { std::cin >> a; }\ninline void scan(unsigned &a) { std::cin >> a; }\ninline\
-    \ void scan(long &a) { std::cin >> a; }\ninline void scan(long long &a) { std::cin\
-    \ >> a; }\ninline void scan(unsigned long long &a) { std::cin >> a; }\ninline\
-    \ void scan(char &a) { std::cin >> a; }\ninline void scan(float &a) { std::cin\
-    \ >> a; }\ninline void scan(double &a) { std::cin >> a; }\ninline void scan(long\
-    \ double &a) { std::cin >> a; }\ninline void scan(std::vector<bool> &vec) {\n\
-    \    for (int32_t i = 0; i < vec.size(); i++) {\n        int a;\n        scan(a);\n\
-    \        vec[i] = a;\n    }\n}\ninline void scan(std::string &a) { std::cin >>\
-    \ a; }\ntemplate <class T>\ninline void scan(std::vector<T> &vec);\ntemplate <class\
-    \ T, size_t size>\ninline void scan(std::array<T, size> &vec);\ntemplate <class\
-    \ T, class L>\ninline void scan(std::pair<T, L> &p);\ntemplate <class T, size_t\
-    \ size>\ninline void scan(T (&vec)[size]);\ntemplate <class T>\ninline void scan(std::vector<T>\
-    \ &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class T>\ninline void\
-    \ scan(std::deque<T> &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class\
-    \ T, size_t size>\ninline void scan(std::array<T, size> &vec) {\n    for (auto\
-    \ &i : vec) scan(i);\n}\ntemplate <class T, class L>\ninline void scan(std::pair<T,\
-    \ L> &p) {\n    scan(p.first);\n    scan(p.second);\n}\ntemplate <class T, size_t\
-    \ size>\ninline void scan(T (&vec)[size]) {\n    for (auto &i : vec) scan(i);\n\
-    }\ntemplate <class T>\ninline void scan(T &a) {\n    std::cin >> a;\n}\ninline\
-    \ void in() {}\ntemplate <class Head, class... Tail>\ninline void in(Head &head,\
-    \ Tail &...tail) {\n    scan(head);\n    in(tail...);\n}\ninline void print()\
-    \ { std::cout << ' '; }\ninline void print(const bool &a) { std::cout << a; }\n\
-    inline void print(const int &a) { std::cout << a; }\ninline void print(const unsigned\
-    \ &a) { std::cout << a; }\ninline void print(const long &a) { std::cout << a;\
-    \ }\ninline void print(const long long &a) { std::cout << a; }\ninline void print(const\
-    \ unsigned long long &a) { std::cout << a; }\ninline void print(const char &a)\
-    \ { std::cout << a; }\ninline void print(const char a[]) { std::cout << a; }\n\
-    inline void print(const float &a) { std::cout << a; }\ninline void print(const\
-    \ double &a) { std::cout << a; }\ninline void print(const long double &a) { std::cout\
-    \ << a; }\ninline void print(const std::string &a) {\n    for (auto &&i : a) print(i);\n\
-    }\ntemplate <class T>\ninline void print(const std::vector<T> &vec);\ntemplate\
-    \ <class T, size_t size>\ninline void print(const std::array<T, size> &vec);\n\
-    template <class T, class L>\ninline void print(const std::pair<T, L> &p);\ntemplate\
-    \ <class T, size_t size>\ninline void print(const T (&vec)[size]);\ntemplate <class\
-    \ T>\ninline void print(const std::vector<T> &vec) {\n    if (vec.empty()) return;\n\
-    \    print(vec[0]);\n    for (auto i = vec.begin(); ++i != vec.end();) {\n   \
-    \     std::cout << ' ';\n        print(*i);\n    }\n}\ntemplate <class T>\ninline\
-    \ void print(const std::deque<T> &vec) {\n    if (vec.empty()) return;\n    print(vec[0]);\n\
-    \    for (auto i = vec.begin(); ++i != vec.end();) {\n        std::cout << ' ';\n\
-    \        print(*i);\n    }\n}\ntemplate <class T, size_t size>\ninline void print(const\
-    \ std::array<T, size> &vec) {\n    print(vec[0]);\n    for (auto i = vec.begin();\
+    \ rhs) {\n        return ArbitraryModint(lhs) /= rhs;\n    }\n    constexpr ArbitraryModint\
+    \ &operator+=(const ArbitraryModint rhs) noexcept {\n        x += rhs.x;\n   \
+    \     if (x >= mod()) x -= mod();\n        return *this;\n    }\n    constexpr\
+    \ ArbitraryModint &operator-=(const ArbitraryModint rhs) noexcept {\n        if\
+    \ (x < rhs.x) x += mod();\n        x -= rhs.x;\n        return *this;\n    }\n\
+    \    constexpr ArbitraryModint &operator*=(const ArbitraryModint rhs) noexcept\
+    \ {\n        x = _get_mod(x * rhs.x);\n        return *this;\n    }\n    friend\
+    \ bool operator==(const ArbitraryModint lhs,\n                           const\
+    \ ArbitraryModint rhs) noexcept {\n        return lhs.x == rhs.x;\n    }\n   \
+    \ friend bool operator!=(const ArbitraryModint lhs,\n                        \
+    \   const ArbitraryModint rhs) noexcept {\n        return rhs.x != rhs.x;\n  \
+    \  }\n    constexpr ArbitraryModint &operator/=(ArbitraryModint rhs) {\n     \
+    \   return (*this) *= rhs.inv();\n    }\n    constexpr ArbitraryModint inv() {\n\
+    \        int64_t a = (*this).x, b = get_mod();\n        assert(a != 0);\n    \
+    \    int64_t s = b, t = a;\n        int64_t m0 = 0, m1 = 1;\n        while (t)\
+    \ {\n            int64_t u = s / t;\n            s -= t * u;\n            m0 -=\
+    \ m1 * u;\n            int64_t tmp = s;\n            s = t;\n            t = tmp;\n\
+    \            tmp = m0;\n            m0 = m1;\n            m1 = tmp;\n        }\n\
+    \        assert(s == 1);\n        if (m0 < 0) m0 += b;\n        return ArbitraryModint(m0);\n\
+    \    }\n    constexpr ArbitraryModint pow(uint64_t x) noexcept {\n        ArbitraryModint\
+    \ ret = 1;\n        ArbitraryModint bin = (*this);\n        while (x) {\n    \
+    \        if (x & 1) ret *= bin;\n            bin *= bin;\n            x >>= 1;\n\
+    \        }\n        return ret;\n    }\n    static void set_mod(const uint64_t\
+    \ x) noexcept { mod() = x; }\n    static uint64_t get_mod() noexcept { return\
+    \ mod(); }\n};\ntemplate <uint64_t N>\ninline void scan(Modint<N> &a) {\n    std::cin\
+    \ >> a.x;\n}\ntemplate <int64_t id>\ninline void scan(ArbitraryModint<id> &a)\
+    \ {\n    std::cin >> a.x;\n}\ntemplate <uint64_t N>\ninline void print(Modint<N>\
+    \ a) {\n    std::cout << a.x;\n}\ntemplate <int64_t id>\ninline void print(ArbitraryModint<id>\
+    \ a) {\n    std::cout << a.x;\n}\n#line 2 \"Template/Template.hpp\"\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline\
+    \ void scan() {}\ninline void scan(int &a) { std::cin >> a; }\ninline void scan(unsigned\
+    \ &a) { std::cin >> a; }\ninline void scan(long &a) { std::cin >> a; }\ninline\
+    \ void scan(long long &a) { std::cin >> a; }\ninline void scan(unsigned long long\
+    \ &a) { std::cin >> a; }\ninline void scan(char &a) { std::cin >> a; }\ninline\
+    \ void scan(float &a) { std::cin >> a; }\ninline void scan(double &a) { std::cin\
+    \ >> a; }\ninline void scan(long double &a) { std::cin >> a; }\ninline void scan(std::vector<bool>\
+    \ &vec) {\n    for (int32_t i = 0; i < vec.size(); i++) {\n        int a;\n  \
+    \      scan(a);\n        vec[i] = a;\n    }\n}\ninline void scan(std::string &a)\
+    \ { std::cin >> a; }\ntemplate <class T>\ninline void scan(std::vector<T> &vec);\n\
+    template <class T, size_t size>\ninline void scan(std::array<T, size> &vec);\n\
+    template <class T, class L>\ninline void scan(std::pair<T, L> &p);\ntemplate <class\
+    \ T, size_t size>\ninline void scan(T (&vec)[size]);\ntemplate <class T>\ninline\
+    \ void scan(std::vector<T> &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate\
+    \ <class T>\ninline void scan(std::deque<T> &vec) {\n    for (auto &i : vec) scan(i);\n\
+    }\ntemplate <class T, size_t size>\ninline void scan(std::array<T, size> &vec)\
+    \ {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class T, class L>\ninline\
+    \ void scan(std::pair<T, L> &p) {\n    scan(p.first);\n    scan(p.second);\n}\n\
+    template <class T, size_t size>\ninline void scan(T (&vec)[size]) {\n    for (auto\
+    \ &i : vec) scan(i);\n}\ntemplate <class T>\ninline void scan(T &a) {\n    std::cin\
+    \ >> a;\n}\ninline void in() {}\ntemplate <class Head, class... Tail>\ninline\
+    \ void in(Head &head, Tail &...tail) {\n    scan(head);\n    in(tail...);\n}\n\
+    inline void print() { std::cout << ' '; }\ninline void print(const bool &a) {\
+    \ std::cout << a; }\ninline void print(const int &a) { std::cout << a; }\ninline\
+    \ void print(const unsigned &a) { std::cout << a; }\ninline void print(const long\
+    \ &a) { std::cout << a; }\ninline void print(const long long &a) { std::cout <<\
+    \ a; }\ninline void print(const unsigned long long &a) { std::cout << a; }\ninline\
+    \ void print(const char &a) { std::cout << a; }\ninline void print(const char\
+    \ a[]) { std::cout << a; }\ninline void print(const float &a) { std::cout << a;\
+    \ }\ninline void print(const double &a) { std::cout << a; }\ninline void print(const\
+    \ long double &a) { std::cout << a; }\ninline void print(const std::string &a)\
+    \ {\n    for (auto &&i : a) print(i);\n}\ntemplate <class T>\ninline void print(const\
+    \ std::vector<T> &vec);\ntemplate <class T, size_t size>\ninline void print(const\
+    \ std::array<T, size> &vec);\ntemplate <class T, class L>\ninline void print(const\
+    \ std::pair<T, L> &p);\ntemplate <class T, size_t size>\ninline void print(const\
+    \ T (&vec)[size]);\ntemplate <class T>\ninline void print(const std::vector<T>\
+    \ &vec) {\n    if (vec.empty()) return;\n    print(vec[0]);\n    for (auto i =\
+    \ vec.begin(); ++i != vec.end();) {\n        std::cout << ' ';\n        print(*i);\n\
+    \    }\n}\ntemplate <class T>\ninline void print(const std::deque<T> &vec) {\n\
+    \    if (vec.empty()) return;\n    print(vec[0]);\n    for (auto i = vec.begin();\
     \ ++i != vec.end();) {\n        std::cout << ' ';\n        print(*i);\n    }\n\
-    }\ntemplate <class T, class L>\ninline void print(const std::pair<T, L> &p) {\n\
-    \    print(p.first);\n    std::cout << ' ';\n    print(p.second);\n}\ntemplate\
-    \ <class T, size_t size>\ninline void print(const T (&vec)[size]) {\n    print(vec[0]);\n\
-    \    for (auto i = vec; ++i != end(vec);) {\n        std::cout << ' ';\n     \
-    \   print(*i);\n    }\n}\ntemplate <class T>\ninline void print(const T &a) {\n\
-    \    std::cout << a;\n}\ninline void out() { std::cout << '\\n'; }\ntemplate <class\
-    \ T>\ninline void out(const T &t) {\n    print(t);\n    std::cout << '\\n';\n\
-    }\ntemplate <class Head, class... Tail>\ninline void out(const Head &head, const\
-    \ Tail &...tail) {\n    print(head);\n    std::cout << ' ';\n    out(tail...);\n\
-    }\ninline void Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void\
-    \ No(bool i = true) { out(i ? \"No\" : \"Yes\"); }\ninline void Takahashi(bool\
-    \ i = true) { out(i ? \"Takahashi\" : \"Aoki\"); }\ninline void Aoki(bool i =\
-    \ true) { out(i ? \"Aoki\" : \"Takahashi\"); }\ninline void First(bool i = true)\
-    \ { out(i ? \"First\" : \"Second\"); }\ninline void Second(bool i = true) { out(i\
-    \ ? \"Second\" : \"First\"); }\ninline void Possible(bool i = true) { out(i ?\
-    \ \"Possible\" : \"Impossible\"); }\ninline void Impossible(bool i = true) { out(i\
-    \ ? \"Impossible\" : \"Possible\"); }\ninline void fls() { std::flush(std::cout);\
-    \ }\nstruct IOsetup {\n    IOsetup() {\n        std::ios::sync_with_stdio(false);\n\
-    \        std::cin.tie(nullptr);\n        std::cout << std::fixed << std::setprecision(16);\n\
-    \    }\n} iosetup;\n#line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing\
-    \ ld = long double;\nusing ull = unsigned long long;\nusing uint = unsigned int;\n\
-    using pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\n\
-    using vvl = std::vector<std::vector<ll>>;\nusing pdd = std::pair<ld, ld>;\nusing\
-    \ tuplis = std::array<ll, 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T,\
+    }\ntemplate <class T, size_t size>\ninline void print(const std::array<T, size>\
+    \ &vec) {\n    print(vec[0]);\n    for (auto i = vec.begin(); ++i != vec.end();)\
+    \ {\n        std::cout << ' ';\n        print(*i);\n    }\n}\ntemplate <class\
+    \ T, class L>\ninline void print(const std::pair<T, L> &p) {\n    print(p.first);\n\
+    \    std::cout << ' ';\n    print(p.second);\n}\ntemplate <class T, size_t size>\n\
+    inline void print(const T (&vec)[size]) {\n    print(vec[0]);\n    for (auto i\
+    \ = vec; ++i != end(vec);) {\n        std::cout << ' ';\n        print(*i);\n\
+    \    }\n}\ntemplate <class T>\ninline void print(const T &a) {\n    std::cout\
+    \ << a;\n}\ninline void out() { std::cout << '\\n'; }\ntemplate <class T>\ninline\
+    \ void out(const T &t) {\n    print(t);\n    std::cout << '\\n';\n}\ntemplate\
+    \ <class Head, class... Tail>\ninline void out(const Head &head, const Tail &...tail)\
+    \ {\n    print(head);\n    std::cout << ' ';\n    out(tail...);\n}\ninline void\
+    \ Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void No(bool i = true)\
+    \ { out(i ? \"No\" : \"Yes\"); }\ninline void Takahashi(bool i = true) { out(i\
+    \ ? \"Takahashi\" : \"Aoki\"); }\ninline void Aoki(bool i = true) { out(i ? \"\
+    Aoki\" : \"Takahashi\"); }\ninline void First(bool i = true) { out(i ? \"First\"\
+    \ : \"Second\"); }\ninline void Second(bool i = true) { out(i ? \"Second\" : \"\
+    First\"); }\ninline void Possible(bool i = true) { out(i ? \"Possible\" : \"Impossible\"\
+    ); }\ninline void Impossible(bool i = true) { out(i ? \"Impossible\" : \"Possible\"\
+    ); }\ninline void fls() { std::flush(std::cout); }\nstruct IOsetup {\n    IOsetup()\
+    \ {\n        std::ios::sync_with_stdio(false);\n        std::cin.tie(nullptr);\n\
+    \        std::cout << std::fixed << std::setprecision(16);\n    }\n} iosetup;\n\
+    #line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing ld = long double;\n\
+    using ull = unsigned long long;\nusing uint = unsigned int;\nusing pll = std::pair<ll,\
+    \ ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\nusing vvl\
+    \ = std::vector<std::vector<ll>>;\nusing pdd = std::pair<ld, ld>;\nusing tuplis\
+    \ = std::array<ll, 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T,\
     \ std::vector<T>, std::greater<T>>;\nconstexpr ll LINF = (1LL << 62) - (1LL <<\
     \ 31);\nconstexpr int32_t INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL << 40;\n\
     constexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr int32_t MODD\
@@ -311,7 +312,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-10-21 14:07:40+09:00'
+  timestamp: '2024-10-21 14:20:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp

@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
-    title: Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
+    path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
+    title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
@@ -45,8 +45,8 @@ data:
   timestamp: '2024-05-08 20:46:35+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-yuki/117.test.cpp
-  - Verify/verify-yosupo-math/binomial_coefficient_prime_mod.test.cpp
 documentation_of: Math/ModCombination.hpp
 layout: document
 redirect_from:
