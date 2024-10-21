@@ -18,7 +18,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - icon: ':heavy_check_mark:'
@@ -39,9 +39,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Modint/Modint.hpp\"\n#include <assert.h>\n\n#include <cstdint>\n\
@@ -231,7 +231,7 @@ data:
   path: Modint/Modint.hpp
   requiredBy: []
   timestamp: '2024-10-21 14:20:24+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   - Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp

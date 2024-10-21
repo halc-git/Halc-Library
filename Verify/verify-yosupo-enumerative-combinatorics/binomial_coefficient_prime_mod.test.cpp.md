@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/ModCombination.hpp
     title: Math/ModCombination.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
@@ -235,15 +235,14 @@ data:
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
     \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp\"\
     \nusing mint = ArbitraryModint<0>;\nvoid solve() {\n    LL(T, m);\n    mint::set_mod(m);\n\
-    \    ModCombination<mint> comb;\n    comb.resize(min(m, 10000000LL));\n    rep(i,\
-    \ T) {\n        LL(n, k);\n        out(comb.comb(n, k));\n    }\n}\nint main()\
-    \ { solve(); }\n"
+    \    ModCombination<mint> comb;\n    rep(i, T) {\n        LL(n, k);\n        out(comb.comb(n,\
+    \ k));\n    }\n}\nint main() { solve(); }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
     \n#include \"../../Math/ModCombination.hpp\"\n#include \"../../Modint/Modint.hpp\"\
     \n#include \"../../Template/Template.hpp\"\nusing mint = ArbitraryModint<0>;\n\
     void solve() {\n    LL(T, m);\n    mint::set_mod(m);\n    ModCombination<mint>\
-    \ comb;\n    comb.resize(min(m, 10000000LL));\n    rep(i, T) {\n        LL(n,\
-    \ k);\n        out(comb.comb(n, k));\n    }\n}\nint main() { solve(); }"
+    \ comb;\n    rep(i, T) {\n        LL(n, k);\n        out(comb.comb(n, k));\n \
+    \   }\n}\nint main() { solve(); }"
   dependsOn:
   - Math/ModCombination.hpp
   - Modint/Modint.hpp
@@ -254,8 +253,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-10-21 14:20:24+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-21 14:34:19+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
 layout: document
