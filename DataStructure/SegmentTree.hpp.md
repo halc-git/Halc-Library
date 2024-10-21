@@ -141,10 +141,10 @@ data:
   timestamp: '2024-05-15 20:31:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-  - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
   - Verify/verify-yuki/650.test.cpp
+  - Verify/verify-yosupo-datastructure/vertex_set_path_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
+  - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
 documentation_of: DataStructure/SegmentTree.hpp
 layout: document
 title: Segment Tree

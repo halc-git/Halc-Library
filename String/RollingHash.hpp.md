@@ -91,8 +91,8 @@ data:
   timestamp: '2024-06-20 20:13:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
+  - Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
   - Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
 documentation_of: String/RollingHash.hpp
 layout: document

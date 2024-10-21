@@ -210,8 +210,8 @@ data:
   timestamp: '2024-05-12 19:57:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - Verify/verify-yuki/901.test.cpp
+  - Verify/verify-yosupo-datastructure/point_set_tree_path_composite_sum_fixed_root.test.cpp
 documentation_of: Tree/StaticTopTree.hpp
 layout: document
 title: Static Top Tree

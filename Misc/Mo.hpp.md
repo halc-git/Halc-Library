@@ -61,8 +61,8 @@ data:
   timestamp: '2024-05-08 20:46:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
   - Verify/verify-yuki/2338.test.cpp
+  - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
 documentation_of: Misc/Mo.hpp
 layout: document
 title: Mo's Algorithm
