@@ -7,7 +7,6 @@ void solve() {
     LL(T, m);
     mint::set_mod(m);
     ModCombination<mint> comb;
-    comb.resize(min(m, 10000000LL));
     rep(i, T) {
         LL(n, k);
         out(comb.comb(n, k));
