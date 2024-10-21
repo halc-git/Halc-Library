@@ -39,86 +39,86 @@ data:
     \ pos) { return tree[root(pos)].second; }\n    bool same(int32_t a, int32_t b)\
     \ { return root(a) == root(b); }\n    bool merge(int32_t a, int32_t b) {\n   \
     \     a = root(a);\n        b = root(b);\n        if (a == b) return false;\n\
-    \        if (tree[a].first > tree[b].first) std::swap(a, b);\n        tree[a]\
-    \ = {tree[a].first + tree[b].first,\n                   M::op(tree[a].second,\
-    \ tree[b].second)};\n        tree[b].first = a;\n        return true;\n    }\n\
-    \    int32_t size(int32_t pos) { return -tree[root(pos)].first; }\n    std::vector<std::vector<int32_t>>\
+    \        T nxt_val = M::op(tree[a].second, tree[b].second);\n        if (tree[a].first\
+    \ > tree[b].first) std::swap(a, b);\n        tree[a] = {tree[a].first + tree[b].first,\
+    \ nxt_val};\n        tree[b].first = a;\n        return true;\n    }\n    int32_t\
+    \ size(int32_t pos) { return -tree[root(pos)].first; }\n    std::vector<std::vector<int32_t>>\
     \ groups() {\n        std::vector<std::vector<int32_t>> members(tree.size());\n\
     \        for (int32_t i = 0; i < tree.size(); i++) {\n            members[root(i)].emplace_back(i);\n\
     \        }\n        std::vector<std::vector<int32_t>> ret;\n        for (int32_t\
     \ i = 0; i < tree.size(); i++) {\n            if (!members[i].empty()) ret.emplace_back(members[i]);\n\
-    \        }\n        return ret;\n    }\n};\nnamespace _union_find {\nstruct void_monoid\
-    \ {\n    using T = bool;\n    constexpr static inline T op(T a, T b) { return\
-    \ 0; }\n    constexpr static inline T e = 0;\n};\n}  // namespace _union_find\n\
-    using UnionFind = MonoidUnionFind<_union_find::void_monoid>;\n#line 2 \"Template/Template.hpp\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\
-    \ninline void scan() {}\ninline void scan(int &a) { std::cin >> a; }\ninline void\
-    \ scan(unsigned &a) { std::cin >> a; }\ninline void scan(long &a) { std::cin >>\
-    \ a; }\ninline void scan(long long &a) { std::cin >> a; }\ninline void scan(unsigned\
-    \ long long &a) { std::cin >> a; }\ninline void scan(char &a) { std::cin >> a;\
-    \ }\ninline void scan(float &a) { std::cin >> a; }\ninline void scan(double &a)\
-    \ { std::cin >> a; }\ninline void scan(long double &a) { std::cin >> a; }\ninline\
-    \ void scan(std::vector<bool> &vec) {\n    for (int32_t i = 0; i < vec.size();\
-    \ i++) {\n        int a;\n        scan(a);\n        vec[i] = a;\n    }\n}\ninline\
-    \ void scan(std::string &a) { std::cin >> a; }\ntemplate <class T>\ninline void\
-    \ scan(std::vector<T> &vec);\ntemplate <class T, size_t size>\ninline void scan(std::array<T,\
-    \ size> &vec);\ntemplate <class T, class L>\ninline void scan(std::pair<T, L>\
-    \ &p);\ntemplate <class T, size_t size>\ninline void scan(T (&vec)[size]);\ntemplate\
-    \ <class T>\ninline void scan(std::vector<T> &vec) {\n    for (auto &i : vec)\
-    \ scan(i);\n}\ntemplate <class T>\ninline void scan(std::deque<T> &vec) {\n  \
-    \  for (auto &i : vec) scan(i);\n}\ntemplate <class T, size_t size>\ninline void\
-    \ scan(std::array<T, size> &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate\
-    \ <class T, class L>\ninline void scan(std::pair<T, L> &p) {\n    scan(p.first);\n\
-    \    scan(p.second);\n}\ntemplate <class T, size_t size>\ninline void scan(T (&vec)[size])\
-    \ {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class T>\ninline void scan(T\
-    \ &a) {\n    std::cin >> a;\n}\ninline void in() {}\ntemplate <class Head, class...\
-    \ Tail>\ninline void in(Head &head, Tail &...tail) {\n    scan(head);\n    in(tail...);\n\
-    }\ninline void print() { std::cout << ' '; }\ninline void print(const bool &a)\
-    \ { std::cout << a; }\ninline void print(const int &a) { std::cout << a; }\ninline\
-    \ void print(const unsigned &a) { std::cout << a; }\ninline void print(const long\
-    \ &a) { std::cout << a; }\ninline void print(const long long &a) { std::cout <<\
-    \ a; }\ninline void print(const unsigned long long &a) { std::cout << a; }\ninline\
-    \ void print(const char &a) { std::cout << a; }\ninline void print(const char\
-    \ a[]) { std::cout << a; }\ninline void print(const float &a) { std::cout << a;\
-    \ }\ninline void print(const double &a) { std::cout << a; }\ninline void print(const\
-    \ long double &a) { std::cout << a; }\ninline void print(const std::string &a)\
-    \ {\n    for (auto &&i : a) print(i);\n}\ntemplate <class T>\ninline void print(const\
-    \ std::vector<T> &vec);\ntemplate <class T, size_t size>\ninline void print(const\
-    \ std::array<T, size> &vec);\ntemplate <class T, class L>\ninline void print(const\
-    \ std::pair<T, L> &p);\ntemplate <class T, size_t size>\ninline void print(const\
-    \ T (&vec)[size]);\ntemplate <class T>\ninline void print(const std::vector<T>\
-    \ &vec) {\n    if (vec.empty()) return;\n    print(vec[0]);\n    for (auto i =\
-    \ vec.begin(); ++i != vec.end();) {\n        std::cout << ' ';\n        print(*i);\n\
-    \    }\n}\ntemplate <class T>\ninline void print(const std::deque<T> &vec) {\n\
-    \    if (vec.empty()) return;\n    print(vec[0]);\n    for (auto i = vec.begin();\
+    \        }\n        return ret;\n    }\n};\nnamespace internal_union_find {\n\
+    struct void_monoid {\n    using T = bool;\n    constexpr static inline T op(T\
+    \ a, T b) { return 0; }\n    constexpr static inline T e = 0;\n};\n}  // namespace\
+    \ internal_union_find\nusing UnionFind = MonoidUnionFind<internal_union_find::void_monoid>;\n\
+    #line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing namespace std;\n\
+    \n#line 8 \"Template/InOut.hpp\"\ninline void scan() {}\ninline void scan(int\
+    \ &a) { std::cin >> a; }\ninline void scan(unsigned &a) { std::cin >> a; }\ninline\
+    \ void scan(long &a) { std::cin >> a; }\ninline void scan(long long &a) { std::cin\
+    \ >> a; }\ninline void scan(unsigned long long &a) { std::cin >> a; }\ninline\
+    \ void scan(char &a) { std::cin >> a; }\ninline void scan(float &a) { std::cin\
+    \ >> a; }\ninline void scan(double &a) { std::cin >> a; }\ninline void scan(long\
+    \ double &a) { std::cin >> a; }\ninline void scan(std::vector<bool> &vec) {\n\
+    \    for (int32_t i = 0; i < vec.size(); i++) {\n        int a;\n        scan(a);\n\
+    \        vec[i] = a;\n    }\n}\ninline void scan(std::string &a) { std::cin >>\
+    \ a; }\ntemplate <class T>\ninline void scan(std::vector<T> &vec);\ntemplate <class\
+    \ T, size_t size>\ninline void scan(std::array<T, size> &vec);\ntemplate <class\
+    \ T, class L>\ninline void scan(std::pair<T, L> &p);\ntemplate <class T, size_t\
+    \ size>\ninline void scan(T (&vec)[size]);\ntemplate <class T>\ninline void scan(std::vector<T>\
+    \ &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class T>\ninline void\
+    \ scan(std::deque<T> &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class\
+    \ T, size_t size>\ninline void scan(std::array<T, size> &vec) {\n    for (auto\
+    \ &i : vec) scan(i);\n}\ntemplate <class T, class L>\ninline void scan(std::pair<T,\
+    \ L> &p) {\n    scan(p.first);\n    scan(p.second);\n}\ntemplate <class T, size_t\
+    \ size>\ninline void scan(T (&vec)[size]) {\n    for (auto &i : vec) scan(i);\n\
+    }\ntemplate <class T>\ninline void scan(T &a) {\n    std::cin >> a;\n}\ninline\
+    \ void in() {}\ntemplate <class Head, class... Tail>\ninline void in(Head &head,\
+    \ Tail &...tail) {\n    scan(head);\n    in(tail...);\n}\ninline void print()\
+    \ { std::cout << ' '; }\ninline void print(const bool &a) { std::cout << a; }\n\
+    inline void print(const int &a) { std::cout << a; }\ninline void print(const unsigned\
+    \ &a) { std::cout << a; }\ninline void print(const long &a) { std::cout << a;\
+    \ }\ninline void print(const long long &a) { std::cout << a; }\ninline void print(const\
+    \ unsigned long long &a) { std::cout << a; }\ninline void print(const char &a)\
+    \ { std::cout << a; }\ninline void print(const char a[]) { std::cout << a; }\n\
+    inline void print(const float &a) { std::cout << a; }\ninline void print(const\
+    \ double &a) { std::cout << a; }\ninline void print(const long double &a) { std::cout\
+    \ << a; }\ninline void print(const std::string &a) {\n    for (auto &&i : a) print(i);\n\
+    }\ntemplate <class T>\ninline void print(const std::vector<T> &vec);\ntemplate\
+    \ <class T, size_t size>\ninline void print(const std::array<T, size> &vec);\n\
+    template <class T, class L>\ninline void print(const std::pair<T, L> &p);\ntemplate\
+    \ <class T, size_t size>\ninline void print(const T (&vec)[size]);\ntemplate <class\
+    \ T>\ninline void print(const std::vector<T> &vec) {\n    if (vec.empty()) return;\n\
+    \    print(vec[0]);\n    for (auto i = vec.begin(); ++i != vec.end();) {\n   \
+    \     std::cout << ' ';\n        print(*i);\n    }\n}\ntemplate <class T>\ninline\
+    \ void print(const std::deque<T> &vec) {\n    if (vec.empty()) return;\n    print(vec[0]);\n\
+    \    for (auto i = vec.begin(); ++i != vec.end();) {\n        std::cout << ' ';\n\
+    \        print(*i);\n    }\n}\ntemplate <class T, size_t size>\ninline void print(const\
+    \ std::array<T, size> &vec) {\n    print(vec[0]);\n    for (auto i = vec.begin();\
     \ ++i != vec.end();) {\n        std::cout << ' ';\n        print(*i);\n    }\n\
-    }\ntemplate <class T, size_t size>\ninline void print(const std::array<T, size>\
-    \ &vec) {\n    print(vec[0]);\n    for (auto i = vec.begin(); ++i != vec.end();)\
-    \ {\n        std::cout << ' ';\n        print(*i);\n    }\n}\ntemplate <class\
-    \ T, class L>\ninline void print(const std::pair<T, L> &p) {\n    print(p.first);\n\
-    \    std::cout << ' ';\n    print(p.second);\n}\ntemplate <class T, size_t size>\n\
-    inline void print(const T (&vec)[size]) {\n    print(vec[0]);\n    for (auto i\
-    \ = vec; ++i != end(vec);) {\n        std::cout << ' ';\n        print(*i);\n\
-    \    }\n}\ntemplate <class T>\ninline void print(const T &a) {\n    std::cout\
-    \ << a;\n}\ninline void out() { std::cout << '\\n'; }\ntemplate <class T>\ninline\
-    \ void out(const T &t) {\n    print(t);\n    std::cout << '\\n';\n}\ntemplate\
-    \ <class Head, class... Tail>\ninline void out(const Head &head, const Tail &...tail)\
-    \ {\n    print(head);\n    std::cout << ' ';\n    out(tail...);\n}\ninline void\
-    \ Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void No(bool i = true)\
-    \ { out(i ? \"No\" : \"Yes\"); }\ninline void Takahashi(bool i = true) { out(i\
-    \ ? \"Takahashi\" : \"Aoki\"); }\ninline void Aoki(bool i = true) { out(i ? \"\
-    Aoki\" : \"Takahashi\"); }\ninline void First(bool i = true) { out(i ? \"First\"\
-    \ : \"Second\"); }\ninline void Second(bool i = true) { out(i ? \"Second\" : \"\
-    First\"); }\ninline void Possible(bool i = true) { out(i ? \"Possible\" : \"Impossible\"\
-    ); }\ninline void Impossible(bool i = true) { out(i ? \"Impossible\" : \"Possible\"\
-    ); }\ninline void fls() { std::flush(std::cout); }\nstruct IOsetup {\n    IOsetup()\
-    \ {\n        std::ios::sync_with_stdio(false);\n        std::cin.tie(nullptr);\n\
-    \        std::cout << std::fixed << std::setprecision(16);\n    }\n} iosetup;\n\
-    #line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing ld = long double;\n\
-    using ull = unsigned long long;\nusing uint = unsigned int;\nusing pll = std::pair<ll,\
-    \ ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\nusing vvl\
-    \ = std::vector<std::vector<ll>>;\nusing pdd = std::pair<ld, ld>;\nusing tuplis\
-    \ = std::array<ll, 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T,\
+    }\ntemplate <class T, class L>\ninline void print(const std::pair<T, L> &p) {\n\
+    \    print(p.first);\n    std::cout << ' ';\n    print(p.second);\n}\ntemplate\
+    \ <class T, size_t size>\ninline void print(const T (&vec)[size]) {\n    print(vec[0]);\n\
+    \    for (auto i = vec; ++i != end(vec);) {\n        std::cout << ' ';\n     \
+    \   print(*i);\n    }\n}\ntemplate <class T>\ninline void print(const T &a) {\n\
+    \    std::cout << a;\n}\ninline void out() { std::cout << '\\n'; }\ntemplate <class\
+    \ T>\ninline void out(const T &t) {\n    print(t);\n    std::cout << '\\n';\n\
+    }\ntemplate <class Head, class... Tail>\ninline void out(const Head &head, const\
+    \ Tail &...tail) {\n    print(head);\n    std::cout << ' ';\n    out(tail...);\n\
+    }\ninline void Yes(bool i = true) { out(i ? \"Yes\" : \"No\"); }\ninline void\
+    \ No(bool i = true) { out(i ? \"No\" : \"Yes\"); }\ninline void Takahashi(bool\
+    \ i = true) { out(i ? \"Takahashi\" : \"Aoki\"); }\ninline void Aoki(bool i =\
+    \ true) { out(i ? \"Aoki\" : \"Takahashi\"); }\ninline void First(bool i = true)\
+    \ { out(i ? \"First\" : \"Second\"); }\ninline void Second(bool i = true) { out(i\
+    \ ? \"Second\" : \"First\"); }\ninline void Possible(bool i = true) { out(i ?\
+    \ \"Possible\" : \"Impossible\"); }\ninline void Impossible(bool i = true) { out(i\
+    \ ? \"Impossible\" : \"Possible\"); }\ninline void fls() { std::flush(std::cout);\
+    \ }\nstruct IOsetup {\n    IOsetup() {\n        std::ios::sync_with_stdio(false);\n\
+    \        std::cin.tie(nullptr);\n        std::cout << std::fixed << std::setprecision(16);\n\
+    \    }\n} iosetup;\n#line 8 \"Template/Util.hpp\"\nusing ll = long long;\nusing\
+    \ ld = long double;\nusing ull = unsigned long long;\nusing uint = unsigned int;\n\
+    using pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing vl = std::vector<ll>;\n\
+    using vvl = std::vector<std::vector<ll>>;\nusing pdd = std::pair<ld, ld>;\nusing\
+    \ tuplis = std::array<ll, 3>;\ntemplate <class T>\nusing pq = std::priority_queue<T,\
     \ std::vector<T>, std::greater<T>>;\nconstexpr ll LINF = (1LL << 62) - (1LL <<\
     \ 31);\nconstexpr int32_t INF = INT_MAX >> 1;\nconstexpr ll MINF = 1LL << 40;\n\
     constexpr ld DINF = std::numeric_limits<ld>::infinity();\nconstexpr int32_t MODD\
@@ -171,7 +171,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2024-06-20 20:13:50+09:00'
+  timestamp: '2024-10-21 14:24:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-datastructure/unionfind.test.cpp

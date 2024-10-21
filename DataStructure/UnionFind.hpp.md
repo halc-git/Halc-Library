@@ -22,18 +22,18 @@ data:
     \ { tree[root(pos)].second = val; }\n    T get(int32_t pos) { return tree[root(pos)].second;\
     \ }\n    bool same(int32_t a, int32_t b) { return root(a) == root(b); }\n    bool\
     \ merge(int32_t a, int32_t b) {\n        a = root(a);\n        b = root(b);\n\
-    \        if (a == b) return false;\n        if (tree[a].first > tree[b].first)\
-    \ std::swap(a, b);\n        tree[a] = {tree[a].first + tree[b].first,\n      \
-    \             M::op(tree[a].second, tree[b].second)};\n        tree[b].first =\
-    \ a;\n        return true;\n    }\n    int32_t size(int32_t pos) { return -tree[root(pos)].first;\
+    \        if (a == b) return false;\n        T nxt_val = M::op(tree[a].second,\
+    \ tree[b].second);\n        if (tree[a].first > tree[b].first) std::swap(a, b);\n\
+    \        tree[a] = {tree[a].first + tree[b].first, nxt_val};\n        tree[b].first\
+    \ = a;\n        return true;\n    }\n    int32_t size(int32_t pos) { return -tree[root(pos)].first;\
     \ }\n    std::vector<std::vector<int32_t>> groups() {\n        std::vector<std::vector<int32_t>>\
     \ members(tree.size());\n        for (int32_t i = 0; i < tree.size(); i++) {\n\
     \            members[root(i)].emplace_back(i);\n        }\n        std::vector<std::vector<int32_t>>\
     \ ret;\n        for (int32_t i = 0; i < tree.size(); i++) {\n            if (!members[i].empty())\
     \ ret.emplace_back(members[i]);\n        }\n        return ret;\n    }\n};\nnamespace\
-    \ _union_find {\nstruct void_monoid {\n    using T = bool;\n    constexpr static\
-    \ inline T op(T a, T b) { return 0; }\n    constexpr static inline T e = 0;\n\
-    };\n}  // namespace _union_find\nusing UnionFind = MonoidUnionFind<_union_find::void_monoid>;\n"
+    \ internal_union_find {\nstruct void_monoid {\n    using T = bool;\n    constexpr\
+    \ static inline T op(T a, T b) { return 0; }\n    constexpr static inline T e\
+    \ = 0;\n};\n}  // namespace internal_union_find\nusing UnionFind = MonoidUnionFind<internal_union_find::void_monoid>;\n"
   code: "#pragma once\n#include <cstdint>\n#include <vector>\ntemplate <class M>\n\
     struct MonoidUnionFind {\n    using T = typename M::T;\n    std::vector<std::pair<int32_t,\
     \ T>> tree;\n    MonoidUnionFind(int32_t sz) { tree.resize(sz, {-1, M::e}); }\n\
@@ -45,23 +45,23 @@ data:
     \ pos) { return tree[root(pos)].second; }\n    bool same(int32_t a, int32_t b)\
     \ { return root(a) == root(b); }\n    bool merge(int32_t a, int32_t b) {\n   \
     \     a = root(a);\n        b = root(b);\n        if (a == b) return false;\n\
-    \        if (tree[a].first > tree[b].first) std::swap(a, b);\n        tree[a]\
-    \ = {tree[a].first + tree[b].first,\n                   M::op(tree[a].second,\
-    \ tree[b].second)};\n        tree[b].first = a;\n        return true;\n    }\n\
-    \    int32_t size(int32_t pos) { return -tree[root(pos)].first; }\n    std::vector<std::vector<int32_t>>\
+    \        T nxt_val = M::op(tree[a].second, tree[b].second);\n        if (tree[a].first\
+    \ > tree[b].first) std::swap(a, b);\n        tree[a] = {tree[a].first + tree[b].first,\
+    \ nxt_val};\n        tree[b].first = a;\n        return true;\n    }\n    int32_t\
+    \ size(int32_t pos) { return -tree[root(pos)].first; }\n    std::vector<std::vector<int32_t>>\
     \ groups() {\n        std::vector<std::vector<int32_t>> members(tree.size());\n\
     \        for (int32_t i = 0; i < tree.size(); i++) {\n            members[root(i)].emplace_back(i);\n\
     \        }\n        std::vector<std::vector<int32_t>> ret;\n        for (int32_t\
     \ i = 0; i < tree.size(); i++) {\n            if (!members[i].empty()) ret.emplace_back(members[i]);\n\
-    \        }\n        return ret;\n    }\n};\nnamespace _union_find {\nstruct void_monoid\
-    \ {\n    using T = bool;\n    constexpr static inline T op(T a, T b) { return\
-    \ 0; }\n    constexpr static inline T e = 0;\n};\n}  // namespace _union_find\n\
-    using UnionFind = MonoidUnionFind<_union_find::void_monoid>;"
+    \        }\n        return ret;\n    }\n};\nnamespace internal_union_find {\n\
+    struct void_monoid {\n    using T = bool;\n    constexpr static inline T op(T\
+    \ a, T b) { return 0; }\n    constexpr static inline T e = 0;\n};\n}  // namespace\
+    \ internal_union_find\nusing UnionFind = MonoidUnionFind<internal_union_find::void_monoid>;"
   dependsOn: []
   isVerificationFile: false
   path: DataStructure/UnionFind.hpp
   requiredBy: []
-  timestamp: '2024-05-15 13:12:54+09:00'
+  timestamp: '2024-10-21 14:24:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-datastructure/unionfind.test.cpp
@@ -78,8 +78,8 @@ struct M {
     static inline T e;
 };
 ```
-* `T`: モノイドの型です。
-* `T op(T x,T y)`: 演算です。可換モノイドであることを要求します。
+* `T`: 演算の型です。
+* `T op(T x,T y)`: 演算です。単位元の存在を要求します。
 * `T e`: 単位元です。
 
 `UnionFind` は `MonoidUnionFind<M>` に意味のない演算を載せたものです。
