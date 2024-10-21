@@ -2,7 +2,7 @@
 #include "../../Math/ModCombination.hpp"
 #include "../../Modint/Modint.hpp"
 #include "../../Template/Template.hpp"
-using mint = ArbitraryModint<-1>;
+using mint = ArbitraryModint<0>;
 void solve() {
     LL(T, m);
     mint::set_mod(m);

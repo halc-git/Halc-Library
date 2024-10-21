@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1092"
 #include "../../Modint/Modint.hpp"
 #include "../../Template/Template.hpp"
-using mint = ArbitraryModint<-1>;
+using mint = ArbitraryModint<0>;
 void solve() {
     LL(P, N);
     mint::set_mod(P);

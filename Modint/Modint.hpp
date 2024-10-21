@@ -124,19 +124,19 @@ struct ArbitraryModint {
     }
     friend ArbitraryModint operator+(const ArbitraryModint lhs,
                                      const ArbitraryModint rhs) noexcept {
-        return Modint(lhs) += rhs;
+        return ArbitraryModint(lhs) += rhs;
     }
     friend ArbitraryModint operator-(const ArbitraryModint lhs,
                                      const ArbitraryModint rhs) noexcept {
-        return Modint(lhs) -= rhs;
+        return ArbitraryModint(lhs) -= rhs;
     }
     friend ArbitraryModint operator*(const ArbitraryModint lhs,
                                      const ArbitraryModint rhs) noexcept {
-        return Modint(lhs) *= rhs;
+        return ArbitraryModint(lhs) *= rhs;
     }
     friend ArbitraryModint operator/(const ArbitraryModint lhs,
                                      const ArbitraryModint rhs) {
-        return Modint(lhs) /= rhs;
+        return ArbitraryModint(lhs) /= rhs;
     }
     constexpr ArbitraryModint &operator+=(const ArbitraryModint rhs) noexcept {
         x += rhs.x;
