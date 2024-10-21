@@ -1,4 +1,6 @@
 #pragma once
+#include <assert.h>
+
 #include <cstdint>
 #include <iostream>
 template <uint64_t Mod>
@@ -14,26 +16,26 @@ struct Modint {
         uint64_t pro = ret * Mod;
         return (val - pro + (val < pro ? Mod : 0));
     }
-    friend std::ostream &operator<<(std::ostream &os, Modint &b) {
+    friend std::ostream &operator<<(std::ostream &os, Modint &b) noexcept {
         return os << b.x;
     }
-    friend std::istream &operator>>(std::istream &is, Modint &b) {
+    friend std::istream &operator>>(std::istream &is, Modint &b) noexcept {
         return is >> b.x;
     }
     constexpr uint64_t val() noexcept { return x; }
     constexpr Modint operator+() noexcept { return (*this); }
     constexpr Modint operator-() noexcept { return Modint() - (*this); }
-    constexpr Modint operator+(const Modint rhs) noexcept {
-        return Modint(*this) += rhs;
+    friend Modint operator+(const Modint lhs, const Modint rhs) noexcept {
+        return Modint(lhs) += rhs;
     }
-    constexpr Modint operator-(const Modint rhs) noexcept {
-        return Modint(*this) -= rhs;
+    friend Modint operator-(const Modint lhs, const Modint rhs) noexcept {
+        return Modint(lhs) -= rhs;
     }
-    constexpr Modint operator*(const Modint rhs) noexcept {
-        return Modint(*this) *= rhs;
+    friend Modint operator*(const Modint lhs, const Modint rhs) noexcept {
+        return Modint(lhs) *= rhs;
     }
-    constexpr Modint operator/(const Modint rhs) noexcept {
-        return Modint(*this) /= rhs;
+    friend Modint operator/(const Modint lhs, const Modint rhs) {
+        return Modint(lhs) /= rhs;
     }
     constexpr Modint &operator+=(const Modint rhs) noexcept {
         x += rhs.x;
@@ -49,12 +51,33 @@ struct Modint {
         x = _get_mod(x * rhs.x);
         return *this;
     }
-    constexpr bool operator==(Modint rhs) noexcept { return x == rhs.x; }
-    constexpr bool operator!=(Modint rhs) noexcept { return x != rhs.x; }
-    constexpr Modint &operator/=(Modint rhs) noexcept {
-        return (*this) *= rhs.inv();
+    friend bool operator==(const Modint lhs, const Modint rhs) noexcept {
+        return lhs.x == rhs.x;
     }
-    constexpr Modint inv() noexcept { return (*this).pow(Mod - 2); }
+    friend bool operator!=(const Modint lhs, const Modint rhs) noexcept {
+        return rhs.x != rhs.x;
+    }
+    constexpr Modint &operator/=(Modint rhs) { return (*this) *= rhs.inv(); }
+    constexpr Modint inv() {
+        int64_t a = (*this).x, b = get_mod();
+        assert(a != 0);
+        int64_t s = b, t = a;
+        int64_t m0 = 0, m1 = 1;
+        while (t) {
+            int64_t u = s / t;
+            s -= t * u;
+            m0 -= m1 * u;
+            int64_t tmp = s;
+            s = t;
+            t = tmp;
+            tmp = m0;
+            m0 = m1;
+            m1 = tmp;
+        }
+        assert(s == 1);
+        if (m0 < 0) m0 += b;
+        return Modint(m0);
+    }
     constexpr Modint pow(uint64_t x) noexcept {
         Modint ret = 1;
         Modint bin = (*this);
@@ -86,10 +109,12 @@ struct ArbitraryModint {
         uint64_t pro = ret * get_mod();
         return (val - pro + (val < pro ? get_mod() : 0));
     }
-    friend std::ostream &operator<<(std::ostream &os, ArbitraryModint &b) {
+    friend std::ostream &operator<<(std::ostream &os,
+                                    ArbitraryModint &b) noexcept {
         return os << b.x;
     }
-    friend std::istream &operator>>(std::istream &is, ArbitraryModint &b) {
+    friend std::istream &operator>>(std::istream &is,
+                                    ArbitraryModint &b) noexcept {
         return is >> b.x;
     }
     constexpr uint64_t val() noexcept { return x; }
@@ -97,25 +122,29 @@ struct ArbitraryModint {
     constexpr ArbitraryModint operator-() noexcept {
         return ArbitraryModint() - (*this);
     }
-    constexpr ArbitraryModint operator+(const ArbitraryModint rhs) noexcept {
-        return ArbitraryModint(*this) += rhs;
+    friend ArbitraryModint operator+(const ArbitraryModint lhs,
+                                     const ArbitraryModint rhs) noexcept {
+        return Modint(lhs) += rhs;
     }
-    constexpr ArbitraryModint operator-(const ArbitraryModint rhs) noexcept {
-        return ArbitraryModint(*this) -= rhs;
+    friend ArbitraryModint operator-(const ArbitraryModint lhs,
+                                     const ArbitraryModint rhs) noexcept {
+        return Modint(lhs) -= rhs;
     }
-    constexpr ArbitraryModint operator*(const ArbitraryModint rhs) noexcept {
-        return ArbitraryModint(*this) *= rhs;
+    friend ArbitraryModint operator*(const ArbitraryModint lhs,
+                                     const ArbitraryModint rhs) noexcept {
+        return Modint(lhs) *= rhs;
     }
-    constexpr ArbitraryModint operator/(const ArbitraryModint rhs) noexcept {
-        return ArbitraryModint(*this) /= rhs;
+    friend ArbitraryModint operator/(const ArbitraryModint lhs,
+                                     const ArbitraryModint rhs) {
+        return Modint(lhs) /= rhs;
     }
     constexpr ArbitraryModint &operator+=(const ArbitraryModint rhs) noexcept {
         x += rhs.x;
-        if (x >= get_mod()) x -= get_mod();
+        if (x >= mod()) x -= mod();
         return *this;
     }
     constexpr ArbitraryModint &operator-=(const ArbitraryModint rhs) noexcept {
-        if (x < rhs.x) x += get_mod();
+        if (x < rhs.x) x += mod();
         x -= rhs.x;
         return *this;
     }
@@ -123,17 +152,36 @@ struct ArbitraryModint {
         x = _get_mod(x * rhs.x);
         return *this;
     }
-    constexpr ArbitraryModint &operator/=(ArbitraryModint rhs) noexcept {
+    friend bool operator==(const ArbitraryModint lhs,
+                           const ArbitraryModint rhs) noexcept {
+        return lhs.x == rhs.x;
+    }
+    friend bool operator!=(const ArbitraryModint lhs,
+                           const ArbitraryModint rhs) noexcept {
+        return rhs.x != rhs.x;
+    }
+    constexpr ArbitraryModint &operator/=(ArbitraryModint rhs) {
         return (*this) *= rhs.inv();
     }
-    constexpr bool operator==(ArbitraryModint rhs) noexcept {
-        return x == rhs.x;
-    }
-    constexpr bool operator!=(ArbitraryModint rhs) noexcept {
-        return x != rhs.x;
-    }
-    constexpr ArbitraryModint inv() noexcept {
-        return (*this).pow(get_mod() - 2);
+    constexpr ArbitraryModint inv() {
+        int64_t a = (*this).x, b = get_mod();
+        assert(a != 0);
+        int64_t s = b, t = a;
+        int64_t m0 = 0, m1 = 1;
+        while (t) {
+            int64_t u = s / t;
+            s -= t * u;
+            m0 -= m1 * u;
+            int64_t tmp = s;
+            s = t;
+            t = tmp;
+            tmp = m0;
+            m0 = m1;
+            m1 = tmp;
+        }
+        assert(s == 1);
+        if (m0 < 0) m0 += b;
+        return ArbitraryModint(m0);
     }
     constexpr ArbitraryModint pow(uint64_t x) noexcept {
         ArbitraryModint ret = 1;
