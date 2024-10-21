@@ -11,8 +11,8 @@ struct M {
     static inline T e;
 };
 ```
-* `T`: モノイドの型です。
-* `T op(T x,T y)`: 演算です。可換モノイドであることを要求します。
+* `T`: 演算の型です。
+* `T op(T x,T y)`: 演算です。単位元の存在を要求します。
 * `T e`: 単位元です。
 
 `UnionFind` は `MonoidUnionFind<M>` に意味のない演算を載せたものです。

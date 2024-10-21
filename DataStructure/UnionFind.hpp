@@ -25,9 +25,9 @@ struct MonoidUnionFind {
         a = root(a);
         b = root(b);
         if (a == b) return false;
+        T nxt_val = M::op(tree[a].second, tree[b].second);
         if (tree[a].first > tree[b].first) std::swap(a, b);
-        tree[a] = {tree[a].first + tree[b].first,
-                   M::op(tree[a].second, tree[b].second)};
+        tree[a] = {tree[a].first + tree[b].first, nxt_val};
         tree[b].first = a;
         return true;
     }
@@ -44,11 +44,11 @@ struct MonoidUnionFind {
         return ret;
     }
 };
-namespace _union_find {
+namespace internal_union_find {
 struct void_monoid {
     using T = bool;
     constexpr static inline T op(T a, T b) { return 0; }
     constexpr static inline T e = 0;
 };
-}  // namespace _union_find
-using UnionFind = MonoidUnionFind<_union_find::void_monoid>;
+}  // namespace internal_union_find
+using UnionFind = MonoidUnionFind<internal_union_find::void_monoid>;
