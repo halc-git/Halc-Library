@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
@@ -24,6 +21,9 @@ data:
   - icon: ':x:'
     path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   - icon: ':x:'
     path: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
@@ -232,8 +232,7 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Modint/Modint.hpp
-  requiredBy:
-  - Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+  requiredBy: []
   timestamp: '2024-10-21 14:20:24+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
@@ -249,6 +248,7 @@ data:
   - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
 documentation_of: Modint/Modint.hpp
 layout: document
 redirect_from:

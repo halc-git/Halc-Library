@@ -5,15 +5,6 @@ data:
   - icon: ':x:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
-    title: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
-    title: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
   _extendedVerifiedWith:
   - icon: ':x:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
@@ -66,6 +57,15 @@ data:
   - icon: ':x:'
     path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
+    title: Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+    title: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
   - icon: ':x:'
     path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
@@ -169,9 +169,6 @@ data:
   path: Template/Util.hpp
   requiredBy:
   - Template/Template.hpp
-  - Verify/verify-yosupo-number-theory/enumerate_primes.cpp
-  - Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
-  - Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
   timestamp: '2024-10-22 20:46:56+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
@@ -180,6 +177,8 @@ data:
   - Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
   - Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
   - Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
+  - Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+  - Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
   - Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-yosupo-string/zalgorithm.test.cpp
   - Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
@@ -209,6 +208,7 @@ data:
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
   - Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
   - Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
 documentation_of: Template/Util.hpp
 layout: document
 redirect_from:

@@ -34,13 +34,13 @@ data:
       title: Graph/Graph.hpp
   - name: Math
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Math/EnumeratePrimes.hpp
       title: Math/EnumeratePrimes.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Math/EnumerateQuotients.hpp
       title: Math/EnumerateQuotients.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Math/MFPrefixSum.hpp
       title: Math/MFPrefixSum.hpp
     - icon: ':x:'
@@ -92,19 +92,6 @@ data:
     - icon: ':x:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
-  - name: Verify/verify-yosupo-new
-    pages:
-    - icon: ':warning:'
-      path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-      title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-  - name: Verify/verify-yosupo-number-theory
-    pages:
-    - icon: ':warning:'
-      path: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
-      title: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
-    - icon: ':warning:'
-      path: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
-      title: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
   verificationCategories:
   - name: Verify/verify-aoj
     pages:
@@ -167,6 +154,19 @@ data:
     - icon: ':x:'
       path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
       title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
+  - name: Verify/verify-yosupo-new
+    pages:
+    - icon: ':x:'
+      path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+      title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+  - name: Verify/verify-yosupo-number-theory
+    pages:
+    - icon: ':x:'
+      path: Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
+      title: Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
+    - icon: ':x:'
+      path: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+      title: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
   - name: Verify/verify-yosupo-string
     pages:
     - icon: ':x:'

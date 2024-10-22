@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Math/EnumeratePrimes.hpp
     title: Math/EnumeratePrimes.hpp
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Math/EnumerateQuotients.hpp
     title: Math/EnumerateQuotients.hpp
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Math/MFPrefixSum.hpp
     title: Math/MFPrefixSum.hpp
   - icon: ':x:'
@@ -27,13 +27,15 @@ data:
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/sum_of_multiplicative_function
     links:
     - https://judge.yosupo.jp/problem/sum_of_multiplicative_function
-  bundledCode: "#line 1 \"Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp\"\
+  bundledCode: "#line 1 \"Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_multiplicative_function\"\
     \n#line 1 \"Math/MFPrefixSum.hpp\"\n#include <math.h>\n\n#include <cstdint>\n\
     #include <vector>\n\n#line 4 \"Math/EnumeratePrimes.hpp\"\nstd::vector<int32_t>\
@@ -284,7 +286,7 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp\"\
+    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp\"\
     \nusing mint = Modint<469762049>;\nvoid solve() {\n    LL(T);\n    rep(_, T) {\n\
     \        LL(N, a, b);\n        mf_prefix_sum<mint> mf(N);\n        vector<mint>\
     \ pi = mf.pi_table();\n        vector<mint> prime_sum = mf.prime_sum_table();\n\
@@ -310,16 +312,16 @@ data:
   - Template/InOut.hpp
   - Template/Util.hpp
   - Template/Macro.hpp
-  isVerificationFile: false
-  path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+  isVerificationFile: true
+  path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   requiredBy: []
-  timestamp: '2024-10-22 20:46:56+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2024-10-22 20:55:11+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+documentation_of: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
 layout: document
 redirect_from:
-- /library/Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-- /library/Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp.html
-title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+- /verify/Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+- /verify/Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp.html
+title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
 ---

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Math/EnumerateQuotients.hpp
     title: Math/EnumerateQuotients.hpp
   - icon: ':x:'
@@ -18,13 +18,15 @@ data:
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/enumerate_quotients
     links:
     - https://judge.yosupo.jp/problem/enumerate_quotients
-  bundledCode: "#line 1 \"Verify/verify-yosupo-number-theory/enumerate_quotients.cpp\"\
+  bundledCode: "#line 1 \"Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_quotients\"\n#line\
     \ 2 \"Math/EnumerateQuotients.hpp\"\n#include <math.h>\n\n#include <cstdint>\n\
     #include <numeric>\n#include <vector>\nstd::vector<int64_t> enumerate_quotients(uint64_t\
@@ -133,7 +135,7 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 4 \"Verify/verify-yosupo-number-theory/enumerate_quotients.cpp\"\
+    \ name(h, std::vector<type>(w)); in(name)\n#line 4 \"Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp\"\
     \nvoid solve() {\n    LL(N);\n    vl ans = enumerate_quotients(N);\n    out(len(ans));\n\
     \    out(ans);\n}\nint main() { solve(); }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_quotients\"\n\
@@ -146,16 +148,16 @@ data:
   - Template/InOut.hpp
   - Template/Util.hpp
   - Template/Macro.hpp
-  isVerificationFile: false
-  path: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
+  isVerificationFile: true
+  path: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
   requiredBy: []
-  timestamp: '2024-10-22 20:46:56+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2024-10-22 20:55:11+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
+documentation_of: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
 layout: document
 redirect_from:
-- /library/Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
-- /library/Verify/verify-yosupo-number-theory/enumerate_quotients.cpp.html
-title: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
+- /verify/Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+- /verify/Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp.html
+title: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
 ---

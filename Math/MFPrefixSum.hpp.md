@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Math/EnumeratePrimes.hpp
     title: Math/EnumeratePrimes.hpp
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Math/EnumerateQuotients.hpp
     title: Math/EnumerateQuotients.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Math/MFPrefixSum.hpp\"\n#include <math.h>\n\n#include <cstdint>\n\
@@ -123,11 +123,11 @@ data:
   - Math/EnumerateQuotients.hpp
   isVerificationFile: false
   path: Math/MFPrefixSum.hpp
-  requiredBy:
-  - Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+  requiredBy: []
   timestamp: '2024-10-22 20:31:00+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
 documentation_of: Math/MFPrefixSum.hpp
 layout: document
 redirect_from:

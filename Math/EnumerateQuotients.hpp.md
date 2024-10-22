@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: Math/MFPrefixSum.hpp
     title: Math/MFPrefixSum.hpp
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
-  - icon: ':warning:'
-    path: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
-    title: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+    title: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Math/EnumerateQuotients.hpp\"\n#include <math.h>\n\n#include\
@@ -36,11 +36,11 @@ data:
   path: Math/EnumerateQuotients.hpp
   requiredBy:
   - Math/MFPrefixSum.hpp
-  - Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
-  - Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
   timestamp: '2024-10-22 16:22:00+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
 documentation_of: Math/EnumerateQuotients.hpp
 layout: document
 redirect_from:
