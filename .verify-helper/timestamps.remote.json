@@ -16,6 +16,7 @@
 "Verify/verify-yosupo-datastructure/staticrmq.test.cpp": "2024-10-22 20:46:56 +0900",
 "Verify/verify-yosupo-datastructure/unionfind.test.cpp": "2024-10-22 20:46:56 +0900",
 "Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp": "2024-10-22 20:55:11 +0900",
+"Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp": "2024-10-23 08:49:53 +0900",
 "Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp": "2024-10-22 20:55:11 +0900",
 "Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp": "2024-10-22 20:55:11 +0900",
 "Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp": "2024-10-22 20:46:56 +0900",
