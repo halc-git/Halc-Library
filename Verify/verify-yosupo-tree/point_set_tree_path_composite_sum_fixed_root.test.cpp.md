@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: Graph/Graph.hpp
     title: Graph/Graph.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   - icon: ':x:'
