@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/FenwickTree.hpp
     title: DataStructure/FenwickTree.hpp
   - icon: ':heavy_check_mark:'
     path: Misc/Compress.hpp
     title: Misc/Compress.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Misc/Mo.hpp
     title: Mo's Algorithm
   - icon: ':question:'

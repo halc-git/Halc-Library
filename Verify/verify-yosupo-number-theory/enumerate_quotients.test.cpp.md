@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/EnumerateQuotients.hpp
     title: Math/EnumerateQuotients.hpp
   - icon: ':question:'

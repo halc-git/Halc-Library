@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/RadixHeap.hpp
     title: DataStructure/RadixHeap.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/Graph.hpp
     title: Graph/Graph.hpp
   - icon: ':question:'

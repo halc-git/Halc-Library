@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/EnumeratePrimes.hpp
     title: Math/EnumeratePrimes.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/EnumerateQuotients.hpp
     title: Math/EnumerateQuotients.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/MFPrefixSum.hpp
     title: Math/MFPrefixSum.hpp
   - icon: ':question:'
@@ -27,9 +27,9 @@ data:
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sum_of_multiplicative_function
@@ -53,62 +53,61 @@ data:
     \ ret(x);\n    ret.reserve(x * 2);\n    std::iota(ret.begin(), ret.end(), 1);\n\
     \    for (int32_t i = x; i >= 1; i--) {\n        if (ret.back() != n / i) ret.emplace_back(n\
     \ / i);\n    }\n    return ret;\n}\n#line 8 \"Math/MFPrefixSum.hpp\"\ntemplate\
-    \ <class T>\nstruct mf_prefix_sum {\n    uint64_t n;\n    uint64_t sqrtN;\n  \
-    \  std::vector<int64_t> Q;\n    std::vector<int32_t> primes;\n    int32_t sz;\n\
-    \    mf_prefix_sum(uint64_t N) {\n        n = N;\n        sqrtN = sqrt(n);\n \
-    \       while ((sqrtN + 1) * (sqrtN + 1) <= n) sqrtN++;\n        while (sqrtN\
-    \ * sqrtN > n) sqrtN--;\n        Q = enumerate_quotients(n);\n        sz = Q.size();\n\
-    \        primes = enumerate_primes(sqrtN);\n    }\n    std::vector<T> pi_table()\
-    \ {\n        std::vector<T> dp(sz);\n        for (int32_t i = 0; i < sz; i++)\
-    \ {\n            dp[i] = Q[i] - 1;\n        }\n        for (int64_t x : primes)\
-    \ {\n            for (int32_t i = sz - 1; i >= 0; i--) {\n                if (Q[i]\
-    \ < x * x) break;\n                if (Q[i] / x <= sqrtN) {\n                \
-    \    dp[i] -= (dp[Q[i] / x - 1] - dp[x - 2]);\n                } else {\n    \
-    \                dp[i] -= (dp[sz - (sz - i) * x] - dp[x - 2]);\n             \
-    \   }\n            }\n        }\n        return dp;\n    }\n    std::vector<T>\
-    \ prime_sum_table() {\n        std::vector<T> dp(sz);\n        for (int32_t i\
-    \ = 0; i < sz; i++) {\n            dp[i] = T(Q[i]) * (Q[i] + 1) / 2 - 1;\n   \
-    \     }\n        for (int64_t x : primes) {\n            for (int32_t i = sz -\
-    \ 1; i >= 0; i--) {\n                if (Q[i] < x * x) break;\n              \
-    \  if (Q[i] / x <= sqrtN) {\n                    dp[i] -= (dp[Q[i] / x - 1] -\
-    \ dp[x - 2]) * x;\n                } else {\n                    dp[i] -= (dp[sz\
-    \ - (sz - i) * x] - dp[x - 2]) * x;\n                }\n            }\n      \
-    \  }\n        return dp;\n    }\n    std::vector<T> prefix_prime_table(auto f)\
-    \ {\n        std::vector<T> dp(sz);\n        for (int32_t i = 0; i < sz; i++)\
-    \ {\n            dp[i] = f(Q[i]);\n        }\n        for (int64_t x : primes)\
-    \ {\n            for (int32_t i = sz - 1; i >= 0; i--) {\n                if (Q[i]\
-    \ < x * x) break;\n                if (Q[i] / x <= sqrtN) {\n                \
-    \    dp[i] -= (dp[Q[i] / x - 1] - dp[x - 2]) * (f(x) - f(x - 1));\n          \
-    \      } else {\n                    dp[i] -=\n                        (dp[sz\
-    \ - (sz - i) * x] - dp[x - 2]) * (f(x) - f(x - 1));\n                }\n     \
-    \       }\n        }\n        return dp;\n    }\n    std::vector<T> run(std::vector<T>\
-    \ table, auto f) {\n        std::vector<T> dp = table;\n        for (auto it =\
-    \ primes.rbegin(); it != primes.rend(); it++) {\n            int64_t x = *it;\n\
-    \            for (int32_t i = sz - 1; i >= 0; i--) {\n                if (Q[i]\
-    \ < x * x) break;\n                int64_t xp = x;\n                int32_t c\
-    \ = 1;\n                while (xp * x <= Q[i]) {\n                    if (Q[i]\
-    \ / xp <= sqrtN) {\n                        dp[i] += f(x, c) * (dp[Q[i] / xp -\
-    \ 1] - table[x - 1]) +\n                                 f(x, c + 1);\n      \
-    \              } else {\n                        dp[i] +=\n                  \
-    \          f(x, c) * (dp[sz - (sz - i) * xp] - table[x - 1]) +\n             \
-    \               f(x, c + 1);\n                    }\n                    c++;\n\
-    \                    xp *= x;\n                }\n            }\n        }\n \
-    \       for (int32_t i = 0; i < sz; i++) {\n            dp[i] += 1;\n        }\n\
-    \        return dp;\n    }\n};\n#line 2 \"Modint/Modint.hpp\"\n#include <assert.h>\n\
-    \n#line 5 \"Modint/Modint.hpp\"\n#include <iostream>\ntemplate <uint64_t Mod>\n\
-    struct Modint {\n    uint64_t x;\n    constexpr Modint() noexcept { x = 0; }\n\
-    \    constexpr Modint(int64_t val) noexcept {\n        x = (val < 0 ? val % (int64_t)(Mod)\
-    \ + Mod : val % Mod);\n    }\n    inline uint64_t _get_mod(uint64_t val) noexcept\
-    \ {\n        const static uint64_t m_inv = (-1ULL) / Mod + 1;\n        uint64_t\
-    \ ret = ((unsigned __int128)(val)*m_inv) >> 64;\n        uint64_t pro = ret *\
-    \ Mod;\n        return (val - pro + (val < pro ? Mod : 0));\n    }\n    friend\
-    \ std::ostream &operator<<(std::ostream &os, Modint &b) noexcept {\n        return\
-    \ os << b.x;\n    }\n    friend std::istream &operator>>(std::istream &is, Modint\
-    \ &b) noexcept {\n        return is >> b.x;\n    }\n    constexpr uint64_t val()\
-    \ noexcept { return x; }\n    constexpr Modint operator+() noexcept { return (*this);\
-    \ }\n    constexpr Modint operator-() noexcept { return Modint() - (*this); }\n\
-    \    friend Modint operator+(const Modint lhs, const Modint rhs) noexcept {\n\
-    \        return Modint(lhs) += rhs;\n    }\n    friend Modint operator-(const\
+    \ <class T>\nstruct MFPrefixSum {\n    uint64_t n;\n    uint64_t sqrtN;\n    std::vector<int64_t>\
+    \ Q;\n    std::vector<int32_t> primes;\n    int32_t sz;\n    mf_prefix_sum(uint64_t\
+    \ N) {\n        n = N;\n        sqrtN = sqrt(n);\n        while ((sqrtN + 1) *\
+    \ (sqrtN + 1) <= n) sqrtN++;\n        while (sqrtN * sqrtN > n) sqrtN--;\n   \
+    \     Q = enumerate_quotients(n);\n        sz = Q.size();\n        primes = enumerate_primes(sqrtN);\n\
+    \    }\n    std::vector<T> pi_table() {\n        std::vector<T> dp(sz);\n    \
+    \    for (int32_t i = 0; i < sz; i++) {\n            dp[i] = Q[i] - 1;\n     \
+    \   }\n        for (int64_t x : primes) {\n            for (int32_t i = sz - 1;\
+    \ i >= 0; i--) {\n                if (Q[i] < x * x) break;\n                if\
+    \ (Q[i] / x <= sqrtN) {\n                    dp[i] -= (dp[Q[i] / x - 1] - dp[x\
+    \ - 2]);\n                } else {\n                    dp[i] -= (dp[sz - (sz\
+    \ - i) * x] - dp[x - 2]);\n                }\n            }\n        }\n     \
+    \   return dp;\n    }\n    std::vector<T> prime_sum_table() {\n        std::vector<T>\
+    \ dp(sz);\n        for (int32_t i = 0; i < sz; i++) {\n            dp[i] = T(Q[i])\
+    \ * (Q[i] + 1) / 2 - 1;\n        }\n        for (int64_t x : primes) {\n     \
+    \       for (int32_t i = sz - 1; i >= 0; i--) {\n                if (Q[i] < x\
+    \ * x) break;\n                if (Q[i] / x <= sqrtN) {\n                    dp[i]\
+    \ -= (dp[Q[i] / x - 1] - dp[x - 2]) * x;\n                } else {\n         \
+    \           dp[i] -= (dp[sz - (sz - i) * x] - dp[x - 2]) * x;\n              \
+    \  }\n            }\n        }\n        return dp;\n    }\n    std::vector<T>\
+    \ prefix_prime_table(auto f) {\n        std::vector<T> dp(sz);\n        for (int32_t\
+    \ i = 0; i < sz; i++) {\n            dp[i] = f(Q[i]);\n        }\n        for\
+    \ (int64_t x : primes) {\n            for (int32_t i = sz - 1; i >= 0; i--) {\n\
+    \                if (Q[i] < x * x) break;\n                if (Q[i] / x <= sqrtN)\
+    \ {\n                    dp[i] -= (dp[Q[i] / x - 1] - dp[x - 2]) * (f(x) - f(x\
+    \ - 1));\n                } else {\n                    dp[i] -=\n           \
+    \             (dp[sz - (sz - i) * x] - dp[x - 2]) * (f(x) - f(x - 1));\n     \
+    \           }\n            }\n        }\n        return dp;\n    }\n    std::vector<T>\
+    \ run(std::vector<T> table, auto f) {\n        std::vector<T> dp = table;\n  \
+    \      for (auto it = primes.rbegin(); it != primes.rend(); it++) {\n        \
+    \    int64_t x = *it;\n            for (int32_t i = sz - 1; i >= 0; i--) {\n \
+    \               if (Q[i] < x * x) break;\n                int64_t xp = x;\n  \
+    \              int32_t c = 1;\n                while (xp * x <= Q[i]) {\n    \
+    \                if (Q[i] / xp <= sqrtN) {\n                        dp[i] += f(x,\
+    \ c) * (dp[Q[i] / xp - 1] - table[x - 1]) +\n                                \
+    \ f(x, c + 1);\n                    } else {\n                        dp[i] +=\n\
+    \                            f(x, c) * (dp[sz - (sz - i) * xp] - table[x - 1])\
+    \ +\n                            f(x, c + 1);\n                    }\n       \
+    \             c++;\n                    xp *= x;\n                }\n        \
+    \    }\n        }\n        for (int32_t i = 0; i < sz; i++) {\n            dp[i]\
+    \ += 1;\n        }\n        return dp;\n    }\n};\n#line 2 \"Modint/Modint.hpp\"\
+    \n#include <assert.h>\n\n#line 5 \"Modint/Modint.hpp\"\n#include <iostream>\n\
+    template <uint64_t Mod>\nstruct Modint {\n    uint64_t x;\n    constexpr Modint()\
+    \ noexcept { x = 0; }\n    constexpr Modint(int64_t val) noexcept {\n        x\
+    \ = (val < 0 ? val % (int64_t)(Mod) + Mod : val % Mod);\n    }\n    inline uint64_t\
+    \ _get_mod(uint64_t val) noexcept {\n        const static uint64_t m_inv = (-1ULL)\
+    \ / Mod + 1;\n        uint64_t ret = ((unsigned __int128)(val)*m_inv) >> 64;\n\
+    \        uint64_t pro = ret * Mod;\n        return (val - pro + (val < pro ? Mod\
+    \ : 0));\n    }\n    friend std::ostream &operator<<(std::ostream &os, Modint\
+    \ &b) noexcept {\n        return os << b.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is, Modint &b) noexcept {\n        return is >> b.x;\n    }\n    constexpr\
+    \ uint64_t val() noexcept { return x; }\n    constexpr Modint operator+() noexcept\
+    \ { return (*this); }\n    constexpr Modint operator-() noexcept { return Modint()\
+    \ - (*this); }\n    friend Modint operator+(const Modint lhs, const Modint rhs)\
+    \ noexcept {\n        return Modint(lhs) += rhs;\n    }\n    friend Modint operator-(const\
     \ Modint lhs, const Modint rhs) noexcept {\n        return Modint(lhs) -= rhs;\n\
     \    }\n    friend Modint operator*(const Modint lhs, const Modint rhs) noexcept\
     \ {\n        return Modint(lhs) *= rhs;\n    }\n    friend Modint operator/(const\
@@ -288,7 +287,7 @@ data:
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
     \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp\"\
     \nusing mint = Modint<469762049>;\nvoid solve() {\n    LL(T);\n    rep(_, T) {\n\
-    \        LL(N, a, b);\n        mf_prefix_sum<mint> mf(N);\n        vector<mint>\
+    \        LL(N, a, b);\n        MFPrefixSum<mint> mf(N);\n        vector<mint>\
     \ pi = mf.pi_table();\n        vector<mint> prime_sum = mf.prime_sum_table();\n\
     \        vector<mint> table(len(pi));\n        rep(i, len(pi)) { table[i] = pi[i]\
     \ * a + prime_sum[i] * b; }\n        out(mf.run(table, [a, b](ll x, ll c) -> mint\
@@ -297,12 +296,12 @@ data:
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_multiplicative_function\"\
     \n#include \"../../Math/MFPrefixSum.hpp\"\n#include \"../../Modint/Modint.hpp\"\
     \n#include \"../../Template/Template.hpp\"\nusing mint = Modint<469762049>;\n\
-    void solve() {\n    LL(T);\n    rep(_, T) {\n        LL(N, a, b);\n        mf_prefix_sum<mint>\
+    void solve() {\n    LL(T);\n    rep(_, T) {\n        LL(N, a, b);\n        MFPrefixSum<mint>\
     \ mf(N);\n        vector<mint> pi = mf.pi_table();\n        vector<mint> prime_sum\
     \ = mf.prime_sum_table();\n        vector<mint> table(len(pi));\n        rep(i,\
     \ len(pi)) { table[i] = pi[i] * a + prime_sum[i] * b; }\n        out(mf.run(table,\
     \ [a, b](ll x, ll c) -> mint {\n                  return a * c + b * x;\n    \
-    \          }).back());\n    }\n}\nint main() { solve(); }"
+    \          }).back());\n    }\n}\nint main() { solve(); }\n"
   dependsOn:
   - Math/MFPrefixSum.hpp
   - Math/EnumeratePrimes.hpp
@@ -315,8 +314,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   requiredBy: []
-  timestamp: '2024-10-22 20:55:11+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-10-23 08:30:32+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
 layout: document

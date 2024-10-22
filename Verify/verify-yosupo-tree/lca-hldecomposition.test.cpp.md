@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Graph/Graph.hpp
     title: Graph/Graph.hpp
   - icon: ':question:'
@@ -16,7 +16,7 @@ data:
   - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Tree/HLDecomposition.hpp
     title: Tree/HLDecomposition.hpp
   _extendedRequiredBy: []

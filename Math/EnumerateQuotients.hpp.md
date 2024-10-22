@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Math/MFPrefixSum.hpp
     title: Math/MFPrefixSum.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
     title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
     title: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Math/EnumerateQuotients.hpp\"\n#include <math.h>\n\n#include\
@@ -37,7 +37,7 @@ data:
   requiredBy:
   - Math/MFPrefixSum.hpp
   timestamp: '2024-10-22 16:22:00+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
   - Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
