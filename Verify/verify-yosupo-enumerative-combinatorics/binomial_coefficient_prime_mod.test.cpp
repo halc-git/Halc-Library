@@ -6,7 +6,7 @@ using mint = ArbitraryModint<0>;
 void solve() {
     LL(T, m);
     mint::set_mod(m);
-    ModCombination<mint> comb;
+    ModCombination<mint> comb(10000000);
     rep(i, T) {
         LL(n, k);
         out(comb.comb(n, k));

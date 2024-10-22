@@ -5,7 +5,7 @@
 using mint = Modint<MODD>;
 void solve() {
     LL(T);
-    ModCombination<mint> comb;
+    ModCombination<mint> comb(2000000);
     rep(i, T) {
         STR(S);
         ll N = 0, K = 0;

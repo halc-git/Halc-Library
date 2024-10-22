@@ -4,6 +4,10 @@
 template <typename T>
 struct ModCombination {
     std::vector<T> fact = {1}, rev{1};
+    ModCombination(uint32_t sz = 0) {
+        fact.reserve(sz+1);
+        rev.reserve(sz+1);
+    }
     void resize(uint32_t sz) {
         sz++;
         if (fact.size() >= sz) return;
