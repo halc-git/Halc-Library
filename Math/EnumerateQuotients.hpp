@@ -4,8 +4,8 @@
 #include <cstdint>
 #include <numeric>
 #include <vector>
-std::vector<int64_t> enumerate_quotients(int64_t n) {
-    int64_t x = sqrt(n);
+std::vector<int64_t> enumerate_quotients(uint64_t n) {
+    uint64_t x = sqrt(n);
     while ((x + 1) * (x + 1) <= n) x++;
     while (x * x > n) x--;
     std::vector<int64_t> ret(x);
