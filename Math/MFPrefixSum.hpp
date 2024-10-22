@@ -6,7 +6,7 @@
 #include "EnumeratePrimes.hpp"
 #include "EnumerateQuotients.hpp"
 template <class T>
-struct mf_prefix_sum {
+struct MFPrefixSum {
     uint64_t n;
     uint64_t sqrtN;
     std::vector<int64_t> Q;
