@@ -51,8 +51,7 @@ struct SegmentTree {
         }
         return M::op(rel, rer);
     }
-    template <class F>
-    int32_t max_right(int32_t lf, F f) {
+    int32_t max_right(int32_t lf, auto f) {
         lf += siz;
         int32_t ri = siz << 1;
         std::queue<int32_t> lfp;
@@ -102,8 +101,7 @@ struct SegmentTree {
         }
         return siz;
     }
-    template <class F>
-    int32_t min_left(int32_t ri, F f) {
+    int32_t min_left(int32_t ri, auto f) {
         ri += siz;
         int32_t lf = siz;
         std::queue<int32_t> rip;

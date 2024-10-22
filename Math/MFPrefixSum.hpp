@@ -55,8 +55,7 @@ struct mf_prefix_sum {
         }
         return dp;
     }
-    template <class F>
-    std::vector<T> prefix_prime_table(F f) {
+    std::vector<T> prefix_prime_table(auto f) {
         std::vector<T> dp(sz);
         for (int32_t i = 0; i < sz; i++) {
             dp[i] = f(Q[i]);
@@ -74,8 +73,7 @@ struct mf_prefix_sum {
         }
         return dp;
     }
-    template <class F>
-    std::vector<T> run(std::vector<T> table, F f) {
+    std::vector<T> run(std::vector<T> table, auto f) {
         std::vector<T> dp = table;
         for (auto it = primes.rbegin(); it != primes.rend(); it++) {
             int64_t x = *it;
