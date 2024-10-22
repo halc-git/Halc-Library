@@ -6,11 +6,10 @@
 #include <string>
 #include <vector>
 inline void scan() {}
-inline void scan(int &a) { std::cin >> a; }
-inline void scan(unsigned &a) { std::cin >> a; }
-inline void scan(long &a) { std::cin >> a; }
-inline void scan(long long &a) { std::cin >> a; }
-inline void scan(unsigned long long &a) { std::cin >> a; }
+inline void scan(int32_t &a) { std::cin >> a; }
+inline void scan(uint32_t &a) { std::cin >> a; }
+inline void scan(int64_t &a) { std::cin >> a; }
+inline void scan(uint64_t &a) { std::cin >> a; }
 inline void scan(char &a) { std::cin >> a; }
 inline void scan(float &a) { std::cin >> a; }
 inline void scan(double &a) { std::cin >> a; }
@@ -64,11 +63,10 @@ inline void in(Head &head, Tail &...tail) {
 }
 inline void print() { std::cout << ' '; }
 inline void print(const bool &a) { std::cout << a; }
-inline void print(const int &a) { std::cout << a; }
-inline void print(const unsigned &a) { std::cout << a; }
-inline void print(const long &a) { std::cout << a; }
-inline void print(const long long &a) { std::cout << a; }
-inline void print(const unsigned long long &a) { std::cout << a; }
+inline void print(const int32_t &a) { std::cout << a; }
+inline void print(const uint32_t &a) { std::cout << a; }
+inline void print(const int64_t &a) { std::cout << a; }
+inline void print(const uint64_t &a) { std::cout << a; }
 inline void print(const char &a) { std::cout << a; }
 inline void print(const char a[]) { std::cout << a; }
 inline void print(const float &a) { std::cout << a; }

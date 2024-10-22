@@ -1,16 +1,17 @@
 #pragma once
 #include <array>
 #include <climits>
+#include <cstdint>
 #include <functional>
 #include <limits>
 #include <queue>
 #include <vector>
-using ll = long long;
+using ll = int64_t;
 using ld = long double;
-using ull = unsigned long long;
+using ull = uint64_t;
 using uint = unsigned int;
 using pll = std::pair<ll, ll>;
-using pii = std::pair<int, int>;
+using pii = std::pair<int32_t, int32_t>;
 using vl = std::vector<ll>;
 using vvl = std::vector<std::vector<ll>>;
 using pdd = std::pair<ld, ld>;
