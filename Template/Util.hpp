@@ -9,7 +9,7 @@
 using ll = int64_t;
 using ld = long double;
 using ull = uint64_t;
-using uint = unsigned int;
+using uint = uint32_t;
 using pll = std::pair<ll, ll>;
 using pii = std::pair<int32_t, int32_t>;
 using vl = std::vector<ll>;
