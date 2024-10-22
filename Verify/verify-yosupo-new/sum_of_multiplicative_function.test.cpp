@@ -7,7 +7,7 @@ void solve() {
     LL(T);
     rep(_, T) {
         LL(N, a, b);
-        mf_prefix_sum<mint> mf(N);
+        MFPrefixSum<mint> mf(N);
         vector<mint> pi = mf.pi_table();
         vector<mint> prime_sum = mf.prime_sum_table();
         vector<mint> table(len(pi));
