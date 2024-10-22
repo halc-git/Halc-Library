@@ -12,7 +12,7 @@ struct MFPrefixSum {
     std::vector<int64_t> Q;
     std::vector<int32_t> primes;
     int32_t sz;
-    mf_prefix_sum(uint64_t N) {
+    MFPrefixSum(uint64_t N) {
         n = N;
         sqrtN = sqrt(n);
         while ((sqrtN + 1) * (sqrtN + 1) <= n) sqrtN++;
