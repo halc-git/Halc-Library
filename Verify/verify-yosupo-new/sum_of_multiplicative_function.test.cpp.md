@@ -1,35 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/EnumeratePrimes.hpp
     title: Math/EnumeratePrimes.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/EnumerateQuotients.hpp
     title: Math/EnumerateQuotients.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/MFPrefixSum.hpp
     title: Math/MFPrefixSum.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sum_of_multiplicative_function
@@ -54,7 +54,7 @@ data:
     \    for (int32_t i = x; i >= 1; i--) {\n        if (ret.back() != n / i) ret.emplace_back(n\
     \ / i);\n    }\n    return ret;\n}\n#line 8 \"Math/MFPrefixSum.hpp\"\ntemplate\
     \ <class T>\nstruct MFPrefixSum {\n    uint64_t n;\n    uint64_t sqrtN;\n    std::vector<int64_t>\
-    \ Q;\n    std::vector<int32_t> primes;\n    int32_t sz;\n    mf_prefix_sum(uint64_t\
+    \ Q;\n    std::vector<int32_t> primes;\n    int32_t sz;\n    MFPrefixSum(uint64_t\
     \ N) {\n        n = N;\n        sqrtN = sqrt(n);\n        while ((sqrtN + 1) *\
     \ (sqrtN + 1) <= n) sqrtN++;\n        while (sqrtN * sqrtN > n) sqrtN--;\n   \
     \     Q = enumerate_quotients(n);\n        sz = Q.size();\n        primes = enumerate_primes(sqrtN);\n\
@@ -314,8 +314,8 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   requiredBy: []
-  timestamp: '2024-10-23 08:30:32+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-23 08:49:53+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
 layout: document

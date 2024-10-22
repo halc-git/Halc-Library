@@ -34,13 +34,13 @@ data:
       title: Graph/Graph.hpp
   - name: Math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Math/EnumeratePrimes.hpp
       title: Math/EnumeratePrimes.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Math/EnumerateQuotients.hpp
       title: Math/EnumerateQuotients.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Math/MFPrefixSum.hpp
       title: Math/MFPrefixSum.hpp
     - icon: ':heavy_check_mark:'
@@ -56,7 +56,7 @@ data:
       title: Mo's Algorithm
   - name: Modint
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -72,16 +72,16 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/InOut.hpp
       title: Template/InOut.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Util.hpp
       title: Template/Util.hpp
   - name: Tree
@@ -156,7 +156,7 @@ data:
       title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-new
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
       title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   - name: Verify/verify-yosupo-number-theory
