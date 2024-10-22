@@ -2,122 +2,131 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Template.hpp
     title: Template/Template.hpp
+  - icon: ':warning:'
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+  - icon: ':warning:'
+    path: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
+    title: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
+  - icon: ':warning:'
+    path: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
+    title: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
     title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-aoj-grl/grl_1_a.test.cpp
     title: Verify/verify-aoj-grl/grl_1_a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-aoj/2667.test.cpp
     title: Verify/verify-aoj/2667.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
     title: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
     title: Verify/verify-yosupo-datastructure/unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-string/zalgorithm.test.cpp
     title: Verify/verify-yosupo-string/zalgorithm.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
     title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
     title: Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
     title: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
     title: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/1092.test.cpp
     title: Verify/verify-yuki/1092.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/235.test.cpp
     title: Verify/verify-yuki/235.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/399.test.cpp
     title: Verify/verify-yuki/399.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/900.test.cpp
     title: Verify/verify-yuki/900.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Template/Util.hpp\"\n#include <array>\n#include <climits>\n\
-    #include <functional>\n#include <limits>\n#include <queue>\n#include <vector>\n\
-    using ll = long long;\nusing ld = long double;\nusing ull = unsigned long long;\n\
-    using uint = unsigned int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int,\
-    \ int>;\nusing vl = std::vector<ll>;\nusing vvl = std::vector<std::vector<ll>>;\n\
+    #include <cstdint>\n#include <functional>\n#include <limits>\n#include <queue>\n\
+    #include <vector>\nusing ll = int64_t;\nusing ld = long double;\nusing ull = uint64_t;\n\
+    using uint = uint32_t;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int32_t,\
+    \ int32_t>;\nusing vl = std::vector<ll>;\nusing vvl = std::vector<std::vector<ll>>;\n\
     using pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class\
     \ T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
     \ ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX >> 1;\n\
@@ -134,13 +143,13 @@ data:
     \ 0.0L);\n}\ntemplate <class T>\nauto min(const T &a) {\n    return *min_element(std::begin(a),\
     \ std::end(a));\n}\ntemplate <class T>\nauto max(const T &a) {\n    return *max_element(std::begin(a),\
     \ std::end(a));\n}\n"
-  code: "#pragma once\n#include <array>\n#include <climits>\n#include <functional>\n\
-    #include <limits>\n#include <queue>\n#include <vector>\nusing ll = long long;\n\
-    using ld = long double;\nusing ull = unsigned long long;\nusing uint = unsigned\
-    \ int;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int, int>;\nusing\
-    \ vl = std::vector<ll>;\nusing vvl = std::vector<std::vector<ll>>;\nusing pdd\
-    \ = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class T>\n\
-    using pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
+  code: "#pragma once\n#include <array>\n#include <climits>\n#include <cstdint>\n\
+    #include <functional>\n#include <limits>\n#include <queue>\n#include <vector>\n\
+    using ll = int64_t;\nusing ld = long double;\nusing ull = uint64_t;\nusing uint\
+    \ = uint32_t;\nusing pll = std::pair<ll, ll>;\nusing pii = std::pair<int32_t,\
+    \ int32_t>;\nusing vl = std::vector<ll>;\nusing vvl = std::vector<std::vector<ll>>;\n\
+    using pdd = std::pair<ld, ld>;\nusing tuplis = std::array<ll, 3>;\ntemplate <class\
+    \ T>\nusing pq = std::priority_queue<T, std::vector<T>, std::greater<T>>;\nconstexpr\
     \ ll LINF = (1LL << 62) - (1LL << 31);\nconstexpr int32_t INF = INT_MAX >> 1;\n\
     constexpr ll MINF = 1LL << 40;\nconstexpr ld DINF = std::numeric_limits<ld>::infinity();\n\
     constexpr int32_t MODD = 1000000007;\nconstexpr int32_t MOD = 998244353;\nconstexpr\
@@ -160,8 +169,11 @@ data:
   path: Template/Util.hpp
   requiredBy:
   - Template/Template.hpp
-  timestamp: '2024-05-14 08:12:46+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - Verify/verify-yosupo-number-theory/enumerate_primes.cpp
+  - Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+  timestamp: '2024-10-22 20:46:56+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   - Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp

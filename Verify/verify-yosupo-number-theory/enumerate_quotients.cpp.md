@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: String/RollingHash.hpp
-    title: String/RollingHash.hpp
+  - icon: ':warning:'
+    path: Math/EnumerateQuotients.hpp
+    title: Math/EnumerateQuotients.hpp
   - icon: ':x:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
@@ -18,72 +18,44 @@ data:
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
-  bundledCode: "#line 1 \"Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp\"\
-    \n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
-    \n#line 2 \"String/RollingHash.hpp\"\n#include <chrono>\n#include <random>\n#include\
-    \ <vector>\n\n// https://qiita.com/keymoon/items/11fac5627672a6d6a9f6\ntemplate\
-    \ <typename S>\nstruct RollingHash {\n    using u64 = uint64_t;\n    static const\
-    \ u64 MOD = (1ULL << 61) - 1;\n    static const u64 MASK31 = (1ULL << 31) - 1;\n\
-    \    static const u64 MASK30 = (1ULL << 30) - 1;\n    std::vector<u64> powers;\n\
-    \    u64 base, fixed;\n    static inline u64 add(u64 a, u64 b) {\n        if ((a\
-    \ += b) >= MOD) a -= MOD;\n        return a;\n    }\n    static inline u64 calc_mod(u64\
-    \ x) {\n        u64 xu = x >> 61, xd = x & MOD;\n        u64 ret = xu + xd;\n\
-    \        if (ret >= MOD) ret -= MOD;\n        return ret;\n    }\n    static inline\
-    \ u64 mul(u64 a, u64 b) {\n        u64 au = a >> 31, ad = a & MASK31, bu = b >>\
-    \ 31, bd = b & MASK31;\n        u64 mid = ad * bu + au * bd;\n        u64 midu\
-    \ = mid >> 30, midd = mid & MASK30;\n        return calc_mod(((au * bu) << 1)\
-    \ + midu + (midd << 31) + ad * bd);\n    }\n    static inline u64 generate_base()\
-    \ {\n        std::mt19937_64 mt(\n            std::chrono::steady_clock::now().time_since_epoch().count());\n\
-    \        std::uniform_int_distribution<u64> rand(1ULL << 60, MOD - 1);\n     \
-    \   return rand(mt);\n    }\n    explicit RollingHash(u64 base_number = generate_base(),\n\
-    \                         u64 fixed_number = 1ULL << 31) {\n        base = base_number;\n\
-    \        fixed = fixed_number;\n        powers = {1};\n    }\n    std::vector<u64>\
-    \ build(const S &s) {\n        uint32_t sz = s.size();\n        std::vector<u64>\
-    \ hashed(sz + 1, 0);\n        while (powers.size() <= sz) {\n            powers.emplace_back(mul(powers.back(),\
-    \ base));\n        }\n        for (uint32_t i = 0; i < sz; i++) {\n          \
-    \  hashed[i + 1] = add(mul(hashed[i], base), s[i] + fixed);\n        }\n     \
-    \   return hashed;\n    }\n    u64 query(const std::vector<u64> &s, uint32_t lf,\
-    \ uint32_t ri) {\n        int64_t ret = s[ri] - mul(s[lf], powers[ri - lf]);\n\
-    \        if (ret < 0) ret += MOD;\n        return ret;\n    }\n    u64 combine(u64\
-    \ h1, u64 h2, uint32_t h2len) {\n        return add(mul(h1, powers[h2len]), h2);\n\
-    \    }\n    uint32_t lcp(const std::vector<u64> &a, uint32_t l1, uint32_t r1,\n\
-    \                 const std::vector<u64> &b, uint32_t l2, uint32_t r2) {\n   \
-    \     uint32_t ok = 0, ng = std::min((r1 - l1), (r2 - l2)) + 1;\n        while\
-    \ (ng - ok > 1) {\n            uint32_t mid = (ok + ng) >> 1;\n            if\
-    \ (query(a, l1, l1 + mid) == query(b, l2, l2 + mid))\n                ok = mid;\n\
-    \            else\n                ng = mid;\n        }\n        return ok;\n\
-    \    }\n};\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline void scan() {}\ninline\
-    \ void scan(int32_t &a) { std::cin >> a; }\ninline void scan(uint32_t &a) { std::cin\
-    \ >> a; }\ninline void scan(int64_t &a) { std::cin >> a; }\ninline void scan(uint64_t\
-    \ &a) { std::cin >> a; }\ninline void scan(char &a) { std::cin >> a; }\ninline\
-    \ void scan(float &a) { std::cin >> a; }\ninline void scan(double &a) { std::cin\
-    \ >> a; }\ninline void scan(long double &a) { std::cin >> a; }\ninline void scan(std::vector<bool>\
-    \ &vec) {\n    for (int32_t i = 0; i < vec.size(); i++) {\n        int a;\n  \
-    \      scan(a);\n        vec[i] = a;\n    }\n}\ninline void scan(std::string &a)\
-    \ { std::cin >> a; }\ntemplate <class T>\ninline void scan(std::vector<T> &vec);\n\
-    template <class T, size_t size>\ninline void scan(std::array<T, size> &vec);\n\
-    template <class T, class L>\ninline void scan(std::pair<T, L> &p);\ntemplate <class\
-    \ T, size_t size>\ninline void scan(T (&vec)[size]);\ntemplate <class T>\ninline\
-    \ void scan(std::vector<T> &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate\
-    \ <class T>\ninline void scan(std::deque<T> &vec) {\n    for (auto &i : vec) scan(i);\n\
-    }\ntemplate <class T, size_t size>\ninline void scan(std::array<T, size> &vec)\
-    \ {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class T, class L>\ninline\
-    \ void scan(std::pair<T, L> &p) {\n    scan(p.first);\n    scan(p.second);\n}\n\
-    template <class T, size_t size>\ninline void scan(T (&vec)[size]) {\n    for (auto\
-    \ &i : vec) scan(i);\n}\ntemplate <class T>\ninline void scan(T &a) {\n    std::cin\
-    \ >> a;\n}\ninline void in() {}\ntemplate <class Head, class... Tail>\ninline\
-    \ void in(Head &head, Tail &...tail) {\n    scan(head);\n    in(tail...);\n}\n\
-    inline void print() { std::cout << ' '; }\ninline void print(const bool &a) {\
-    \ std::cout << a; }\ninline void print(const int32_t &a) { std::cout << a; }\n\
+    - https://judge.yosupo.jp/problem/enumerate_quotients
+  bundledCode: "#line 1 \"Verify/verify-yosupo-number-theory/enumerate_quotients.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_quotients\"\n#line\
+    \ 2 \"Math/EnumerateQuotients.hpp\"\n#include <math.h>\n\n#include <cstdint>\n\
+    #include <numeric>\n#include <vector>\nstd::vector<int64_t> enumerate_quotients(uint64_t\
+    \ n) {\n    uint64_t x = sqrt(n);\n    while ((x + 1) * (x + 1) <= n) x++;\n \
+    \   while (x * x > n) x--;\n    std::vector<int64_t> ret(x);\n    ret.reserve(x\
+    \ * 2);\n    std::iota(ret.begin(), ret.end(), 1);\n    for (int32_t i = x; i\
+    \ >= 1; i--) {\n        if (ret.back() != n / i) ret.emplace_back(n / i);\n  \
+    \  }\n    return ret;\n}\n#line 2 \"Template/Template.hpp\"\n#include <bits/stdc++.h>\n\
+    using namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline void scan() {}\n\
+    inline void scan(int32_t &a) { std::cin >> a; }\ninline void scan(uint32_t &a)\
+    \ { std::cin >> a; }\ninline void scan(int64_t &a) { std::cin >> a; }\ninline\
+    \ void scan(uint64_t &a) { std::cin >> a; }\ninline void scan(char &a) { std::cin\
+    \ >> a; }\ninline void scan(float &a) { std::cin >> a; }\ninline void scan(double\
+    \ &a) { std::cin >> a; }\ninline void scan(long double &a) { std::cin >> a; }\n\
+    inline void scan(std::vector<bool> &vec) {\n    for (int32_t i = 0; i < vec.size();\
+    \ i++) {\n        int a;\n        scan(a);\n        vec[i] = a;\n    }\n}\ninline\
+    \ void scan(std::string &a) { std::cin >> a; }\ntemplate <class T>\ninline void\
+    \ scan(std::vector<T> &vec);\ntemplate <class T, size_t size>\ninline void scan(std::array<T,\
+    \ size> &vec);\ntemplate <class T, class L>\ninline void scan(std::pair<T, L>\
+    \ &p);\ntemplate <class T, size_t size>\ninline void scan(T (&vec)[size]);\ntemplate\
+    \ <class T>\ninline void scan(std::vector<T> &vec) {\n    for (auto &i : vec)\
+    \ scan(i);\n}\ntemplate <class T>\ninline void scan(std::deque<T> &vec) {\n  \
+    \  for (auto &i : vec) scan(i);\n}\ntemplate <class T, size_t size>\ninline void\
+    \ scan(std::array<T, size> &vec) {\n    for (auto &i : vec) scan(i);\n}\ntemplate\
+    \ <class T, class L>\ninline void scan(std::pair<T, L> &p) {\n    scan(p.first);\n\
+    \    scan(p.second);\n}\ntemplate <class T, size_t size>\ninline void scan(T (&vec)[size])\
+    \ {\n    for (auto &i : vec) scan(i);\n}\ntemplate <class T>\ninline void scan(T\
+    \ &a) {\n    std::cin >> a;\n}\ninline void in() {}\ntemplate <class Head, class...\
+    \ Tail>\ninline void in(Head &head, Tail &...tail) {\n    scan(head);\n    in(tail...);\n\
+    }\ninline void print() { std::cout << ' '; }\ninline void print(const bool &a)\
+    \ { std::cout << a; }\ninline void print(const int32_t &a) { std::cout << a; }\n\
     inline void print(const uint32_t &a) { std::cout << a; }\ninline void print(const\
     \ int64_t &a) { std::cout << a; }\ninline void print(const uint64_t &a) { std::cout\
     \ << a; }\ninline void print(const char &a) { std::cout << a; }\ninline void print(const\
@@ -161,33 +133,29 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 4 \"Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp\"\
-    \nvoid solve() {\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n  \
-    \  auto tb = roll.build(T);\n    auto pb = roll.build(P);\n    ll hash = roll.query(pb,\
-    \ 0, len(P));\n    rep(i, len(T) - len(P) + 1) {\n        if (roll.query(tb, i,\
-    \ i + len(P)) == hash) out(i);\n    }\n}\nint main() { solve(); }\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
-    \n#include \"../../String/RollingHash.hpp\"\n#include \"../../Template/Template.hpp\"\
-    \nvoid solve() {\n    STR(T);\n    STR(P);\n    RollingHash<string> roll;\n  \
-    \  auto tb = roll.build(T);\n    auto pb = roll.build(P);\n    ll hash = roll.query(pb,\
-    \ 0, len(P));\n    rep(i, len(T) - len(P) + 1) {\n        if (roll.query(tb, i,\
-    \ i + len(P)) == hash) out(i);\n    }\n}\nint main() { solve(); }"
+    \ name(h, std::vector<type>(w)); in(name)\n#line 4 \"Verify/verify-yosupo-number-theory/enumerate_quotients.cpp\"\
+    \nvoid solve() {\n    LL(N);\n    vl ans = enumerate_quotients(N);\n    out(len(ans));\n\
+    \    out(ans);\n}\nint main() { solve(); }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_quotients\"\n\
+    #include \"../../Math/EnumerateQuotients.hpp\"\n#include \"../../Template/Template.hpp\"\
+    \nvoid solve() {\n    LL(N);\n    vl ans = enumerate_quotients(N);\n    out(len(ans));\n\
+    \    out(ans);\n}\nint main() { solve(); }"
   dependsOn:
-  - String/RollingHash.hpp
+  - Math/EnumerateQuotients.hpp
   - Template/Template.hpp
   - Template/InOut.hpp
   - Template/Util.hpp
   - Template/Macro.hpp
-  isVerificationFile: true
-  path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+  isVerificationFile: false
+  path: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
   requiredBy: []
   timestamp: '2024-10-22 20:46:56+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+documentation_of: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-- /verify/Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp.html
-title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
+- /library/Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
+- /library/Verify/verify-yosupo-number-theory/enumerate_quotients.cpp.html
+title: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
 ---

@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"DataStructure/DisjointSparseTable.hpp\"\n#include <bit>\n\
@@ -64,7 +64,7 @@ data:
   path: DataStructure/DisjointSparseTable.hpp
   requiredBy: []
   timestamp: '2024-05-10 16:22:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
   - Verify/verify-yosupo-datastructure/staticrmq.test.cpp

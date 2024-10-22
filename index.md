@@ -3,203 +3,225 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/DisjointSparseTable.hpp
       title: Disjoint Sparse Table
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/FenwickTree.hpp
       title: DataStructure/FenwickTree.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/FoldableDeque.hpp
       title: Foldable Deque
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/Hashmap.hpp
       title: DataStructure/Hashmap.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/LazySegmentTree.hpp
       title: Lazy Segment Tree
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/RadixHeap.hpp
       title: DataStructure/RadixHeap.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/SegmentTree.hpp
       title: Segment Tree
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: DataStructure/UnionFind.hpp
       title: Union Find
   - name: Graph
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Graph/Graph.hpp
       title: Graph/Graph.hpp
   - name: Math
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
+      path: Math/EnumeratePrimes.hpp
+      title: Math/EnumeratePrimes.hpp
+    - icon: ':warning:'
+      path: Math/EnumerateQuotients.hpp
+      title: Math/EnumerateQuotients.hpp
+    - icon: ':warning:'
+      path: Math/MFPrefixSum.hpp
+      title: Math/MFPrefixSum.hpp
+    - icon: ':x:'
       path: Math/ModCombination.hpp
       title: Math/ModCombination.hpp
   - name: Misc
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Misc/Compress.hpp
       title: Misc/Compress.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Misc/Mo.hpp
       title: Mo's Algorithm
   - name: Modint
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: String/Manacher.hpp
       title: String/Manacher.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: String/RollingHash.hpp
       title: String/RollingHash.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: String/Z_algorithm.hpp
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Template/InOut.hpp
       title: Template/InOut.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Template/Util.hpp
       title: Template/Util.hpp
   - name: Tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Tree/HLDecomposition.hpp
       title: Tree/HLDecomposition.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Tree/StaticTopTree.hpp
       title: Static Top Tree
+  - name: Verify/verify-yosupo-new
+    pages:
+    - icon: ':warning:'
+      path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+      title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+  - name: Verify/verify-yosupo-number-theory
+    pages:
+    - icon: ':warning:'
+      path: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
+      title: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
+    - icon: ':warning:'
+      path: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
+      title: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
   verificationCategories:
   - name: Verify/verify-aoj
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-aoj/2667.test.cpp
       title: Verify/verify-aoj/2667.test.cpp
   - name: Verify/verify-aoj-alds
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
       title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
   - name: Verify/verify-aoj-grl
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-aoj-grl/grl_1_a.test.cpp
       title: Verify/verify-aoj-grl/grl_1_a.test.cpp
   - name: Verify/verify-yosupo-datastructure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
       title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
       title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
       title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
       title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
       title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
       title: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
       title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
       title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
       title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
       title: Verify/verify-yosupo-datastructure/unionfind.test.cpp
   - name: Verify/verify-yosupo-enumerative-combinatorics
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
       title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-string
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
       title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
       title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
       title: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-string/zalgorithm.test.cpp
       title: Verify/verify-yosupo-string/zalgorithm.test.cpp
   - name: Verify/verify-yosupo-tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
       title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
       title: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
       title: Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
       title: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
       title: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   - name: Verify/verify-yuki
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/1092.test.cpp
       title: Verify/verify-yuki/1092.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/117.test.cpp
       title: Verify/verify-yuki/117.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/2338.test.cpp
       title: Verify/verify-yuki/2338.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/235.test.cpp
       title: Verify/verify-yuki/235.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/399.test.cpp
       title: Verify/verify-yuki/399.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/650.test.cpp
       title: Verify/verify-yuki/650.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/900.test.cpp
       title: Verify/verify-yuki/900.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yuki/901.test.cpp
       title: Verify/verify-yuki/901.test.cpp
 layout: toppage

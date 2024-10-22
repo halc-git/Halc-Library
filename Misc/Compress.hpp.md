@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Misc/Compress.hpp\"\n#include <cstdint>\n#include <vector>\n\
@@ -33,7 +33,7 @@ data:
   path: Misc/Compress.hpp
   requiredBy: []
   timestamp: '2024-05-10 16:22:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
 documentation_of: Misc/Compress.hpp

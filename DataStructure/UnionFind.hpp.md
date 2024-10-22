@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
     title: Verify/verify-yosupo-datastructure/unionfind.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"DataStructure/UnionFind.hpp\"\n#include <cstdint>\n#include\
@@ -62,7 +62,7 @@ data:
   path: DataStructure/UnionFind.hpp
   requiredBy: []
   timestamp: '2024-10-21 14:24:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-datastructure/unionfind.test.cpp
 documentation_of: DataStructure/UnionFind.hpp

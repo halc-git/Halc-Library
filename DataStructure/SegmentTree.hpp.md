@@ -3,21 +3,21 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
     title: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"DataStructure/SegmentTree.hpp\"\n#include <cstdint>\n#include\
@@ -38,26 +38,26 @@ data:
     \      lf++;\n            }\n            if (ri & 1) {\n                ri--;\n\
     \                rer = M::op(tree[ri], rer);\n            }\n            lf >>=\
     \ 1;\n            ri >>= 1;\n        }\n        return M::op(rel, rer);\n    }\n\
-    \    template <class F>\n    int32_t max_right(int32_t lf, F f) {\n        lf\
-    \ += siz;\n        int32_t ri = siz << 1;\n        std::queue<int32_t> lfp;\n\
-    \        std::stack<int32_t> rip;\n        while (lf < ri) {\n            if (lf\
-    \ & 1) {\n                lfp.push(lf);\n                lf++;\n            }\n\
-    \            if (ri & 1) {\n                ri--;\n                rip.push(ri);\n\
-    \            }\n            lf >>= 1;\n            ri >>= 1;\n        }\n    \
-    \    T val = M::e;\n        while (!lfp.empty()) {\n            int32_t i = lfp.front();\n\
-    \            lfp.pop();\n            if (!f(M::op(val, tree[i]))) {\n        \
-    \        while (i < siz) {\n                    i <<= 1;\n                   \
-    \ if (f(M::op(val, tree[i]))) {\n                        val = M::op(val, tree[i]);\n\
-    \                        i++;\n                    }\n                }\n    \
-    \            return i - siz;\n            }\n            val = M::op(val, tree[i]);\n\
-    \        }\n        while (!rip.empty()) {\n            int32_t i = rip.top();\n\
+    \    int32_t max_right(int32_t lf, auto f) {\n        lf += siz;\n        int32_t\
+    \ ri = siz << 1;\n        std::queue<int32_t> lfp;\n        std::stack<int32_t>\
+    \ rip;\n        while (lf < ri) {\n            if (lf & 1) {\n               \
+    \ lfp.push(lf);\n                lf++;\n            }\n            if (ri & 1)\
+    \ {\n                ri--;\n                rip.push(ri);\n            }\n   \
+    \         lf >>= 1;\n            ri >>= 1;\n        }\n        T val = M::e;\n\
+    \        while (!lfp.empty()) {\n            int32_t i = lfp.front();\n      \
+    \      lfp.pop();\n            if (!f(M::op(val, tree[i]))) {\n              \
+    \  while (i < siz) {\n                    i <<= 1;\n                    if (f(M::op(val,\
+    \ tree[i]))) {\n                        val = M::op(val, tree[i]);\n         \
+    \               i++;\n                    }\n                }\n             \
+    \   return i - siz;\n            }\n            val = M::op(val, tree[i]);\n \
+    \       }\n        while (!rip.empty()) {\n            int32_t i = rip.top();\n\
     \            rip.pop();\n            if (!f(M::op(val, tree[i]))) {\n        \
     \        while (i < siz) {\n                    i <<= 1;\n                   \
     \ if (f(M::op(val, tree[i]))) {\n                        val = M::op(val, tree[i]);\n\
     \                        i++;\n                    }\n                }\n    \
     \            return i - siz;\n            }\n            val = M::op(val, tree[i]);\n\
-    \        }\n        return siz;\n    }\n    template <class F>\n    int32_t min_left(int32_t\
-    \ ri, F f) {\n        ri += siz;\n        int32_t lf = siz;\n        std::queue<int32_t>\
+    \        }\n        return siz;\n    }\n    int32_t min_left(int32_t ri, auto\
+    \ f) {\n        ri += siz;\n        int32_t lf = siz;\n        std::queue<int32_t>\
     \ rip;\n        std::stack<int32_t> lfp;\n        while (lf < ri) {\n        \
     \    if (lf & 1) {\n                lfp.push(lf);\n                lf++;\n   \
     \         }\n            if (ri & 1) {\n                ri--;\n              \
@@ -94,52 +94,51 @@ data:
     \                rel = M::op(rel, tree[lf]);\n                lf++;\n        \
     \    }\n            if (ri & 1) {\n                ri--;\n                rer\
     \ = M::op(tree[ri], rer);\n            }\n            lf >>= 1;\n            ri\
-    \ >>= 1;\n        }\n        return M::op(rel, rer);\n    }\n    template <class\
-    \ F>\n    int32_t max_right(int32_t lf, F f) {\n        lf += siz;\n        int32_t\
-    \ ri = siz << 1;\n        std::queue<int32_t> lfp;\n        std::stack<int32_t>\
-    \ rip;\n        while (lf < ri) {\n            if (lf & 1) {\n               \
-    \ lfp.push(lf);\n                lf++;\n            }\n            if (ri & 1)\
-    \ {\n                ri--;\n                rip.push(ri);\n            }\n   \
-    \         lf >>= 1;\n            ri >>= 1;\n        }\n        T val = M::e;\n\
-    \        while (!lfp.empty()) {\n            int32_t i = lfp.front();\n      \
-    \      lfp.pop();\n            if (!f(M::op(val, tree[i]))) {\n              \
-    \  while (i < siz) {\n                    i <<= 1;\n                    if (f(M::op(val,\
-    \ tree[i]))) {\n                        val = M::op(val, tree[i]);\n         \
-    \               i++;\n                    }\n                }\n             \
-    \   return i - siz;\n            }\n            val = M::op(val, tree[i]);\n \
-    \       }\n        while (!rip.empty()) {\n            int32_t i = rip.top();\n\
-    \            rip.pop();\n            if (!f(M::op(val, tree[i]))) {\n        \
-    \        while (i < siz) {\n                    i <<= 1;\n                   \
-    \ if (f(M::op(val, tree[i]))) {\n                        val = M::op(val, tree[i]);\n\
-    \                        i++;\n                    }\n                }\n    \
-    \            return i - siz;\n            }\n            val = M::op(val, tree[i]);\n\
-    \        }\n        return siz;\n    }\n    template <class F>\n    int32_t min_left(int32_t\
-    \ ri, F f) {\n        ri += siz;\n        int32_t lf = siz;\n        std::queue<int32_t>\
-    \ rip;\n        std::stack<int32_t> lfp;\n        while (lf < ri) {\n        \
+    \ >>= 1;\n        }\n        return M::op(rel, rer);\n    }\n    int32_t max_right(int32_t\
+    \ lf, auto f) {\n        lf += siz;\n        int32_t ri = siz << 1;\n        std::queue<int32_t>\
+    \ lfp;\n        std::stack<int32_t> rip;\n        while (lf < ri) {\n        \
     \    if (lf & 1) {\n                lfp.push(lf);\n                lf++;\n   \
     \         }\n            if (ri & 1) {\n                ri--;\n              \
     \  rip.push(ri);\n            }\n            lf >>= 1;\n            ri >>= 1;\n\
-    \        }\n        T val = M::e;\n        while (!rip.empty()) {\n          \
-    \  int32_t i = rip.front();\n            rip.pop();\n            if (!f(M::op(val,\
+    \        }\n        T val = M::e;\n        while (!lfp.empty()) {\n          \
+    \  int32_t i = lfp.front();\n            lfp.pop();\n            if (!f(M::op(val,\
     \ tree[i]))) {\n                while (i < siz) {\n                    i <<= 1;\n\
-    \                    i++;\n                    if (f(M::op(tree[i], val))) {\n\
-    \                        val = M::op(tree[i], val);\n                        i--;\n\
-    \                    }\n                }\n                return i - siz + 1;\n\
-    \            }\n            val = M::op(tree[i], val);\n        }\n        while\
-    \ (!lfp.empty()) {\n            int32_t i = lfp.top();\n            lfp.pop();\n\
-    \            if (!f(M::op(val, tree[i]))) {\n                while (i < siz) {\n\
-    \                    i <<= 1;\n                    i++;\n                    if\
-    \ (f(M::op(tree[i], val))) {\n                        val = M::op(tree[i], val);\n\
-    \                        i--;\n                    }\n                }\n    \
-    \            return i - siz + 1;\n            }\n            val = M::op(tree[i],\
-    \ val);\n        }\n        return 0;\n    }\n    int32_t size() { return siz;\
-    \ }\n};"
+    \                    if (f(M::op(val, tree[i]))) {\n                        val\
+    \ = M::op(val, tree[i]);\n                        i++;\n                    }\n\
+    \                }\n                return i - siz;\n            }\n         \
+    \   val = M::op(val, tree[i]);\n        }\n        while (!rip.empty()) {\n  \
+    \          int32_t i = rip.top();\n            rip.pop();\n            if (!f(M::op(val,\
+    \ tree[i]))) {\n                while (i < siz) {\n                    i <<= 1;\n\
+    \                    if (f(M::op(val, tree[i]))) {\n                        val\
+    \ = M::op(val, tree[i]);\n                        i++;\n                    }\n\
+    \                }\n                return i - siz;\n            }\n         \
+    \   val = M::op(val, tree[i]);\n        }\n        return siz;\n    }\n    int32_t\
+    \ min_left(int32_t ri, auto f) {\n        ri += siz;\n        int32_t lf = siz;\n\
+    \        std::queue<int32_t> rip;\n        std::stack<int32_t> lfp;\n        while\
+    \ (lf < ri) {\n            if (lf & 1) {\n                lfp.push(lf);\n    \
+    \            lf++;\n            }\n            if (ri & 1) {\n               \
+    \ ri--;\n                rip.push(ri);\n            }\n            lf >>= 1;\n\
+    \            ri >>= 1;\n        }\n        T val = M::e;\n        while (!rip.empty())\
+    \ {\n            int32_t i = rip.front();\n            rip.pop();\n          \
+    \  if (!f(M::op(val, tree[i]))) {\n                while (i < siz) {\n       \
+    \             i <<= 1;\n                    i++;\n                    if (f(M::op(tree[i],\
+    \ val))) {\n                        val = M::op(tree[i], val);\n             \
+    \           i--;\n                    }\n                }\n                return\
+    \ i - siz + 1;\n            }\n            val = M::op(tree[i], val);\n      \
+    \  }\n        while (!lfp.empty()) {\n            int32_t i = lfp.top();\n   \
+    \         lfp.pop();\n            if (!f(M::op(val, tree[i]))) {\n           \
+    \     while (i < siz) {\n                    i <<= 1;\n                    i++;\n\
+    \                    if (f(M::op(tree[i], val))) {\n                        val\
+    \ = M::op(tree[i], val);\n                        i--;\n                    }\n\
+    \                }\n                return i - siz + 1;\n            }\n     \
+    \       val = M::op(tree[i], val);\n        }\n        return 0;\n    }\n    int32_t\
+    \ size() { return siz; }\n};"
   dependsOn: []
   isVerificationFile: false
   path: DataStructure/SegmentTree.hpp
   requiredBy: []
-  timestamp: '2024-05-15 20:31:29+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-10-22 20:31:00+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   - Verify/verify-yuki/650.test.cpp

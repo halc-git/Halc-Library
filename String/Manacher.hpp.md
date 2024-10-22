@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://snuke.hatenablog.com/entry/2014/12/02/235837
@@ -42,7 +42,7 @@ data:
   path: String/Manacher.hpp
   requiredBy: []
   timestamp: '2024-05-09 17:59:47+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
 documentation_of: String/Manacher.hpp

@@ -1,9 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: Graph/Graph.hpp
-    title: Graph/Graph.hpp
+  - icon: ':warning:'
+    path: Math/EnumeratePrimes.hpp
+    title: Math/EnumeratePrimes.hpp
+  - icon: ':warning:'
+    path: Math/EnumerateQuotients.hpp
+    title: Math/EnumerateQuotients.hpp
+  - icon: ':warning:'
+    path: Math/MFPrefixSum.hpp
+    title: Math/MFPrefixSum.hpp
   - icon: ':x:'
     path: Modint/Modint.hpp
     title: Modint/Modint.hpp
@@ -19,39 +25,74 @@ data:
   - icon: ':x:'
     path: Template/Util.hpp
     title: Template/Util.hpp
-  - icon: ':x:'
-    path: Tree/StaticTopTree.hpp
-    title: Static Top Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
     links:
-    - https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
-  bundledCode: "#line 1 \"Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
-    \n#line 2 \"Graph/Graph.hpp\"\n#include <cstdint>\n#include <vector>\ntemplate\
-    \ <class T = int32_t>\nstruct Edge {\n    int32_t from, to;\n    T cost;\n   \
-    \ int32_t idx;\n    Edge() = default;\n    Edge(int32_t from, int32_t to, T cost\
-    \ = 1, int32_t idx = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n\
-    \    operator int32_t() { return to; }\n    void reverse() { std::swap(from, to);\
-    \ }\n};\ntemplate <class T = int32_t>\nstruct Graph {\n    std::vector<std::vector<Edge<T>>>\
-    \ gr;\n    int32_t eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n);\
-    \ }\n    void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false)\
-    \ {\n        gr[from].emplace_back(from, to, cost, eds);\n        if (!directed)\
-    \ {\n            gr[to].emplace_back(to, from, cost, eds);\n        }\n      \
-    \  eds++;\n    }\n    void add_directed_edge(int32_t from, int32_t to, T cost\
-    \ = 1) {\n        gr[from].emplace_back(from, to, cost, eds);\n        eds++;\n\
-    \    }\n    inline std::vector<Edge<T>> &operator[](const int32_t &p) { return\
-    \ gr[p]; }\n    int32_t size() { return gr.size(); }\n};\ntemplate <class T>\n\
-    Graph<T> reverse_edges(Graph<T> &gr) {\n    Graph<T> ret(gr.size());\n    for\
-    \ (int32_t i = 0; i < gr.size(); i++) {\n        for (Edge<T> j : gr[i]) {\n \
-    \           ret[j].emplace_back(j);\n            ret[j].back().reverse();\n  \
-    \      }\n    }\n    return ret;\n}\n#line 2 \"Modint/Modint.hpp\"\n#include <assert.h>\n\
+    - https://judge.yosupo.jp/problem/sum_of_multiplicative_function
+  bundledCode: "#line 1 \"Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_multiplicative_function\"\
+    \n#line 1 \"Math/MFPrefixSum.hpp\"\n#include <math.h>\n\n#include <cstdint>\n\
+    #include <vector>\n\n#line 4 \"Math/EnumeratePrimes.hpp\"\nstd::vector<int32_t>\
+    \ enumerate_primes(int32_t n) {\n    std::vector<bool> flg((n + 1) >> 1, true);\n\
+    \    std::vector<int32_t> ret = {2};\n    for (int32_t i = 3; i <= n; i += 2)\
+    \ {\n        if (!flg[i >> 1]) continue;\n        ret.emplace_back(i);\n     \
+    \   if (i * i > n) {\n            for (int32_t j = i + 2; j <= n; j += 2) {\n\
+    \                if (flg[j >> 1]) ret.emplace_back(j);\n            }\n      \
+    \      break;\n        }\n        for (int32_t j = i * i; j <= n; j += i << 1)\
+    \ {\n            flg[j >> 1] = false;\n        }\n    }\n    while (!ret.empty()\
+    \ && ret.back() > n) ret.pop_back();\n    return ret;\n}\n#line 3 \"Math/EnumerateQuotients.hpp\"\
+    \n\n#line 5 \"Math/EnumerateQuotients.hpp\"\n#include <numeric>\n#line 7 \"Math/EnumerateQuotients.hpp\"\
+    \nstd::vector<int64_t> enumerate_quotients(uint64_t n) {\n    uint64_t x = sqrt(n);\n\
+    \    while ((x + 1) * (x + 1) <= n) x++;\n    while (x * x > n) x--;\n    std::vector<int64_t>\
+    \ ret(x);\n    ret.reserve(x * 2);\n    std::iota(ret.begin(), ret.end(), 1);\n\
+    \    for (int32_t i = x; i >= 1; i--) {\n        if (ret.back() != n / i) ret.emplace_back(n\
+    \ / i);\n    }\n    return ret;\n}\n#line 8 \"Math/MFPrefixSum.hpp\"\ntemplate\
+    \ <class T>\nstruct mf_prefix_sum {\n    uint64_t n;\n    uint64_t sqrtN;\n  \
+    \  std::vector<int64_t> Q;\n    std::vector<int32_t> primes;\n    int32_t sz;\n\
+    \    mf_prefix_sum(uint64_t N) {\n        n = N;\n        sqrtN = sqrt(n);\n \
+    \       while ((sqrtN + 1) * (sqrtN + 1) <= n) sqrtN++;\n        while (sqrtN\
+    \ * sqrtN > n) sqrtN--;\n        Q = enumerate_quotients(n);\n        sz = Q.size();\n\
+    \        primes = enumerate_primes(sqrtN);\n    }\n    std::vector<T> pi_table()\
+    \ {\n        std::vector<T> dp(sz);\n        for (int32_t i = 0; i < sz; i++)\
+    \ {\n            dp[i] = Q[i] - 1;\n        }\n        for (int64_t x : primes)\
+    \ {\n            for (int32_t i = sz - 1; i >= 0; i--) {\n                if (Q[i]\
+    \ < x * x) break;\n                if (Q[i] / x <= sqrtN) {\n                \
+    \    dp[i] -= (dp[Q[i] / x - 1] - dp[x - 2]);\n                } else {\n    \
+    \                dp[i] -= (dp[sz - (sz - i) * x] - dp[x - 2]);\n             \
+    \   }\n            }\n        }\n        return dp;\n    }\n    std::vector<T>\
+    \ prime_sum_table() {\n        std::vector<T> dp(sz);\n        for (int32_t i\
+    \ = 0; i < sz; i++) {\n            dp[i] = T(Q[i]) * (Q[i] + 1) / 2 - 1;\n   \
+    \     }\n        for (int64_t x : primes) {\n            for (int32_t i = sz -\
+    \ 1; i >= 0; i--) {\n                if (Q[i] < x * x) break;\n              \
+    \  if (Q[i] / x <= sqrtN) {\n                    dp[i] -= (dp[Q[i] / x - 1] -\
+    \ dp[x - 2]) * x;\n                } else {\n                    dp[i] -= (dp[sz\
+    \ - (sz - i) * x] - dp[x - 2]) * x;\n                }\n            }\n      \
+    \  }\n        return dp;\n    }\n    std::vector<T> prefix_prime_table(auto f)\
+    \ {\n        std::vector<T> dp(sz);\n        for (int32_t i = 0; i < sz; i++)\
+    \ {\n            dp[i] = f(Q[i]);\n        }\n        for (int64_t x : primes)\
+    \ {\n            for (int32_t i = sz - 1; i >= 0; i--) {\n                if (Q[i]\
+    \ < x * x) break;\n                if (Q[i] / x <= sqrtN) {\n                \
+    \    dp[i] -= (dp[Q[i] / x - 1] - dp[x - 2]) * (f(x) - f(x - 1));\n          \
+    \      } else {\n                    dp[i] -=\n                        (dp[sz\
+    \ - (sz - i) * x] - dp[x - 2]) * (f(x) - f(x - 1));\n                }\n     \
+    \       }\n        }\n        return dp;\n    }\n    std::vector<T> run(std::vector<T>\
+    \ table, auto f) {\n        std::vector<T> dp = table;\n        for (auto it =\
+    \ primes.rbegin(); it != primes.rend(); it++) {\n            int64_t x = *it;\n\
+    \            for (int32_t i = sz - 1; i >= 0; i--) {\n                if (Q[i]\
+    \ < x * x) break;\n                int64_t xp = x;\n                int32_t c\
+    \ = 1;\n                while (xp * x <= Q[i]) {\n                    if (Q[i]\
+    \ / xp <= sqrtN) {\n                        dp[i] += f(x, c) * (dp[Q[i] / xp -\
+    \ 1] - table[x - 1]) +\n                                 f(x, c + 1);\n      \
+    \              } else {\n                        dp[i] +=\n                  \
+    \          f(x, c) * (dp[sz - (sz - i) * xp] - table[x - 1]) +\n             \
+    \               f(x, c + 1);\n                    }\n                    c++;\n\
+    \                    xp *= x;\n                }\n            }\n        }\n \
+    \       for (int32_t i = 0; i < sz; i++) {\n            dp[i] += 1;\n        }\n\
+    \        return dp;\n    }\n};\n#line 2 \"Modint/Modint.hpp\"\n#include <assert.h>\n\
     \n#line 5 \"Modint/Modint.hpp\"\n#include <iostream>\ntemplate <uint64_t Mod>\n\
     struct Modint {\n    uint64_t x;\n    constexpr Modint() noexcept { x = 0; }\n\
     \    constexpr Modint(int64_t val) noexcept {\n        x = (val < 0 ? val % (int64_t)(Mod)\
@@ -243,159 +284,42 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Tree/StaticTopTree.hpp\"\n\
-    \n#line 7 \"Tree/StaticTopTree.hpp\"\ntemplate <class M>\nstruct StaticTopTree\
-    \ {\n    using point = typename M::point;\n    using path = typename M::path;\n\
-    \    struct Node {\n        bool is_path;\n        point point_val;\n        path\
-    \ path_val;\n        int32_t pos;\n        int32_t left;\n        int32_t right;\n\
-    \        int32_t parent;\n        Node(bool pat, int32_t po = -1, int32_t lf =\
-    \ -1, int32_t ri = -1) {\n            is_path = pat;\n            pos = po;\n\
-    \            left = lf;\n            right = ri;\n            parent = -1;\n \
-    \       }\n    };\n    int32_t sz;\n    std::vector<int32_t> node_pos;\n    std::vector<Node>\
-    \ nodes;\n    int32_t rt;\n    template <class T>\n    StaticTopTree(Graph<T>\
-    \ gr, int32_t root) {\n        sz = gr.size();\n        node_pos.resize(sz);\n\
-    \        _build(root, gr);\n    }\n    template <class T>\n    int32_t _path_cluster(int32_t\
-    \ pos, std::vector<int32_t> &tree_sz,\n                          Graph<T> &tree)\
-    \ {\n        if (tree[pos].empty()) {\n            node_pos[pos] = nodes.size();\n\
-    \            nodes.emplace_back(Node(1, pos));\n            _calc_val(nodes.size()\
-    \ - 1);\n            return nodes.size() - 1;\n        }\n        std::vector<int32_t>\
-    \ address;\n        std::vector<int32_t> sizes;\n        while (!tree[pos].empty())\
-    \ {\n            int32_t max_size = -1;\n            int32_t next_pos = -1;\n\
-    \            for (int i = 0; i < tree[pos].size(); i++) {\n                if\
-    \ (tree_sz[tree[pos][i]] > max_size) {\n                    max_size = tree_sz[tree[pos][i]];\n\
-    \                    next_pos = i;\n                }\n            }\n       \
-    \     std::swap(tree[pos][next_pos], tree[pos].back());\n            next_pos\
-    \ = tree[pos].back();\n            tree[pos].pop_back();\n            tree_sz[pos]\
-    \ -= tree_sz[next_pos];\n            sizes.emplace_back(tree_sz[pos]);\n     \
-    \       address.emplace_back(_point_cluster(pos, tree_sz, tree));\n          \
-    \  pos = next_pos;\n        }\n        address.emplace_back(_point_cluster(pos,\
-    \ tree_sz, tree));\n        sizes.emplace_back(tree_sz[pos]);\n        return\
-    \ _merge(address, sizes, 0, address.size(), 1);\n    }\n    template <class T>\n\
-    \    int32_t _point_cluster(int32_t pos, std::vector<int32_t> &tree_sz,\n    \
-    \                       Graph<T> &tree) {\n        if (tree[pos].empty()) {\n\
-    \            node_pos[pos] = nodes.size();\n            nodes.emplace_back(Node(1,\
-    \ pos));\n            _calc_val(nodes.size() - 1);\n            return nodes.size()\
-    \ - 1;\n        }\n        std::vector<int32_t> address;\n        std::vector<int32_t>\
-    \ sizes;\n        for (int32_t i : tree[pos]) {\n            sizes.emplace_back(tree_sz[i]);\n\
-    \            int32_t vert = _path_cluster(i, tree_sz, tree);\n            nodes.emplace_back(Node(0,\
-    \ -1, vert));\n            nodes[vert].parent = nodes.size() - 1;\n          \
-    \  address.emplace_back(nodes.size() - 1);\n            _calc_val(nodes.size()\
-    \ - 1);\n        }\n        int32_t vert = _merge(address, sizes, 0, address.size(),\
-    \ 0);\n        node_pos[pos] = nodes.size();\n        nodes.emplace_back(Node(1,\
-    \ pos, vert));\n        nodes[vert].parent = nodes.size() - 1;\n        _calc_val(nodes.size()\
-    \ - 1);\n        return nodes.size() - 1;\n    }\n    int32_t _merge(std::vector<int32_t>\
-    \ &address, std::vector<int32_t> &sizes,\n                   int32_t lf, int32_t\
-    \ ri, bool pat) {\n        if (lf + 1 == ri) return address[lf];\n        int32_t\
-    \ add = 0;\n        for (int32_t i = lf; i < ri; i++) {\n            add += sizes[i];\n\
-    \        }\n        int32_t now = 0;\n        int32_t bef = add + 1;\n       \
-    \ for (int32_t i = lf; i < ri; i++) {\n            now += sizes[i];\n        \
-    \    if (now > add - now) {\n                if (now + now - add > bef) i--;\n\
-    \                int32_t left = _merge(address, sizes, lf, i + 1, pat);\n    \
-    \            int32_t right = _merge(address, sizes, i + 1, ri, pat);\n       \
-    \         nodes.emplace_back(Node(pat, -1, left, right));\n                nodes[left].parent\
-    \ = nodes.size() - 1;\n                nodes[right].parent = nodes.size() - 1;\n\
-    \                _calc_val(nodes.size() - 1);\n                return nodes.size()\
-    \ - 1;\n            }\n            bef = add - now - now;\n        }\n       \
-    \ assert(false);\n    }\n    void _calc_val(int32_t pos) {\n        if (nodes[pos].is_path)\
-    \ {\n            if ((nodes[pos].left == -1) && (nodes[pos].right == -1)) {\n\
-    \                nodes[pos].path_val = M::vertex(nodes[pos].pos);\n          \
-    \  } else if ((nodes[pos].left != -1) && (nodes[pos].right != -1)) {\n       \
-    \         nodes[pos].path_val =\n                    M::compress(nodes[nodes[pos].left].path_val,\n\
-    \                                nodes[nodes[pos].right].path_val);\n        \
-    \    } else {\n                nodes[pos].path_val = M::add_vertex(\n        \
-    \            nodes[nodes[pos].left].point_val, nodes[pos].pos);\n            }\n\
-    \        } else {\n            if ((nodes[pos].left != -1) && (nodes[pos].right\
-    \ != -1)) {\n                nodes[pos].point_val =\n                    M::rake(nodes[nodes[pos].left].point_val,\n\
-    \                            nodes[nodes[pos].right].point_val);\n           \
-    \ } else {\n                nodes[pos].point_val =\n                    M::add_edge(nodes[nodes[pos].left].path_val);\n\
-    \            }\n        }\n    }\n    template <class T>\n    void _build(int32_t\
-    \ root, Graph<T> &tree) {\n        std::vector<int32_t> vert(sz);\n        std::vector<int32_t>\
-    \ tree_sz(sz, -1);\n        vert[0] = root;\n        tree_sz[root] = 0;\n    \
-    \    int32_t cnt = 1;\n        for (int32_t i = 0; i < sz; i++) {\n          \
-    \  for (int32_t j : tree[vert[i]]) {\n                if (tree_sz[j]) {\n    \
-    \                tree_sz[j] = 0;\n                    vert[cnt] = j;\n       \
-    \             cnt++;\n                }\n            }\n        }\n        for\
-    \ (int32_t i = sz - 1; i >= 0; i--) {\n            int32_t parent = 0;\n     \
-    \       for (int32_t j : tree[vert[i]]) {\n                if (tree_sz[j] == 0)\
-    \ {\n                    parent = -parent - 1;\n                }\n          \
-    \      if (parent >= 0) parent++;\n                tree_sz[vert[i]] += tree_sz[j];\n\
-    \            }\n            if (parent < 0) {\n                std::swap(tree[vert[i]][-parent\
-    \ - 1], tree[vert[i]].back());\n                tree[vert[i]].pop_back();\n  \
-    \          }\n            tree_sz[vert[i]]++;\n        }\n        rt = _path_cluster(root,\
-    \ tree_sz, tree);\n    }\n    path root_value() { return nodes[rt].path_val; }\n\
-    \    void calc(int32_t pos) {\n        int32_t change = node_pos[pos];\n     \
-    \   while (nodes[change].parent != -1) {\n            _calc_val(change);\n   \
-    \         change = nodes[change].parent;\n        }\n        _calc_val(change);\n\
-    \    }\n    int32_t size() { return sz; }\n};\n#line 6 \"Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp\"\
-    \nusing mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type\
-    \ = pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a,\
-    \ N);\n    Graph<func_type> gr(N);\n    rep(i, N - 1) {\n        LL(u, v, b, c);\n\
-    \        gr.add_edge(v, u, {b, c});\n    }\n    stack<ll> vert;\n    vert.push(0);\n\
-    \    static vec(func_type, func, N, {1, 0});\n    vec(ll, change, N - 1, -1);\n\
-    \    while (!vert.empty()) {\n        ll pos = vert.top();\n        vert.pop();\n\
-    \        each(i, gr[pos]) {\n            if (change[i.idx] == -1) {\n        \
-    \        func[i] = i.cost;\n                change[i.idx] = i;\n             \
-    \   vert.push(i);\n            }\n        }\n    }\n    struct ops {\n       \
-    \ using point = array<mint, 2>;\n        using path = array<mint, 4>;\n      \
-    \  static path vertex(int v) {\n            return {1, a[v] * func[v].fi + func[v].se,\
-    \ func[v].fi, func[v].se};\n        }\n        static path compress(path p, path\
-    \ c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2]\
-    \ * c[2],\n                    p[2] * c[3] + p[3]};\n        }\n        static\
-    \ path add_vertex(point t, int v) {\n            return {t[0] + 1,\n         \
-    \           (a[v] + t[1]) * func[v].fi + (t[0] + 1) * func[v].se,\n          \
-    \          func[v].fi, func[v].se};\n        }\n        static point rake(point\
-    \ x, point y) {\n            return {x[0] + y[0], x[1] + y[1]};\n        }\n \
-    \       static point add_edge(path t) { return {t[0], t[1]}; }\n    };\n    StaticTopTree<ops>\
-    \ tree(gr, 0);\n    rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n     \
-    \       LL(w, x);\n            a[w] = x;\n            tree.calc(w);\n        }\
-    \ else {\n            LL(e, y, z);\n            func[change[e]] = {y, z};\n  \
-    \          tree.calc(change[e]);\n        }\n        out(tree.root_value()[1]);\n\
-    \    }\n}\nint main() { solve(); }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root\"\
-    \n#include \"../../Graph/Graph.hpp\"\n#include \"../../Modint/Modint.hpp\"\n#include\
-    \ \"../../Template/Template.hpp\"\n#include \"../../Tree/StaticTopTree.hpp\"\n\
-    using mint = Modint<MOD>;\nusing edge_type = array<ll, 4>;\nusing func_type =\
-    \ pair<mint, mint>;\nvoid solve() {\n    LL(N, Q);\n    static VEC(mint, a, N);\n\
-    \    Graph<func_type> gr(N);\n    rep(i, N - 1) {\n        LL(u, v, b, c);\n \
-    \       gr.add_edge(v, u, {b, c});\n    }\n    stack<ll> vert;\n    vert.push(0);\n\
-    \    static vec(func_type, func, N, {1, 0});\n    vec(ll, change, N - 1, -1);\n\
-    \    while (!vert.empty()) {\n        ll pos = vert.top();\n        vert.pop();\n\
-    \        each(i, gr[pos]) {\n            if (change[i.idx] == -1) {\n        \
-    \        func[i] = i.cost;\n                change[i.idx] = i;\n             \
-    \   vert.push(i);\n            }\n        }\n    }\n    struct ops {\n       \
-    \ using point = array<mint, 2>;\n        using path = array<mint, 4>;\n      \
-    \  static path vertex(int v) {\n            return {1, a[v] * func[v].fi + func[v].se,\
-    \ func[v].fi, func[v].se};\n        }\n        static path compress(path p, path\
-    \ c) {\n            return {p[0] + c[0], p[1] + c[1] * p[2] + c[0] * p[3], p[2]\
-    \ * c[2],\n                    p[2] * c[3] + p[3]};\n        }\n        static\
-    \ path add_vertex(point t, int v) {\n            return {t[0] + 1,\n         \
-    \           (a[v] + t[1]) * func[v].fi + (t[0] + 1) * func[v].se,\n          \
-    \          func[v].fi, func[v].se};\n        }\n        static point rake(point\
-    \ x, point y) {\n            return {x[0] + y[0], x[1] + y[1]};\n        }\n \
-    \       static point add_edge(path t) { return {t[0], t[1]}; }\n    };\n    StaticTopTree<ops>\
-    \ tree(gr, 0);\n    rep(_, Q) {\n        LL(t);\n        if (t == 0) {\n     \
-    \       LL(w, x);\n            a[w] = x;\n            tree.calc(w);\n        }\
-    \ else {\n            LL(e, y, z);\n            func[change[e]] = {y, z};\n  \
-    \          tree.calc(change[e]);\n        }\n        out(tree.root_value()[1]);\n\
-    \    }\n}\nint main() { solve(); }"
+    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp\"\
+    \nusing mint = Modint<469762049>;\nvoid solve() {\n    LL(T);\n    rep(_, T) {\n\
+    \        LL(N, a, b);\n        mf_prefix_sum<mint> mf(N);\n        vector<mint>\
+    \ pi = mf.pi_table();\n        vector<mint> prime_sum = mf.prime_sum_table();\n\
+    \        vector<mint> table(len(pi));\n        rep(i, len(pi)) { table[i] = pi[i]\
+    \ * a + prime_sum[i] * b; }\n        out(mf.run(table, [a, b](ll x, ll c) -> mint\
+    \ {\n                  return a * c + b * x;\n              }).back());\n    }\n\
+    }\nint main() { solve(); }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_multiplicative_function\"\
+    \n#include \"../../Math/MFPrefixSum.hpp\"\n#include \"../../Modint/Modint.hpp\"\
+    \n#include \"../../Template/Template.hpp\"\nusing mint = Modint<469762049>;\n\
+    void solve() {\n    LL(T);\n    rep(_, T) {\n        LL(N, a, b);\n        mf_prefix_sum<mint>\
+    \ mf(N);\n        vector<mint> pi = mf.pi_table();\n        vector<mint> prime_sum\
+    \ = mf.prime_sum_table();\n        vector<mint> table(len(pi));\n        rep(i,\
+    \ len(pi)) { table[i] = pi[i] * a + prime_sum[i] * b; }\n        out(mf.run(table,\
+    \ [a, b](ll x, ll c) -> mint {\n                  return a * c + b * x;\n    \
+    \          }).back());\n    }\n}\nint main() { solve(); }"
   dependsOn:
-  - Graph/Graph.hpp
+  - Math/MFPrefixSum.hpp
+  - Math/EnumeratePrimes.hpp
+  - Math/EnumerateQuotients.hpp
   - Modint/Modint.hpp
   - Template/Template.hpp
   - Template/InOut.hpp
   - Template/Util.hpp
   - Template/Macro.hpp
-  - Tree/StaticTopTree.hpp
-  isVerificationFile: true
-  path: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
+  isVerificationFile: false
+  path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
   requiredBy: []
   timestamp: '2024-10-22 20:46:56+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
+documentation_of: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
-- /verify/Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp.html
-title: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
+- /library/Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+- /library/Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp.html
+title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
 ---

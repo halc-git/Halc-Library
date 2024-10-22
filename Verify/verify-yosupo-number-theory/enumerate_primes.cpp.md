@@ -1,12 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: DataStructure/RadixHeap.hpp
-    title: DataStructure/RadixHeap.hpp
-  - icon: ':x:'
-    path: Graph/Graph.hpp
-    title: Graph/Graph.hpp
+  - icon: ':warning:'
+    path: Math/EnumeratePrimes.hpp
+    title: Math/EnumeratePrimes.hpp
   - icon: ':x:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
@@ -21,51 +18,26 @@ data:
     title: Template/Util.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
     links:
-    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
-  bundledCode: "#line 1 \"Verify/verify-aoj-grl/grl_1_a.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\n#line\
-    \ 2 \"DataStructure/RadixHeap.hpp\"\n#include <algorithm>\n#include <array>\n\
-    #include <bit>\n#include <cstdint>\n#include <vector>\ntemplate <class Key, class\
-    \ Val>\nstruct RadixHeap {\n    static constexpr int32_t backet = sizeof(Key)\
-    \ * 8 + 1;\n    std::array<std::vector<std::pair<Key, Val>>, backet> heap;\n \
-    \   Key last = 0;\n    int32_t siz = 0;\n    inline int32_t bsr(uint64_t x) {\
-    \ return 64 - std::countl_zero(x); }\n    void push(Key key, Val val) {\n    \
-    \    siz++;\n        heap[bsr(key ^ last)].emplace_back(std::pair<Key, Val>(key,\
-    \ val));\n    }\n    std::pair<Key, Val> pop() {\n        siz--;\n        if (heap[0].empty())\
-    \ {\n            int32_t i = 1;\n            while (heap[i].empty()) i++;\n  \
-    \          last = (*std::min_element(heap[i].begin(), heap[i].end())).first;\n\
-    \            for (std::pair<Key, Val> x : heap[i]) {\n                heap[bsr(x.first\
-    \ ^ last)].emplace_back(x);\n            }\n            heap[i].clear();\n   \
-    \     }\n        std::pair<Key, Val> ret = move(heap[0].back());\n        heap[0].pop_back();\n\
-    \        return ret;\n    }\n    bool empty() { return !siz; }\n    int32_t size()\
-    \ { return siz; }\n};\n#line 4 \"Graph/Graph.hpp\"\ntemplate <class T = int32_t>\n\
-    struct Edge {\n    int32_t from, to;\n    T cost;\n    int32_t idx;\n    Edge()\
-    \ = default;\n    Edge(int32_t from, int32_t to, T cost = 1, int32_t idx = -1)\n\
-    \        : from(from), to(to), cost(cost), idx(idx) {}\n    operator int32_t()\
-    \ { return to; }\n    void reverse() { std::swap(from, to); }\n};\ntemplate <class\
-    \ T = int32_t>\nstruct Graph {\n    std::vector<std::vector<Edge<T>>> gr;\n  \
-    \  int32_t eds = 0;\n    Graph() = default;\n    Graph(int32_t n) { gr.resize(n);\
-    \ }\n    void add_edge(int32_t from, int32_t to, T cost = 1, bool directed = false)\
-    \ {\n        gr[from].emplace_back(from, to, cost, eds);\n        if (!directed)\
-    \ {\n            gr[to].emplace_back(to, from, cost, eds);\n        }\n      \
-    \  eds++;\n    }\n    void add_directed_edge(int32_t from, int32_t to, T cost\
-    \ = 1) {\n        gr[from].emplace_back(from, to, cost, eds);\n        eds++;\n\
-    \    }\n    inline std::vector<Edge<T>> &operator[](const int32_t &p) { return\
-    \ gr[p]; }\n    int32_t size() { return gr.size(); }\n};\ntemplate <class T>\n\
-    Graph<T> reverse_edges(Graph<T> &gr) {\n    Graph<T> ret(gr.size());\n    for\
-    \ (int32_t i = 0; i < gr.size(); i++) {\n        for (Edge<T> j : gr[i]) {\n \
-    \           ret[j].emplace_back(j);\n            ret[j].back().reverse();\n  \
-    \      }\n    }\n    return ret;\n}\n#line 2 \"Template/Template.hpp\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\ninline\
-    \ void scan() {}\ninline void scan(int32_t &a) { std::cin >> a; }\ninline void\
-    \ scan(uint32_t &a) { std::cin >> a; }\ninline void scan(int64_t &a) { std::cin\
+    - https://judge.yosupo.jp/problem/enumerate_primes
+  bundledCode: "#line 1 \"Verify/verify-yosupo-number-theory/enumerate_primes.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_primes\"\n#line\
+    \ 2 \"Math/EnumeratePrimes.hpp\"\n#include <cstdint>\n#include <vector>\nstd::vector<int32_t>\
+    \ enumerate_primes(int32_t n) {\n    std::vector<bool> flg((n + 1) >> 1, true);\n\
+    \    std::vector<int32_t> ret = {2};\n    for (int32_t i = 3; i <= n; i += 2)\
+    \ {\n        if (!flg[i >> 1]) continue;\n        ret.emplace_back(i);\n     \
+    \   if (i * i > n) {\n            for (int32_t j = i + 2; j <= n; j += 2) {\n\
+    \                if (flg[j >> 1]) ret.emplace_back(j);\n            }\n      \
+    \      break;\n        }\n        for (int32_t j = i * i; j <= n; j += i << 1)\
+    \ {\n            flg[j >> 1] = false;\n        }\n    }\n    while (!ret.empty()\
+    \ && ret.back() > n) ret.pop_back();\n    return ret;\n}\n#line 2 \"Template/Template.hpp\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 8 \"Template/InOut.hpp\"\
+    \ninline void scan() {}\ninline void scan(int32_t &a) { std::cin >> a; }\ninline\
+    \ void scan(uint32_t &a) { std::cin >> a; }\ninline void scan(int64_t &a) { std::cin\
     \ >> a; }\ninline void scan(uint64_t &a) { std::cin >> a; }\ninline void scan(char\
     \ &a) { std::cin >> a; }\ninline void scan(float &a) { std::cin >> a; }\ninline\
     \ void scan(double &a) { std::cin >> a; }\ninline void scan(long double &a) {\
@@ -164,45 +136,33 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-aoj-grl/grl_1_a.test.cpp\"\
-    \n\nvoid solve() {\n    LL(N, M, r);\n    Graph gr(N);\n    rep(i, M) {\n    \
-    \    LL(s, t, d);\n        gr.add_directed_edge(s, t, d);\n    }\n    vector<int64_t>\
-    \ dist(N, LINF);\n    dist[r] = 0;\n    RadixHeap<int64_t, int32_t> hq;\n    hq.push(0,\
-    \ r);\n    while (!hq.empty()) {\n        ll dis, pos;\n        tie(dis, pos)\
-    \ = hq.pop();\n        if (dist[pos] != dis) continue;\n        for (Edge i :\
-    \ gr[pos]) {\n            if (dis + i.cost < dist[i]) {\n                dist[i]\
-    \ = dis + i.cost;\n                hq.push(dist[i], i);\n            }\n     \
-    \   }\n    }\n    each(i, dist) {\n        if (i == LINF)\n            out(\"\
-    INF\");\n        else\n            out(i);\n    }\n}\nint main() { solve(); }\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
-    \n#include \"../../DataStructure/RadixHeap.hpp\"\n#include \"../../Graph/Graph.hpp\"\
-    \n#include \"../../Template/Template.hpp\"\n\nvoid solve() {\n    LL(N, M, r);\n\
-    \    Graph gr(N);\n    rep(i, M) {\n        LL(s, t, d);\n        gr.add_directed_edge(s,\
-    \ t, d);\n    }\n    vector<int64_t> dist(N, LINF);\n    dist[r] = 0;\n    RadixHeap<int64_t,\
-    \ int32_t> hq;\n    hq.push(0, r);\n    while (!hq.empty()) {\n        ll dis,\
-    \ pos;\n        tie(dis, pos) = hq.pop();\n        if (dist[pos] != dis) continue;\n\
-    \        for (Edge i : gr[pos]) {\n            if (dis + i.cost < dist[i]) {\n\
-    \                dist[i] = dis + i.cost;\n                hq.push(dist[i], i);\n\
-    \            }\n        }\n    }\n    each(i, dist) {\n        if (i == LINF)\n\
-    \            out(\"INF\");\n        else\n            out(i);\n    }\n}\nint main()\
+    \ name(h, std::vector<type>(w)); in(name)\n#line 4 \"Verify/verify-yosupo-number-theory/enumerate_primes.cpp\"\
+    \n\nvoid solve() {\n    LL(N, A, B);\n    vector<int32_t> primes = enumerate_primes(N);\n\
+    \    ll phi = primes.size();\n    vl ans;\n    while (B < phi) {\n        ans.emplace_back(primes[B]);\n\
+    \        B += A;\n    }\n    out(phi, ans.size());\n    out(ans);\n}\nint main()\
+    \ { solve(); }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_primes\"\n#include\
+    \ \"../../Math/EnumeratePrimes.hpp\"\n#include \"../../Template/Template.hpp\"\
+    \n\nvoid solve() {\n    LL(N, A, B);\n    vector<int32_t> primes = enumerate_primes(N);\n\
+    \    ll phi = primes.size();\n    vl ans;\n    while (B < phi) {\n        ans.emplace_back(primes[B]);\n\
+    \        B += A;\n    }\n    out(phi, ans.size());\n    out(ans);\n}\nint main()\
     \ { solve(); }"
   dependsOn:
-  - DataStructure/RadixHeap.hpp
-  - Graph/Graph.hpp
+  - Math/EnumeratePrimes.hpp
   - Template/Template.hpp
   - Template/InOut.hpp
   - Template/Util.hpp
   - Template/Macro.hpp
-  isVerificationFile: true
-  path: Verify/verify-aoj-grl/grl_1_a.test.cpp
+  isVerificationFile: false
+  path: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
   requiredBy: []
   timestamp: '2024-10-22 20:46:56+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Verify/verify-aoj-grl/grl_1_a.test.cpp
+documentation_of: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-aoj-grl/grl_1_a.test.cpp
-- /verify/Verify/verify-aoj-grl/grl_1_a.test.cpp.html
-title: Verify/verify-aoj-grl/grl_1_a.test.cpp
+- /library/Verify/verify-yosupo-number-theory/enumerate_primes.cpp
+- /library/Verify/verify-yosupo-number-theory/enumerate_primes.cpp.html
+title: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
 ---

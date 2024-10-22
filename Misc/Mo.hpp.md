@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Misc/Mo.hpp\"\n#include <cmath>\n#include <numeric>\n#include\
@@ -59,7 +59,7 @@ data:
   path: Misc/Mo.hpp
   requiredBy: []
   timestamp: '2024-05-08 20:46:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yuki/2338.test.cpp
   - Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp

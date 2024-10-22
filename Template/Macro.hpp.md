@@ -2,115 +2,124 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Template/Template.hpp
     title: Template/Template.hpp
+  - icon: ':warning:'
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+  - icon: ':warning:'
+    path: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
+    title: Verify/verify-yosupo-number-theory/enumerate_primes.cpp
+  - icon: ':warning:'
+    path: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
+    title: Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
     title: Verify/verify-aoj-alds/alds1_14_b-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-aoj-grl/grl_1_a.test.cpp
     title: Verify/verify-aoj-grl/grl_1_a.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-aoj/2667.test.cpp
     title: Verify/verify-aoj/2667.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/associative_array.test.cpp
     title: Verify/verify-yosupo-datastructure/associative_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-fenwick_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
     title: Verify/verify-yosupo-datastructure/predecessor_problem-segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
     title: Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
     title: Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_inversions_query-mo.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
     title: Verify/verify-yosupo-datastructure/static_range_sum-disjoint_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
     title: Verify/verify-yosupo-datastructure/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/unionfind.test.cpp
     title: Verify/verify-yosupo-datastructure/unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/zalgorithm-rollinghash.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-string/zalgorithm.test.cpp
     title: Verify/verify-yosupo-string/zalgorithm.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
     title: Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
     title: Verify/verify-yosupo-tree/point_set_tree_path_composite_sum_fixed_root.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
     title: Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
     title: Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
     title: Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/1092.test.cpp
     title: Verify/verify-yuki/1092.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/117.test.cpp
     title: Verify/verify-yuki/117.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/2338.test.cpp
     title: Verify/verify-yuki/2338.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/235.test.cpp
     title: Verify/verify-yuki/235.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/399.test.cpp
     title: Verify/verify-yuki/399.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/650.test.cpp
     title: Verify/verify-yuki/650.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/900.test.cpp
     title: Verify/verify-yuki/900.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: '#line 1 "Template/Macro.hpp"
@@ -119,17 +128,17 @@ data:
 
     #define _overload4(_1, _2, _3, _4, name, ...) name
 
-    #define _rep1(i, n) for (ll i = 0; i < (n); i++)
+    #define _rep1(i, n) for (int64_t i = 0; i < (n); i++)
 
-    #define _rep2(i, a, b) for (ll i = (a); i < (b); i++)
+    #define _rep2(i, a, b) for (int64_t i = (a); i < (b); i++)
 
-    #define _rep3(i, a, b, c) for (ll i = (a); i < (b); i += (c))
+    #define _rep3(i, a, b, c) for (int64_t i = (a); i < (b); i += (c))
 
     #define rep(...) _overload4(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)
 
-    #define _rrep1(i, n) for (ll i = (n) - 1; i >= 0; i--)
+    #define _rrep1(i, n) for (int64_t i = (n) - 1; i >= 0; i--)
 
-    #define _rrep2(i, a, b) for (ll i = (b) - 1; i >= (a); i--)
+    #define _rrep2(i, a, b) for (int64_t i = (b) - 1; i >= (a); i--)
 
     #define rrep(...) _overload3(__VA_ARGS__, _rrep2, _rrep1)(__VA_ARGS__)
 
@@ -139,7 +148,7 @@ data:
 
     #define rall(i) std::rbegin(i), std::rend(i)
 
-    #define len(x) ((ll)(x).size())
+    #define len(x) ((int64_t)(x).size())
 
     #define fi first
 
@@ -151,11 +160,11 @@ data:
 
     #define vv(type, name, h, ...) std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));
 
-    #define INT(...) int __VA_ARGS__; in(__VA_ARGS__)
+    #define INT(...) int32_t __VA_ARGS__; in(__VA_ARGS__)
 
-    #define LL(...) long long __VA_ARGS__; in(__VA_ARGS__)
+    #define LL(...) int64_t __VA_ARGS__; in(__VA_ARGS__)
 
-    #define ULL(...) unsigned long long __VA_ARGS__; in(__VA_ARGS__)
+    #define ULL(...) uint64_t __VA_ARGS__; in(__VA_ARGS__)
 
     #define STR(...) std::string __VA_ARGS__; in(__VA_ARGS__)
 
@@ -173,17 +182,17 @@ data:
 
     #define _overload4(_1, _2, _3, _4, name, ...) name
 
-    #define _rep1(i, n) for (ll i = 0; i < (n); i++)
+    #define _rep1(i, n) for (int64_t i = 0; i < (n); i++)
 
-    #define _rep2(i, a, b) for (ll i = (a); i < (b); i++)
+    #define _rep2(i, a, b) for (int64_t i = (a); i < (b); i++)
 
-    #define _rep3(i, a, b, c) for (ll i = (a); i < (b); i += (c))
+    #define _rep3(i, a, b, c) for (int64_t i = (a); i < (b); i += (c))
 
     #define rep(...) _overload4(__VA_ARGS__, _rep3, _rep2, _rep1)(__VA_ARGS__)
 
-    #define _rrep1(i, n) for (ll i = (n) - 1; i >= 0; i--)
+    #define _rrep1(i, n) for (int64_t i = (n) - 1; i >= 0; i--)
 
-    #define _rrep2(i, a, b) for (ll i = (b) - 1; i >= (a); i--)
+    #define _rrep2(i, a, b) for (int64_t i = (b) - 1; i >= (a); i--)
 
     #define rrep(...) _overload3(__VA_ARGS__, _rrep2, _rrep1)(__VA_ARGS__)
 
@@ -193,7 +202,7 @@ data:
 
     #define rall(i) std::rbegin(i), std::rend(i)
 
-    #define len(x) ((ll)(x).size())
+    #define len(x) ((int64_t)(x).size())
 
     #define fi first
 
@@ -205,11 +214,11 @@ data:
 
     #define vv(type, name, h, ...) std::vector<std::vector<type>> name(h, std::vector<type>(__VA_ARGS__));
 
-    #define INT(...) int __VA_ARGS__; in(__VA_ARGS__)
+    #define INT(...) int32_t __VA_ARGS__; in(__VA_ARGS__)
 
-    #define LL(...) long long __VA_ARGS__; in(__VA_ARGS__)
+    #define LL(...) int64_t __VA_ARGS__; in(__VA_ARGS__)
 
-    #define ULL(...) unsigned long long __VA_ARGS__; in(__VA_ARGS__)
+    #define ULL(...) uint64_t __VA_ARGS__; in(__VA_ARGS__)
 
     #define STR(...) std::string __VA_ARGS__; in(__VA_ARGS__)
 
@@ -226,8 +235,11 @@ data:
   path: Template/Macro.hpp
   requiredBy:
   - Template/Template.hpp
-  timestamp: '2024-06-20 20:13:50+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - Verify/verify-yosupo-number-theory/enumerate_primes.cpp
+  - Verify/verify-yosupo-number-theory/enumerate_quotients.cpp
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function.cpp
+  timestamp: '2024-10-22 15:43:36+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   - Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp

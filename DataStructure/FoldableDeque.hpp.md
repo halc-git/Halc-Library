@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
     title: Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://qiita.com/Shirotsume/items/4a2837b5895ef9a7aeb1
@@ -139,7 +139,7 @@ data:
   path: DataStructure/FoldableDeque.hpp
   requiredBy: []
   timestamp: '2024-05-10 16:22:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/verify-yosupo-datastructure/deque_operate_all_composite.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
