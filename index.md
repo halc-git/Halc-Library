@@ -34,13 +34,13 @@ data:
       title: Graph/Graph.hpp
   - name: Math
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Math/EnumeratePrimes.hpp
       title: Math/EnumeratePrimes.hpp
     - icon: ':heavy_check_mark:'
       path: Math/EnumerateQuotients.hpp
       title: Math/EnumerateQuotients.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Math/MFPrefixSum.hpp
       title: Math/MFPrefixSum.hpp
     - icon: ':heavy_check_mark:'
@@ -56,7 +56,7 @@ data:
       title: Mo's Algorithm
   - name: Modint
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Modint/Modint.hpp
       title: Modint/Modint.hpp
   - name: String
@@ -72,16 +72,16 @@ data:
       title: String/Z_algorithm.hpp
   - name: Template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/InOut.hpp
       title: Template/InOut.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Macro.hpp
       title: Template/Macro.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Util.hpp
       title: Template/Util.hpp
   - name: Tree
@@ -156,7 +156,7 @@ data:
       title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - name: Verify/verify-yosupo-new
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
       title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   - name: Verify/verify-yosupo-number-theory
@@ -167,6 +167,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
       title: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+    - icon: ':x:'
+      path: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
+      title: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
   - name: Verify/verify-yosupo-string
     pages:
     - icon: ':heavy_check_mark:'

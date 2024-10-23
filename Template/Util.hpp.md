@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedVerifiedWith:
@@ -57,7 +57,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
     title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   - icon: ':heavy_check_mark:'
@@ -66,6 +66,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
     title: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+  - icon: ':x:'
+    path: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
+    title: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
     title: Verify/verify-yosupo-string/enumerate_palindromes-rollinghash.test.cpp
@@ -117,9 +120,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yuki/901.test.cpp
     title: Verify/verify-yuki/901.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Template/Util.hpp\"\n#include <array>\n#include <climits>\n\
@@ -170,7 +173,7 @@ data:
   requiredBy:
   - Template/Template.hpp
   timestamp: '2024-10-22 20:46:56+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/verify-yosupo-tree/vertex_set_path_composite.test.cpp
   - Verify/verify-yosupo-tree/lca-hldecomposition.test.cpp
@@ -178,6 +181,7 @@ data:
   - Verify/verify-yosupo-tree/vertex_add_path_sum.test.cpp
   - Verify/verify-yosupo-tree/vertex_add_subtree_sum.test.cpp
   - Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
+  - Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
   - Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
   - Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - Verify/verify-yosupo-string/zalgorithm.test.cpp

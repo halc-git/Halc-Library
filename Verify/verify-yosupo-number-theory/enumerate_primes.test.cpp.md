@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Math/EnumeratePrimes.hpp
     title: Math/EnumeratePrimes.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/InOut.hpp
     title: Template/InOut.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Macro.hpp
     title: Template/Macro.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Util.hpp
     title: Template/Util.hpp
   _extendedRequiredBy: []

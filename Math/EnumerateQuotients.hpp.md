@@ -1,14 +1,8 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: Math/MFPrefixSum.hpp
-    title: Math/MFPrefixSum.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
-    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
     title: Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
@@ -34,13 +28,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Math/EnumerateQuotients.hpp
-  requiredBy:
-  - Math/MFPrefixSum.hpp
+  requiredBy: []
   timestamp: '2024-10-22 16:22:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-number-theory/enumerate_quotients.test.cpp
-  - Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
 documentation_of: Math/EnumerateQuotients.hpp
 layout: document
 redirect_from:

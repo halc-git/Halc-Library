@@ -29,20 +29,18 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/sum_of_multiplicative_function
-    links:
-    - https://judge.yosupo.jp/problem/sum_of_multiplicative_function
-  bundledCode: "#line 1 \"Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_multiplicative_function\"\
-    \n#line 1 \"Math/MFPrefixSum.hpp\"\n#include <math.h>\n\n#include <cstdint>\n\
-    #include <vector>\n\n#line 4 \"Math/EnumeratePrimes.hpp\"\nstd::vector<int32_t>\
-    \ enumerate_primes(int32_t n) {\n    std::vector<bool> flg((n + 1) >> 1, true);\n\
-    \    std::vector<int32_t> ret = {2};\n    for (int32_t i = 3; i <= n; i += 2)\
-    \ {\n        if (!flg[i >> 1]) continue;\n        ret.emplace_back(i);\n     \
-    \   if (i * i > n) {\n            for (int32_t j = i + 2; j <= n; j += 2) {\n\
-    \                if (flg[j >> 1]) ret.emplace_back(j);\n            }\n      \
-    \      break;\n        }\n        for (int32_t j = i * i; j <= n; j += i << 1)\
-    \ {\n            flg[j >> 1] = false;\n        }\n    }\n    while (!ret.empty()\
+    PROBLEM: ''
+    links: []
+  bundledCode: "#line 1 \"Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp\"\
+    \n#define PROBLEM \"\"\n#line 1 \"Math/MFPrefixSum.hpp\"\n#include <math.h>\n\n\
+    #include <cstdint>\n#include <vector>\n\n#line 4 \"Math/EnumeratePrimes.hpp\"\n\
+    std::vector<int32_t> enumerate_primes(int32_t n) {\n    std::vector<bool> flg((n\
+    \ + 1) >> 1, true);\n    std::vector<int32_t> ret = {2};\n    for (int32_t i =\
+    \ 3; i <= n; i += 2) {\n        if (!flg[i >> 1]) continue;\n        ret.emplace_back(i);\n\
+    \        if (i * i > n) {\n            for (int32_t j = i + 2; j <= n; j += 2)\
+    \ {\n                if (flg[j >> 1]) ret.emplace_back(j);\n            }\n  \
+    \          break;\n        }\n        for (int32_t j = i * i; j <= n; j += i <<\
+    \ 1) {\n            flg[j >> 1] = false;\n        }\n    }\n    while (!ret.empty()\
     \ && ret.back() > n) ret.pop_back();\n    return ret;\n}\n#line 7 \"Math/MFPrefixSum.hpp\"\
     \ntemplate <class T>\nstruct MFPrefixSum {\n    int64_t n;\n    int64_t sqrtN;\n\
     \    std::vector<int32_t> primes;\n    int32_t sz;\n    MFPrefixSum(uint64_t N)\
@@ -296,23 +294,20 @@ data:
     \ __VA_ARGS__; in(__VA_ARGS__)\n#define CHR(...) char __VA_ARGS__; in(__VA_ARGS__)\n\
     #define LD(...) long double __VA_ARGS__; in(__VA_ARGS__)\n#define VEC(type, name,\
     \ size) std::vector<type> name(size); in(name)\n#define VV(type, name, h, w) std::vector<std::vector<type>>\
-    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp\"\
-    \nusing mint = Modint<469762049>;\nvoid solve() {\n    LL(T);\n    rep(_, T) {\n\
-    \        LL(N, a, b);\n        MFPrefixSum<mint> mf(N);\n        vector<mint>\
-    \ pi = mf.pi_table();\n        vector<mint> prime_sum = mf.prime_sum_table();\n\
-    \        vector<mint> table(len(pi));\n        rep(i, len(pi)) { table[i] = pi[i]\
-    \ * a + prime_sum[i] * b; }\n        out(mf.min25_sieve(table, [a, b](ll x, ll\
-    \ c) -> mint {\n                  return a * c + b * x;\n              }).back());\n\
-    \    }\n}\nint main() { solve(); }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_multiplicative_function\"\
-    \n#include \"../../Math/MFPrefixSum.hpp\"\n#include \"../../Modint/Modint.hpp\"\
-    \n#include \"../../Template/Template.hpp\"\nusing mint = Modint<469762049>;\n\
-    void solve() {\n    LL(T);\n    rep(_, T) {\n        LL(N, a, b);\n        MFPrefixSum<mint>\
-    \ mf(N);\n        vector<mint> pi = mf.pi_table();\n        vector<mint> prime_sum\
-    \ = mf.prime_sum_table();\n        vector<mint> table(len(pi));\n        rep(i,\
-    \ len(pi)) { table[i] = pi[i] * a + prime_sum[i] * b; }\n        out(mf.min25_sieve(table,\
-    \ [a, b](ll x, ll c) -> mint {\n                  return a * c + b * x;\n    \
-    \          }).back());\n    }\n}\nint main() { solve(); }"
+    \ name(h, std::vector<type>(w)); in(name)\n#line 5 \"Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp\"\
+    \nusing mint = Modint<MOD>;\nvoid solve() {\n    LL(N);\n    MFPrefixSum<mint>\
+    \ mf(N);\n    auto pi = mf.pi_table(), prime_sum = mf.prime_sum_table();\n   \
+    \ rep(i, len(pi)) prime_sum[i] -= pi[i];\n    out(mf.min25_sieve(prime_sum, [](ll\
+    \ x, ll c) {\n              mint ret = 1;\n              rep(i, c) ret *= x;\n\
+    \              return ret - ret / x;\n          }).back());\n}\nint main() { solve();\
+    \ }\n"
+  code: "#define PROBLEM \"\"\n#include \"../../Math/MFPrefixSum.hpp\"\n#include \"\
+    ../../Modint/Modint.hpp\"\n#include \"../../Template/Template.hpp\"\nusing mint\
+    \ = Modint<MOD>;\nvoid solve() {\n    LL(N);\n    MFPrefixSum<mint> mf(N);\n \
+    \   auto pi = mf.pi_table(), prime_sum = mf.prime_sum_table();\n    rep(i, len(pi))\
+    \ prime_sum[i] -= pi[i];\n    out(mf.min25_sieve(prime_sum, [](ll x, ll c) {\n\
+    \              mint ret = 1;\n              rep(i, c) ret *= x;\n            \
+    \  return ret - ret / x;\n          }).back());\n}\nint main() { solve(); }"
   dependsOn:
   - Math/MFPrefixSum.hpp
   - Math/EnumeratePrimes.hpp
@@ -322,15 +317,15 @@ data:
   - Template/Util.hpp
   - Template/Macro.hpp
   isVerificationFile: true
-  path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+  path: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
   requiredBy: []
   timestamp: '2024-10-23 17:47:44+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+documentation_of: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
 layout: document
 redirect_from:
-- /verify/Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
-- /verify/Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp.html
-title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+- /verify/Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
+- /verify/Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp.html
+title: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
 ---
