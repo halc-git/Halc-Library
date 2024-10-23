@@ -1,7 +1,9 @@
+#pragma once
 #include <math.h>
 
 #include <cstdint>
 #include <vector>
+#include <stack>
 
 #include "EnumeratePrimes.hpp"
 template <class T>
@@ -10,6 +12,7 @@ struct MFPrefixSum {
     int64_t sqrtN;
     std::vector<int32_t> primes;
     int32_t sz;
+    int32_t prisz;
     MFPrefixSum(uint64_t N) {
         n = N;
         sqrtN = sqrt(n);
@@ -18,6 +21,7 @@ struct MFPrefixSum {
         while ((sqrtN + 1) * (sqrtN + 1) <= n) sqrtN++;
         while (sqrtN * sqrtN > n) sqrtN--;
         primes = enumerate_primes(sqrtN);
+        prisz = primes.size();
     }
     std::vector<T> pi_table() {
         std::vector<T> dp(sz);
@@ -93,7 +97,50 @@ struct MFPrefixSum {
         }
         return dp;
     }
-    std::vector<T> min25_sieve(std::vector<T> table, auto f) {
+    struct _Node{
+        int64_t x;
+        int32_t gpf;
+        int32_t c;
+        int32_t cnt;
+        T fx;
+        T ret;
+    };
+    T black_algorithm(std::vector<T> &table, auto f) {
+        //x,gpf(x),c,f(x),cnt,ret
+        if(n==1)return 1;
+        std::stack<_Node> dfs;
+        dfs.push({1,-1,0,0,1,0});
+        while(true){
+            _Node *tp=&dfs.top();
+            if(tp->cnt==tp->gpf){
+                if(tp->x*primes[tp->gpf]*primes[tp->gpf]<=n){
+                    dfs.push({tp->x*primes[tp->gpf],tp->gpf,tp->c+1,tp->cnt,tp->fx,0});
+                }
+                tp->ret+=tp->fx*f(primes[tp->gpf],tp->c+1);
+                tp->fx*=f(primes[tp->gpf],tp->c);
+                tp->cnt++;
+            }
+            else{
+                if(tp->cnt<prisz&&tp->x*primes[tp->cnt]*primes[tp->cnt]<=n){
+                    dfs.push({tp->x*primes[tp->cnt],tp->cnt,1,tp->cnt,tp->fx,0});
+                    tp->cnt++;
+                }
+                else{
+                    if(tp->gpf==-1){
+                        if(sz-tp->x<sqrtN)return tp->ret+tp->fx*table[n/tp->x-1]+1;
+                        else return tp->ret+tp->fx*table[sz-tp->x]+1;
+                    }
+                    T nret=tp->ret;
+                    if(sz-tp->x<sqrtN)nret+=tp->fx*(table[n/tp->x-1]-table[primes[tp->gpf]-1]);
+                    else nret+=tp->fx*(table[sz-tp->x]-table[primes[tp->gpf]-1]);
+                    dfs.pop();
+                    if(dfs.empty())return nret+1;
+                    dfs.top().ret+=nret;
+                }
+            }
+        }
+    }
+    std::vector<T> min25_sieve(std::vector<T> &table, auto f) {
         std::vector<T> dp = table;
         for (auto it = primes.rbegin(); it != primes.rend(); it++) {
             int64_t x = *it;
