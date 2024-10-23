@@ -22,8 +22,11 @@ data:
     path: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
     title: Verify/verify-yosupo-enumerative-combinatorics/binomial_coefficient_prime_mod.test.cpp
   - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
-    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function-black_algorithm.test.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function-black_algorithm.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function-min25_sieve.test.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function-min25_sieve.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
     title: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
@@ -252,7 +255,8 @@ data:
   - Verify/verify-yosupo-datastructure/range_affine_range_sum.test.cpp
   - Verify/verify-yosupo-datastructure/range_affine_point_get.test.cpp
   - Verify/verify-yosupo-datastructure/queue_operate_all_composite.test.cpp
-  - Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function-min25_sieve.test.cpp
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function-black_algorithm.test.cpp
 documentation_of: Modint/Modint.hpp
 layout: document
 redirect_from:

@@ -157,8 +157,11 @@ data:
   - name: Verify/verify-yosupo-new
     pages:
     - icon: ':heavy_check_mark:'
-      path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
-      title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+      path: Verify/verify-yosupo-new/sum_of_multiplicative_function-black_algorithm.test.cpp
+      title: Verify/verify-yosupo-new/sum_of_multiplicative_function-black_algorithm.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/verify-yosupo-new/sum_of_multiplicative_function-min25_sieve.test.cpp
+      title: Verify/verify-yosupo-new/sum_of_multiplicative_function-min25_sieve.test.cpp
   - name: Verify/verify-yosupo-number-theory
     pages:
     - icon: ':heavy_check_mark:'

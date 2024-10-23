@@ -7,8 +7,11 @@ data:
     title: Math/MFPrefixSum.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
-    title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function-black_algorithm.test.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function-black_algorithm.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/verify-yosupo-new/sum_of_multiplicative_function-min25_sieve.test.cpp
+    title: Verify/verify-yosupo-new/sum_of_multiplicative_function-min25_sieve.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
     title: Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
@@ -48,7 +51,8 @@ data:
   verifiedWith:
   - Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
   - Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
-  - Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function-min25_sieve.test.cpp
+  - Verify/verify-yosupo-new/sum_of_multiplicative_function-black_algorithm.test.cpp
 documentation_of: Math/EnumeratePrimes.hpp
 layout: document
 redirect_from:
