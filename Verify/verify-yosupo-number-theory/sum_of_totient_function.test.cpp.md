@@ -29,26 +29,28 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: ''
-    links: []
+    PROBLEM: https://judge.yosupo.jp/problem/sum_of_totient_function
+    links:
+    - https://judge.yosupo.jp/problem/sum_of_totient_function
   bundledCode: "#line 1 \"Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp\"\
-    \n#define PROBLEM \"\"\n#line 1 \"Math/MFPrefixSum.hpp\"\n#include <math.h>\n\n\
-    #include <cstdint>\n#include <vector>\n\n#line 4 \"Math/EnumeratePrimes.hpp\"\n\
-    std::vector<int32_t> enumerate_primes(int32_t n) {\n    std::vector<bool> flg((n\
-    \ + 1) >> 1, true);\n    std::vector<int32_t> ret = {2};\n    for (int32_t i =\
-    \ 3; i <= n; i += 2) {\n        if (!flg[i >> 1]) continue;\n        ret.emplace_back(i);\n\
-    \        if (i * i > n) {\n            for (int32_t j = i + 2; j <= n; j += 2)\
-    \ {\n                if (flg[j >> 1]) ret.emplace_back(j);\n            }\n  \
-    \          break;\n        }\n        for (int32_t j = i * i; j <= n; j += i <<\
-    \ 1) {\n            flg[j >> 1] = false;\n        }\n    }\n    while (!ret.empty()\
-    \ && ret.back() > n) ret.pop_back();\n    return ret;\n}\n#line 7 \"Math/MFPrefixSum.hpp\"\
-    \ntemplate <class T>\nstruct MFPrefixSum {\n    int64_t n;\n    int64_t sqrtN;\n\
-    \    std::vector<int32_t> primes;\n    int32_t sz;\n    MFPrefixSum(uint64_t N)\
-    \ {\n        n = N;\n        sqrtN = sqrt(n);\n        sz = sqrtN * 2;\n     \
-    \   if (n / sqrtN == sqrtN) sz--;\n        while ((sqrtN + 1) * (sqrtN + 1) <=\
-    \ n) sqrtN++;\n        while (sqrtN * sqrtN > n) sqrtN--;\n        primes = enumerate_primes(sqrtN);\n\
-    \    }\n    std::vector<T> pi_table() {\n        std::vector<T> dp(sz);\n    \
-    \    for (int32_t i = 0; i < sqrtN; i++) {\n            dp[i] = i;\n        }\n\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_totient_function\"\n\
+    #line 1 \"Math/MFPrefixSum.hpp\"\n#include <math.h>\n\n#include <cstdint>\n#include\
+    \ <vector>\n\n#line 4 \"Math/EnumeratePrimes.hpp\"\nstd::vector<int32_t> enumerate_primes(int32_t\
+    \ n) {\n    std::vector<bool> flg((n + 1) >> 1, true);\n    std::vector<int32_t>\
+    \ ret = {2};\n    for (int32_t i = 3; i <= n; i += 2) {\n        if (!flg[i >>\
+    \ 1]) continue;\n        ret.emplace_back(i);\n        if (i * i > n) {\n    \
+    \        for (int32_t j = i + 2; j <= n; j += 2) {\n                if (flg[j\
+    \ >> 1]) ret.emplace_back(j);\n            }\n            break;\n        }\n\
+    \        for (int32_t j = i * i; j <= n; j += i << 1) {\n            flg[j >>\
+    \ 1] = false;\n        }\n    }\n    while (!ret.empty() && ret.back() > n) ret.pop_back();\n\
+    \    return ret;\n}\n#line 7 \"Math/MFPrefixSum.hpp\"\ntemplate <class T>\nstruct\
+    \ MFPrefixSum {\n    int64_t n;\n    int64_t sqrtN;\n    std::vector<int32_t>\
+    \ primes;\n    int32_t sz;\n    MFPrefixSum(uint64_t N) {\n        n = N;\n  \
+    \      sqrtN = sqrt(n);\n        sz = sqrtN * 2;\n        if (n / sqrtN == sqrtN)\
+    \ sz--;\n        while ((sqrtN + 1) * (sqrtN + 1) <= n) sqrtN++;\n        while\
+    \ (sqrtN * sqrtN > n) sqrtN--;\n        primes = enumerate_primes(sqrtN);\n  \
+    \  }\n    std::vector<T> pi_table() {\n        std::vector<T> dp(sz);\n      \
+    \  for (int32_t i = 0; i < sqrtN; i++) {\n            dp[i] = i;\n        }\n\
     \        for (int32_t i = sqrtN; i < sz; i++) {\n            dp[i] = n / (sz -\
     \ i) - 1;\n        }\n        for (int64_t x : primes) {\n            for (int32_t\
     \ i = sz - 1; i >= sqrtN; i--) {\n                if (n < x * x * (sz - i)) break;\n\
@@ -301,13 +303,14 @@ data:
     \ x, ll c) {\n              mint ret = 1;\n              rep(i, c) ret *= x;\n\
     \              return ret - ret / x;\n          }).back());\n}\nint main() { solve();\
     \ }\n"
-  code: "#define PROBLEM \"\"\n#include \"../../Math/MFPrefixSum.hpp\"\n#include \"\
-    ../../Modint/Modint.hpp\"\n#include \"../../Template/Template.hpp\"\nusing mint\
-    \ = Modint<MOD>;\nvoid solve() {\n    LL(N);\n    MFPrefixSum<mint> mf(N);\n \
-    \   auto pi = mf.pi_table(), prime_sum = mf.prime_sum_table();\n    rep(i, len(pi))\
-    \ prime_sum[i] -= pi[i];\n    out(mf.min25_sieve(prime_sum, [](ll x, ll c) {\n\
-    \              mint ret = 1;\n              rep(i, c) ret *= x;\n            \
-    \  return ret - ret / x;\n          }).back());\n}\nint main() { solve(); }"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sum_of_totient_function\"\
+    \n#include \"../../Math/MFPrefixSum.hpp\"\n#include \"../../Modint/Modint.hpp\"\
+    \n#include \"../../Template/Template.hpp\"\nusing mint = Modint<MOD>;\nvoid solve()\
+    \ {\n    LL(N);\n    MFPrefixSum<mint> mf(N);\n    auto pi = mf.pi_table(), prime_sum\
+    \ = mf.prime_sum_table();\n    rep(i, len(pi)) prime_sum[i] -= pi[i];\n    out(mf.min25_sieve(prime_sum,\
+    \ [](ll x, ll c) {\n              mint ret = 1;\n              rep(i, c) ret *=\
+    \ x;\n              return ret - ret / x;\n          }).back());\n}\nint main()\
+    \ { solve(); }"
   dependsOn:
   - Math/MFPrefixSum.hpp
   - Math/EnumeratePrimes.hpp
@@ -319,7 +322,7 @@ data:
   isVerificationFile: true
   path: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
   requiredBy: []
-  timestamp: '2024-10-23 17:47:44+09:00'
+  timestamp: '2024-10-23 17:50:55+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
