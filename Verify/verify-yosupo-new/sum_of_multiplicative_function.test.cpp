@@ -12,7 +12,7 @@ void solve() {
         vector<mint> prime_sum = mf.prime_sum_table();
         vector<mint> table(len(pi));
         rep(i, len(pi)) { table[i] = pi[i] * a + prime_sum[i] * b; }
-        out(mf.run(table, [a, b](ll x, ll c) -> mint {
+        out(mf.min25_sieve(table, [a, b](ll x, ll c) -> mint {
                   return a * c + b * x;
               }).back());
     }
