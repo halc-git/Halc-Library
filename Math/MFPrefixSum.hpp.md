@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Math/EnumeratePrimes.hpp
     title: Math/EnumeratePrimes.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
     title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
     title: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Math/MFPrefixSum.hpp\"\n#include <math.h>\n\n#include <cstdint>\n\
@@ -156,7 +156,7 @@ data:
   path: Math/MFPrefixSum.hpp
   requiredBy: []
   timestamp: '2024-10-23 17:47:44+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
   - Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp

@@ -2,22 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Math/MFPrefixSum.hpp
     title: Math/MFPrefixSum.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
     title: Verify/verify-yosupo-new/sum_of_multiplicative_function.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
     title: Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
     title: Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Math/EnumeratePrimes.hpp\"\n#include <cstdint>\n#include\
@@ -44,7 +44,7 @@ data:
   requiredBy:
   - Math/MFPrefixSum.hpp
   timestamp: '2024-10-22 17:25:04+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/verify-yosupo-number-theory/sum_of_totient_function.test.cpp
   - Verify/verify-yosupo-number-theory/enumerate_primes.test.cpp
