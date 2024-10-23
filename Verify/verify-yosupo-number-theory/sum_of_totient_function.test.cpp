@@ -1,4 +1,4 @@
-#define PROBLEM ""
+#define PROBLEM "https://judge.yosupo.jp/problem/sum_of_totient_function"
 #include "../../Math/MFPrefixSum.hpp"
 #include "../../Modint/Modint.hpp"
 #include "../../Template/Template.hpp"
