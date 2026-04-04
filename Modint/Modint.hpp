@@ -55,7 +55,7 @@ struct Modint {
         return lhs.x == rhs.x;
     }
     friend bool operator!=(const Modint lhs, const Modint rhs) noexcept {
-        return rhs.x != rhs.x;
+        return lhs.x != rhs.x;
     }
     constexpr Modint &operator/=(Modint rhs) { return (*this) *= rhs.inv(); }
     constexpr Modint inv() {
@@ -158,7 +158,7 @@ struct ArbitraryModint {
     }
     friend bool operator!=(const ArbitraryModint lhs,
                            const ArbitraryModint rhs) noexcept {
-        return rhs.x != rhs.x;
+        return lhs.x != rhs.x;
     }
     constexpr ArbitraryModint &operator/=(ArbitraryModint rhs) {
         return (*this) *= rhs.inv();
